@@ -5,7 +5,7 @@ var Ruler = {
 		StageBloodBase : [1,1,1],							
 		TapInterval : 50,									// 点击间隔毫秒(final)
 		BossInterval : 6,									// boss 间隔
-		BossTime : 5,										// boss 击杀时间(final)
+		BossTime : 1,										// boss 击杀时间(final)
 		Unit : ["","k", "m", "b", "t",
 				 "aa", "bb", "cc", "dd", "ee", "ff", "gg",
 				 "hh", "ii", "jj", "kk", "ll", "mm", "nn",
