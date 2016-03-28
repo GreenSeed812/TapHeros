@@ -15,10 +15,9 @@ var HelloWorldLayer = cc.Layer.extend({
         //var startscene = new StartScene();
         //this.addChild(startscene);
 
+        var menu = new MainMenu();
         var battlelayer = new BattleLayer();
         this.addChild(battlelayer);
-
-        var menu = new MainMenu();
         this.addChild(menu);
         //var uilayer = new UiLayer();
         //this.addChild(uilayer);

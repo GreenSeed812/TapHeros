@@ -385,7 +385,7 @@ var MenuView_1 = cc.Layer.extend({
 					upNum = upNum+1;
 					UserData.HeroLevel[index] += upNum;
 				}
-				console.log("jdffkldfgjl");
+				
 				MenuView_1_root.updateCell(index);
 				MenuView_1_root.cellBtnExpand(index, true, true);
 			}

@@ -47,12 +47,11 @@ var BattleLayer = cc.Layer.extend({
         var stateName = Spec.StageSpec[UserData.StageIndex][0];
 
         UserData.StageIndex += 1;
+        UserData.EnemyIndex = 0;
         if( UserData.StageIndex>=16)
         {
             UserData.StageIndex = 0;
         }
-        UserData.EnemyIndex = 1;
-
         if (stateName != Spec.StageSpec[UserData.StageIndex][0]) {
             if (this.DestJsonNode) {
                 this.DestNode.removeChild(this.DestJsonNode);
@@ -144,8 +143,7 @@ var BattleLayer = cc.Layer.extend({
             this.MonsterNode.addChild(dust);
             dust.getAnimation().setMovementEventCallFunc(this.AnimationEvent);
 
-            UserData.StageBlood = Ruler.StageBloodBase;
-            //MainMenu_root.InitStage();
+            MainMenu_root.InitStage();
             this.GapTime = false;
         }
     },

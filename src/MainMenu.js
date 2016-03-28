@@ -15,6 +15,11 @@ var MainMenu = cc.Layer.extend({
 	m_boss_state:0,
 	StageMonsterData:null,
 	Button_Boss:null,
+
+	FontLabelDPS:null,
+	FontLabelTap:null,
+	FontLabelAllDPS:null,
+	FontLabelTestDPS:null,
 	ctor:function(){
 		this._super();
 		MainMenu_root = this;
@@ -31,14 +36,20 @@ var MainMenu = cc.Layer.extend({
 		this.BossTimeLeft = ccui.helper.seekWidgetByName(this.rootnode, "BossTimeLeft");
 		this.StageMonsterData = ccui.helper.seekWidgetByName(this.rootnode, "StageMonsterData");
 
+		this.FontLabelDPS = ccui.helper.seekWidgetByName(this.rootnode, "FontLabelDPS");
+		this.FontLabelTap = ccui.helper.seekWidgetByName(this.rootnode, "FontLabelTap");
+		this.FontLabelAllDPS = ccui.helper.seekWidgetByName(this.rootnode, "FontLabelAllDPS");
+		this.FontLabelTestDPS = ccui.helper.seekWidgetByName(this.rootnode, "FontLabelTestDPS");
+
 		this.ViewNode = this.rootnode.getChildByName("ViewNode");
 
 		this.Main_Button1 = ccui.helper.seekWidgetByName(this.rootnode, "Main_Button1");
 		this.Main_Button1.addTouchEventListener(this.mainMenuClick);
 
-        UserData.StageBlood = Ruler.StageBloodBase;
+		this.Button_Boss = ccui.helper.seekWidgetByName(this.rootnode, "Button_Boss");
+		this.Button_Boss.addTouchEventListener(this.onBossStateClick);
 
-		MainMenu_root.updateMonsterState();
+		MainMenu_root.InitStage();
 		this.scheduleUpdate();
 		return true;
 	},
@@ -55,87 +66,97 @@ var MainMenu = cc.Layer.extend({
 		}
 		else
 		{
-			if(ArrayIsZero(UserData.StageBlood)) 
-			{
-				if(UserData.EnemyIndex == UserData.getBossInterval()) 
-				{
-					this.LoadingBar_Boss.setVisible(false);
-					this.BossTimeLeft.setVisible(false);
-					BattleLayer_root.NextScene(); 
-					MainMenu_root.bosstime = 0;
-					//BattleLayer_root.NextStage();???
-				} 
-				else 
-				{	
+			
+			if (ArrayIsZero(UserData.StageBlood)) {
+				if (UserData.EnemyIndex == UserData.getBossInterval()) {
+					BattleLayer_root.NextScene();
+				} else {
 					BattleLayer_root.RandomMonster(false);
 				}
-
-				if(UserData.EnemyIndex == UserData.getBossInterval()-1)
-				{
-					MainMenu_root.LoadingBar_Boss.setVisible(true);
-					MainMenu_root.BossTimeLeft.setVisible(true);
-					this.m_boss_state =1;
-					BattleLayer_root.RandomMonster(false);
-				}
-
 				MainMenu_root.BloodBar.setPercent(0);
-			}
-			else
-			{
-				UserData.StageBlood = ArraySubArray(UserData.StageBlood, UserData.TapAttackTemp);//减法
+				MainMenu_root.updateBossButtonState();
+
+			} else {
+
+				UserData.StageBlood = ArraySubArray(UserData.StageBlood, UserData.TapAttackTemp);
+				UserData.TapAttackTemp = [0];
 				var pct = ArrayScaleArray(UserData.StageBlood, Ruler.StageBloodBase) * 100;
 				MainMenu_root.BloodBar.setPercent(pct);
-				UserData.TapAttackTemp = [0];
 
-				if (this.m_boss_state == 1)
-				{
+				if (MainMenu_root.m_boss_state == 1) {
 					if(MainMenu_root.bosstime > Ruler.BossTime) {
-							this.LoadingBar_Boss.setVisible(false);
-							this.BossTimeLeft.setVisible(false);
-							MainMenu_root.bosstime = 0;
-							BattleLayer_root.RandomMonster(true);
-						} else {
-							MainMenu_root.LoadingBar_Boss.setPercent(((Ruler.BossTime - MainMenu_root.bosstime) / Ruler.BossTime)*100);
-							MainMenu_root.BossTimeLeft.setString(timeToString((Ruler.BossTime - MainMenu_root.bosstime)*1000, true));
-						}
-						MainMenu_root.bosstime += dt;
-				}
-			}	
-		}
-
-		if (UserData.EnemyIndex > 0 && UserData.EnemyIndex != UserData.getBossInterval()) {
-				this.StageMonsterData.setString(UserData.EnemyIndex + "/" + (UserData.getBossInterval() -1));
-				this.StageMonsterData.setVisible(true);
+						UserData.EnemyIndex = -1;
+						BattleLayer_root.RandomMonster(true);
 					} else {
-				this.StageMonsterData.setVisible(false);
+						MainMenu_root.LoadingBar_Boss.setPercent(((Ruler.BossTime - MainMenu_root.bosstime) / Ruler.BossTime)*100);
+						MainMenu_root.BossTimeLeft.setString(timeToString((Ruler.BossTime - MainMenu_root.bosstime)*1000, true));
+					}
+					MainMenu_root.bosstime += dt; 
 				}
-
-		MainMenu_root.MonsterBlood.setString(GetShowNumFromArray(UserData.StageBlood));
-		
-	},
-
-	updateMonsterState : function () {
-		// 1 boss出现状态
-		// 2 boss消失
-		// 0 小怪状态
-		if (this.m_boss_state == 1)
-		 {
-			this.LoadingBar_Boss.setVisible(true);
-			this.BossTimeLeft.setVisible(true);
-			//BattleLayer_root.MonsterScale = 1.2;
-		} 
-		else if(this.m_boss_state == 2) 
-		{
-			this.LoadingBar_Boss.setVisible(false);
-			this.BossTimeLeft.setVisible(false);
-			//BattleLayer_root.MonsterScale = 0.8;
+			}
 		}
-		else 
-		{
+		
+		MainMenu_root.MonsterBlood.setString(GetShowNumFromArray(UserData.StageBlood));
+	},
+	setInformation : function () {
+		MainMenu_root.FontLabelDPS.setString(GetShowNumFromArray(UserData.HeroDPS));
+		MainMenu_root.FontLabelTap.setString(GetShowNumFromArray(UserData.TapAttack));
+	},
+	onBossStateClick : function(sender,type) {
+
+		if (type == ccui.Widget.TOUCH_ENDED) {
+			if (MainMenu_root.m_boss_state == 1) {
+
+				UserData.EnemyIndex = -1;
+				MainMenu_root.updateMonsterState();
+
+			} else if(MainMenu_root.m_boss_state == 2) {
+
+				UserData.EnemyIndex = UserData.getBossInterval();
+				MainMenu_root.bosstime = 0;
+				MainMenu_root.updateMonsterState();
+			}		
+			BattleLayer_root.RandomMonster(true);
+		}
+	},
+	updateBossButtonState : function () {
+		// 1 挑战boss状态
+		// 2 准备挑战状态
+		// 0 非挑战状态
+		if (UserData.EnemyIndex == -1 || UserData.EnemyIndex == UserData.getBossInterval()) {
+
+			if (UserData.EnemyIndex == -1) {
+				this.m_boss_state = 2;
+			} else if (UserData.EnemyIndex == UserData.getBossInterval()) {
+				this.m_boss_state = 1;
+			}
+
+			if (this.m_boss_state == 1) {
+				this.Button_Boss.loadTextures(res.button_lktz_n, res.button_lktz_s, res.button_lktz_n);
+				this.Button_Boss.setVisible(true);
+				this.LoadingBar_Boss.setVisible(true);
+				this.bosstime = 0;
+				this.BossTimeLeft.setVisible(true);
+			} else if (this.m_boss_state == 2) {
+				this.Button_Boss.loadTextures(res.button_tzboss_n, res.button_tzboss_s, res.button_tzboss_n);
+				this.Button_Boss.setVisible(true);
+				this.LoadingBar_Boss.setVisible(false);
+				this.bosstime = Ruler.BossTime;
+				this.BossTimeLeft.setVisible(false);
+			}
+		} else {
+			this.Button_Boss.setVisible(false);
 			this.LoadingBar_Boss.setVisible(false);
 			this.bosstime = 0;
 			this.BloodBar.setPercent(0);
 			this.BossTimeLeft.setVisible(false);
+			this.m_boss_state = 0;
+		}
+		if (UserData.EnemyIndex > 0 && UserData.EnemyIndex != UserData.getBossInterval()) {
+			this.StageMonsterData.setString(UserData.EnemyIndex + "/" + (UserData.getBossInterval() - 1));
+			this.StageMonsterData.setVisible(true);
+		} else {
+			this.StageMonsterData.setVisible(false);
 		}
 	},
 	mainMenuReset:function(){

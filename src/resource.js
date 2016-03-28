@@ -16,8 +16,14 @@ var res = {
 	button_lvup_n_png :   "res/ui/button_lvup_n.png",
 	button_lvup_s_png :   "res/ui/button_lvup_s.png",
 	button_add_n_png :    "res/ui/button_add_n.png",
+
+	button_lktz_n :       "res/ui/button_lktz_n.png",
+	button_lktz_s :       "res/ui/button_lktz_s.png",
+	button_tzboss_n :     "res/ui/button_tzboss_n.png",
+	button_tzboss_s :     "res/ui/button_tzboss_s.png",
 	info_icon_kaiqi_png  :"res/ui/info_icon_kaiqi.png",
 	icon_new_png : "res/ui/icon_new.png",
+
     
     icon_jinbi_small : "res/icon/icon_jinbi_small.png",
     
