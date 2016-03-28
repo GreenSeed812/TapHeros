@@ -107,6 +107,8 @@ var BattleLayer = cc.Layer.extend({
                 this.GapTime = true;
                 this.Armature.getAnimation().play("Leave");
                 BattleLayer_root.DropCoin([1,1,1]);
+                //BattleLayer_root.DropCoin(Spec.StageSpec[UserData.StageIndex].drop, 5);
+
             };
         } 
         else
@@ -171,7 +173,6 @@ var BattleLayer = cc.Layer.extend({
            else if (movementID == "Dust" || movementID == "Play") {
               armature.removeFromParent(true);
            } 
-         
         }
     },
     DallianceMonster : function(locationPos) {
@@ -219,6 +220,7 @@ var BattleLayer = cc.Layer.extend({
             coin.showNum = ArrayMulNumber(showNum, 1/num);
             BattleLayer_root.BattlePanel.addChild(coin);
             coin.runAction(action);
+
         };
     },
     PickCoin : function (nodeExecutingAction, coin) {
@@ -237,16 +239,16 @@ var BattleLayer = cc.Layer.extend({
                             cc.fadeOut(0.8)),
                             cc.callFunc(this.onCallback, this, showNum));
         showNum.runAction(action);
+
     },
     onCallback:function (nodeExecutingAction, value) {
         if (value.showNum != undefined) {
             UserData.UserMoney = ArraySumArray(UserData.UserMoney, value.showNum);  
             BattleLayer_root.Money.setString(GetShowNumFromArray(UserData.UserMoney));
 
-            MenuView_1_root.setInformation();//更新菜单内的金币
-
             BattleLayer_root.MoneyImage.setScale(1.2);
             BattleLayer_root.MoneyImage.runAction(cc.scaleTo(0.1,1));
+
         };
         value.removeFromParent();
     },

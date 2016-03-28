@@ -6,6 +6,19 @@
       <ObjectData Name="Layer" Tag="24" ctype="GameLayerObjectData">
         <Size X="640.0000" Y="1136.0000" />
         <Children>
+          <AbstractNodeData Name="Panel_1" ActionTag="-356338966" Tag="42" IconVisible="False" TopMargin="536.0000" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ComboBoxIndex="1" ColorAngle="90.0000" ctype="PanelObjectData">
+            <Size X="640.0000" Y="600.0000" />
+            <AnchorPoint />
+            <Position />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition />
+            <PreSize X="1.0000" Y="0.5282" />
+            <SingleColor A="255" R="150" G="200" B="255" />
+            <FirstColor A="255" R="150" G="200" B="255" />
+            <EndColor A="255" R="255" G="255" B="255" />
+            <ColorVector ScaleY="1.0000" />
+          </AbstractNodeData>
           <AbstractNodeData Name="SpriteBg" ActionTag="564028643" Tag="25" IconVisible="False" TopMargin="602.5000" BottomMargin="66.5000" ctype="SpriteObjectData">
             <Size X="640.0000" Y="467.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
