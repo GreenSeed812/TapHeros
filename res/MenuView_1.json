@@ -15,6 +15,52 @@
         "Tag": 24,
         "Children": [
           {
+            "ClipAble": false,
+            "BackColorAlpha": 102,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 0.5282
+            },
+            "TopMargin": 536.0,
+            "Tag": 42,
+            "ActionTag": -356338966,
+            "Size": {
+              "X": 640.0,
+              "Y": 600.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
             "FileData": {
               "Type": "Normal",
               "Path": "ui/bg_tkuang.png",
@@ -320,7 +366,7 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.7813,
+              "X": 0.7812,
               "Y": 0.4269
             },
             "PreSize": {

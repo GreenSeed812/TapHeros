@@ -6,10 +6,10 @@
       <ObjectData Name="Layer" Tag="48" ctype="GameLayerObjectData">
         <Size X="640.0000" Y="1136.0000" />
         <Children>
-          <AbstractNodeData Name="PanelSet" ActionTag="122571353" Tag="49" IconVisible="False" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" ctype="PanelObjectData">
+          <AbstractNodeData Name="PanelSet" ActionTag="122571353" Tag="49" IconVisible="False" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
             <Size X="640.0000" Y="1136.0000" />
             <Children>
-              <AbstractNodeData Name="Panel_bg" ActionTag="824875032" Tag="50" IconVisible="False" LeftMargin="0.0002" RightMargin="-0.0002" TopMargin="181.0874" BottomMargin="354.9126" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" ctype="PanelObjectData">
+              <AbstractNodeData Name="Panel_bg" ActionTag="824875032" Tag="50" IconVisible="False" LeftMargin="0.0002" RightMargin="-0.0002" TopMargin="181.0874" BottomMargin="354.9126" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
                 <Size X="640.0000" Y="600.0000" />
                 <Children>
                   <AbstractNodeData Name="Image_1" ActionTag="-1289464448" Tag="51" IconVisible="False" LeftMargin="-23.0000" RightMargin="617.0000" TopMargin="577.0000" BottomMargin="-23.0000" Scale9Width="46" Scale9Height="46" ctype="ImageViewObjectData">
