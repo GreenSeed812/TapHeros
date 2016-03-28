@@ -26,3 +26,11 @@
 *.exe
 *.out
 *.app
+
+/simulator/
+simulator/
+
+/frameworks/
+frameworks/
+script/
+tools/
