@@ -20,6 +20,7 @@ var MainMenu = cc.Layer.extend({
 	FontLabelTap:null,
 	FontLabelAllDPS:null,
 	FontLabelTestDPS:null,
+	PageStage_bg:null,
 	ctor:function(){
 		this._super();
 		MainMenu_root = this;
@@ -30,11 +31,12 @@ var MainMenu = cc.Layer.extend({
 		this.Panel_BloodBar = this.rootnode.getChildByName("Panel_BloodBar");
 		this.BloodBar = ccui.helper.seekWidgetByName(this.rootnode, "BloodBar");
 		this.MonsterBlood = ccui.helper.seekWidgetByName(this.rootnode, "MonsterBlood");
-		//this.Text_MonsterName  = ccui.helper.seekWidgetByName(this.rootnode, "Text_MonsterName");
-		this.Text_MonsterName  = this.Panel_BloodBar.getChildByName("Text_MonsterName");
+		this.Text_MonsterName  = ccui.helper.seekWidgetByName(this.rootnode, "Text_MonsterName");
 		this.LoadingBar_Boss = ccui.helper.seekWidgetByName(this.rootnode, "LoadingBar_Boss");
 		this.BossTimeLeft = ccui.helper.seekWidgetByName(this.rootnode, "BossTimeLeft");
 		this.StageMonsterData = ccui.helper.seekWidgetByName(this.rootnode, "StageMonsterData");
+		this.PageStage_bg = ccui.helper.seekWidgetByName(this.rootnode, "PageStage_bg");
+		//字体大小改变???
 
 		this.FontLabelDPS = ccui.helper.seekWidgetByName(this.rootnode, "FontLabelDPS");
 		this.FontLabelTap = ccui.helper.seekWidgetByName(this.rootnode, "FontLabelTap");
@@ -49,8 +51,10 @@ var MainMenu = cc.Layer.extend({
 		this.Button_Boss = ccui.helper.seekWidgetByName(this.rootnode, "Button_Boss");
 		this.Button_Boss.addTouchEventListener(this.onBossStateClick);
 
-		MainMenu_root.InitStage();
 		this.scheduleUpdate();
+
+		//this.UpdateStage("init");
+
 		return true;
 	},
 	InitStage : function () {
@@ -58,6 +62,73 @@ var MainMenu = cc.Layer.extend({
 		//MainMenu_root.Text_MonsterName.setString(BattleLayer_root.MonsterName);
 		MainMenu_root.updateBossButtonState();
 	},
+	/*UpdateStage : function (init) {
+		if (init == "init") 
+		{
+			console.log("555555555555555");
+			this.PageStage_bg.removeAllChildren();
+			for (var i = UserData.StageIndex - 1; i <= UserData.StageIndex + 1; i++) {
+				if (i == 0) { continue; }
+				var index = i - UserData.StageIndex;
+				var icon = new cc.Sprite(stage_icon[UserData.StageIndex + 2 + index]);
+				icon.x = index * 80 + this.PageStage_bg.width*0.5;
+				icon.y = this.PageStage_bg.height*0.5;
+				icon.setScale(1-Math.abs(index*0.3));
+				icon.setTag(index);
+				this.PageStage_bg.addChild(icon);
+			}
+		} 
+		else 
+		{
+			for (var i = - 1; i <=  2; i++) {
+				var index = i;
+				icon = this.PageStage_bg.getChildByTag(index);
+				if (index == -1 && icon) {
+					var action = cc.sequence(
+							cc.spawn(
+								cc.moveBy(0.5, cc.p(-20, 0)),
+								cc.scaleTo(0.5, 0.3),
+								cc.fadeOut(0.5)),
+								cc.callFunc(function(nodeExecutingAction, value) { MainMenu_root.PageStage_bg.removeChild(value); }, this, icon)
+							);
+					icon.runAction(action);
+				} else if (index == 0 && icon) {
+					var action = cc.sequence(
+							cc.spawn(
+								cc.moveTo(0.5, cc.p(this.PageStage_bg.width*0.5 - 80, this.PageStage_bg.height*0.5)),
+								cc.scaleTo(0.5, 0.7)),
+								cc.callFunc(function(nodeExecutingAction, value) { value.setTag(-1); }, this, icon)
+							);
+					icon.runAction(action);
+				} else if (index == 1 && icon) {
+					var action = cc.sequence(
+							cc.spawn(
+								cc.moveTo(0.5, cc.p(this.PageStage_bg.width*0.5, this.PageStage_bg.height*0.5)),
+								cc.scaleTo(0.5, 1)),
+								cc.callFunc(function(nodeExecutingAction, value) { value.setTag(0); }, this, icon)
+							);
+					icon.runAction(action);
+				} else if (index == 2) {
+
+					var icon = new cc.Sprite(stage_icon[UserData.StageIndex + 2]);
+					icon.x = 1 * 80 + 20 + this.PageStage_bg.width*0.5;
+					icon.y = this.PageStage_bg.height*0.5;
+					icon.setScale(0.3);
+					icon.setOpacity(0);
+					this.PageStage_bg.addChild(icon);
+
+					var action = cc.sequence(
+							cc.spawn(
+								cc.moveTo(0.5, cc.p(this.PageStage_bg.width*0.5 + 80, this.PageStage_bg.height*0.5)),
+								cc.scaleTo(0.5, 0.7),
+								cc.fadeIn(0.5)),
+								cc.callFunc(function(nodeExecutingAction, value) { value.setTag(1); }, this, icon)
+							);
+					icon.runAction(action);
+				}
+			}
+		}
+	},*/
 	update: function (dt) 
 	{
 		if(BattleLayer_root.InGapTime()) 
@@ -77,7 +148,6 @@ var MainMenu = cc.Layer.extend({
 				MainMenu_root.updateBossButtonState();
 
 			} else {
-
 				UserData.StageBlood = ArraySubArray(UserData.StageBlood, UserData.TapAttackTemp);
 				UserData.TapAttackTemp = [0];
 				var pct = ArrayScaleArray(UserData.StageBlood, Ruler.StageBloodBase) * 100;
@@ -108,13 +178,13 @@ var MainMenu = cc.Layer.extend({
 			if (MainMenu_root.m_boss_state == 1) {
 
 				UserData.EnemyIndex = -1;
-				MainMenu_root.updateMonsterState();
+				MainMenu_root.updateBossButtonState();
 
 			} else if(MainMenu_root.m_boss_state == 2) {
 
 				UserData.EnemyIndex = UserData.getBossInterval();
 				MainMenu_root.bosstime = 0;
-				MainMenu_root.updateMonsterState();
+				MainMenu_root.updateBossButtonState();
 			}		
 			BattleLayer_root.RandomMonster(true);
 		}
@@ -123,28 +193,34 @@ var MainMenu = cc.Layer.extend({
 		// 1 挑战boss状态
 		// 2 准备挑战状态
 		// 0 非挑战状态
-		if (UserData.EnemyIndex == -1 || UserData.EnemyIndex == UserData.getBossInterval()) {
-
+		if (UserData.EnemyIndex == -1 || UserData.EnemyIndex == UserData.getBossInterval()) 
+		{
 			if (UserData.EnemyIndex == -1) {
 				this.m_boss_state = 2;
-			} else if (UserData.EnemyIndex == UserData.getBossInterval()) {
+			} else if (UserData.EnemyIndex == UserData.getBossInterval()){
 				this.m_boss_state = 1;
 			}
 
-			if (this.m_boss_state == 1) {
+			if (this.m_boss_state == 1)
+			{
+				console.log("111111111111111");
 				this.Button_Boss.loadTextures(res.button_lktz_n, res.button_lktz_s, res.button_lktz_n);
 				this.Button_Boss.setVisible(true);
 				this.LoadingBar_Boss.setVisible(true);
 				this.bosstime = 0;
 				this.BossTimeLeft.setVisible(true);
-			} else if (this.m_boss_state == 2) {
-				this.Button_Boss.loadTextures(res.button_tzboss_n, res.button_tzboss_s, res.button_tzboss_n);
-				this.Button_Boss.setVisible(true);
-				this.LoadingBar_Boss.setVisible(false);
-				this.bosstime = Ruler.BossTime;
-				this.BossTimeLeft.setVisible(false);
+			} 
+			else if (this.m_boss_state == 2) 
+			{
+				MainMenu_root.Button_Boss.loadTextures(res.button_tzboss_n, res.button_tzboss_s, res.button_tzboss_n);
+				MainMenu_root.Button_Boss.setVisible(true);
+				MainMenu_root.LoadingBar_Boss.setVisible(false);
+				MainMenu_root.bosstime = Ruler.BossTime;
+				MainMenu_root.BossTimeLeft.setVisible(false);
 			}
-		} else {
+		} 
+		else 
+		{
 			this.Button_Boss.setVisible(false);
 			this.LoadingBar_Boss.setVisible(false);
 			this.bosstime = 0;
@@ -152,10 +228,14 @@ var MainMenu = cc.Layer.extend({
 			this.BossTimeLeft.setVisible(false);
 			this.m_boss_state = 0;
 		}
-		if (UserData.EnemyIndex > 0 && UserData.EnemyIndex != UserData.getBossInterval()) {
+
+		if (UserData.EnemyIndex > 0 && UserData.EnemyIndex != UserData.getBossInterval()) 
+		{
 			this.StageMonsterData.setString(UserData.EnemyIndex + "/" + (UserData.getBossInterval() - 1));
 			this.StageMonsterData.setVisible(true);
-		} else {
+		} 
+		else 
+		{
 			this.StageMonsterData.setVisible(false);
 		}
 	},

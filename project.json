@@ -12,10 +12,12 @@
     "modules" : ["cocos2d", "cocostudio"],
 
     "jsList" : [
+        "src/MainScene.js",
+        "src/HeroInfoLayer.js",
         "src/Enum.js",
         "src/Ruler.js",
         "src/resource.js",
-        "src/StartScene.js",
+        "src/StartLayer.js",
         "src/BattleLayer.js",
         "src/MenuView_1.js",
         "src/Spec.js",
