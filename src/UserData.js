@@ -3,7 +3,7 @@ var UserData = {
 		StageBlood          	: [0],															// 关卡血量
 		StageIndex          	: 1,															// 关卡索引
 		EnemyIndex				: 1,															// 敌人索引
-		UserJobIndex			: 0,															// 玩家职业
+		UserJobIndex			: 1,															// 玩家职业
 		MusicEnable				: 1,															// 音乐开关
 		SoundEnable				: 1,															// 音效开关
 		ArtifactActiveCount 	: 10,															// 神器激活上限

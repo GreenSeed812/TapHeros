@@ -9,6 +9,11 @@ var BattleLayer = cc.Layer.extend({
     MonsterName:"",
     MonsterScale:0.8,
     DestJsonNode:null,
+    AtkEffects:[],//
+    Armature:null,//
+    AtkEffectIndex:0,//
+    PlayerJobData:null,//
+    Dest:null,//
     locationPos:null,
     ctor:function () {
         this._super();
@@ -190,6 +195,8 @@ var BattleLayer = cc.Layer.extend({
                             cc.callFunc(this.onCallback, this, label));
             label.setPosition(this.BattlePanel.width/2, this.BattlePanel.height/2 + this.Armature.height* this.Armature.getScale() + 60);
             label.runAction(action);
+
+            BattleLayer_root.PlayAtkEffect(locationPos);
         }
     },
     DropCoin : function (showNum, num) {
@@ -251,6 +258,51 @@ var BattleLayer = cc.Layer.extend({
 
         };
         value.removeFromParent();
+    },
+    PlayAtkEffect : function (locationPos) {
+        
+        this.PlayerJobData = PlayerJob.JobSoldier;
+        
+        var AtkEffect = null;
+
+        for (var i = 0; i < this.AtkEffects.length; i++) {
+            AtkEffect = this.AtkEffects[i];
+            if (AtkEffect.isVisible() == false) {
+                break;
+            } else {
+                AtkEffect = null;
+            }
+        }
+
+        if (AtkEffect != null) {
+           AtkEffect.x = 300;
+            AtkEffect.y = 300;
+        AtkEffect.getAnimation().play(this.PlayerJobData.AtkArmatureList[this.AtkEffectIndex],0,false);
+        console.log("2222222");
+        }else {
+            ccs.armatureDataManager.addArmatureFileInfo(this.PlayerJobData.AtkArmatureRes);
+            AtkEffect = new ccs.Armature(this.PlayerJobData.AtkArmatureName);
+            AtkEffect.x = 300;
+            AtkEffect.y = 300;
+            console.log("1111111");
+            AtkEffect.setVisible(false);
+            this.AtkEffects.push(AtkEffect);
+            this.addChild(AtkEffect);
+            AtkEffect.getAnimation().setMovementEventCallFunc(this.AnimationEventAtkEffect)
+            
+        }   
+    },
+    AnimationEventAtkEffect:function (armature, movementType, movementID) {
+        
+        if (movementType == ccs.MovementEventType.start) {
+            armature.setVisible(true);
+            BattleLayer_root.AtkEffectIndex += 1;
+            if (BattleLayer_root.AtkEffectIndex == BattleLayer_root.PlayerJobData.AtkArmatureList.length) { BattleLayer_root.AtkEffectIndex = 0;}
+        } else if (movementType == ccs.MovementEventType.loopComplete) {
+            
+        } else if (movementType == ccs.MovementEventType.complete) {
+            armature.setVisible(false);
+        }
     },
     InGapTime:function () {
         return this.GapTime;
