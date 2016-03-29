@@ -13,7 +13,8 @@ var BattleLayer = cc.Layer.extend({
     Armature:null,//
     AtkEffectIndex:0,//
     PlayerJobData:null,//
-    Dest:null,//
+    zhezhao:null,
+    DestPos:{x:0,y:0},//
     locationPos:null,
     ctor:function () {
         this._super();
@@ -21,6 +22,14 @@ var BattleLayer = cc.Layer.extend({
         var size = cc.winSize;
 
         this.rootnode = ccs.load(res.BattleLayer_json).node;
+        
+
+        this.rootnode.resizeCallback = function () {
+            BattleLayer_root.DestPos.x = BattleLayer_root.BattlePanel.x;
+            BattleLayer_root.DestPos.y = BattleLayer_root.BattlePanel.y;
+            
+        },
+
         this.addChild(this.rootnode);
 
         this.Bg_Sprite = this.rootnode.getChildByName("Bg_Sprite");
@@ -31,6 +40,11 @@ var BattleLayer = cc.Layer.extend({
         this.MoneyImage = ccui.helper.seekWidgetByName(this.rootnode, "MoneyImage");
         this.Money = ccui.helper.seekWidgetByName(this.rootnode, "Money");
         this.Panel_Money = ccui.helper.seekWidgetByName(this.rootnode, "Panel_Money");
+
+        this.zhezhao = this.rootnode.getChildByName("zhezhao");
+
+        this.DestPos.x = this.BattlePanel.x;
+        this.DestPos.y = this.BattlePanel.y;
 
         BattleLayer_root.locationPos = cc.p(0,0);
         this.RandomMonster(false);
@@ -46,6 +60,9 @@ var BattleLayer = cc.Layer.extend({
         var index = GetRandomNum(0, Spec.StageSpec.length - 1);
         this.DestJsonNode = ccs.load(Spec.StageSpec[index][1]).node;
         this.DestJsonNode.setAnchorPoint(0.5,0.5);
+        this.DestJsonNode.setOpacity(0);//设置透明度
+        console.log("jfsdf");
+        this.DestJsonNode.runAction(cc.fadeIn(1));
         this.DestNode.addChild(this.DestJsonNode);
     },
     NextScene : function () {
@@ -59,8 +76,25 @@ var BattleLayer = cc.Layer.extend({
         }
         if (stateName != Spec.StageSpec[UserData.StageIndex][0]) {
             if (this.DestJsonNode) {
-                this.DestNode.removeChild(this.DestJsonNode);
-                this.DestJsonNode = null;
+
+                //this.DestJsonNode.runAction(cc.fadeOut(1.0));
+
+                /*this.DestNode.removeChild(this.DestJsonNode);
+                this.DestJsonNode = null;*/
+
+                {
+                    var action = cc.sequence(
+                    cc.spawn(
+                            cc.fadeOut(0.3)),
+                            cc.callFunc(this.fadeOutCallback, this,this.DestJsonNode));
+                    this.DestJsonNode.runAction(action);
+                }
+                {
+                    this.zhezhao.setOpacity(0);//设置透明度
+                    this.zhezhao.runAction(cc.fadeIn(1));
+                }
+                //this.fadeOutCallback();
+
            }
         }
     },
@@ -184,7 +218,7 @@ var BattleLayer = cc.Layer.extend({
         if (this.Armature && this.GapTime == false) {
             this.Armature.getAnimation().play("Hurt");
             
-            console.log("fsjdlfsdjgls");
+            
             var label = new cc.LabelBMFont(GetShowNumFromArray(UserData.TapAttackTemp), res.default_01);
             this.BattlePanel.addChild(label);
 
@@ -263,6 +297,8 @@ var BattleLayer = cc.Layer.extend({
         
         this.PlayerJobData = PlayerJob.JobSoldier;
         
+        var offY = this.Armature.height * this.Armature.getScale() * 0.4;
+
         var AtkEffect = null;
 
         for (var i = 0; i < this.AtkEffects.length; i++) {
@@ -275,21 +311,27 @@ var BattleLayer = cc.Layer.extend({
         }
 
         if (AtkEffect != null) {
-           AtkEffect.x = 300;
-            AtkEffect.y = 300;
+            AtkEffect.x = this.BattlePanel.x;
+            AtkEffect.y = this.BattlePanel.y + offY;
         AtkEffect.getAnimation().play(this.PlayerJobData.AtkArmatureList[this.AtkEffectIndex],0,false);
-        console.log("2222222");
+        
         }else {
             ccs.armatureDataManager.addArmatureFileInfo(this.PlayerJobData.AtkArmatureRes);
             AtkEffect = new ccs.Armature(this.PlayerJobData.AtkArmatureName);
-            AtkEffect.x = 300;
-            AtkEffect.y = 300;
-            console.log("1111111");
+
+            AtkEffect.x = this.BattlePanel.x;
+            AtkEffect.y = this.BattlePanel.y + offY;
+            
+            /*{
+            AtkEffect.x += GetRandomNum(-100, 100);
+            AtkEffect.y += GetRandomNum(-100, 100);
+            }*/
+
             AtkEffect.setVisible(false);
             this.AtkEffects.push(AtkEffect);
             this.addChild(AtkEffect);
             AtkEffect.getAnimation().setMovementEventCallFunc(this.AnimationEventAtkEffect)
-            
+
         }   
     },
     AnimationEventAtkEffect:function (armature, movementType, movementID) {
@@ -304,6 +346,11 @@ var BattleLayer = cc.Layer.extend({
             armature.setVisible(false);
         }
     },
+    fadeOutCallback:function () {
+        this.DestNode.removeChild(this.DestJsonNode);
+        this.DestJsonNode = null;
+        console.log("1111111");
+     },
     InGapTime:function () {
         return this.GapTime;
     },

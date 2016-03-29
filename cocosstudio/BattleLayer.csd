@@ -110,6 +110,19 @@
             <EndColor A="255" R="255" G="255" B="255" />
             <ColorVector ScaleY="1.0000" />
           </AbstractNodeData>
+          <AbstractNodeData Name="zhezhao" ActionTag="1323073161" VisibleForFrame="False" Tag="71" IconVisible="False" TopMargin="1.9705" BottomMargin="0.0295" ClipAble="False" ComboBoxIndex="1" ColorAngle="90.0000" ctype="PanelObjectData">
+            <Size X="640.0000" Y="1134.0000" />
+            <AnchorPoint />
+            <Position Y="0.0295" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition Y="0.0000" />
+            <PreSize X="1.0000" Y="0.9982" />
+            <SingleColor A="255" R="255" G="255" B="255" />
+            <FirstColor A="255" R="150" G="200" B="255" />
+            <EndColor A="255" R="255" G="255" B="255" />
+            <ColorVector ScaleY="1.0000" />
+          </AbstractNodeData>
         </Children>
       </ObjectData>
     </Content>
