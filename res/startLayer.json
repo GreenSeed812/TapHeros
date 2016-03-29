@@ -1,7 +1,7 @@
 {
-  "ID": "19c5c32f-8981-4e10-bb9d-288b178503a5",
+  "ID": "4803bac8-6632-4d68-9f7e-878b6c81f595",
   "Version": "3.10.0.0",
-  "Name": "startLayer",
+  "Name": "StartLayer",
   "Content": {
     "Content": {
       "Animation": {
@@ -12,8 +12,53 @@
       },
       "AnimationList": [],
       "ObjectData": {
-        "Tag": 157,
+        "Tag": 99,
         "Children": [
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 101,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "Tag": 107,
+            "ActionTag": 71612810,
+            "Size": {
+              "X": 640.0,
+              "Y": 1136.0
+            },
+            "Name": "PanelNickName",
+            "ctype": "PanelObjectData"
+          },
           {
             "FileData": {
               "Type": "Normal",
@@ -29,45 +74,164 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 328.0233,
-              "Y": 490.7096
+              "X": 318.3043,
+              "Y": 493.3266
             },
             "Scale": {
-              "ScaleX": 1.0184,
+              "ScaleX": 1.0,
               "ScaleY": 1.0
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.5125,
-              "Y": 0.432
+              "X": 0.4974,
+              "Y": 0.4343
             },
             "PreSize": {
               "X": 0.8656,
               "Y": 0.1514
             },
-            "LeftMargin": 51.0233,
-            "RightMargin": 34.9767,
-            "TopMargin": 559.2904,
-            "BottomMargin": 404.7096,
-            "Tag": 158,
-            "ActionTag": -807579332,
+            "LeftMargin": 41.3043,
+            "RightMargin": 44.6957,
+            "TopMargin": 556.6734,
+            "BottomMargin": 407.3266,
+            "Tag": 104,
+            "ActionTag": -1367567457,
             "Size": {
               "X": 554.0,
               "Y": 172.0
             },
-            "Name": "bg_shurukuang_1",
+            "Name": "PushBg",
             "ctype": "SpriteObjectData"
+          },
+          {
+            "FontSize": 20,
+            "IsCustomSize": true,
+            "LabelText": "",
+            "PlaceHolderText": "请输入",
+            "MaxLengthText": 10,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 298.3084,
+              "Y": 487.5486
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4661,
+              "Y": 0.4292
+            },
+            "PreSize": {
+              "X": 0.3125,
+              "Y": 0.0264
+            },
+            "LeftMargin": 198.3084,
+            "RightMargin": 241.6916,
+            "TopMargin": 633.4514,
+            "BottomMargin": 472.5486,
+            "Tag": 105,
+            "ActionTag": 43404070,
+            "Size": {
+              "X": 200.0,
+              "Y": 30.0
+            },
+            "Name": "TextFieldName",
+            "ctype": "TextFieldObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "Normal",
+              "Path": "button/btn_queren_n.png",
+              "Plist": ""
+            },
+            "PressedFileData": {
+              "Type": "Normal",
+              "Path": "button/btn_queren_s.png",
+              "Plist": ""
+            },
+            "NormalFileData": {
+              "Type": "Normal",
+              "Path": "button/btn_queren_n.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 84,
+            "Scale9Height": 42,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 510.0,
+              "Y": 490.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7969,
+              "Y": 0.4313
+            },
+            "PreSize": {
+              "X": 0.1781,
+              "Y": 0.0563
+            },
+            "LeftMargin": 453.0,
+            "RightMargin": 73.0,
+            "TopMargin": 614.0,
+            "BottomMargin": 458.0,
+            "Tag": 106,
+            "ActionTag": -1957991474,
+            "Size": {
+              "X": 114.0,
+              "Y": 64.0
+            },
+            "Name": "ButtonCertain",
+            "ctype": "ButtonObjectData"
           }
         ],
         "Size": {
           "X": 640.0,
           "Y": 1136.0
         },
-        "Name": "startLayer",
+        "Name": "Layer",
         "ctype": "LayerObjectData"
       },
       "UsedResources": [
+        "button/btn_queren_n.png",
+        "button/btn_queren_s.png",
         "ui/bg_shurukuang.png"
       ],
       "ctype": "GameFileData"

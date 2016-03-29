@@ -48,7 +48,7 @@
             },
             "LeftMargin": 41.3043,
             "RightMargin": 44.6957,
-            "TopMargin": 556.6735,
+            "TopMargin": 556.6734,
             "BottomMargin": 407.3266,
             "Tag": 162,
             "ActionTag": 124364950,
@@ -56,7 +56,7 @@
               "X": 554.0,
               "Y": 172.0
             },
-            "Name": "bg_shurukuang_1",
+            "Name": "PushBg",
             "ctype": "SpriteObjectData"
           },
           {
@@ -98,26 +98,56 @@
               "X": 200.0,
               "Y": 30.0
             },
-            "Name": "TextField_3",
+            "Name": "TextFieldName",
             "ctype": "TextFieldObjectData"
           },
           {
-            "FileData": {
+            "FontSize": 14,
+            "ButtonText": "",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
               "Type": "Normal",
-              "Path": "ui/button_queren_s.png",
+              "Path": "button/btn_queren_n.png",
               "Plist": ""
             },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
+            "PressedFileData": {
+              "Type": "Normal",
+              "Path": "button/btn_queren_s.png",
+              "Plist": ""
             },
+            "NormalFileData": {
+              "Type": "Normal",
+              "Path": "button/btn_queren_n.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 84,
+            "Scale9Height": 42,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
             "AnchorPoint": {
               "ScaleX": 0.5,
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 510.5049,
-              "Y": 492.1762
+              "X": 510.0,
+              "Y": 490.0
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -126,25 +156,25 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.7977,
-              "Y": 0.4333
+              "X": 0.7969,
+              "Y": 0.4313
             },
             "PreSize": {
               "X": 0.1781,
               "Y": 0.0563
             },
-            "LeftMargin": 453.5049,
-            "RightMargin": 72.4951,
-            "TopMargin": 611.8239,
-            "BottomMargin": 460.1762,
-            "Tag": 194,
-            "ActionTag": 1908960227,
+            "LeftMargin": 453.0,
+            "RightMargin": 73.0,
+            "TopMargin": 614.0,
+            "BottomMargin": 458.0,
+            "Tag": 98,
+            "ActionTag": -155389249,
             "Size": {
               "X": 114.0,
               "Y": 64.0
             },
-            "Name": "button_queren_s_1",
-            "ctype": "SpriteObjectData"
+            "Name": "ButtonCertain",
+            "ctype": "ButtonObjectData"
           }
         ],
         "Size": {
@@ -155,8 +185,9 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
-        "ui/bg_shurukuang.png",
-        "ui/button_queren_s.png"
+        "button/btn_queren_n.png",
+        "button/btn_queren_s.png",
+        "ui/bg_shurukuang.png"
       ],
       "ctype": "GameFileData"
     }

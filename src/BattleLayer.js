@@ -47,6 +47,7 @@ var BattleLayer = cc.Layer.extend({
         this.DestPos.y = this.BattlePanel.y;
 
         BattleLayer_root.locationPos = cc.p(0,0);
+
         this.RandomMonster(false);
 
         this.mExitTime = 0;
@@ -69,7 +70,8 @@ var BattleLayer = cc.Layer.extend({
         var stateName = Spec.StageSpec[UserData.StageIndex][0];
 
         UserData.StageIndex += 1;
-        UserData.EnemyIndex = 0;
+        UserData.EnemyIndex = 1;
+        //MainMenu_root.UpdateStage("update");
         if( UserData.StageIndex>=16)
         {
             UserData.StageIndex = 0;
@@ -163,7 +165,7 @@ var BattleLayer = cc.Layer.extend({
                 this.NextStage();
             } else 
             {
-                if (UserData.EnemyIndex < UserData.getBossInterval()) 
+                if (UserData.EnemyIndex < UserData.getBossInterval()&& UserData.EnemyIndex != -1) 
                 {
                     UserData.EnemyIndex += 1;
                 }

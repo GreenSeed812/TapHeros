@@ -6,14 +6,14 @@
       <ObjectData Name="Layer" Tag="24" ctype="GameLayerObjectData">
         <Size X="640.0000" Y="1136.0000" />
         <Children>
-          <AbstractNodeData Name="Panel_1" ActionTag="-356338966" Tag="42" IconVisible="False" TopMargin="536.0000" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ComboBoxIndex="1" ColorAngle="90.0000" ctype="PanelObjectData">
-            <Size X="640.0000" Y="600.0000" />
-            <AnchorPoint />
-            <Position />
+          <AbstractNodeData Name="PanelBg" ActionTag="-356338966" Tag="42" IconVisible="False" TopMargin="602.5000" BottomMargin="66.5000" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+            <Size X="640.0000" Y="467.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="320.0000" Y="300.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition />
-            <PreSize X="1.0000" Y="0.5282" />
+            <PrePosition X="0.5000" Y="0.2641" />
+            <PreSize X="1.0000" Y="0.4111" />
             <SingleColor A="255" R="150" G="200" B="255" />
             <FirstColor A="255" R="150" G="200" B="255" />
             <EndColor A="255" R="255" G="255" B="255" />
@@ -45,7 +45,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="ListView" ActionTag="1023671586" Tag="47" IconVisible="False" LeftMargin="11.1271" RightMargin="13.8729" TopMargin="687.9436" BottomMargin="68.0564" TouchEnable="True" ClipAble="False" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ScrollDirectionType="0" DirectionType="Vertical" ctype="ListViewObjectData">
+          <AbstractNodeData Name="ListView" ActionTag="1023671586" Tag="47" IconVisible="False" LeftMargin="11.1271" RightMargin="13.8729" TopMargin="687.9436" BottomMargin="68.0564" TouchEnable="True" ClipAble="True" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" IsBounceEnabled="True" ScrollDirectionType="0" DirectionType="Vertical" ctype="ListViewObjectData">
             <Size X="615.0000" Y="380.0000" />
             <AnchorPoint />
             <Position X="11.1271" Y="68.0564" />

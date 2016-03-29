@@ -503,7 +503,6 @@
                   "Path": "Default/Button_Normal.png",
                   "Plist": ""
                 },
-                "Scale9Enable": true,
                 "Scale9OriginX": 15,
                 "Scale9OriginY": 11,
                 "Scale9Width": 16,
@@ -1002,6 +1001,536 @@
             "ctype": "PanelObjectData"
           },
           {
+            "ClipAble": false,
+            "BackColorAlpha": 102,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": 140.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.1232
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 0.1056
+            },
+            "TopMargin": 876.0,
+            "BottomMargin": 140.0,
+            "Tag": 49,
+            "Children": [
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Normal",
+                  "Path": "ui/button_skill.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "ui/button_skill.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "ui/button_skill.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 72,
+                "Scale9Height": 80,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 100.0,
+                  "Y": 62.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.1563,
+                  "Y": 0.5167
+                },
+                "PreSize": {
+                  "X": 0.1594,
+                  "Y": 0.85
+                },
+                "LeftMargin": 49.0,
+                "RightMargin": 489.0,
+                "TopMargin": 7.0,
+                "BottomMargin": 11.0,
+                "Tag": 50,
+                "Children": [
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "ui/button_skill_sdd.png",
+                      "Plist": ""
+                    },
+                    "BlendFunc": {
+                      "Src": 1,
+                      "Dst": 771
+                    },
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 50.0,
+                      "Y": 51.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.4902,
+                      "Y": 0.5
+                    },
+                    "PreSize": {
+                      "X": 1.0,
+                      "Y": 1.0
+                    },
+                    "LeftMargin": -1.0,
+                    "RightMargin": 1.0,
+                    "Tag": 51,
+                    "ActionTag": 882119180,
+                    "Size": {
+                      "X": 102.0,
+                      "Y": 102.0
+                    },
+                    "Name": "Icon1",
+                    "ctype": "SpriteObjectData"
+                  },
+                  {
+                    "LabelText": "0:00",
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 50.0,
+                      "Y": 50.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {
+                      "R": 0,
+                      "G": 249
+                    },
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.4902,
+                      "Y": 0.4902
+                    },
+                    "PreSize": {
+                      "X": 0.2353,
+                      "Y": 0.1471
+                    },
+                    "LeftMargin": 38.0,
+                    "RightMargin": 40.0,
+                    "TopMargin": 44.5,
+                    "BottomMargin": 42.5,
+                    "Tag": 52,
+                    "ActionTag": 1039975137,
+                    "Size": {
+                      "X": 24.0,
+                      "Y": 15.0
+                    },
+                    "Name": "FontLabel1",
+                    "ctype": "TextBMFontObjectData"
+                  }
+                ],
+                "ActionTag": 1136791592,
+                "Size": {
+                  "X": 102.0,
+                  "Y": 102.0
+                },
+                "Name": "ButtonSkill1",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Normal",
+                  "Path": "ui/button_skill.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "ui/button_skill.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "ui/button_skill.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 72,
+                "Scale9Height": 80,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 320.0,
+                  "Y": 62.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.5167
+                },
+                "PreSize": {
+                  "X": 0.1594,
+                  "Y": 0.85
+                },
+                "LeftMargin": 269.0,
+                "RightMargin": 269.0,
+                "TopMargin": 7.0,
+                "BottomMargin": 11.0,
+                "Tag": 53,
+                "Children": [
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "ui/button_skill_sdd.png",
+                      "Plist": ""
+                    },
+                    "BlendFunc": {
+                      "Src": 1,
+                      "Dst": 771
+                    },
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 50.0,
+                      "Y": 51.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.4902,
+                      "Y": 0.5
+                    },
+                    "PreSize": {
+                      "X": 1.0,
+                      "Y": 1.0
+                    },
+                    "LeftMargin": -1.0,
+                    "RightMargin": 1.0,
+                    "Tag": 54,
+                    "ActionTag": 1123163882,
+                    "Size": {
+                      "X": 102.0,
+                      "Y": 102.0
+                    },
+                    "Name": "Icon2",
+                    "ctype": "SpriteObjectData"
+                  },
+                  {
+                    "LabelText": "0:00",
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 50.0,
+                      "Y": 50.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {
+                      "R": 0,
+                      "G": 249
+                    },
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.4902,
+                      "Y": 0.4902
+                    },
+                    "PreSize": {
+                      "X": 0.2353,
+                      "Y": 0.1471
+                    },
+                    "LeftMargin": 38.0,
+                    "RightMargin": 40.0,
+                    "TopMargin": 44.5,
+                    "BottomMargin": 42.5,
+                    "Tag": 55,
+                    "ActionTag": 469332779,
+                    "Size": {
+                      "X": 24.0,
+                      "Y": 15.0
+                    },
+                    "Name": "FontLabel2",
+                    "ctype": "TextBMFontObjectData"
+                  }
+                ],
+                "ActionTag": -1551267879,
+                "Size": {
+                  "X": 102.0,
+                  "Y": 102.0
+                },
+                "Name": "ButtonSkill2",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Normal",
+                  "Path": "ui/button_skill.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "ui/button_skill.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "ui/button_skill.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 72,
+                "Scale9Height": 80,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 540.0,
+                  "Y": 62.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.8438,
+                  "Y": 0.5167
+                },
+                "PreSize": {
+                  "X": 0.1594,
+                  "Y": 0.85
+                },
+                "LeftMargin": 489.0,
+                "RightMargin": 49.0,
+                "TopMargin": 7.0,
+                "BottomMargin": 11.0,
+                "Tag": 56,
+                "Children": [
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "ui/button_skill_sdd.png",
+                      "Plist": ""
+                    },
+                    "BlendFunc": {
+                      "Src": 1,
+                      "Dst": 771
+                    },
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 50.0,
+                      "Y": 51.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.4902,
+                      "Y": 0.5
+                    },
+                    "PreSize": {
+                      "X": 1.0,
+                      "Y": 1.0
+                    },
+                    "LeftMargin": -1.0,
+                    "RightMargin": 1.0,
+                    "Tag": 57,
+                    "ActionTag": 42406318,
+                    "Size": {
+                      "X": 102.0,
+                      "Y": 102.0
+                    },
+                    "Name": "Icon3",
+                    "ctype": "SpriteObjectData"
+                  },
+                  {
+                    "LabelText": "0:00",
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 50.0,
+                      "Y": 50.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {
+                      "R": 0,
+                      "G": 249
+                    },
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.4902,
+                      "Y": 0.4902
+                    },
+                    "PreSize": {
+                      "X": 0.2353,
+                      "Y": 0.1471
+                    },
+                    "LeftMargin": 38.0,
+                    "RightMargin": 40.0,
+                    "TopMargin": 44.5,
+                    "BottomMargin": 42.5,
+                    "Tag": 58,
+                    "ActionTag": 1653467343,
+                    "Size": {
+                      "X": 24.0,
+                      "Y": 15.0
+                    },
+                    "Name": "FontLabel3",
+                    "ctype": "TextBMFontObjectData"
+                  }
+                ],
+                "ActionTag": -1810808458,
+                "Size": {
+                  "X": 102.0,
+                  "Y": 102.0
+                },
+                "Name": "ButtonSkill3",
+                "ctype": "ButtonObjectData"
+              }
+            ],
+            "ActionTag": -1094044612,
+            "Size": {
+              "X": 640.0,
+              "Y": 120.0
+            },
+            "Name": "PanelSkill",
+            "ctype": "PanelObjectData"
+          },
+          {
             "AnchorPoint": {},
             "Position": {
               "X": -7.8538,
@@ -1316,536 +1845,6 @@
               "Y": 92.0
             },
             "Name": "Panel_MainMenu",
-            "ctype": "PanelObjectData"
-          },
-          {
-            "ClipAble": false,
-            "BackColorAlpha": 102,
-            "SingleColor": {
-              "R": 150,
-              "G": 200
-            },
-            "FirstColor": {
-              "R": 150,
-              "G": 200
-            },
-            "EndColor": {},
-            "ColorVector": {
-              "ScaleY": 1.0
-            },
-            "Scale9Width": 1,
-            "Scale9Height": 1,
-            "TouchEnable": true,
-            "AnchorPoint": {},
-            "Position": {
-              "X": 0.0,
-              "Y": 140.0
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.0,
-              "Y": 0.1232
-            },
-            "PreSize": {
-              "X": 1.0,
-              "Y": 0.1056
-            },
-            "TopMargin": 876.0,
-            "BottomMargin": 140.0,
-            "Tag": 25,
-            "Children": [
-              {
-                "FontSize": 14,
-                "ButtonText": "",
-                "TextColor": {
-                  "R": 65,
-                  "G": 65,
-                  "B": 70
-                },
-                "DisabledFileData": {
-                  "Type": "Normal",
-                  "Path": "ui/button_skill.png",
-                  "Plist": ""
-                },
-                "PressedFileData": {
-                  "Type": "Normal",
-                  "Path": "ui/button_skill.png",
-                  "Plist": ""
-                },
-                "NormalFileData": {
-                  "Type": "Normal",
-                  "Path": "ui/button_skill.png",
-                  "Plist": ""
-                },
-                "Scale9Enable": true,
-                "Scale9OriginX": 15,
-                "Scale9OriginY": 11,
-                "Scale9Width": 72,
-                "Scale9Height": 80,
-                "OutlineColor": {
-                  "G": 0,
-                  "B": 0
-                },
-                "ShadowColor": {
-                  "R": 110,
-                  "G": 110,
-                  "B": 110
-                },
-                "ShadowOffsetX": 2.0,
-                "ShadowOffsetY": -2.0,
-                "TouchEnable": true,
-                "AnchorPoint": {
-                  "ScaleX": 0.5,
-                  "ScaleY": 0.5
-                },
-                "Position": {
-                  "X": 100.0,
-                  "Y": 62.0
-                },
-                "Scale": {
-                  "ScaleX": 1.0,
-                  "ScaleY": 1.0
-                },
-                "CColor": {},
-                "IconVisible": false,
-                "PrePosition": {
-                  "X": 0.1563,
-                  "Y": 0.5167
-                },
-                "PreSize": {
-                  "X": 0.1594,
-                  "Y": 0.85
-                },
-                "LeftMargin": 49.0,
-                "RightMargin": 489.0,
-                "TopMargin": 7.0,
-                "BottomMargin": 11.0,
-                "Tag": 26,
-                "Children": [
-                  {
-                    "FileData": {
-                      "Type": "Normal",
-                      "Path": "ui/button_skill_sdd.png",
-                      "Plist": ""
-                    },
-                    "BlendFunc": {
-                      "Src": 1,
-                      "Dst": 771
-                    },
-                    "AnchorPoint": {
-                      "ScaleX": 0.5,
-                      "ScaleY": 0.5
-                    },
-                    "Position": {
-                      "X": 50.0,
-                      "Y": 51.0
-                    },
-                    "Scale": {
-                      "ScaleX": 1.0,
-                      "ScaleY": 1.0
-                    },
-                    "CColor": {},
-                    "IconVisible": false,
-                    "PrePosition": {
-                      "X": 0.4902,
-                      "Y": 0.5
-                    },
-                    "PreSize": {
-                      "X": 1.0,
-                      "Y": 1.0
-                    },
-                    "LeftMargin": -1.0,
-                    "RightMargin": 1.0,
-                    "Tag": 51,
-                    "ActionTag": 135401850,
-                    "Size": {
-                      "X": 102.0,
-                      "Y": 102.0
-                    },
-                    "Name": "Icon1",
-                    "ctype": "SpriteObjectData"
-                  },
-                  {
-                    "LabelText": "0:00",
-                    "AnchorPoint": {
-                      "ScaleX": 0.5,
-                      "ScaleY": 0.5
-                    },
-                    "Position": {
-                      "X": 50.0,
-                      "Y": 50.0
-                    },
-                    "Scale": {
-                      "ScaleX": 1.0,
-                      "ScaleY": 1.0
-                    },
-                    "CColor": {
-                      "R": 0,
-                      "G": 249
-                    },
-                    "IconVisible": false,
-                    "PrePosition": {
-                      "X": 0.4902,
-                      "Y": 0.4902
-                    },
-                    "PreSize": {
-                      "X": 0.2353,
-                      "Y": 0.1471
-                    },
-                    "LeftMargin": 38.0,
-                    "RightMargin": 40.0,
-                    "TopMargin": 44.5,
-                    "BottomMargin": 42.5,
-                    "Tag": 52,
-                    "ActionTag": -790047981,
-                    "Size": {
-                      "X": 24.0,
-                      "Y": 15.0
-                    },
-                    "Name": "FontLabel1",
-                    "ctype": "TextBMFontObjectData"
-                  }
-                ],
-                "ActionTag": 451082124,
-                "Size": {
-                  "X": 102.0,
-                  "Y": 102.0
-                },
-                "Name": "ButtonSkill1",
-                "ctype": "ButtonObjectData"
-              },
-              {
-                "FontSize": 14,
-                "ButtonText": "",
-                "TextColor": {
-                  "R": 65,
-                  "G": 65,
-                  "B": 70
-                },
-                "DisabledFileData": {
-                  "Type": "Normal",
-                  "Path": "ui/button_skill.png",
-                  "Plist": ""
-                },
-                "PressedFileData": {
-                  "Type": "Normal",
-                  "Path": "ui/button_skill.png",
-                  "Plist": ""
-                },
-                "NormalFileData": {
-                  "Type": "Normal",
-                  "Path": "ui/button_skill.png",
-                  "Plist": ""
-                },
-                "Scale9Enable": true,
-                "Scale9OriginX": 15,
-                "Scale9OriginY": 11,
-                "Scale9Width": 72,
-                "Scale9Height": 80,
-                "OutlineColor": {
-                  "G": 0,
-                  "B": 0
-                },
-                "ShadowColor": {
-                  "R": 110,
-                  "G": 110,
-                  "B": 110
-                },
-                "ShadowOffsetX": 2.0,
-                "ShadowOffsetY": -2.0,
-                "TouchEnable": true,
-                "AnchorPoint": {
-                  "ScaleX": 0.5,
-                  "ScaleY": 0.5
-                },
-                "Position": {
-                  "X": 320.0,
-                  "Y": 62.0
-                },
-                "Scale": {
-                  "ScaleX": 1.0,
-                  "ScaleY": 1.0
-                },
-                "CColor": {},
-                "IconVisible": false,
-                "PrePosition": {
-                  "X": 0.5,
-                  "Y": 0.5167
-                },
-                "PreSize": {
-                  "X": 0.1594,
-                  "Y": 0.85
-                },
-                "LeftMargin": 269.0,
-                "RightMargin": 269.0,
-                "TopMargin": 7.0,
-                "BottomMargin": 11.0,
-                "Tag": 48,
-                "Children": [
-                  {
-                    "FileData": {
-                      "Type": "Normal",
-                      "Path": "ui/button_skill_sdd.png",
-                      "Plist": ""
-                    },
-                    "BlendFunc": {
-                      "Src": 1,
-                      "Dst": 771
-                    },
-                    "AnchorPoint": {
-                      "ScaleX": 0.5,
-                      "ScaleY": 0.5
-                    },
-                    "Position": {
-                      "X": 50.0,
-                      "Y": 51.0
-                    },
-                    "Scale": {
-                      "ScaleX": 1.0,
-                      "ScaleY": 1.0
-                    },
-                    "CColor": {},
-                    "IconVisible": false,
-                    "PrePosition": {
-                      "X": 0.4902,
-                      "Y": 0.5
-                    },
-                    "PreSize": {
-                      "X": 1.0,
-                      "Y": 1.0
-                    },
-                    "LeftMargin": -1.0,
-                    "RightMargin": 1.0,
-                    "Tag": 53,
-                    "ActionTag": -1457321714,
-                    "Size": {
-                      "X": 102.0,
-                      "Y": 102.0
-                    },
-                    "Name": "Icon2",
-                    "ctype": "SpriteObjectData"
-                  },
-                  {
-                    "LabelText": "0:00",
-                    "AnchorPoint": {
-                      "ScaleX": 0.5,
-                      "ScaleY": 0.5
-                    },
-                    "Position": {
-                      "X": 50.0,
-                      "Y": 50.0
-                    },
-                    "Scale": {
-                      "ScaleX": 1.0,
-                      "ScaleY": 1.0
-                    },
-                    "CColor": {
-                      "R": 0,
-                      "G": 249
-                    },
-                    "IconVisible": false,
-                    "PrePosition": {
-                      "X": 0.4902,
-                      "Y": 0.4902
-                    },
-                    "PreSize": {
-                      "X": 0.2353,
-                      "Y": 0.1471
-                    },
-                    "LeftMargin": 38.0,
-                    "RightMargin": 40.0,
-                    "TopMargin": 44.5,
-                    "BottomMargin": 42.5,
-                    "Tag": 54,
-                    "ActionTag": -1509030058,
-                    "Size": {
-                      "X": 24.0,
-                      "Y": 15.0
-                    },
-                    "Name": "FontLabel2",
-                    "ctype": "TextBMFontObjectData"
-                  }
-                ],
-                "ActionTag": -105817315,
-                "Size": {
-                  "X": 102.0,
-                  "Y": 102.0
-                },
-                "Name": "ButtonSkill2",
-                "ctype": "ButtonObjectData"
-              },
-              {
-                "FontSize": 14,
-                "ButtonText": "",
-                "TextColor": {
-                  "R": 65,
-                  "G": 65,
-                  "B": 70
-                },
-                "DisabledFileData": {
-                  "Type": "Normal",
-                  "Path": "ui/button_skill.png",
-                  "Plist": ""
-                },
-                "PressedFileData": {
-                  "Type": "Normal",
-                  "Path": "ui/button_skill.png",
-                  "Plist": ""
-                },
-                "NormalFileData": {
-                  "Type": "Normal",
-                  "Path": "ui/button_skill.png",
-                  "Plist": ""
-                },
-                "Scale9Enable": true,
-                "Scale9OriginX": 15,
-                "Scale9OriginY": 11,
-                "Scale9Width": 72,
-                "Scale9Height": 80,
-                "OutlineColor": {
-                  "G": 0,
-                  "B": 0
-                },
-                "ShadowColor": {
-                  "R": 110,
-                  "G": 110,
-                  "B": 110
-                },
-                "ShadowOffsetX": 2.0,
-                "ShadowOffsetY": -2.0,
-                "TouchEnable": true,
-                "AnchorPoint": {
-                  "ScaleX": 0.5,
-                  "ScaleY": 0.5
-                },
-                "Position": {
-                  "X": 540.0,
-                  "Y": 62.0
-                },
-                "Scale": {
-                  "ScaleX": 1.0,
-                  "ScaleY": 1.0
-                },
-                "CColor": {},
-                "IconVisible": false,
-                "PrePosition": {
-                  "X": 0.8438,
-                  "Y": 0.5167
-                },
-                "PreSize": {
-                  "X": 0.1594,
-                  "Y": 0.85
-                },
-                "LeftMargin": 489.0,
-                "RightMargin": 49.0,
-                "TopMargin": 7.0,
-                "BottomMargin": 11.0,
-                "Tag": 49,
-                "Children": [
-                  {
-                    "FileData": {
-                      "Type": "Normal",
-                      "Path": "ui/button_skill_sdd.png",
-                      "Plist": ""
-                    },
-                    "BlendFunc": {
-                      "Src": 1,
-                      "Dst": 771
-                    },
-                    "AnchorPoint": {
-                      "ScaleX": 0.5,
-                      "ScaleY": 0.5
-                    },
-                    "Position": {
-                      "X": 50.0,
-                      "Y": 51.0
-                    },
-                    "Scale": {
-                      "ScaleX": 1.0,
-                      "ScaleY": 1.0
-                    },
-                    "CColor": {},
-                    "IconVisible": false,
-                    "PrePosition": {
-                      "X": 0.4902,
-                      "Y": 0.5
-                    },
-                    "PreSize": {
-                      "X": 1.0,
-                      "Y": 1.0
-                    },
-                    "LeftMargin": -1.0,
-                    "RightMargin": 1.0,
-                    "Tag": 55,
-                    "ActionTag": -1416981842,
-                    "Size": {
-                      "X": 102.0,
-                      "Y": 102.0
-                    },
-                    "Name": "Icon3",
-                    "ctype": "SpriteObjectData"
-                  },
-                  {
-                    "LabelText": "0:00",
-                    "AnchorPoint": {
-                      "ScaleX": 0.5,
-                      "ScaleY": 0.5
-                    },
-                    "Position": {
-                      "X": 50.0,
-                      "Y": 50.0
-                    },
-                    "Scale": {
-                      "ScaleX": 1.0,
-                      "ScaleY": 1.0
-                    },
-                    "CColor": {
-                      "R": 0,
-                      "G": 249
-                    },
-                    "IconVisible": false,
-                    "PrePosition": {
-                      "X": 0.4902,
-                      "Y": 0.4902
-                    },
-                    "PreSize": {
-                      "X": 0.2353,
-                      "Y": 0.1471
-                    },
-                    "LeftMargin": 38.0,
-                    "RightMargin": 40.0,
-                    "TopMargin": 44.5,
-                    "BottomMargin": 42.5,
-                    "Tag": 56,
-                    "ActionTag": -298375291,
-                    "Size": {
-                      "X": 24.0,
-                      "Y": 15.0
-                    },
-                    "Name": "FontLabel3",
-                    "ctype": "TextBMFontObjectData"
-                  }
-                ],
-                "ActionTag": -1201756770,
-                "Size": {
-                  "X": 102.0,
-                  "Y": 102.0
-                },
-                "Name": "ButtonSkill3",
-                "ctype": "ButtonObjectData"
-              }
-            ],
-            "ActionTag": 1221296895,
-            "Size": {
-              "X": 640.0,
-              "Y": 120.0
-            },
-            "Name": "PanelSkill",
             "ctype": "PanelObjectData"
           }
         ],

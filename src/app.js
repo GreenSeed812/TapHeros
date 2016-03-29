@@ -12,16 +12,16 @@ var HelloWorldLayer = cc.Layer.extend({
         // ask the window size
         var size = cc.winSize;
 
-        //var startscene = new StartScene();
-        //this.addChild(startscene);
+        var mainScenemain = new MainScene();
+        MainScene_root.initGameData();
 
         var menu = new MainMenu();
         var battlelayer = new BattleLayer();
         this.addChild(battlelayer);
         this.addChild(menu);
-        //var uilayer = new UiLayer();
-        //this.addChild(uilayer);
-
+        this.addChild(mainScenemain);
+        
+        
         /* you can create scene with following comment code instead of using csb file.
         /////////////////////////////
         // 3. add your codes below...

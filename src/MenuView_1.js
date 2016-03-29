@@ -45,7 +45,6 @@ var MenuView_1 = cc.Layer.extend({
 		var Desc = viewCell.getChildByName("Desc");
 		if (viewCell.getName() == "Player") 
 		{
-			console.log("fhsaklfsjdlfjsldk");
 			LV_Num.setString(UserData.UserLevel);
 			Desc.setString(GetShowNumFromArray(UserData.TapAttackTemp));
 		}
@@ -92,14 +91,14 @@ var MenuView_1 = cc.Layer.extend({
 		heroIconbutton.loadTextures(res.icon_hero_1, res.icon_hero_1, res.icon_hero_1);
 		heroIconbutton.x = 74;
 		heroIconbutton.y = 60
-		//heroIconbutton.addTouchEventListener(MenuView_1_root.touchHeroIcon, MenuView_1_root);
+		heroIconbutton.addTouchEventListener(MenuView_1_root.touchHeroIcon, MenuView_1_root);
 		heroIconbutton.setTag(index);
 		custom_item.addChild(heroIconbutton);
 
 		// Create the hero biaoshi
 		if (index == 0) 
 		{
-			UserData.NickName = "fjskd";
+			//UserData.NickName = "fjskd";
 			var CellName = new cc.LabelTTF(UserData.NickName, res.TTF_超粗黑, 16);
 			CellName.setAnchorPoint(0, 0);
 			CellName.x = 120;
@@ -180,6 +179,7 @@ var MenuView_1 = cc.Layer.extend({
 		// Create the button
 		var buttonNode = new cc.Node();
 		buttonNode.setName("buttonNode");
+
 		{
 			var button100 = new ccui.Button();
 			button100.setName("button100");
@@ -268,36 +268,38 @@ var MenuView_1 = cc.Layer.extend({
 			buttonTextNode.addChild(Money_Up);
 		}
 
-		var button = new ccui.Button();
-		button.setName("button");
-		if(index == 0)
 		{
-			button.loadTextures(res.button_lvup_2_n_png, res.button_lvup_2_s_png, res.button_lvup_d_png);
-		}
-		else
-		{
-			var HeroLevel = UserData.HeroLevel[index];
-			HeroLevel = 0;
-			if(HeroLevel==0)
+			var button = new ccui.Button();
+			button.setName("button");
+			if(index == 0)
 			{
-				button.loadTextures(res.button_lvup_d_png, res.button_lvup_d_png, res.button_lvup_d_png);
+				button.loadTextures(res.button_lvup_2_n_png, res.button_lvup_2_s_png, res.button_lvup_d_png);
 			}
 			else
 			{
-				button.loadTextures(res.button_lvup_n_png, res.button_lvup_s_png, res.button_lvup_n_png);
+				var HeroLevel = UserData.HeroLevel[index];
+				HeroLevel = 0;
+				if(HeroLevel==0)
+				{
+					//console.log("fjsdl");
+					button.loadTextures(res.button_lvup_d_png, res.button_lvup_d_png, res.button_lvup_d_png);
+					//MenuView_1_root.button.setEnabled(true);
+				}
+				else
+				{
+					button.loadTextures(res.button_lvup_n_png, res.button_lvup_s_png, res.button_lvup_n_png);
+				}
 			}
-		}
-		button.x = 500;
-		button.y = 60;
-		button.addTouchEventListener(MenuView_1_root.touchButton, MenuView_1_root);
-		button.setTag(index);
-		buttonNode.addChild(button);
+			button.x = 500;
+			button.y = 60;
+			button.addTouchEventListener(MenuView_1_root.touchButton, MenuView_1_root);
+			button.setTag(index);
+			buttonNode.addChild(button);
 
-		var buttonTextNode = new cc.Node();
-		buttonTextNode.setName("buttonTextNode");
-		button.addChild(buttonTextNode);
+			var buttonTextNode = new cc.Node();
+			buttonTextNode.setName("buttonTextNode");
+			button.addChild(buttonTextNode);
 
-		{
 			// 金币
 			var coinIcon = new cc.Sprite(res.icon_jinbi_small);
 			coinIcon.setName("coinIcon");
@@ -323,6 +325,7 @@ var MenuView_1 = cc.Layer.extend({
 			buttonTextNode.addChild(Money_Up);
 		}
 
+
 		if(buttonNode){
 			custom_item.addChild(buttonNode);
 		}
@@ -345,9 +348,22 @@ var MenuView_1 = cc.Layer.extend({
 		MenuView_1_root.ListView.insertCustomItem(custom_item, index);
 	},
 	createCells:function(){
-		for (var index = 0; index < 3; index++) 
+		for(var index = 0; index < 10; index++) 
 		{
 			MenuView_1_root.createCell(index);
+		}
+	},
+	touchHeroIcon: function (sender, type) {
+
+		switch (type) {
+		case ccui.Widget.TOUCH_ENDED:
+			var index = sender.getTag();
+			if (index == 0) 
+			{
+				MainScene_root.pushLayer(new HeroInfoLayer());
+				//HeroInfoLayer_root.setHeroDate(PlayerData, UserData.UserLevel, index);
+			}
+			break;
 		}
 	},
 	touchButton: function (sender, type) {
@@ -366,7 +382,7 @@ var MenuView_1 = cc.Layer.extend({
 				upNum = 10;
 			} else if (sender.getName() == "button100") {
 				upNum = 100;
-			} else {
+			} else if(sender.getName() == "button"){
 				//if(MenuView_1_root.TotalMoney>=MenuView_1_root)
 				//{	
 					upNum = 1;
