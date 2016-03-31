@@ -64,12 +64,7 @@ var BattleLayer = cc.Layer.extend({
         this.DestJsonNode = ccs.load(Spec.StageSpec[index][1]).node;
         this.DestJsonNode.setAnchorPoint(0.5,0.5);
         this.DestJsonNode.setOpacity(0);//设置透明度
-<<<<<<< HEAD
-        this.DestJsonNode.runAction(cc.fadeIn(1));
-=======
-        console.log("jfsdf");
         this.DestJsonNode.runAction(cc.fadeIn(0.5));
->>>>>>> 8240084b99b45786a470bd5953e7eb272dd5190d
         this.DestNode.addChild(this.DestJsonNode);
     },
     NextScene : function () {
@@ -442,10 +437,6 @@ var BattleLayer = cc.Layer.extend({
      fadeOutCallback2:function () {
         this.DestNode.removeChild(this.DestJsonNode);
         this.DestJsonNode = null;
-<<<<<<< HEAD
-=======
-        
->>>>>>> 8240084b99b45786a470bd5953e7eb272dd5190d
      },
     InGapTime:function () {
         return this.GapTime;

@@ -22,12 +22,11 @@ var MainMenu = cc.Layer.extend({
 	FontLabelAllDPS:null,
 	FontLabelTestDPS:null,
 	PageStage_bg:null,
-<<<<<<< HEAD
+
 	FontLabelLevel:null,
-=======
 
 	Skill_Button_List:[],
->>>>>>> 8240084b99b45786a470bd5953e7eb272dd5190d
+
 	ctor:function(){
 		this._super();
 		MainMenu_root = this;
@@ -185,10 +184,9 @@ var MainMenu = cc.Layer.extend({
 			}
 		}
 		
-<<<<<<< HEAD
+
 		MainMenu_root.MonsterBlood.setString(GetShowNumFromArray(UserData.StageBlood));//血量更新
-=======
-		MainMenu_root.MonsterBlood.setString(GetShowNumFromArray(UserData.StageBlood));
+
 
 		// 主角技能释放CD
 		for (var i = 0; i < this.Skill_Button_List.length; i++) {
@@ -239,7 +237,7 @@ var MainMenu = cc.Layer.extend({
 				}
 			}
 		}
->>>>>>> 8240084b99b45786a470bd5953e7eb272dd5190d
+
 	},
 	setInformation : function () {
 		MainMenu_root.FontLabelDPS.setString(GetShowNumFromArray(UserData.HeroDPS));
@@ -276,10 +274,6 @@ var MainMenu = cc.Layer.extend({
 
 			if (this.m_boss_state == 1)
 			{
-<<<<<<< HEAD
-=======
-				
->>>>>>> 8240084b99b45786a470bd5953e7eb272dd5190d
 				this.Button_Boss.loadTextures(res.button_lktz_n, res.button_lktz_s, res.button_lktz_n);
 				this.Button_Boss.setVisible(true);
 				this.LoadingBar_Boss.setVisible(true);

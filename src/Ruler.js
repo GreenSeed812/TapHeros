@@ -4,10 +4,7 @@ var Ruler = {
 		Accuracy : 3,										// 除法精度位数(final)
 		StageBloodBase : [1,1,1],							
 		TapInterval : 50,									// 点击间隔毫秒(final)
-		BossInterval : 6,									// boss 间隔
-=======
 		BossInterval : 3,									// boss 间隔
->>>>>>> 8240084b99b45786a470bd5953e7eb272dd5190d
 		BossTime : 3,										// boss 击杀时间(final)
 		Unit : ["","k", "m", "b", "t",
 				 "aa", "bb", "cc", "dd", "ee", "ff", "gg",
