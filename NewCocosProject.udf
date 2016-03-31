@@ -1,5 +1,12 @@
 <UserData Version="3.10.0.0">
   <Properties>
+    <Item Key="CocosRecentOperation">
+      <Value ctype="CocosRecentOperation">
+        <LastPublishType Value="Resource" />
+        <IsLastPublish Value="True" />
+        <LastRunType Value="Windows" />
+      </Value>
+    </Item>
     <Item Key="PackageParamsKey">
       <Value ctype="PackageParams">
         <LuaIsEncrypt Value="False" />
@@ -14,44 +21,8 @@
         <RunPlatform Value="Windows" />
         <FrameworkVersion Value="cocos2d-x-3.10" />
         <IsDebugKeystore Value="True" />
-        <KeystorePassword Value="" />
-        <KeystoreAliasName Value="" />
-        <KeystoreAliasPassword Value="" />
         <EnableSourceMap Value="False" />
         <EnableHTML5Advanced Value="False" />
-      </Value>
-    </Item>
-    <Item Key="CocosRecentOperation">
-      <Value ctype="CocosRecentOperation">
-        <LastPublishType Value="Resource" />
-        <IsLastPublish Value="True" />
-        <LastRunType Value="Windows" />
-      </Value>
-    </Item>
-    <Item Key="TabsParamsKey">
-      <Value ctype="TabsInfo">
-        <OpenedDocuments>
-<<<<<<< HEAD
-          <FilePathData Path="MainScene.csd" />
-          <FilePathData Path="MainMenu.csd" />
-          <FilePathData Path="SettingLayer.csd" />
-          <FilePathData Path="BattleLayer.csd" />
-          <FilePathData Path="HeroInfoLayer.csd" />
-          <FilePathData Path="MenuView_1.csd" />
-          <FilePathData Path="StartLayer.csd" />
-        </OpenedDocuments>
-        <ActiveDocument Path="MenuView_1.csd" />
-=======
-          <FilePathData Path="BattleLayer.csd" />
-          <FilePathData Path="MainMenu.csd" />
-          <FilePathData Path="MenuView_1.csd" />
-          <FilePathData Path="MainScene.csd" />
-          <FilePathData Path="HeroInfoLayer.csd" />
-          <FilePathData Path="SettingLayer.csd" />
-          <FilePathData Path="MenuView_2.csd" />
-        </OpenedDocuments>
-        <ActiveDocument Path="MenuView_2.csd" />
->>>>>>> 8240084b99b45786a470bd5953e7eb272dd5190d
       </Value>
     </Item>
   </Properties>

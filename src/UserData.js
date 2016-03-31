@@ -14,7 +14,7 @@ var UserData = {
 		UserMoney             	: [0],															// 金币
 		ArtifactCoin		  	: 0,															// 神器货币
 		Diamond               	: 0,															// 钻石
-		HeroLevel             	: [0,-1,-1,-1],	// 英雄等级
+		HeroLevel             	: [0,0,-1,-1,-1],	// 英雄等级
 		ArtifactLevel		  	: [-1,0,0,0,0,0,0,0,0,0],										// 每种神器最高等级
 		ArtifactStar		  	: [-1,0,0,0,0,0,0,0,0,0],										// 神器对应等级星级
 		ArtifactActive		  	: [-1,0,0,0,0,0,0,0,0,0],										// 神器激活状态
