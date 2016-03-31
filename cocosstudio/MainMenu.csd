@@ -265,12 +265,12 @@
                     <FileData Type="Normal" Path="ui/button_skill_sdd.png" Plist="" />
                     <BlendFunc Src="1" Dst="771" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="FontLabel1" ActionTag="1039975137" Tag="52" IconVisible="False" LeftMargin="38.0000" RightMargin="40.0000" TopMargin="44.5000" BottomMargin="42.5000" LabelText="0:00" ctype="TextBMFontObjectData">
+                  <AbstractNodeData Name="time" ActionTag="1039975137" Tag="52" IconVisible="False" LeftMargin="38.0000" RightMargin="40.0000" TopMargin="44.5000" BottomMargin="42.5000" LabelText="0:00" ctype="TextBMFontObjectData">
                     <Size X="24.0000" Y="15.0000" />
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                     <Position X="50.0000" Y="50.0000" />
-                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                    <CColor A="255" R="0" G="249" B="255" />
+                    <Scale ScaleX="2.0000" ScaleY="2.0000" />
+                    <CColor A="255" R="255" G="0" B="0" />
                     <PrePosition X="0.4902" Y="0.4902" />
                     <PreSize X="0.2353" Y="0.1471" />
                   </AbstractNodeData>
@@ -302,12 +302,12 @@
                     <FileData Type="Normal" Path="ui/button_skill_sdd.png" Plist="" />
                     <BlendFunc Src="1" Dst="771" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="FontLabel2" ActionTag="469332779" Tag="55" IconVisible="False" LeftMargin="38.0000" RightMargin="40.0000" TopMargin="44.5000" BottomMargin="42.5000" LabelText="0:00" ctype="TextBMFontObjectData">
+                  <AbstractNodeData Name="time" ActionTag="469332779" Tag="55" IconVisible="False" LeftMargin="38.0000" RightMargin="40.0000" TopMargin="44.5000" BottomMargin="42.5000" LabelText="0:00" ctype="TextBMFontObjectData">
                     <Size X="24.0000" Y="15.0000" />
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                     <Position X="50.0000" Y="50.0000" />
-                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                    <CColor A="255" R="0" G="249" B="255" />
+                    <Scale ScaleX="2.0000" ScaleY="2.0000" />
+                    <CColor A="255" R="255" G="0" B="0" />
                     <PrePosition X="0.4902" Y="0.4902" />
                     <PreSize X="0.2353" Y="0.1471" />
                   </AbstractNodeData>
@@ -339,12 +339,12 @@
                     <FileData Type="Normal" Path="ui/button_skill_sdd.png" Plist="" />
                     <BlendFunc Src="1" Dst="771" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="FontLabel3" ActionTag="1653467343" Tag="58" IconVisible="False" LeftMargin="38.0000" RightMargin="40.0000" TopMargin="44.5000" BottomMargin="42.5000" LabelText="0:00" ctype="TextBMFontObjectData">
+                  <AbstractNodeData Name="time" ActionTag="1653467343" Tag="58" IconVisible="False" LeftMargin="38.0000" RightMargin="40.0000" TopMargin="44.5000" BottomMargin="42.5000" LabelText="0:00" ctype="TextBMFontObjectData">
                     <Size X="24.0000" Y="15.0000" />
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                     <Position X="50.0000" Y="50.0000" />
-                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                    <CColor A="255" R="0" G="249" B="255" />
+                    <Scale ScaleX="2.0000" ScaleY="2.0000" />
+                    <CColor A="255" R="255" G="0" B="0" />
                     <PrePosition X="0.4902" Y="0.4902" />
                     <PreSize X="0.2353" Y="0.1471" />
                   </AbstractNodeData>

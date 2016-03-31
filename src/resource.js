@@ -4,6 +4,7 @@ var res = {
     MainScene_json : "res/MainScene.json",
     Ruler_json:"res/Ruler.json",
     MenuView_1_json:"res/MenuView_1.json",
+    MenuView_2_json:"res/MenuView_2.json",
     MainMenu_json:"res/MainMenu.json",
     HeroInfoLayer_json : "res/HeroInfoLayer.json",
     MainScene_json : "res/MainScene.json",
@@ -55,6 +56,20 @@ var res = {
 	effect_soldier_001 : "res/effect/Effect_atk_warrior.ExportJson",
 	effect_soldier_002 : "res/effect/Effect_atk_warrior0.plist",
 	effect_soldier_003 : "res/effect/Effect_atk_warrior0.png",
+
+
+	effect_soldier_skill	 	: "res/effect/Effect_strike_warrior.ExportJson",
+	effect_soldier_skill_plist	: "res/effect/Effect_strike_warrior0.plist",
+	effect_soldier_skill_png	: "res/effect/Effect_strike_warrior0.png",
+	effect_master_skill	 		: "res/effect/Effect_strike_magister.ExportJson",
+	effect_master_skill_plist	: "res/effect/Effect_strike_magister0.plist",
+	effect_master_skill_png	    : "res/effect/Effect_strike_magister0.png",
+	effect_hunter_skill	     	: "res/effect/Effect_strike_hunter.ExportJson",
+	effect_hunter_skill_plist	: "res/effect/Effect_strike_hunter.plist",
+	effect_hunter_skill_png	    : "res/effect/Effect_strike_hunter.png",
+
+	skillCD_recovery_png 	: "res/ui/skillCD_recovery.png",
+	skillCD_release_png 	: "res/ui/skillCD_release.png",
 
 	Effect_nextmap			: "res/effect/Effect_nextmap.ExportJson",
 	Effect_nextmap0_plist	: "res/effect/Effect_nextmap0.plist",

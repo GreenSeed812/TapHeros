@@ -6,6 +6,7 @@ var MainMenu = cc.Layer.extend({
 	updateTime:0,
 	select_main_button:null,
 	Main_Button1:null,
+	Main_Button2:null,
 	ViewNode:null,
 	Text_MonsterName:null,
 	bosstime:null,
@@ -21,7 +22,12 @@ var MainMenu = cc.Layer.extend({
 	FontLabelAllDPS:null,
 	FontLabelTestDPS:null,
 	PageStage_bg:null,
+<<<<<<< HEAD
 	FontLabelLevel:null,
+=======
+
+	Skill_Button_List:[],
+>>>>>>> 8240084b99b45786a470bd5953e7eb272dd5190d
 	ctor:function(){
 		this._super();
 		MainMenu_root = this;
@@ -46,8 +52,20 @@ var MainMenu = cc.Layer.extend({
 
 		this.ViewNode = this.rootnode.getChildByName("ViewNode");
 
+		
+		
+		for (var i = 0; i < 3; i++) {
+			var skillIndex = i + 1;
+			this.Skill_Button_List[i] = ccui.helper.seekWidgetByName(this.rootnode, "ButtonSkill" + skillIndex);
+			this.Skill_Button_List[i].setTag(skillIndex);
+			this.Skill_Button_List[i].addTouchEventListener(this.skillMenuClick);
+		};
+
 		this.Main_Button1 = ccui.helper.seekWidgetByName(this.rootnode, "Main_Button1");
 		this.Main_Button1.addTouchEventListener(this.mainMenuClick);
+
+		this.Main_Button2 = ccui.helper.seekWidgetByName(this.rootnode, "Main_Button2");
+		this.Main_Button2.addTouchEventListener(this.mainMenuClick);
 
 		this.Button_Boss = ccui.helper.seekWidgetByName(this.rootnode, "Button_Boss");
 		this.Button_Boss.addTouchEventListener(this.onBossStateClick);
@@ -167,7 +185,61 @@ var MainMenu = cc.Layer.extend({
 			}
 		}
 		
+<<<<<<< HEAD
 		MainMenu_root.MonsterBlood.setString(GetShowNumFromArray(UserData.StageBlood));//血量更新
+=======
+		MainMenu_root.MonsterBlood.setString(GetShowNumFromArray(UserData.StageBlood));
+
+		// 主角技能释放CD
+		for (var i = 0; i < this.Skill_Button_List.length; i++) {
+			var button = this.Skill_Button_List[i];
+			var skillIndex = button.getTag();
+			var showTime = 0;
+
+			if (UserData.SkillCountdown[skillIndex] > 0) {
+
+				
+				var timetext = button.getChildByName("time");
+				var progress = button.getChildByName("progress");
+				
+				if (progress == null) {
+					
+					var progress = new cc.ProgressTimer(new cc.Sprite(res.skillCD_release_png));
+					progress.state = 0;			// 0 第一阶段 1 第二阶段
+					progress.setName("progress");
+					progress.type = cc.ProgressTimer.TYPE_RADIAL;
+					progress.setReverseDirection(true);
+					progress.setAnchorPoint(0, 0);
+					button.addChild(progress);
+					timetext.setVisible(true);
+				}
+				if (UserData.SkillCountdown[skillIndex] > PlayerData.Job[UserData.UserJobIndex].Skill[skillIndex].RecoveryCD) {
+					showTime = UserData.SkillCountdown[skillIndex] - PlayerData.Job[UserData.UserJobIndex].Skill[skillIndex].RecoveryCD;
+					progress.setPercentage( ( showTime / PlayerData.Job[UserData.UserJobIndex].Skill[skillIndex].ReleaseCD) * 100 );
+
+				} else {
+					showTime = UserData.SkillCountdown[skillIndex];
+					progress.setPercentage( (showTime / PlayerData.Job[UserData.UserJobIndex].Skill[skillIndex].RecoveryCD) * 100 );
+					if (progress.state == 0) {
+						progress.state = 1;
+						progress.setSprite(new cc.Sprite(res.skillCD_recovery_png));
+						var icon = button.getChildByName("icon");
+						icon.setColor(cc.color.GRAY);
+					}
+				}
+				UserData.SkillCountdown[skillIndex] -= dt;
+				timetext.setString(timeToString(showTime*1000, false));
+
+				if ( UserData.SkillCountdown[skillIndex] <= 0) {
+					UserData.SkillCountdown[skillIndex] = 0;
+					progress.removeFromParent(true);
+					timetext.setVisible(false);
+					var icon = button.getChildByName("icon");
+					icon.setColor(cc.color.WHITE);
+				}
+			}
+		}
+>>>>>>> 8240084b99b45786a470bd5953e7eb272dd5190d
 	},
 	setInformation : function () {
 		MainMenu_root.FontLabelDPS.setString(GetShowNumFromArray(UserData.HeroDPS));
@@ -204,6 +276,10 @@ var MainMenu = cc.Layer.extend({
 
 			if (this.m_boss_state == 1)
 			{
+<<<<<<< HEAD
+=======
+				
+>>>>>>> 8240084b99b45786a470bd5953e7eb272dd5190d
 				this.Button_Boss.loadTextures(res.button_lktz_n, res.button_lktz_s, res.button_lktz_n);
 				this.Button_Boss.setVisible(true);
 				this.LoadingBar_Boss.setVisible(true);
@@ -248,9 +324,28 @@ var MainMenu = cc.Layer.extend({
 				MenuView_1_root.setVisible(false); //默认为true 节点可见
 				MenuView_1_root.y = -500;
 			}
+			if(MainMenu_root.select_main_button.getName() == MainMenu_root.Main_Button2.getName())
+			{
+				MenuView_2_root.setVisible(false);
+				MenuView_2_root.y = -500;
+			}
 			MainMenu_root.select_main_button.setBright(true);//设置true则控件是高亮的，否则设置false。
 			MainMenu_root.select_main_button.setEnabled(true);//true 菜单响应点击，false 菜单不响应点击。
 			MainMenu_root.select_main_button = null;
+		}
+	},
+	skillMenuClick:function(sender,type){
+		
+		if (type == ccui.Widget.TOUCH_ENDED) {
+
+			var skillIndex = sender.getTag();
+
+			if (UserData.SkillCountdown[skillIndex] == 0) {
+				console.log("a111");
+				UserData.SkillCountdown[skillIndex] = PlayerData.Job[UserData.UserJobIndex].Skill[skillIndex].ReleaseCD + PlayerData.Job[UserData.UserJobIndex].Skill[skillIndex].RecoveryCD;
+				console.log("a222");
+				BattleLayer_root.PlaySkillEffect(skillIndex);
+			}
 		}
 	},
 
@@ -276,6 +371,25 @@ var MainMenu = cc.Layer.extend({
 				sender.setBright(false);
 				sender.setEnabled(false);
 			}
+			
+			if(sender.getName() == MainMenu_root.Main_Button2.getName())
+			{
+				if (MenuView_2_root == null) {
+					console.log("if1");
+					node = new MenuView_2();
+					console.log("if2");
+					MainMenu_root.ViewNode.addChild(node);
+					
+				} else {
+					console.log("else");
+					node = MenuView_2_root;
+					node.requestRefreshView();
+					
+				}
+				sender.setBright(false);
+				sender.setEnabled(false);
+			}
+			
 			node.setVisible(true);
 			node.y = -500;
 			node.runAction(cc.moveTo(0.1, cc.p(0, 0)));

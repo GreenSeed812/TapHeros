@@ -443,6 +443,8 @@
             "ColorVector": {
               "ScaleY": 1.0
             },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
             "AnchorPoint": {},
             "Position": {
               "X": 0.0,
@@ -465,12 +467,66 @@
             "TopMargin": 1.9705,
             "BottomMargin": 0.0295,
             "Tag": 71,
+            "Children": [
+              {
+                "FontSize": 20,
+                "LabelText": "Text Label",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 326.7412,
+                  "Y": 739.3738
+                },
+                "Scale": {
+                  "ScaleX": 3.7485,
+                  "ScaleY": 7.559
+                },
+                "CColor": {
+                  "R": 97,
+                  "G": 30,
+                  "B": 97
+                },
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5105,
+                  "Y": 0.652
+                },
+                "PreSize": {
+                  "X": 0.1563,
+                  "Y": 0.0176
+                },
+                "LeftMargin": 276.7412,
+                "RightMargin": 263.2588,
+                "TopMargin": 384.6262,
+                "BottomMargin": 729.3738,
+                "Tag": 29,
+                "ActionTag": -334039474,
+                "Size": {
+                  "X": 100.0,
+                  "Y": 20.0
+                },
+                "Name": "Text_1",
+                "ctype": "TextObjectData"
+              }
+            ],
             "ActionTag": 1323073161,
             "Size": {
               "X": 640.0,
               "Y": 1134.0
             },
-            "VisibleForFrame": false,
             "Name": "zhezhao",
             "ctype": "PanelObjectData"
           }

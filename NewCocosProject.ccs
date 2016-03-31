@@ -220,8 +220,6 @@
           <Image Name="button_shezhi_s.png" />
           <Image Name="button_skill.png" />
           <Image Name="button_skill_sdd.png" />
-          <Image Name="button_tzboss_n.png" />
-          <Image Name="button_tzboss_s.png" />
           <Image Name="button_yinxion_n.png" />
           <Image Name="button_yinxion_s.png" />
           <Image Name="button_yongbin_n.png" />
@@ -252,6 +250,7 @@
         <Project Name="MainMenu.csd" Type="Layer" />
         <Project Name="MainScene.csd" Type="Scene" />
         <Project Name="MenuView_1.csd" Type="Layer" />
+        <Project Name="MenuView_2.csd" Type="Layer" />
         <ExportJsonFile Name="monster_01.ExportJson" />
         <Project Name="SettingLayer.csd" Type="Layer" />
         <Project Name="StartLayer.csd" Type="Layer" />

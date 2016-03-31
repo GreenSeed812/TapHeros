@@ -1203,12 +1203,12 @@
                       "Y": 50.0
                     },
                     "Scale": {
-                      "ScaleX": 1.0,
-                      "ScaleY": 1.0
+                      "ScaleX": 2.0,
+                      "ScaleY": 2.0
                     },
                     "CColor": {
-                      "R": 0,
-                      "G": 249
+                      "G": 0,
+                      "B": 0
                     },
                     "IconVisible": false,
                     "PrePosition": {
@@ -1229,7 +1229,7 @@
                       "X": 24.0,
                       "Y": 15.0
                     },
-                    "Name": "FontLabel1",
+                    "Name": "time",
                     "ctype": "TextBMFontObjectData"
                   }
                 ],
@@ -1363,12 +1363,12 @@
                       "Y": 50.0
                     },
                     "Scale": {
-                      "ScaleX": 1.0,
-                      "ScaleY": 1.0
+                      "ScaleX": 2.0,
+                      "ScaleY": 2.0
                     },
                     "CColor": {
-                      "R": 0,
-                      "G": 249
+                      "G": 0,
+                      "B": 0
                     },
                     "IconVisible": false,
                     "PrePosition": {
@@ -1389,7 +1389,7 @@
                       "X": 24.0,
                       "Y": 15.0
                     },
-                    "Name": "FontLabel2",
+                    "Name": "time",
                     "ctype": "TextBMFontObjectData"
                   }
                 ],
@@ -1523,12 +1523,12 @@
                       "Y": 50.0
                     },
                     "Scale": {
-                      "ScaleX": 1.0,
-                      "ScaleY": 1.0
+                      "ScaleX": 2.0,
+                      "ScaleY": 2.0
                     },
                     "CColor": {
-                      "R": 0,
-                      "G": 249
+                      "G": 0,
+                      "B": 0
                     },
                     "IconVisible": false,
                     "PrePosition": {
@@ -1549,7 +1549,7 @@
                       "X": 24.0,
                       "Y": 15.0
                     },
-                    "Name": "FontLabel3",
+                    "Name": "time",
                     "ctype": "TextBMFontObjectData"
                   }
                 ],

@@ -1,23 +1,41 @@
 var MenuView_2_root = null;
-
 var MenuView_2 = cc.Layer.extend({
 	rootnode:null,
-	btn : null,
+	Total_Sheli:null,
+	DPS_UpRate:null,
 	ctor:function(){
 		this._super();
 		MenuView_2_root = this;
+		this.rootnode = ccs.load(res.MenuView_2_json).node;
+		this.addChild(this.rootnode);
 
-		MenuView_2_root.rootnode = ccs.load(res.MenuView_2_json).node;
-		MenuView_2_root.addChild(MenuView_2_root.rootnode);
+		ccui.helper.seekWidgetByName(this.rootnode, "button_close").addTouchEventListener(this.onCloseClick);
+		//ccui.helper.seekWidgetByName(this.rootnode, "Button_RandomArtifact").addTouchEventListener(this.touchButton);
 
-		this.btn = MenuView_2_root.rootnode.getChildByName("closeButton");
-		this.btn.addTouchEventListener(this.onCloseClick);
-
+		this.Total_Sheli = ccui.helper.seekWidgetByName(this.rootnode, "Total_Sheli");
+		this.DPS_UpRate = ccui.helper.seekWidgetByName(this.rootnode, "DPS_UpRate");
+		this.ListView = ccui.helper.seekWidgetByName(this.rootnode, "ListView");
+		//this.createCells();
+		//this.setInformation();
 		return true;
 	},
-	onCloseClick:function(sender, type){
-
-		MenuView_1_root.rootnode.setPosition(cc.p(0, -500));
-		//console.log("fksdlfsdlfksdg");	
+	requestRefreshView : function () {
+		/*for (var index = 0; index < Artifact.length; index++) 
+		{
+			var level = UserData.ArtifactLevel[index];
+			if(level >= 0) {
+				this.updateCell(index);
+			}
+		}
+		this.setInformation();*/
+	},
+	onCloseClick:function(sender,type){
+		switch(type){
+		case ccui.Widget.TOUCH_ENDED:
+			MainMenu_root.mainMenuReset();
+			break;
+		default:
+			break;
+		}
 	}
 });

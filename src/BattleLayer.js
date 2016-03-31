@@ -43,6 +43,7 @@ var BattleLayer = cc.Layer.extend({
         this.Panel_Money = ccui.helper.seekWidgetByName(this.rootnode, "Panel_Money");
 
         this.zhezhao = this.rootnode.getChildByName("zhezhao");
+        this.zhezhao.setVisible(false);
 
         this.DestPos.x = this.BattlePanel.x;
         this.DestPos.y = this.BattlePanel.y;
@@ -63,7 +64,12 @@ var BattleLayer = cc.Layer.extend({
         this.DestJsonNode = ccs.load(Spec.StageSpec[index][1]).node;
         this.DestJsonNode.setAnchorPoint(0.5,0.5);
         this.DestJsonNode.setOpacity(0);//设置透明度
+<<<<<<< HEAD
         this.DestJsonNode.runAction(cc.fadeIn(1));
+=======
+        console.log("jfsdf");
+        this.DestJsonNode.runAction(cc.fadeIn(0.5));
+>>>>>>> 8240084b99b45786a470bd5953e7eb272dd5190d
         this.DestNode.addChild(this.DestJsonNode);
     },
     NextScene : function () {
@@ -79,22 +85,43 @@ var BattleLayer = cc.Layer.extend({
         if (stateName != Spec.StageSpec[UserData.StageIndex][0]) {
             if (this.DestJsonNode) {
 
-                //this.DestJsonNode.runAction(cc.fadeOut(1.0));
+                
 
-                /*this.DestNode.removeChild(this.DestJsonNode);
-                this.DestJsonNode = null;*/
-
-                {
+                /*{
                     var action = cc.sequence(
                     cc.spawn(
-                            cc.fadeOut(0.3)),
-                            cc.callFunc(this.fadeOutCallback, this,this.DestJsonNode));
+                            cc.fadeOut(0.8)),
+                            cc.callFunc(this.fadeOutCallback2, this,this.DestJsonNode));
                     this.DestJsonNode.runAction(action);
-                }
+                }*/
+
+                this.DestNode.removeChild(this.DestJsonNode);
+                this.DestJsonNode = null;
+
                 {
+                    this.zhezhao.setVisible(true);
                     this.zhezhao.setOpacity(0);//设置透明度
-                    this.zhezhao.runAction(cc.fadeIn(1));
+
+                    var action2 = cc.sequence(cc.spawn(cc.fadeIn(0.8)),cc.callFunc(this.fadeOutCallback, this,this.zhezhao),cc.spawn(cc.fadeOut(0.8)));
+                   this.zhezhao.runAction(action2);
+                   console.log("1111567111");
+
+                    
+                    //this.zhezhao.runAction(cc.fadeIn(1));
                 }
+
+                /*{
+                    this.zhezhao.setVisible(true);
+                    this.zhezhao.setOpacity(0);//设置透明度
+
+                    //var action2 = cc.sequence(cc.spawn(cc.fadeIn(0.8)),cc.callFunc(this.fadeOutCallback, this,this.zhezhao),cc.spawn(cc.fadeOut(0.8)));
+                   this.zhezhao.runAction(cc.fadeIn(0.8));
+                   console.log("1111567111");
+                   this.DestNode.removeChild(this.DestJsonNode);
+                    this.DestJsonNode = null;
+                    this.zhezhao.runAction(cc.fadeOut(0.8));
+                    //this.zhezhao.runAction(cc.fadeIn(1));
+                }*/
                 //this.fadeOutCallback();
 
            }
@@ -339,6 +366,62 @@ var BattleLayer = cc.Layer.extend({
             AtkEffect.getAnimation().setMovementEventCallFunc(this.AnimationEventAtkEffect);
         }   
     },
+    PlaySkillEffect : function (skillIndex) {
+
+        if(skillIndex == 1)
+        {
+            ccs.armatureDataManager.addArmatureFileInfo(res.effect_soldier_skill);
+            var effect = new ccs.Armature("Effect_strike_warrior");
+        }
+        else if(skillIndex == 2)
+        {
+            ccs.armatureDataManager.addArmatureFileInfo(res.effect_master_skill);
+            var effect = new ccs.Armature("Effect_strike_magister");
+        }
+        else if(skillIndex == 3)
+        {
+            ccs.armatureDataManager.addArmatureFileInfo(res.effect_hunter_skill);
+            var effect = new ccs.Armature("Effect_strike_hunter");
+        }
+        
+        
+        
+        
+    
+
+
+        var offY = this.Armature.height * this.Armature.getScale() * 0.4;
+        effect.y += offY;
+        effect.setScale(2);
+        effect.getAnimation().play("Play");
+
+        effect.getAnimation().setMovementEventCallFunc(this.AnimationEvent);
+
+        var action = cc.sequence(
+                    cc.spawn(
+                            cc.delayTime(0.8)),
+                            cc.callFunc(this.Shake, this));
+        effect.runAction(action);
+
+        this.MonsterNode.addChild(effect);
+        
+    },
+    Shake : function () {
+        
+        /*var x = this.DestPos.x;
+        var y = this.DestPos.y;
+        var tempArray = [];
+        for (var i = 0; i < 20; i++) {
+
+            var rX = GetRandomNum(-10, 10);
+            var rY = GetRandomNum(-10, 10);
+            tempArray.push(cc.moveTo(0.02, cc.p(x + rX, y + rY)));
+        };
+
+        tempArray.push(cc.moveTo(0, cc.p(x, y)));
+        var shake = cc.sequence( tempArray );
+        this.Dest.runAction(shake);*/
+    },
     AnimationEventAtkEffect:function (armature, movementType, movementID) {
         
         if (movementType == ccs.MovementEventType.start) {
@@ -352,8 +435,17 @@ var BattleLayer = cc.Layer.extend({
         }
     },
     fadeOutCallback:function () {
+        /*this.DestNode.removeChild(this.DestJsonNode);
+        this.DestJsonNode = null;
+        console.log("1111111");*/
+     },
+     fadeOutCallback2:function () {
         this.DestNode.removeChild(this.DestJsonNode);
         this.DestJsonNode = null;
+<<<<<<< HEAD
+=======
+        
+>>>>>>> 8240084b99b45786a470bd5953e7eb272dd5190d
      },
     InGapTime:function () {
         return this.GapTime;
