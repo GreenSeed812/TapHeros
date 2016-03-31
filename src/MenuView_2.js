@@ -19,6 +19,16 @@ var MenuView_2 = cc.Layer.extend({
 		//this.setInformation();
 		return true;
 	},
+	requestRefreshView : function () {
+		/*for (var index = 0; index < Artifact.length; index++) 
+		{
+			var level = UserData.ArtifactLevel[index];
+			if(level >= 0) {
+				this.updateCell(index);
+			}
+		}
+		this.setInformation();*/
+	},
 	onCloseClick:function(sender,type){
 		switch(type){
 		case ccui.Widget.TOUCH_ENDED:

@@ -250,10 +250,10 @@
         <Project Name="MainMenu.csd" Type="Layer" />
         <Project Name="MainScene.csd" Type="Scene" />
         <Project Name="MenuView_1.csd" Type="Layer" />
+        <Project Name="MenuView_2.csd" Type="Layer" />
         <ExportJsonFile Name="monster_01.ExportJson" />
         <Project Name="SettingLayer.csd" Type="Layer" />
         <Project Name="StartLayer.csd" Type="Layer" />
-        <Project Name="MenuView_2.csd" Type="Layer" />
       </RootFolder>
     </Group>
   </SolutionFolder>

@@ -15,8 +15,57 @@
         "Tag": 67,
         "Children": [
           {
+            "ClipAble": false,
+            "BackColorAlpha": 102,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2.2646,
+              "Y": -1.942
+            },
+            "Scale": {
+              "ScaleX": 0.9836,
+              "ScaleY": 0.4621
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0035,
+              "Y": -0.0017
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 0.9982
+            },
+            "LeftMargin": 2.2646,
+            "RightMargin": -2.2646,
+            "TopMargin": 3.942,
+            "BottomMargin": -1.942,
+            "Tag": 29,
+            "ActionTag": 1600020969,
+            "Size": {
+              "X": 640.0,
+              "Y": 1134.0
+            },
+            "Name": "zhezhaodianji",
+            "ctype": "PanelObjectData"
+          },
+          {
             "FontSize": 14,
-            "ButtonText": "Button",
+            "ButtonText": "",
             "TextColor": {
               "R": 65,
               "G": 65,
@@ -59,7 +108,7 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 586.0,
+              "X": 585.9998,
               "Y": 544.0
             },
             "Scale": {
@@ -76,8 +125,8 @@
               "X": 0.1469,
               "Y": 0.0493
             },
-            "LeftMargin": 539.0,
-            "RightMargin": 7.0,
+            "LeftMargin": 538.9998,
+            "RightMargin": 7.0002,
             "TopMargin": 564.0,
             "BottomMargin": 516.0,
             "Tag": 78,
@@ -150,6 +199,8 @@
             "ColorVector": {
               "ScaleY": 1.0
             },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
@@ -191,6 +242,8 @@
                 "ColorVector": {
                   "ScaleY": 1.0
                 },
+                "Scale9Width": 1,
+                "Scale9Height": 1,
                 "TouchEnable": true,
                 "AnchorPoint": {},
                 "Position": {

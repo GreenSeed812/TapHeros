@@ -191,12 +191,12 @@ var MainMenu = cc.Layer.extend({
 
 			if (UserData.SkillCountdown[skillIndex] > 0) {
 
-				console.log("a333");
+				
 				var timetext = button.getChildByName("time");
 				var progress = button.getChildByName("progress");
 				
 				if (progress == null) {
-					console.log("a444");
+					
 					var progress = new cc.ProgressTimer(new cc.Sprite(res.skillCD_release_png));
 					progress.state = 0;			// 0 第一阶段 1 第二阶段
 					progress.setName("progress");

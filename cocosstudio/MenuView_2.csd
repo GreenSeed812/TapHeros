@@ -6,10 +6,23 @@
       <ObjectData Name="Layer" Tag="67" ctype="GameLayerObjectData">
         <Size X="640.0000" Y="1136.0000" />
         <Children>
-          <AbstractNodeData Name="button_close" ActionTag="1624065405" Tag="78" IconVisible="False" LeftMargin="539.0000" RightMargin="7.0000" TopMargin="564.0000" BottomMargin="516.0000" TouchEnable="True" FontSize="14" ButtonText="Button" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="64" Scale9Height="34" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="zhezhaodianji" ActionTag="1600020969" Tag="29" IconVisible="False" LeftMargin="2.2646" RightMargin="-2.2646" TopMargin="3.9420" BottomMargin="-1.9420" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ComboBoxIndex="1" ColorAngle="90.0000" ctype="PanelObjectData">
+            <Size X="640.0000" Y="1134.0000" />
+            <AnchorPoint />
+            <Position X="2.2646" Y="-1.9420" />
+            <Scale ScaleX="0.9836" ScaleY="0.4621" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.0035" Y="-0.0017" />
+            <PreSize X="1.0000" Y="0.9982" />
+            <SingleColor A="255" R="150" G="200" B="255" />
+            <FirstColor A="255" R="150" G="200" B="255" />
+            <EndColor A="255" R="255" G="255" B="255" />
+            <ColorVector ScaleY="1.0000" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="button_close" ActionTag="1624065405" Tag="78" IconVisible="False" LeftMargin="538.9998" RightMargin="7.0002" TopMargin="564.0000" BottomMargin="516.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="64" Scale9Height="34" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="94.0000" Y="56.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="586.0000" Y="544.0000" />
+            <Position X="585.9998" Y="544.0000" />
             <Scale ScaleX="0.9371" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.9156" Y="0.4789" />
@@ -32,10 +45,10 @@
             <FileData Type="Normal" Path="ui/bg_tkuang.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="ListView" ActionTag="1622182553" Tag="136" IconVisible="False" LeftMargin="21.0000" RightMargin="13.0000" TopMargin="691.0000" BottomMargin="65.0000" TouchEnable="True" ClipAble="True" BackColorAlpha="102" ColorAngle="90.0000" IsBounceEnabled="True" ScrollDirectionType="0" DirectionType="Vertical" ctype="ListViewObjectData">
+          <AbstractNodeData Name="ListView" ActionTag="1622182553" Tag="136" IconVisible="False" LeftMargin="21.0000" RightMargin="13.0000" TopMargin="691.0000" BottomMargin="65.0000" TouchEnable="True" ClipAble="True" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" IsBounceEnabled="True" ScrollDirectionType="0" DirectionType="Vertical" ctype="ListViewObjectData">
             <Size X="606.0000" Y="380.0000" />
             <Children>
-              <AbstractNodeData Name="Panel_1" ActionTag="1287459837" Tag="159" IconVisible="False" BottomMargin="270.0000" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" ctype="PanelObjectData">
+              <AbstractNodeData Name="Panel_1" ActionTag="1287459837" Tag="159" IconVisible="False" BottomMargin="270.0000" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
                 <Size X="606.0000" Y="110.0000" />
                 <Children>
                   <AbstractNodeData Name="Image_3" ActionTag="303685845" Tag="555" IconVisible="False" LeftMargin="-1.0000" RightMargin="9.0000" LeftEage="197" RightEage="197" TopEage="36" BottomEage="36" Scale9OriginX="197" Scale9OriginY="36" Scale9Width="204" Scale9Height="38" ctype="ImageViewObjectData">
