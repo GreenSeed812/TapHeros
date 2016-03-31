@@ -659,6 +659,81 @@
             },
             "Name": "PanelImage",
             "ctype": "PanelObjectData"
+          },
+          {
+            "FontSize": 24,
+            "ButtonText": "强 化",
+            "TextColor": {
+              "R": 0,
+              "G": 0,
+              "B": 0
+            },
+            "DisabledFileData": {
+              "Type": "Default",
+              "Path": "Default/Button_Disable.png",
+              "Plist": ""
+            },
+            "PressedFileData": {
+              "Type": "Default",
+              "Path": "Default/Button_Press.png",
+              "Plist": ""
+            },
+            "NormalFileData": {
+              "Type": "Default",
+              "Path": "Default/Button_Normal.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 16,
+            "Scale9Height": 14,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 320.0,
+              "Y": 120.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.1056
+            },
+            "PreSize": {
+              "X": 0.125,
+              "Y": 0.044
+            },
+            "LeftMargin": 280.0,
+            "RightMargin": 280.0,
+            "TopMargin": 991.0,
+            "BottomMargin": 95.0,
+            "Tag": 74,
+            "ActionTag": -1868635750,
+            "Size": {
+              "X": 80.0,
+              "Y": 50.0
+            },
+            "Name": "ButtonReincarnation",
+            "ctype": "ButtonObjectData"
           }
         ],
         "Size": {
@@ -669,6 +744,9 @@
         "ctype": "LayerObjectData"
       },
       "UsedResources": [
+        "Default/Button_Disable.png",
+        "Default/Button_Normal.png",
+        "Default/Button_Press.png",
         "icon/icon_hero_1.png",
         "ui/info_bg_xiangx.png",
         "ui/info_bg_xinxitiao_3.png",

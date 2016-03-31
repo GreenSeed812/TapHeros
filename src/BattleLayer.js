@@ -8,6 +8,7 @@ var BattleLayer = cc.Layer.extend({
     GapTime:false,
     MonsterName:"",
     MonsterScale:0.8,
+    BossMonsterScale:1.0,
     DestJsonNode:null,
     AtkEffects:[],//
     Armature:null,//
@@ -62,7 +63,6 @@ var BattleLayer = cc.Layer.extend({
         this.DestJsonNode = ccs.load(Spec.StageSpec[index][1]).node;
         this.DestJsonNode.setAnchorPoint(0.5,0.5);
         this.DestJsonNode.setOpacity(0);//设置透明度
-        console.log("jfsdf");
         this.DestJsonNode.runAction(cc.fadeIn(1));
         this.DestNode.addChild(this.DestJsonNode);
     },
@@ -71,7 +71,7 @@ var BattleLayer = cc.Layer.extend({
 
         UserData.StageIndex += 1;
         UserData.EnemyIndex = 1;
-        //MainMenu_root.UpdateStage("update");
+        MainMenu_root.UpdateStage("update");
         if( UserData.StageIndex>=16)
         {
             UserData.StageIndex = 0;
@@ -121,7 +121,6 @@ var BattleLayer = cc.Layer.extend({
                     {
                         BattleLayer_root.mExitTime = timestamp;
                         // 暴击
-                        //UserData.TapAttackTemp = [0,100];//UserData.TapAttack;
     
                         BattleLayer_root.Armature.getAnimation().play("Hurt");
 
@@ -149,7 +148,6 @@ var BattleLayer = cc.Layer.extend({
                 this.Armature.getAnimation().play("Leave");
                 BattleLayer_root.DropCoin([1,1,1]);
                 //BattleLayer_root.DropCoin(Spec.StageSpec[UserData.StageIndex].drop, 5);
-
             };
         } 
         else
@@ -175,7 +173,14 @@ var BattleLayer = cc.Layer.extend({
             ccs.armatureDataManager.addArmatureFileInfo(Spec.MonsterSpec[index][0]);
             this.Armature = new ccs.Armature(Spec.MonsterSpec[index][1]);
             this.Armature.getAnimation().play("Start");
-            this.Armature.setScale(this.MonsterScale);
+            if(UserData.EnemyIndex < UserData.getBossInterval())
+            {
+                this.Armature.setScale(this.MonsterScale);
+            }
+            if(UserData.EnemyIndex == UserData.getBossInterval())
+            {
+                this.Armature.setScale(this.BossMonsterScale);
+            }
             this.MonsterNode.addChild(this.Armature);
             this.Armature.getAnimation().setMovementEventCallFunc(this.AnimationEvent);
 
@@ -287,8 +292,7 @@ var BattleLayer = cc.Layer.extend({
     onCallback:function (nodeExecutingAction, value) {
         if (value.showNum != undefined) {
             UserData.UserMoney = ArraySumArray(UserData.UserMoney, value.showNum);  
-            BattleLayer_root.Money.setString(GetShowNumFromArray(UserData.UserMoney));
-
+            BattleLayer_root.Money.setString(GetShowNumFromArray(UserData.UserMoney));//显示金币数
             BattleLayer_root.MoneyImage.setScale(1.2);
             BattleLayer_root.MoneyImage.runAction(cc.scaleTo(0.1,1));
 
@@ -332,8 +336,7 @@ var BattleLayer = cc.Layer.extend({
             AtkEffect.setVisible(false);
             this.AtkEffects.push(AtkEffect);
             this.addChild(AtkEffect);
-            AtkEffect.getAnimation().setMovementEventCallFunc(this.AnimationEventAtkEffect)
-
+            AtkEffect.getAnimation().setMovementEventCallFunc(this.AnimationEventAtkEffect);
         }   
     },
     AnimationEventAtkEffect:function (armature, movementType, movementID) {
@@ -351,11 +354,8 @@ var BattleLayer = cc.Layer.extend({
     fadeOutCallback:function () {
         this.DestNode.removeChild(this.DestJsonNode);
         this.DestJsonNode = null;
-        console.log("1111111");
      },
     InGapTime:function () {
         return this.GapTime;
-    },
-
-    
+    },  
 });

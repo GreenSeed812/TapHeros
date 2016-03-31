@@ -4,7 +4,6 @@ var MenuView_1 = cc.Layer.extend({
 	rootnode:null,
 	CloseButton : null,
 	ListView:null,
-	TotalMoney :null,
 	ctor:function(){
 		this._super();
 		MenuView_1_root = this;
@@ -13,7 +12,6 @@ var MenuView_1 = cc.Layer.extend({
 		this.addChild(this.rootnode);
 
 		this.ListView = ccui.helper.seekWidgetByName(MenuView_1_root.rootnode, "ListView");
-		MenuView_1_root.TotalMoney = ccui.helper.seekWidgetByName(MenuView_1_root.rootnode, "TotalMoney");
 		this.CloseButton = MenuView_1_root.rootnode.getChildByName("CloseButton");
 		this.CloseButton.addTouchEventListener(this.onCloseClick);
 
@@ -34,14 +32,13 @@ var MenuView_1 = cc.Layer.extend({
 		this.setInformation();
 	},
 	setInformation:function(){
-		MenuView_1_root.TotalMoney.setString(GetShowNumFromArray(UserData.UserMoney));
+		//MenuView_1_root.TotalMoney.setString(GetShowNumFromArray(UserData.UserMoney));
 	},
 	updateCell:function(index) {
 		
 		var viewCell = MenuView_1_root.ListView.getItem(index);
 
 		var LV_Num = viewCell.getChildByName("LV_Num");
-		console.log("dlfjsldk");
 		var Desc = viewCell.getChildByName("Desc");
 		if (viewCell.getName() == "Player") 
 		{
@@ -74,20 +71,17 @@ var MenuView_1 = cc.Layer.extend({
 			custom_item.setName("Helper");
 		}
 
-		// Create the bg_tiao
+		//创建背景条
 		var cellBg = new cc.Sprite(res.bg_tiao_png);
-		
 		cellBg.x = cellBg.getContentSize().width * 0.5;
 		cellBg.y = cellBg.getContentSize().height * 0.5;
-		
 		custom_item.setContentSize(cellBg.getContentSize());
 		custom_item.addChild(cellBg);
 
-		// Create the hero icon
+		//创建头像按钮 添加监听事件
 		var heroIconbutton = new ccui.Button();
 		heroIconbutton.setName("heroIconbutton");
 		heroIconbutton.setTouchEnabled(true);
-		heroIconbutton.loadTextures(res.icon_hero_1, res.icon_hero_1, res.icon_hero_1);
 		heroIconbutton.loadTextures(res.icon_hero_1, res.icon_hero_1, res.icon_hero_1);
 		heroIconbutton.x = 74;
 		heroIconbutton.y = 60
@@ -95,21 +89,22 @@ var MenuView_1 = cc.Layer.extend({
 		heroIconbutton.setTag(index);
 		custom_item.addChild(heroIconbutton);
 
-		// Create the hero biaoshi
+		//创建主角信息显示
 		if (index == 0) 
 		{
+			//名字
 			//UserData.NickName = "fjskd";
 			var CellName = new cc.LabelTTF(UserData.NickName, res.TTF_超粗黑, 16);
 			CellName.setAnchorPoint(0, 0);
 			CellName.x = 120;
 			CellName.y = 74;
-
+			//等级
 			var Level = new cc.LabelTTF("LV:", res.TTF_超粗黑, 16);
 			Level.setColor(cc.color(0, 255, 255));
 			Level.setAnchorPoint(0, 0);
 			Level.x = 220;
 			Level.y = 74;
-
+			
 			var LV_Num = new cc.LabelTTF(UserData.UserLevel, res.TTF_超粗黑, 16);
 			LV_Num.setName("LV_Num");
 			LV_Num.setColor(cc.color(0, 255, 255));
@@ -117,11 +112,11 @@ var MenuView_1 = cc.Layer.extend({
 			LV_Num.x = 260;
 			LV_Num.y = 74;
 
-			
+			//点击伤害
 			var Title = new cc.LabelTTF("DMG", res.TTF_超粗黑, 16);
 			Title.setAnchorPoint(0, 0);
 			Title.x = 330;
-			Title.y = 74
+			Title.y = 74;
 			
 			var Desc = new cc.LabelTTF(GetShowNumFromArray(UserData.TapAttack), res.TTF_正粗黑, 16);
 			Desc.setName("Desc");
@@ -131,42 +126,45 @@ var MenuView_1 = cc.Layer.extend({
 			Desc.y = 74;
 		}
 		else
-		{
+		{	//创建辅助英雄信息
+
+			var heroData = HeroData[index];
 			var HeroLevel = UserData.HeroLevel[index];
 			HeroLevel = 0;
 			if (HeroLevel == 0)
 			{
-				heroIconbutton.setColor(cc.color.GRAY);
+				console.log("1244365675");
+				heroIconbutton.setColor(cc.color.GRAY);//未解锁时为灰色
 				var newIcon = new cc.Sprite(res.icon_new_png);
 				newIcon.setName("newIcon");
 				newIcon.x = 280;
 				newIcon.y = 50;
 				custom_item.addChild(newIcon);
 			}
-
-			var CellName = new cc.LabelTTF("NickName", res.TTF_超粗黑, 16);
+			//名字
+			var CellName = new cc.LabelTTF(heroData.Name, res.TTF_超粗黑, 16);
 			CellName.setAnchorPoint(0, 0);
 			CellName.x = 120;
 			CellName.y = 74;
-
+			//等级
 			var Level = new cc.LabelTTF("LV:", res.TTF_超粗黑, 16);
 			Level.setColor(cc.color(0, 255, 255));
 			Level.setAnchorPoint(0, 0);
 			Level.x = 220;
 			Level.y = 74;
 
-			var LV_Num = new cc.LabelTTF(0, res.TTF_超粗黑, 16);
+			var LV_Num = new cc.LabelTTF(HeroLevel, res.TTF_超粗黑, 16);
 			LV_Num.setName("LV_Num");
 			LV_Num.setColor(cc.color(0, 255, 255));
 			LV_Num.setAnchorPoint(0, 0);
 			LV_Num.x = 260;
 			LV_Num.y = 74;
 			LV_Num.setString(HeroLevel);
-			
+			//DPS
 			var Title = new cc.LabelTTF("DPS", res.TTF_超粗黑, 16);
 			Title.setAnchorPoint(0, 0);
 			Title.x = 330;
-			Title.y = 74
+			Title.y = 74;
 			
 			var Desc = new cc.LabelTTF(GetShowNumFromArray(UserData.HeroDPS), res.TTF_正粗黑, 16);
 			Desc.setName("Desc");
@@ -176,7 +174,7 @@ var MenuView_1 = cc.Layer.extend({
 			Desc.y = 74;
 		}
 
-		// Create the button
+		//创建按钮
 		var buttonNode = new cc.Node();
 		buttonNode.setName("buttonNode");
 
@@ -281,13 +279,13 @@ var MenuView_1 = cc.Layer.extend({
 				HeroLevel = 0;
 				if(HeroLevel==0)
 				{
-					//console.log("fjsdl");
 					button.loadTextures(res.button_lvup_d_png, res.button_lvup_d_png, res.button_lvup_d_png);
-					//MenuView_1_root.button.setEnabled(true);
+					button.setEnabled(false);
 				}
 				else
 				{
 					button.loadTextures(res.button_lvup_n_png, res.button_lvup_s_png, res.button_lvup_n_png);
+					button.setEnabled(true);
 				}
 			}
 			button.x = 500;
@@ -325,7 +323,6 @@ var MenuView_1 = cc.Layer.extend({
 			buttonTextNode.addChild(Money_Up);
 		}
 
-
 		if(buttonNode){
 			custom_item.addChild(buttonNode);
 		}
@@ -348,7 +345,7 @@ var MenuView_1 = cc.Layer.extend({
 		MenuView_1_root.ListView.insertCustomItem(custom_item, index);
 	},
 	createCells:function(){
-		for(var index = 0; index < 10; index++) 
+		for(var index = 0; index < 4; index++) 
 		{
 			MenuView_1_root.createCell(index);
 		}
@@ -361,8 +358,12 @@ var MenuView_1 = cc.Layer.extend({
 			if (index == 0) 
 			{
 				MainScene_root.pushLayer(new HeroInfoLayer());
-				//HeroInfoLayer_root.setHeroDate(PlayerData, UserData.UserLevel, index);
+				HeroInfoLayer_root.setHeroDate(PlayerData, UserData.UserLevel, index);
 			}
+			else
+			{
+				MainScene_root.pushLayer(new HeroInfoLayer());
+			}	
 			break;
 		}
 	},
@@ -383,10 +384,19 @@ var MenuView_1 = cc.Layer.extend({
 			} else if (sender.getName() == "button100") {
 				upNum = 100;
 			} else if(sender.getName() == "button"){
-				//if(MenuView_1_root.TotalMoney>=MenuView_1_root)
-				//{	
+					
 					upNum = 1;
-				//}
+					var index = sender.getTag();
+					console.log("999999");
+					if(index == 0)
+					{
+
+					}
+					else
+					{
+						/*button.loadTextures(res.button_lvup_n_png, res.button_lvup_s_png, res.button_lvup_n_png);
+						button.setEnabled(true);*/
+					}
 			}
 			var index = sender.getTag();
 			 {
@@ -400,6 +410,8 @@ var MenuView_1 = cc.Layer.extend({
 				{
 					upNum = upNum+1;
 					UserData.HeroLevel[index] += upNum;
+					//var herolevel = UserData.HeroLevel[index];
+				
 				}
 				
 				MenuView_1_root.updateCell(index);

@@ -276,13 +276,15 @@ var UserData = {
 			//点击伤害：
 			//升级次数(级数-1)^2*增长数+基础值*系数，向上进位，增长数为0.1，基础1，系数1.8
 			//UserData.TapAttackTemp = Math.pow(UserData.UserLevel,2)*0.1*10000 + 1*1.8;
-			//UserData.TapAttackTemp = ArrayMulNumber((UserData.UserLevel)*5,[0,100]);
-			UserData.TapAttackTemp = ArraySumArray(UserData.TapAttackTemp,[0,500]);
+			console.log("111");
+			UserData.TapAttackTemp = ArrayMulNumber([0,1],Math.pow(UserData.UserLevel,2));
+			console.log("22222");
 		},
 		DpsChange:function()
 		{
-
-			
+			//升级后DPS：
+			//基础DPS*（1+80%*升级次数)
+			//UserData.HeroDPS =  ArrayMulNumber(UserData.HeroDPS,(1+0.8*));
 		},
 		UpLevelNeedMoney:function()
 		{

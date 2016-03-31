@@ -58,40 +58,6 @@
             <EndColor A="255" R="255" G="255" B="255" />
             <ColorVector ScaleY="1.0000" />
           </AbstractNodeData>
-          <AbstractNodeData Name="ButtonReincarnation" ActionTag="-1294558666" Tag="60" IconVisible="False" LeftMargin="39.9995" RightMargin="520.0005" TopMargin="623.0000" BottomMargin="463.0000" TouchEnable="True" FontSize="24" ButtonText="强 化" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-            <Size X="80.0000" Y="50.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="79.9995" Y="488.0000" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.1250" Y="0.4296" />
-            <PreSize X="0.1250" Y="0.0440" />
-            <TextColor A="255" R="0" G="0" B="0" />
-            <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
-            <PressedFileData Type="Default" Path="Default/Button_Press.png" Plist="" />
-            <NormalFileData Type="Default" Path="Default/Button_Normal.png" Plist="" />
-            <OutlineColor A="255" R="255" G="0" B="0" />
-            <ShadowColor A="255" R="110" G="110" B="110" />
-          </AbstractNodeData>
-          <AbstractNodeData Name="ImageCoin" ActionTag="321539501" Tag="61" IconVisible="False" LeftMargin="433.0000" RightMargin="149.0000" TopMargin="619.0000" BottomMargin="459.0000" LeftEage="19" RightEage="19" TopEage="19" BottomEage="19" Scale9OriginX="19" Scale9OriginY="19" Scale9Width="20" Scale9Height="20" ctype="ImageViewObjectData">
-            <Size X="58.0000" Y="58.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="462.0000" Y="488.0000" />
-            <Scale ScaleX="1.0000" ScaleY="1.1335" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.7219" Y="0.4296" />
-            <PreSize X="0.0906" Y="0.0511" />
-            <FileData Type="Normal" Path="icon/icon_jinbi.png" Plist="" />
-          </AbstractNodeData>
-          <AbstractNodeData Name="TotalMoney" ActionTag="-1925111977" Tag="62" IconVisible="False" LeftMargin="496.5000" RightMargin="136.5000" TopMargin="643.5000" BottomMargin="477.5000" LabelText="0" ctype="TextBMFontObjectData">
-            <Size X="7.0000" Y="15.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="500.0000" Y="485.0000" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.7813" Y="0.4269" />
-            <PreSize X="0.0109" Y="0.0132" />
-          </AbstractNodeData>
         </Children>
       </ObjectData>
     </Content>

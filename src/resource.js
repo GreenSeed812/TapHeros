@@ -28,6 +28,13 @@ var res = {
 
     
     icon_jinbi_small : "res/icon/icon_jinbi_small.png",
+    icon_skill_1     : "res/icon/icon_skill_1.png",
+	icon_skill_2     : "res/icon/icon_skill_2.png",
+	icon_skill_3     : "res/icon/icon_skill_3.png",
+	icon_skill_4     : "res/icon/icon_skill_4.png",
+	icon_skill_5     : "res/icon/icon_skill_5.png",
+	icon_skill_6     : "res/icon/icon_skill_6.png",
+	icon_skill_7     : "res/icon/icon_skill_7.png",
     
    	effect_drop_coin		 	: "res/effect/goldcoin_drop.ExportJson",
 	effect_drop_coin_plist 	 	: "res/effect/goldcoin_drop0.plist",

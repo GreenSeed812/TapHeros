@@ -30,6 +30,15 @@ var HeroInfoLayer = cc.Layer.extend({
 		HeroInfoLayer_root.heroIndex = 0;
 		return true;
 	},
+	setHeroDate : function(heroData, level, index) {
+
+		console.log("123243546");
+		/*HeroInfoLayer_root.heroIndex = index;
+		HeroInfoLayer_root.Image_HeroIcon.loadTexture(heroData.Icon);
+		HeroInfoLayer_root.Text_HeroName.setString(heroData.Name);
+		//HeroInfoLayer_root.FontLevel.setString("Lv."+level);
+		HeroInfoLayer_root.TextDetails.setString(heroData.Desc);*/
+	},
 	onCloseClick:function(sender,type){
 		switch(type){
 		case ccui.Widget.TOUCH_ENDED:

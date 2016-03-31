@@ -21,6 +21,7 @@ var MainMenu = cc.Layer.extend({
 	FontLabelAllDPS:null,
 	FontLabelTestDPS:null,
 	PageStage_bg:null,
+	FontLabelLevel:null,
 	ctor:function(){
 		this._super();
 		MainMenu_root = this;
@@ -36,8 +37,8 @@ var MainMenu = cc.Layer.extend({
 		this.BossTimeLeft = ccui.helper.seekWidgetByName(this.rootnode, "BossTimeLeft");
 		this.StageMonsterData = ccui.helper.seekWidgetByName(this.rootnode, "StageMonsterData");
 		this.PageStage_bg = ccui.helper.seekWidgetByName(this.rootnode, "PageStage_bg");
-		//字体大小改变???
-
+		this.FontLabelLevel = ccui.helper.seekWidgetByName(this.rootnode, "FontLabelLevel");
+	
 		this.FontLabelDPS = ccui.helper.seekWidgetByName(this.rootnode, "FontLabelDPS");
 		this.FontLabelTap = ccui.helper.seekWidgetByName(this.rootnode, "FontLabelTap");
 		this.FontLabelAllDPS = ccui.helper.seekWidgetByName(this.rootnode, "FontLabelAllDPS");
@@ -53,24 +54,23 @@ var MainMenu = cc.Layer.extend({
 
 		this.scheduleUpdate();
 
-		//this.UpdateStage("init");
+		this.UpdateStage("init");
 
 		return true;
 	},
 	InitStage : function () {
 		UserData.StageBlood = Ruler.StageBloodBase;
-		//MainMenu_root.Text_MonsterName.setString(BattleLayer_root.MonsterName);
+		MainMenu_root.Text_MonsterName.setString(BattleLayer_root.MonsterName);
 		MainMenu_root.updateBossButtonState();
 	},
-	/*UpdateStage : function (init) {
+	UpdateStage : function (init) {
 		if (init == "init") 
 		{
-			console.log("555555555555555");
 			this.PageStage_bg.removeAllChildren();
 			for (var i = UserData.StageIndex - 1; i <= UserData.StageIndex + 1; i++) {
 				if (i == 0) { continue; }
 				var index = i - UserData.StageIndex;
-				var icon = new cc.Sprite(stage_icon[UserData.StageIndex + 2 + index]);
+				var icon = new cc.Sprite(stage_icon[UserData.StageIndex - 2 + index]);
 				icon.x = index * 80 + this.PageStage_bg.width*0.5;
 				icon.y = this.PageStage_bg.height*0.5;
 				icon.setScale(1-Math.abs(index*0.3));
@@ -128,7 +128,7 @@ var MainMenu = cc.Layer.extend({
 				}
 			}
 		}
-	},*/
+	},
 	update: function (dt) 
 	{
 		if(BattleLayer_root.InGapTime()) 
@@ -141,6 +141,7 @@ var MainMenu = cc.Layer.extend({
 			if (ArrayIsZero(UserData.StageBlood)) {
 				if (UserData.EnemyIndex == UserData.getBossInterval()) {
 					BattleLayer_root.NextScene();
+					MainMenu_root.FontLabelLevel.setString(UserData.StageIndex);
 				} else {
 					BattleLayer_root.RandomMonster(false);
 				}
@@ -166,7 +167,7 @@ var MainMenu = cc.Layer.extend({
 			}
 		}
 		
-		MainMenu_root.MonsterBlood.setString(GetShowNumFromArray(UserData.StageBlood));
+		MainMenu_root.MonsterBlood.setString(GetShowNumFromArray(UserData.StageBlood));//血量更新
 	},
 	setInformation : function () {
 		MainMenu_root.FontLabelDPS.setString(GetShowNumFromArray(UserData.HeroDPS));
@@ -203,7 +204,6 @@ var MainMenu = cc.Layer.extend({
 
 			if (this.m_boss_state == 1)
 			{
-				console.log("111111111111111");
 				this.Button_Boss.loadTextures(res.button_lktz_n, res.button_lktz_s, res.button_lktz_n);
 				this.Button_Boss.setVisible(true);
 				this.LoadingBar_Boss.setVisible(true);

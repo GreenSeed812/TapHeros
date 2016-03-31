@@ -93,6 +93,15 @@
                 <PreSize X="0.4469" Y="0.7300" />
                 <FileData Type="Normal" Path="ui/bg_xiaoditu.png" Plist="" />
               </AbstractNodeData>
+              <AbstractNodeData Name="FontLabelLevel" ActionTag="874694676" Tag="101" IconVisible="False" LeftMargin="316.5000" RightMargin="316.5000" TopMargin="42.5000" BottomMargin="42.5000" LabelText="1" ctype="TextBMFontObjectData">
+                <Size X="7.0000" Y="15.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="320.0000" Y="50.0000" />
+                <Scale ScaleX="2.0000" ScaleY="2.0000" />
+                <CColor A="255" R="30" G="144" B="255" />
+                <PrePosition X="0.5000" Y="0.5000" />
+                <PreSize X="0.0109" Y="0.1500" />
+              </AbstractNodeData>
               <AbstractNodeData Name="Button_Set" ActionTag="493131455" Tag="21" IconVisible="False" LeftMargin="28.0000" RightMargin="536.0000" TopMargin="13.0000" BottomMargin="15.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="46" Scale9Height="50" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                 <Size X="76.0000" Y="72.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
@@ -127,7 +136,7 @@
                 <Size X="17.0000" Y="15.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="580.0000" Y="-5.0000" />
-                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <Scale ScaleX="2.0000" ScaleY="2.0000" />
                 <CColor A="255" R="0" G="0" B="255" />
                 <PrePosition X="0.9063" Y="-0.0500" />
                 <PreSize X="0.0266" Y="0.1500" />
