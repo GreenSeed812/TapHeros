@@ -71,24 +71,31 @@ var MenuView_1 = cc.Layer.extend({
 			custom_item.setName("Helper");
 		}
 
-		//创建背景条
-		var cellBg = new cc.Sprite(res.bg_tiao_png);
-		cellBg.x = cellBg.getContentSize().width * 0.5;
-		cellBg.y = cellBg.getContentSize().height * 0.5;
-		custom_item.setContentSize(cellBg.getContentSize());
-		custom_item.addChild(cellBg);
+		var heroData = HeroData[index];
+		var HeroLevel = UserData.HeroLevel[index];
+		if(index==0||HeroLevel==0)
+		{
+			//创建背景条
+			var cellBg = new cc.Sprite(res.bg_tiao_png);
+			cellBg.x = cellBg.getContentSize().width * 0.5;
+			cellBg.y = cellBg.getContentSize().height * 0.5;
+			custom_item.setContentSize(cellBg.getContentSize());
+			custom_item.addChild(cellBg);
 
-		//创建头像按钮 添加监听事件
-		var heroIconbutton = new ccui.Button();
-		heroIconbutton.setName("heroIconbutton");
-		heroIconbutton.setTouchEnabled(true);
-		heroIconbutton.loadTextures(res.icon_hero_1, res.icon_hero_1, res.icon_hero_1);
-		heroIconbutton.x = 74;
-		heroIconbutton.y = 60
-		heroIconbutton.addTouchEventListener(MenuView_1_root.touchHeroIcon, MenuView_1_root);
-		heroIconbutton.setTag(index);
-		custom_item.addChild(heroIconbutton);
-
+			//创建头像按钮 添加监听事件
+			var heroIconbutton = new ccui.Button();
+			heroIconbutton.setName("heroIconbutton");
+			heroIconbutton.setTouchEnabled(true);
+			heroIconbutton.loadTextures(res.icon_hero_1, res.icon_hero_1, res.icon_hero_1);
+			heroIconbutton.x = 74;
+			heroIconbutton.y = 60
+			if(index==0||HeroLevel>=1)
+			{
+				heroIconbutton.addTouchEventListener(MenuView_1_root.touchHeroIcon, MenuView_1_root);
+			}
+			heroIconbutton.setTag(index);
+			custom_item.addChild(heroIconbutton);
+		}
 		//创建主角信息显示
 		if (index == 0) 
 		{
@@ -127,11 +134,9 @@ var MenuView_1 = cc.Layer.extend({
 		}
 		else
 		{	//创建辅助英雄信息
-
 			var heroData = HeroData[index];
 			var HeroLevel = UserData.HeroLevel[index];
-			HeroLevel = 0;
-			if (HeroLevel == 0)
+			if(HeroLevel == 0)
 			{
 				console.log("1244365675");
 				heroIconbutton.setColor(cc.color.GRAY);//未解锁时为灰色
@@ -140,41 +145,52 @@ var MenuView_1 = cc.Layer.extend({
 				newIcon.x = 280;
 				newIcon.y = 50;
 				custom_item.addChild(newIcon);
-			}
-			//名字
-			var CellName = new cc.LabelTTF(heroData.Name, res.TTF_超粗黑, 16);
-			CellName.setAnchorPoint(0, 0);
-			CellName.x = 120;
-			CellName.y = 74;
-			//等级
-			var Level = new cc.LabelTTF("LV:", res.TTF_超粗黑, 16);
-			Level.setColor(cc.color(0, 255, 255));
-			Level.setAnchorPoint(0, 0);
-			Level.x = 220;
-			Level.y = 74;
+				//名字
+				var CellName = new cc.LabelTTF(heroData.Name, res.TTF_超粗黑, 16);
+				CellName.setAnchorPoint(0, 0);
+				CellName.x = 120;
+				CellName.y = 74;
+				//等级
+				var Level = new cc.LabelTTF("LV:", res.TTF_超粗黑, 16);
+				Level.setColor(cc.color(0, 255, 255));
+				Level.setAnchorPoint(0, 0);
+				Level.x = 220;
+				Level.y = 74;
 
-			var LV_Num = new cc.LabelTTF(HeroLevel, res.TTF_超粗黑, 16);
-			LV_Num.setName("LV_Num");
-			LV_Num.setColor(cc.color(0, 255, 255));
-			LV_Num.setAnchorPoint(0, 0);
-			LV_Num.x = 260;
-			LV_Num.y = 74;
-			LV_Num.setString(HeroLevel);
-			//DPS
-			var Title = new cc.LabelTTF("DPS", res.TTF_超粗黑, 16);
-			Title.setAnchorPoint(0, 0);
-			Title.x = 330;
-			Title.y = 74;
+				var LV_Num = new cc.LabelTTF(HeroLevel, res.TTF_超粗黑, 16);
+				LV_Num.setName("LV_Num");
+				LV_Num.setColor(cc.color(0, 255, 255));
+				LV_Num.setAnchorPoint(0, 0);
+				LV_Num.x = 260;
+				LV_Num.y = 74;
+				LV_Num.setString(HeroLevel);
+				//DPS
+				var Title = new cc.LabelTTF("DPS", res.TTF_超粗黑, 16);
+				Title.setAnchorPoint(0, 0);
+				Title.x = 330;
+				Title.y = 74;
+				
+				var Desc = new cc.LabelTTF(GetShowNumFromArray(UserData.HeroDPS), res.TTF_正粗黑, 16);
+				Desc.setName("Desc");
+				Desc.setColor(cc.color(255, 150, 20));
+				Desc.setAnchorPoint(0, 0);
+				Desc.x = 380;
+				Desc.y = 74;
+			}
+			else
+			{
+
+			}
 			
-			var Desc = new cc.LabelTTF(GetShowNumFromArray(UserData.HeroDPS), res.TTF_正粗黑, 16);
-			Desc.setName("Desc");
-			Desc.setColor(cc.color(255, 150, 20));
-			Desc.setAnchorPoint(0, 0);
-			Desc.x = 380;
-			Desc.y = 74;
 		}
 
 		//创建按钮
+		var heroData = HeroData[index];
+		var HeroLevel = UserData.HeroLevel[index];
+
+		if(index==0||HeroLevel==0)
+		{
+		
 		var buttonNode = new cc.Node();
 		buttonNode.setName("buttonNode");
 
@@ -323,6 +339,7 @@ var MenuView_1 = cc.Layer.extend({
 			buttonTextNode.addChild(Money_Up);
 		}
 
+}
 		if(buttonNode){
 			custom_item.addChild(buttonNode);
 		}
