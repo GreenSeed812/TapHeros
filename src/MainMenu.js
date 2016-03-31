@@ -199,9 +199,10 @@ var MainMenu = cc.Layer.extend({
 				
 				var timetext = button.getChildByName("time");
 				var progress = button.getChildByName("progress");
-				
+
+				//var progress = null;
 				if (progress == null) {
-					
+
 					var progress = new cc.ProgressTimer(new cc.Sprite(res.skillCD_release_png));
 					progress.state = 0;			// 0 第一阶段 1 第二阶段
 					progress.setName("progress");
@@ -235,6 +236,7 @@ var MainMenu = cc.Layer.extend({
 					var icon = button.getChildByName("icon");
 					icon.setColor(cc.color.WHITE);
 				}
+				
 			}
 		}
 
@@ -335,9 +337,9 @@ var MainMenu = cc.Layer.extend({
 			var skillIndex = sender.getTag();
 
 			if (UserData.SkillCountdown[skillIndex] == 0) {
-				console.log("a111");
+				console.log("jjjj");
 				UserData.SkillCountdown[skillIndex] = PlayerData.Job[UserData.UserJobIndex].Skill[skillIndex].ReleaseCD + PlayerData.Job[UserData.UserJobIndex].Skill[skillIndex].RecoveryCD;
-				console.log("a222");
+				console.log("llll");
 				BattleLayer_root.PlaySkillEffect(skillIndex);
 			}
 		}
@@ -369,7 +371,7 @@ var MainMenu = cc.Layer.extend({
 			if(sender.getName() == MainMenu_root.Main_Button2.getName())
 			{
 				if (MenuView_2_root == null) {
-					console.log("if1");
+					
 					node = new MenuView_2();
 					console.log("if2");
 					MainMenu_root.ViewNode.addChild(node);

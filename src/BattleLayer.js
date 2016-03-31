@@ -403,7 +403,7 @@ var BattleLayer = cc.Layer.extend({
     },
     Shake : function () {
         
-        /*var x = this.DestPos.x;
+        var x = this.DestPos.x;
         var y = this.DestPos.y;
         var tempArray = [];
         for (var i = 0; i < 20; i++) {
@@ -415,7 +415,7 @@ var BattleLayer = cc.Layer.extend({
 
         tempArray.push(cc.moveTo(0, cc.p(x, y)));
         var shake = cc.sequence( tempArray );
-        this.Dest.runAction(shake);*/
+        this.BattlePanel.runAction(shake);
     },
     AnimationEventAtkEffect:function (armature, movementType, movementID) {
         

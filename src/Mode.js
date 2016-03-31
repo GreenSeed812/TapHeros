@@ -248,7 +248,7 @@ var SkillData =
 		BaseData : BaseSkill.TapHurtUpRate,
 		Rate : 0.4,
 	},
-	/*User : {
+	User : {
 		Name : "无",
 		Icon : res.icon_skill_1,
 		BaseData : BaseSkill.TapHurtUpRate,
@@ -325,7 +325,7 @@ var SkillData =
 		Rate : 0.4,
 		ReleaseCD : 0,
 		RecoveryCD : 0,
-	},*/
+	},
 };
 
 
