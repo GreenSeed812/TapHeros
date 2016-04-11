@@ -84,10 +84,10 @@ var MainMenu = cc.Layer.extend({
 		if (init == "init") 
 		{
 			this.PageStage_bg.removeAllChildren();
-			for (var i = UserData.StageIndex - 1; i <= UserData.StageIndex + 1; i++) {
+			for (var i = 0; i <= 2; i++) {
 				if (i == 0) { continue; }
 				var index = i - UserData.StageIndex;
-				var icon = new cc.Sprite(stage_icon[UserData.StageIndex - 2 + index]);
+				var icon = new cc.Sprite(stage_icon[index]);
 				icon.x = index * 80 + this.PageStage_bg.width*0.5;
 				icon.y = this.PageStage_bg.height*0.5;
 				icon.setScale(1-Math.abs(index*0.3));
@@ -126,8 +126,44 @@ var MainMenu = cc.Layer.extend({
 							);
 					icon.runAction(action);
 				} else if (index == 2) {
+					if(UserData.StageIndex == 15)
+					{
+						var icon = new cc.Sprite(stage_icon[0]);
+						icon.x = 1 * 80 + 20 + this.PageStage_bg.width*0.5;
+						icon.y = this.PageStage_bg.height*0.5;
+						icon.setScale(0.3);
+						icon.setOpacity(0);
+						this.PageStage_bg.addChild(icon);
 
-					var icon = new cc.Sprite(stage_icon[UserData.StageIndex + 2]);
+						var action = cc.sequence(
+								cc.spawn(
+									cc.moveTo(0.5, cc.p(this.PageStage_bg.width*0.5 + 80, this.PageStage_bg.height*0.5)),
+									cc.scaleTo(0.5, 0.7),
+									cc.fadeIn(0.5)),
+									cc.callFunc(function(nodeExecutingAction, value) { value.setTag(1); }, this, icon)
+								);
+						icon.runAction(action);
+					}
+					else
+					{
+						var icon = new cc.Sprite(stage_icon[UserData.StageIndex]);
+						icon.x = 1 * 80 + 20 + this.PageStage_bg.width*0.5;
+						icon.y = this.PageStage_bg.height*0.5;
+						icon.setScale(0.3);
+						icon.setOpacity(0);
+						this.PageStage_bg.addChild(icon);
+
+						var action = cc.sequence(
+								cc.spawn(
+									cc.moveTo(0.5, cc.p(this.PageStage_bg.width*0.5 + 80, this.PageStage_bg.height*0.5)),
+									cc.scaleTo(0.5, 0.7),
+									cc.fadeIn(0.5)),
+									cc.callFunc(function(nodeExecutingAction, value) { value.setTag(1); }, this, icon)
+								);
+						icon.runAction(action);
+
+					}
+					/*var icon = new cc.Sprite(stage_icon[UserData.StageIndex]);
 					icon.x = 1 * 80 + 20 + this.PageStage_bg.width*0.5;
 					icon.y = this.PageStage_bg.height*0.5;
 					icon.setScale(0.3);
@@ -141,7 +177,7 @@ var MainMenu = cc.Layer.extend({
 								cc.fadeIn(0.5)),
 								cc.callFunc(function(nodeExecutingAction, value) { value.setTag(1); }, this, icon)
 							);
-					icon.runAction(action);
+					icon.runAction(action);*/
 				}
 			}
 		}
@@ -158,7 +194,7 @@ var MainMenu = cc.Layer.extend({
 			if (ArrayIsZero(UserData.StageBlood)) {
 				if (UserData.EnemyIndex == UserData.getBossInterval()) {
 					BattleLayer_root.NextScene();
-					MainMenu_root.FontLabelLevel.setString(UserData.StageIndex);
+					MainMenu_root.FontLabelLevel.setString(UserData.StageIndexNmb);
 				} else {
 					BattleLayer_root.RandomMonster(false);
 				}

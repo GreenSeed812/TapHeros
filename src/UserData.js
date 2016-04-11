@@ -2,6 +2,8 @@ var UserData = {
 		NickName				: "",															// 昵称
 		StageBlood          	: [0],															// 关卡血量
 		StageIndex          	: 1,															// 关卡索引
+		StageIndexD          	: 0,															// 大地图索引
+		StageIndexNmb          	: 1,															// 关卡数字索引
 		EnemyIndex				: 1,															// 敌人索引
 		UserJobIndex			: 1,															// 玩家职业
 		MusicEnable				: 1,															// 音乐开关
@@ -13,16 +15,19 @@ var UserData = {
 		UserSkillLevel        	: [0,0,0,0,0,0,0],												// 玩家技能等级
 		UserMoney             	: [0],															// 金币
 		ArtifactCoin		  	: 0,															// 神器货币
+		ArtifactIndex			: 0,															// 神器索引
 		Diamond               	: 0,															// 钻石
 		HeroLevel             	: [0,0,-1,-1,-1],	// 英雄等级
 		ArtifactLevel		  	: [-1,0,0,0,0,0,0,0,0,0],										// 每种神器最高等级
 		ArtifactStar		  	: [-1,0,0,0,0,0,0,0,0,0],										// 神器对应等级星级
 		ArtifactActive		  	: [-1,0,0,0,0,0,0,0,0,0],										// 神器激活状态
+		ArtifactActive2		  	: [0,0,0,0,0,0,0,0,0],											// 神器激活状态2
 		HeroCountdown         	: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],						// 英雄死亡冷却
 		SkillCountdown        	: [-1,0,0,0,0,0,0],												// 英雄技能冷却
 		HeroSkillUnLockCount  	: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],					// 英雄技能解锁个数
 
 		ArtifactAll			  	: [],															// 玩家持有所有神器
+		ArtifactAll2		 	: [],															// 玩家持有所有神器2
 		OffLineTimestamp		: 0,															// 离线时间戳
 
 
@@ -145,9 +150,10 @@ var UserData = {
 			for (var i = 0; i < this.HeroLevel.length; i++) {
 				if (this.HeroLevel[i] == -1)
 				{
-					if (ArrayScaleArray(this.UserMoney, getHeroMoney(HeroData[i])) >= 1 )
+					if(ArrayScaleArray(this.UserMoney, getHeroMoney(HeroData[i])) >= 1 )
 					{
-						this.HeroLevel[i] = 0;
+						//this.HeroLevel[i] = 0;
+						
 						return true;
 					}
 					break;

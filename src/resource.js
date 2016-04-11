@@ -5,6 +5,8 @@ var res = {
     Ruler_json:"res/Ruler.json",
     MenuView_1_json:"res/MenuView_1.json",
     MenuView_2_json:"res/MenuView_2.json",
+    InformationLayer_json : "res/InformationLayer.json",
+    ArtifactNode_json : "res/ArtifactNode.json",
     MainMenu_json:"res/MainMenu.json",
     HeroInfoLayer_json : "res/HeroInfoLayer.json",
     MainScene_json : "res/MainScene.json",
@@ -27,6 +29,7 @@ var res = {
 	info_icon_kaiqi_png  :"res/ui/info_icon_kaiqi.png",
 	icon_new_png : "res/ui/icon_new.png",
 
+    icon_shenqi_1	 : "res/icon/icon_shenqi_1.png",
     
     icon_jinbi_small : "res/icon/icon_jinbi_small.png",
     icon_skill_1     : "res/icon/icon_skill_1.png",

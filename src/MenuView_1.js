@@ -4,6 +4,7 @@ var MenuView_1 = cc.Layer.extend({
 	rootnode:null,
 	CloseButton : null,
 	ListView:null,
+	Light:false,
 	ctor:function(){
 		this._super();
 		MenuView_1_root = this;
@@ -14,7 +15,7 @@ var MenuView_1 = cc.Layer.extend({
 		this.ListView = ccui.helper.seekWidgetByName(MenuView_1_root.rootnode, "ListView");
 		this.CloseButton = MenuView_1_root.rootnode.getChildByName("CloseButton");
 		this.CloseButton.addTouchEventListener(this.onCloseClick);
-
+		
 		MenuView_1_root.createCells();
 		MenuView_1_root.setInformation();
 		return true;
@@ -26,38 +27,6 @@ var MenuView_1 = cc.Layer.extend({
 			break;
 		default:
 			break;
-		}
-	},
-	requestRefreshView : function () {
-		this.setInformation();
-	},
-	setInformation:function(){
-		//MenuView_1_root.TotalMoney.setString(GetShowNumFromArray(UserData.UserMoney));
-	},
-	updateCell:function(index) {
-		
-		var viewCell = MenuView_1_root.ListView.getItem(index);
-
-		var LV_Num = viewCell.getChildByName("LV_Num");
-		var Desc = viewCell.getChildByName("Desc");
-		if (viewCell.getName() == "Player") 
-		{
-			LV_Num.setString(UserData.UserLevel);
-			Desc.setString(GetShowNumFromArray(UserData.TapAttackTemp));
-		}
-		else{
-			var HeroLevel = UserData.HeroLevel[index];
-			if (HeroLevel == 1)
-			{
-				var heroIconbutton = viewCell.getChildByName("heroIconbutton");
-				heroIconbutton.setColor(cc.color.WHITE);
-
-				var newIcon = viewCell.getChildByName("newIcon");
-				if (newIcon) {newIcon.removeFromParent(true);}
-				
-			}
-			var LV_Num = viewCell.getChildByName("LV_Num");
-			LV_Num.setString(HeroLevel);
 		}
 	},
 	createCell:function(index){
@@ -88,11 +57,8 @@ var MenuView_1 = cc.Layer.extend({
 			heroIconbutton.setTouchEnabled(true);
 			heroIconbutton.loadTextures(res.icon_hero_1, res.icon_hero_1, res.icon_hero_1);
 			heroIconbutton.x = 74;
-			heroIconbutton.y = 60
-			if(index==0||HeroLevel>=1)
-			{
-				heroIconbutton.addTouchEventListener(MenuView_1_root.touchHeroIcon, MenuView_1_root);
-			}
+			heroIconbutton.y = 60;
+			heroIconbutton.addTouchEventListener(MenuView_1_root.touchHeroIcon, MenuView_1_root);
 			heroIconbutton.setTag(index);
 			custom_item.addChild(heroIconbutton);
 		}
@@ -136,15 +102,8 @@ var MenuView_1 = cc.Layer.extend({
 		{	//创建辅助英雄信息
 			var heroData = HeroData[index];
 			var HeroLevel = UserData.HeroLevel[index];
-			if(HeroLevel == 0)
+			if(HeroLevel >= 0)
 			{
-				console.log("1244365675");
-				heroIconbutton.setColor(cc.color.GRAY);//未解锁时为灰色
-				var newIcon = new cc.Sprite(res.icon_new_png);
-				newIcon.setName("newIcon");
-				newIcon.x = 280;
-				newIcon.y = 50;
-				custom_item.addChild(newIcon);
 				//名字
 				var CellName = new cc.LabelTTF(heroData.Name, res.TTF_超粗黑, 16);
 				CellName.setAnchorPoint(0, 0);
@@ -176,6 +135,31 @@ var MenuView_1 = cc.Layer.extend({
 				Desc.setAnchorPoint(0, 0);
 				Desc.x = 380;
 				Desc.y = 74;
+
+				if(HeroLevel==0)
+				{
+					heroIconbutton.setColor(cc.color.GRAY);//未解锁时为灰色
+					var newIcon = new cc.Sprite(res.icon_new_png);
+					newIcon.setName("newIcon");
+					newIcon.x = 280;
+					newIcon.y = 50;
+					custom_item.addChild(newIcon);
+				}
+				if(HeroLevel>0)
+				{
+					var heroData = HeroData[index];
+					var skillNode = new cc.Node();
+					skillNode.setName("skillNode");
+					for (var i = 0; i < heroData.SkillUnlock.length; i++) {
+						if (UserData.HeroSkillUnLockCount[index] > i) {
+					var icon = new cc.Sprite(heroData.Skill[i].Icon);
+					icon.x = i * 46;
+					skillNode.addChild(icon);
+						}
+					}
+					skillNode.x = 140;
+					skillNode.y = 46;
+				}
 			}
 			else
 			{
@@ -188,7 +172,7 @@ var MenuView_1 = cc.Layer.extend({
 		var heroData = HeroData[index];
 		var HeroLevel = UserData.HeroLevel[index];
 
-		if(index==0||HeroLevel==0)
+		if(index==0||HeroLevel>=0)
 		{
 		
 		var buttonNode = new cc.Node();
@@ -202,9 +186,11 @@ var MenuView_1 = cc.Layer.extend({
 			{
 				button100.loadTextures(res.button_add_2_n_png, res.button_add_s_png, res.button_add_2_n_png);
 			}
-			else{
+			else if(HeroLevel>=0
+				){
 				button100.loadTextures(res.button_add_n_png, res.button_add_s_png, res.button_add_n_png);
 			}
+
 			button100.x = 500;
 			button100.y = 58;
 			button100.addTouchEventListener(MenuView_1_root.touchButton, MenuView_1_root);
@@ -245,7 +231,7 @@ var MenuView_1 = cc.Layer.extend({
 			{
 				button10.loadTextures(res.button_add_2_n_png, res.button_add_s_png, res.button_add_2_n_png);
 			}
-			else{
+			else if(HeroLevel>=0){
 				button10.loadTextures(res.button_add_n_png, res.button_add_s_png, res.button_add_n_png);
 			}
 			
@@ -288,58 +274,137 @@ var MenuView_1 = cc.Layer.extend({
 			if(index == 0)
 			{
 				button.loadTextures(res.button_lvup_2_n_png, res.button_lvup_2_s_png, res.button_lvup_d_png);
+				button.x = 500;
+				button.y = 60;
+				button.addTouchEventListener(MenuView_1_root.touchButton, MenuView_1_root);
+				button.setTag(index);
+				buttonNode.addChild(button);
+
+				var buttonTextNode = new cc.Node();
+				buttonTextNode.setName("buttonTextNode");
+				button.addChild(buttonTextNode);
+
+				// 金币
+				var coinIcon = new cc.Sprite(res.icon_jinbi_small);
+				coinIcon.setName("coinIcon");
+				coinIcon.x = 34;
+				coinIcon.y = 64;
+				buttonTextNode.addChild(coinIcon);
+
+				var ButtonFunction = new cc.LabelTTF("升级", res.TTF_黑体加粗, 20);
+				ButtonFunction.setName("ButtonFunction");
+				ButtonFunction.setAnchorPoint(0, 0);
+				ButtonFunction.x = 46;
+				ButtonFunction.y = 28;
+				buttonTextNode.addChild(ButtonFunction);
+			
+				var ret = [0,5,400,3];
+				var Money_Up = new cc.LabelTTF(GetShowNumFromArray(ret), res.TTF_正粗黑, 14);
+				Money_Up.setName("Money_Up");
+				Money_Up.setAnchorPoint(0, 0);
+				Money_Up.x = 50;
+				Money_Up.y = 54;
+				buttonTextNode.addChild(Money_Up);
 			}
 			else
 			{
 				var HeroLevel = UserData.HeroLevel[index];
-				HeroLevel = 0;
 				if(HeroLevel==0)
-				{
+				{	
+					if(MenuView_1_root.Light==true)
+					{
+						button.loadTextures(res.button_lvup_n_png, res.button_lvup_s_png, res.button_lvup_n_png);
+						button.x = 500;
+						button.y = 60;
+						button.addTouchEventListener(MenuView_1_root.touchButton, MenuView_1_root);
+						button.setTag(index);
+						buttonNode.addChild(button);
+
+						var buttonTextNode = new cc.Node();
+						buttonTextNode.setName("buttonTextNode");
+						button.addChild(buttonTextNode);
+
+						// 金币
+						var coinIcon = new cc.Sprite(res.icon_jinbi_small);
+						coinIcon.setName("coinIcon");
+						coinIcon.x = 34;
+						coinIcon.y = 64;
+						buttonTextNode.addChild(coinIcon);
+
+						var Money_Up = new cc.LabelTTF(GetShowNumFromArray(getHeroMoney(heroData)), res.TTF_正粗黑, 14);
+						Money_Up.setName("Money_Up");
+						Money_Up.setAnchorPoint(0, 0);
+						Money_Up.x = 50;
+						Money_Up.y = 54;
+						buttonTextNode.addChild(Money_Up);
+
+						var ButtonFunction = new cc.LabelTTF("开启", res.TTF_黑体加粗, 20);
+						ButtonFunction.setName("ButtonFunction");
+						ButtonFunction.setAnchorPoint(0, 0);
+						ButtonFunction.x = 46;
+						ButtonFunction.y = 28;
+						buttonTextNode.addChild(ButtonFunction);
+					
+						var DPS = new cc.LabelTTF("DPS+ "+GetShowNumFromArray(getHeroAtk(heroData)), res.TTF_黑体加粗, 16);
+						DPS.setName("DPS");
+						DPS.setAnchorPoint(0.5, 0);
+						DPS.x = 60;
+						DPS.y = 8;
+						buttonTextNode.addChild(DPS);
+					}	
+				}
+				if(HeroLevel==0)
+				{	
 					button.loadTextures(res.button_lvup_d_png, res.button_lvup_d_png, res.button_lvup_d_png);
 					button.setEnabled(false);
+					button.x = 500;
+					button.y = 60;
+					//button.addTouchEventListener(MenuView_1_root.touchButton, MenuView_1_root);
+					button.setTag(index);
+					buttonNode.addChild(button);
+
+					var buttonTextNode = new cc.Node();
+					buttonTextNode.setName("buttonTextNode");
+					button.addChild(buttonTextNode);
+
+					// 金币
+					var coinIcon = new cc.Sprite(res.icon_jinbi_small);
+					coinIcon.setName("coinIcon");
+					coinIcon.x = 34;
+					coinIcon.y = 64;
+					buttonTextNode.addChild(coinIcon);
+
+					var Money_Up = new cc.LabelTTF(GetShowNumFromArray(getHeroMoney(heroData)), res.TTF_正粗黑, 14);
+					Money_Up.setName("Money_Up");
+					Money_Up.setAnchorPoint(0, 0);
+					Money_Up.x = 50;
+					Money_Up.y = 54;
+					buttonTextNode.addChild(Money_Up);
+
+					var ButtonFunction = new cc.LabelTTF("开启", res.TTF_黑体加粗, 20);
+					ButtonFunction.setName("ButtonFunction");
+					ButtonFunction.setAnchorPoint(0, 0);
+					ButtonFunction.x = 46;
+					ButtonFunction.y = 28;
+					buttonTextNode.addChild(ButtonFunction);
+				
+					var DPS = new cc.LabelTTF("DPS+ "+GetShowNumFromArray(getHeroAtk(heroData)), res.TTF_黑体加粗, 16);
+					DPS.setName("DPS");
+					DPS.setAnchorPoint(0.5, 0);
+					DPS.x = 60;
+					DPS.y = 8;
+					buttonTextNode.addChild(DPS);	
 				}
-				else
-				{
-					button.loadTextures(res.button_lvup_n_png, res.button_lvup_s_png, res.button_lvup_n_png);
-					button.setEnabled(true);
-				}
+				
 			}
-			button.x = 500;
-			button.y = 60;
-			button.addTouchEventListener(MenuView_1_root.touchButton, MenuView_1_root);
-			button.setTag(index);
-			buttonNode.addChild(button);
-
-			var buttonTextNode = new cc.Node();
-			buttonTextNode.setName("buttonTextNode");
-			button.addChild(buttonTextNode);
-
-			// 金币
-			var coinIcon = new cc.Sprite(res.icon_jinbi_small);
-			coinIcon.setName("coinIcon");
-			coinIcon.x = 34;
-			coinIcon.y = 64;
-			buttonTextNode.addChild(coinIcon);
-
-			var ButtonFunction = new cc.LabelTTF("升级", res.TTF_黑体加粗, 20);
-			ButtonFunction.setName("ButtonFunction");
-			ButtonFunction.setAnchorPoint(0, 0);
-			ButtonFunction.x = 46;
-			ButtonFunction.y = 28;
-			buttonTextNode.addChild(ButtonFunction);
-		
-			var ret = [0,5,400,3];
-			//UserData.UpdateMoneyUp();
 			
-			var Money_Up = new cc.LabelTTF(GetShowNumFromArray(ret), res.TTF_正粗黑, 14);
-			Money_Up.setName("Money_Up");
-			Money_Up.setAnchorPoint(0, 0);
-			Money_Up.x = 50;
-			Money_Up.y = 54;
-			buttonTextNode.addChild(Money_Up);
 		}
-
-}
+	}
+		
+		if(skillNode)
+		{
+			custom_item.addChild(skillNode);
+		}
 		if(buttonNode){
 			custom_item.addChild(buttonNode);
 		}
@@ -360,12 +425,84 @@ var MenuView_1 = cc.Layer.extend({
 		}
 		
 		MenuView_1_root.ListView.insertCustomItem(custom_item, index);
+
+		MenuView_1_root.UpdateButton(index);
 	},
-	createCells:function(){
-		for(var index = 0; index < 4; index++) 
+	UpdateButton:function(index)
+	{
+		
+	},
+	createCells:function()
+	{
+		for(var index = 0; index < HeroData.length; index++) 
 		{
-			MenuView_1_root.createCell(index);
+			var HeroLevel = UserData.HeroLevel[index];
+			var heroData = HeroData[index];
+			
+			if(HeroLevel >= 0)
+			{
+				MenuView_1_root.createCell(index);
+			}
 		}
+		//MenuView_1_root.requestRefreshView();
+	},
+	requestRefreshView : function () //下一个英雄出现
+	{
+		var listCount = MenuView_1_root.ListView.getItems().length - 2;
+
+		for (var i = listCount+2; i < HeroData.length; i++) 
+		{
+			if (UserData.HeroLevel[i] >= 0)
+			{
+				MenuView_1_root.createCell(i);
+			}
+		}
+		MenuView_1_root.setInformation();
+	},
+	checkMenuView:function()
+	{
+		var listCount = MenuView_1_root.ListView.getItems().length - 1;
+		for(var i = listCount; i < HeroData.length; i++) 
+		{
+			UserData.HeroLevel[listCount] = 0;//金币数够是亮的 反之是灰色
+			MenuView_1_root.createCell(listCount);
+		}	
+	},
+	updateCell:function(index) {
+		
+		var viewCell = MenuView_1_root.ListView.getItem(index);
+
+		var LV_Num = viewCell.getChildByName("LV_Num");
+		var Desc = viewCell.getChildByName("Desc");
+		if (viewCell.getName() == "Player") 
+		{
+			LV_Num.setString(UserData.UserLevel);
+			Desc.setString(GetShowNumFromArray(UserData.TapAttackTemp));
+		}
+		else{
+			UserData.UpdateHeroDPS();
+
+			var viewCell = MenuView_1_root.ListView.getItem(index);
+			var HeroLevel = UserData.HeroLevel[index];
+			var heroData = HeroData[index];
+			var LV_Num = viewCell.getChildByName("LV_Num");
+			LV_Num.setString(HeroLevel);
+
+			if(HeroLevel == 1)//解锁英雄
+			{
+				var heroIconbutton = viewCell.getChildByName("heroIconbutton");
+				heroIconbutton.setColor(cc.color.WHITE);
+				var newIcon = viewCell.getChildByName("newIcon");
+				if (newIcon) {newIcon.removeFromParent(true);}
+
+				MenuView_1_root.requestRefreshView();//下一个英雄出现
+			}
+		}
+		
+	},
+	setInformation:function(){
+		//MenuView_1_root.DPS_Hero.setString(GetShowNumFromArray(UserData.HeroDPS));
+		//MenuView_1_root.Total_Money.setString(GetShowNumFromArray(UserData.UserMoney));
 	},
 	touchHeroIcon: function (sender, type) {
 
@@ -403,17 +540,6 @@ var MenuView_1 = cc.Layer.extend({
 			} else if(sender.getName() == "button"){
 					
 					upNum = 1;
-					var index = sender.getTag();
-					console.log("999999");
-					if(index == 0)
-					{
-
-					}
-					else
-					{
-						/*button.loadTextures(res.button_lvup_n_png, res.button_lvup_s_png, res.button_lvup_n_png);
-						button.setEnabled(true);*/
-					}
 			}
 			var index = sender.getTag();
 			 {
@@ -421,22 +547,21 @@ var MenuView_1 = cc.Layer.extend({
 				{
 					var UserLevel = UserData.UserLevel + upNum;
 					UserData.UserLevel = UserLevel;
-					UserData.TapAttackChange();
 				}
 				else
 				{
-					upNum = upNum+1;
-					UserData.HeroLevel[index] += upNum;
-					//var herolevel = UserData.HeroLevel[index];
-				
+					var herolevel = UserData.HeroLevel[index] + upNum;
+					UserData.HeroLevel[index] = herolevel;	
 				}
 				
 				MenuView_1_root.updateCell(index);
 				MenuView_1_root.cellBtnExpand(index, true, true);
 			}
+
 			break;
 		}
 	},
+	
 	cellBtnExpand : function (index, isShow, showAll) {
 		
 		var viewCell = MenuView_1_root.ListView.getItem(index);

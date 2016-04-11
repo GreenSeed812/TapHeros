@@ -60,8 +60,8 @@ var BattleLayer = cc.Layer.extend({
         if (this.DestJsonNode) {
             this.DestNode.removeChild(this.DestJsonNode);
         }
-        var index = GetRandomNum(0, Spec.StageSpec.length - 1);
-        this.DestJsonNode = ccs.load(Spec.StageSpec[index][1]).node;
+        
+        this.DestJsonNode = ccs.load(Spec.StageSpec[UserData.StageIndexD][1]).node;
         this.DestJsonNode.setAnchorPoint(0.5,0.5);
         this.DestJsonNode.setOpacity(0);//设置透明度
         this.DestJsonNode.runAction(cc.fadeIn(0.5));
@@ -71,11 +71,24 @@ var BattleLayer = cc.Layer.extend({
         var stateName = Spec.StageSpec[UserData.StageIndex][0];
 
         UserData.StageIndex += 1;
+        UserData.StageIndexD += 1;
+        UserData.StageIndexNmb += 1;
         UserData.EnemyIndex = 1;
         MainMenu_root.UpdateStage("update");
-        if( UserData.StageIndex>=16)
+        //小地图
+        if( UserData.StageIndex>=15)
         {
             UserData.StageIndex = 0;
+        }
+        //大地图
+        if( UserData.StageIndexD>=15)
+        {
+            UserData.StageIndexD = 0;
+        }
+        //地图数字
+        if( UserData.StageIndexNmb >=16)
+        {
+            UserData.StageIndexNmb = 1;
         }
         if (stateName != Spec.StageSpec[UserData.StageIndex][0]) {
             if (this.DestJsonNode) {
@@ -315,9 +328,15 @@ var BattleLayer = cc.Layer.extend({
         if (value.showNum != undefined) {
             UserData.UserMoney = ArraySumArray(UserData.UserMoney, value.showNum);  
             BattleLayer_root.Money.setString(GetShowNumFromArray(UserData.UserMoney));//显示金币数
+
+            var needRefreshView = UserData.MoneyUpdate();
+            if(MenuView_1_root != null&&needRefreshView) 
+            {
+                MenuView_1_root.checkMenuView();
+            }
+
             BattleLayer_root.MoneyImage.setScale(1.2);
             BattleLayer_root.MoneyImage.runAction(cc.scaleTo(0.1,1));
-
         };
         value.removeFromParent();
     },
@@ -378,13 +397,6 @@ var BattleLayer = cc.Layer.extend({
             ccs.armatureDataManager.addArmatureFileInfo(res.effect_hunter_skill);
             var effect = new ccs.Armature("Effect_strike_hunter");
         }
-        
-        
-        
-        
-    
-
-
         var offY = this.Armature.height * this.Armature.getScale() * 0.4;
         effect.y += offY;
         effect.setScale(2);

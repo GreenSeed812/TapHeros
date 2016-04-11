@@ -208,7 +208,7 @@ var Artifact =
 		MaxLevel : [0,5,10,15,20,30],
 		Rate : 0.4,
 	}
-]
+];
 
 var SkillData = 
 {
@@ -370,15 +370,15 @@ var PlayerData =
 
 var HeroData = 
 [
-	/*{
+	{
 
-	},*/
+	},
 	{
 		Name : "火枪手",
 		Desc : "火枪手火枪手火枪手火枪手火枪手火枪手火枪手火枪手火枪手火枪手火枪手火枪手火枪手火枪手",
 		Icon : res.icon_hero_1,
 		AtkBase : [0,0,2,0],
-		MoneyBase : [0,2,0],
+		MoneyBase : [0,2,1],
 		SkillUnlock : [10,50,150,250,350,600,600],
 		Skill : [SkillData.Skill_1_1,SkillData.Skill_1_2,SkillData.Skill_1_3,SkillData.Skill_1_4,SkillData.Skill_1_5,SkillData.Skill_1_6,SkillData.Skill_1_6],
 	},
@@ -386,8 +386,8 @@ var HeroData =
 		Name : "狙击手",
 		Desc : "狙击手狙击手狙击手狙击手狙击手狙击手狙击手狙击手狙击手狙击手狙击手狙击手狙击手狙击手狙击手",
 		Icon : res.icon_hero_1,
-		AtkBase : [0,0,2,0],
-		MoneyBase : [0,2,0],
+		AtkBase : [0,0,4,0],
+		MoneyBase : [0,4,3],
 		SkillUnlock : [10,50,150,250,350,600,600],
 		Skill : [SkillData.Skill_1_1,SkillData.Skill_1_2,SkillData.Skill_1_3,SkillData.Skill_1_4,SkillData.Skill_1_5,SkillData.Skill_1_6,SkillData.Skill_1_6],
 	},
@@ -395,8 +395,8 @@ var HeroData =
 		Name : "地狱咆哮",
 		Desc : "地狱咆哮地狱咆哮地狱咆哮地狱咆哮地狱咆哮地狱咆哮地狱咆哮地狱咆哮地狱咆哮地狱咆哮地狱咆哮",
 		Icon : res.icon_hero_1,
-		AtkBase : [0,0,2,0],
-		MoneyBase : [0,2,0],
+		AtkBase : [0,0,6,0],
+		MoneyBase : [0,6,5],
 		SkillUnlock : [10,50,150,250,350,600,600],
 		Skill : [SkillData.Skill_1_1,SkillData.Skill_1_2,SkillData.Skill_1_3,SkillData.Skill_1_4,SkillData.Skill_1_5,SkillData.Skill_1_6,SkillData.Skill_1_6],
 	},
@@ -404,8 +404,8 @@ var HeroData =
 		Name : "地狱火",
 		Desc : "地狱火地狱火地狱火地狱火地狱火地狱火",
 		Icon : res.icon_hero_1,
-		AtkBase : [0,0,2,0],
-		MoneyBase : [0,2,0],
+		AtkBase : [0,0,8,0],
+		MoneyBase : [0,8,7],
 		SkillUnlock : [10,50,150,250,350,600,600],
 		Skill : [SkillData.Skill_1_1,SkillData.Skill_1_2,SkillData.Skill_1_3,SkillData.Skill_1_4,SkillData.Skill_1_5,SkillData.Skill_1_6,SkillData.Skill_1_6],
 	},

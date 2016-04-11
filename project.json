@@ -21,11 +21,13 @@
         "src/BattleLayer.js",
         "src/MenuView_1.js",
         "src/MenuView_2.js",
+        "src/ArtifactNode.js",
         "src/Spec.js",
         "src/UserData.js",
         "src/SettingLayer.js",
         "src/MainMenu.js",
         "src/Mode.js",
+        "src/InformationLayer.js",
         "src/app.js"
     ]
 }
