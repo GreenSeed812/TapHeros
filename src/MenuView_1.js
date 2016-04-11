@@ -145,7 +145,6 @@ var MenuView_1 = cc.Layer.extend({
 					newIcon.y = 50;
 					custom_item.addChild(newIcon);
 				}
-
 			}
 			else
 			{
@@ -311,7 +310,6 @@ var MenuView_1 = cc.Layer.extend({
 				var heroData = HeroData[index];
 				if(HeroLevel>=0&&MenuView_1_root.Light==true)
 				{	
-
 						button.loadTextures(res.button_lvup_n_png, res.button_lvup_s_png, res.button_lvup_n_png);
 						button.x = 500;
 						button.y = 60;
@@ -345,7 +343,6 @@ var MenuView_1 = cc.Layer.extend({
 						buttonTextNode.addChild(ButtonFunction);
 					
 						var DPS = new cc.LabelTTF("DPS+"+GetShowNumFromArray(getHeroAtk(heroData)), res.TTF_黑体加粗, 16);
-
 						DPS.setName("DPS");
 						DPS.setAnchorPoint(0.5, 0);
 						DPS.x = 60;
@@ -438,7 +435,6 @@ var MenuView_1 = cc.Layer.extend({
 		}
 		
 		MenuView_1_root.ListView.insertCustomItem(custom_item, index);
-
 
 		//MenuView_1_root.UpdateButton(index);
 	},
@@ -541,48 +537,6 @@ var MenuView_1 = cc.Layer.extend({
 		{
 			UserData.HeroSkillUnLockCount[index] += 1;
 		}
-		MenuView_1_root.setInformation();
-	},
-	checkMenuView:function()
-	{
-		var listCount = MenuView_1_root.ListView.getItems().length - 1;
-		for(var i = listCount; i < HeroData.length; i++) 
-		{
-			UserData.HeroLevel[listCount] = 0;//金币数够是亮的 反之是灰色
-			MenuView_1_root.createCell(listCount);
-		}	
-	},
-	updateCell:function(index) {
-		
-		var viewCell = MenuView_1_root.ListView.getItem(index);
-
-		var LV_Num = viewCell.getChildByName("LV_Num");
-		var Desc = viewCell.getChildByName("Desc");
-		if (viewCell.getName() == "Player") 
-		{
-			LV_Num.setString(UserData.UserLevel);
-			Desc.setString(GetShowNumFromArray(UserData.TapAttackTemp));
-		}
-		else{
-			UserData.UpdateHeroDPS();
-
-			var viewCell = MenuView_1_root.ListView.getItem(index);
-			var HeroLevel = UserData.HeroLevel[index];
-			var heroData = HeroData[index];
-			var LV_Num = viewCell.getChildByName("LV_Num");
-			LV_Num.setString(HeroLevel);
-
-			if(HeroLevel == 1)//解锁英雄
-			{
-				var heroIconbutton = viewCell.getChildByName("heroIconbutton");
-				heroIconbutton.setColor(cc.color.WHITE);
-				var newIcon = viewCell.getChildByName("newIcon");
-				if (newIcon) {newIcon.removeFromParent(true);}
-
-				MenuView_1_root.requestRefreshView();//下一个英雄出现
-			}
-		}
-		
 	},
 	setInformation:function(){
 		//MenuView_1_root.DPS_Hero.setString(GetShowNumFromArray(UserData.HeroDPS));
@@ -639,13 +593,11 @@ var MenuView_1 = cc.Layer.extend({
 				else
 				{
 					var herolevel = UserData.HeroLevel[index] + upNum;
-
 					UserData.HeroLevel[index] = herolevel;
 				}
 				MenuView_1_root.cellBtnExpand(index, true, true);	
 				MenuView_1_root.updateCell(index);	
 			}
-
 			break;
 		}
 	},
