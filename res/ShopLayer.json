@@ -1,7 +1,7 @@
 {
-  "ID": "c78d92ff-2543-446d-a208-d72b67d57ec5",
+  "ID": "049441d4-a783-4bab-9c3c-9205934b8936",
   "Version": "3.10.0.0",
-  "Name": "MenuView_1",
+  "Name": "ShopLayer",
   "Content": {
     "Content": {
       "Animation": {
@@ -12,62 +12,8 @@
       },
       "AnimationList": [],
       "ObjectData": {
-        "Tag": 24,
+        "Tag": 25,
         "Children": [
-          {
-            "ClipAble": false,
-            "BackColorAlpha": 102,
-            "ComboBoxIndex": 1,
-            "SingleColor": {
-              "R": 150,
-              "G": 200
-            },
-            "FirstColor": {
-              "R": 150,
-              "G": 200
-            },
-            "EndColor": {},
-            "ColorVector": {
-              "ScaleY": 1.0
-            },
-            "Scale9Width": 1,
-            "Scale9Height": 1,
-            "TouchEnable": true,
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 310.0,
-              "Y": 300.0
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.4844,
-              "Y": 0.2641
-            },
-            "PreSize": {
-              "X": 1.0,
-              "Y": 0.4111
-            },
-            "LeftMargin": -10.0,
-            "RightMargin": 10.0,
-            "TopMargin": 602.5,
-            "BottomMargin": 66.5,
-            "Tag": 42,
-            "ActionTag": -356338966,
-            "Size": {
-              "X": 640.0,
-              "Y": 467.0
-            },
-            "Name": "PanelBg",
-            "ctype": "PanelObjectData"
-          },
           {
             "FileData": {
               "Type": "Normal",
@@ -102,8 +48,8 @@
             },
             "TopMargin": 602.5,
             "BottomMargin": 66.5,
-            "Tag": 25,
-            "ActionTag": 564028643,
+            "Tag": 89,
+            "ActionTag": 834693407,
             "Size": {
               "X": 640.0,
               "Y": 467.0
@@ -126,12 +72,12 @@
             },
             "PressedFileData": {
               "Type": "Normal",
-              "Path": "ui/button_down_n.png",
+              "Path": "ui/button_down_s.png",
               "Plist": ""
             },
             "NormalFileData": {
               "Type": "Normal",
-              "Path": "ui/button_down_s.png",
+              "Path": "ui/button_down_n.png",
               "Plist": ""
             },
             "Scale9Enable": true,
@@ -177,13 +123,13 @@
             "RightMargin": 7.0,
             "TopMargin": 548.0,
             "BottomMargin": 532.0,
-            "Tag": 26,
-            "ActionTag": -225596389,
+            "Tag": 90,
+            "ActionTag": 755363952,
             "Size": {
               "X": 94.0,
               "Y": 56.0
             },
-            "Name": "CloseButton",
+            "Name": "ButtonClose",
             "ctype": "ButtonObjectData"
           },
           {
@@ -191,6 +137,7 @@
             "IsBounceEnabled": true,
             "ScrollDirectionType": 0,
             "ClipAble": true,
+            "BackColorAlpha": 102,
             "SingleColor": {
               "R": 150,
               "G": 150
@@ -203,13 +150,11 @@
             "ColorVector": {
               "ScaleY": 1.0
             },
-            "Scale9Width": 1,
-            "Scale9Height": 1,
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": 11.1271,
-              "Y": 68.0564
+              "X": 11.13,
+              "Y": 68.6
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -219,23 +164,23 @@
             "IconVisible": false,
             "PrePosition": {
               "X": 0.0174,
-              "Y": 0.0599
+              "Y": 0.0604
             },
             "PreSize": {
               "X": 0.9609,
               "Y": 0.3345
             },
-            "LeftMargin": 11.1271,
-            "RightMargin": 13.8729,
-            "TopMargin": 687.9436,
-            "BottomMargin": 68.0564,
-            "Tag": 47,
-            "ActionTag": 1023671586,
+            "LeftMargin": 11.13,
+            "RightMargin": 13.87,
+            "TopMargin": 687.4,
+            "BottomMargin": 68.6,
+            "Tag": 91,
+            "ActionTag": -1162024125,
             "Size": {
               "X": 615.0,
               "Y": 380.0
             },
-            "Name": "ListView",
+            "Name": "ListViewShop",
             "ctype": "ListViewObjectData"
           }
         ],

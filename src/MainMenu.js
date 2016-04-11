@@ -7,6 +7,7 @@ var MainMenu = cc.Layer.extend({
 	select_main_button:null,
 	Main_Button1:null,
 	Main_Button2:null,
+	Main_Button3:null,
 	ViewNode:null,
 	Text_MonsterName:null,
 	bosstime:null,
@@ -27,6 +28,12 @@ var MainMenu = cc.Layer.extend({
 
 	Skill_Button_List:[],
 
+	Button_Set:null,
+
+	updateTime:0,
+	All_DPS:[0,0],
+	All_DPSTEMP:[0,0],
+	MonsterBlood:null,
 	ctor:function(){
 		this._super();
 		MainMenu_root = this;
@@ -51,8 +58,6 @@ var MainMenu = cc.Layer.extend({
 
 		this.ViewNode = this.rootnode.getChildByName("ViewNode");
 
-		
-		
 		for (var i = 0; i < 3; i++) {
 			var skillIndex = i + 1;
 			this.Skill_Button_List[i] = ccui.helper.seekWidgetByName(this.rootnode, "ButtonSkill" + skillIndex);
@@ -66,10 +71,17 @@ var MainMenu = cc.Layer.extend({
 		this.Main_Button2 = ccui.helper.seekWidgetByName(this.rootnode, "Main_Button2");
 		this.Main_Button2.addTouchEventListener(this.mainMenuClick);
 
+		this.Main_Button3 = ccui.helper.seekWidgetByName(this.rootnode, "Main_Button3");
+		this.Main_Button3.addTouchEventListener(this.mainMenuClick);
+
 		this.Button_Boss = ccui.helper.seekWidgetByName(this.rootnode, "Button_Boss");
 		this.Button_Boss.addTouchEventListener(this.onBossStateClick);
 
+		ccui.helper.seekWidgetByName(this.rootnode, "Button_Set").addTouchEventListener(this.onSetUpClick);
+
 		this.scheduleUpdate();
+
+		this.setInformation();
 
 		this.UpdateStage("init");
 
@@ -77,6 +89,7 @@ var MainMenu = cc.Layer.extend({
 	},
 	InitStage : function () {
 		UserData.StageBlood = Ruler.StageBloodBase;
+		//UserData.ChangeMonsterBlood();
 		MainMenu_root.Text_MonsterName.setString(BattleLayer_root.MonsterName);
 		MainMenu_root.updateBossButtonState();
 	},
@@ -148,13 +161,30 @@ var MainMenu = cc.Layer.extend({
 	},
 	update: function (dt) 
 	{
+		var onSecond = false;
+		this.updateTime += dt; 
+		if(this.updateTime >= 1){
+			this.updateTime -= 1;
+			onSecond = true;
+		}
+		//var dps = ArrayMulNumber(UserData.HeroDPS, dt);
+
 		if(BattleLayer_root.InGapTime()) 
-		{
-			
+		{	
 		}
 		else
 		{
-			
+			this.All_DPSTEMP = ArraySumArray(this.All_DPS, UserData.TapAttackTemp);
+			this.All_DPS = this.All_DPSTEMP;
+			if(onSecond){
+				this.FontLabelAllDPS.setString(GetShowNumFromArray(this.All_DPS));//总秒伤显示
+				this.All_DPSTEMP = [0,0];
+				this.setInformation();
+			}
+
+			UserData.StageBlood = ArraySubArray(UserData.StageBlood, UserData.TapAttackTemp);
+			UserData.TapAttackTemp = [0];
+
 			if (ArrayIsZero(UserData.StageBlood)) {
 				if (UserData.EnemyIndex == UserData.getBossInterval()) {
 					BattleLayer_root.NextScene();
@@ -166,8 +196,7 @@ var MainMenu = cc.Layer.extend({
 				MainMenu_root.updateBossButtonState();
 
 			} else {
-				UserData.StageBlood = ArraySubArray(UserData.StageBlood, UserData.TapAttackTemp);
-				UserData.TapAttackTemp = [0];
+				//血量随关卡变化
 				var pct = ArrayScaleArray(UserData.StageBlood, Ruler.StageBloodBase) * 100;
 				MainMenu_root.BloodBar.setPercent(pct);
 
@@ -186,7 +215,6 @@ var MainMenu = cc.Layer.extend({
 		
 
 		MainMenu_root.MonsterBlood.setString(GetShowNumFromArray(UserData.StageBlood));//血量更新
-
 
 		// 主角技能释放CD
 		for (var i = 0; i < this.Skill_Button_List.length; i++) {
@@ -262,6 +290,13 @@ var MainMenu = cc.Layer.extend({
 			BattleLayer_root.RandomMonster(true);
 		}
 	},
+	onSetUpClick : function(sender,type) {
+		switch(type){
+		case ccui.Widget.TOUCH_ENDED:
+			MainScene_root.pushLayer(new SettingLayer());
+			break;
+		}
+	},
 	updateBossButtonState : function () {
 		// 1 挑战boss状态
 		// 2 准备挑战状态
@@ -325,6 +360,11 @@ var MainMenu = cc.Layer.extend({
 				MenuView_2_root.setVisible(false);
 				MenuView_2_root.y = -500;
 			}
+			if(MainMenu_root.select_main_button.getName() == MainMenu_root.Main_Button3.getName())
+			{
+				ShopLayer_root.setVisible(false);
+				ShopLayer_root.y = -500;
+			}
 			MainMenu_root.select_main_button.setBright(true);//设置true则控件是高亮的，否则设置false。
 			MainMenu_root.select_main_button.setEnabled(true);//true 菜单响应点击，false 菜单不响应点击。
 			MainMenu_root.select_main_button = null;
@@ -362,7 +402,14 @@ var MainMenu = cc.Layer.extend({
 					MainMenu_root.ViewNode.addChild(node);
 				} else {
 					node = MenuView_1_root;
-					node.requestRefreshView();
+
+					var needRefreshView = UserData.MoneyUpdate();
+           			if(MenuView_1_root != null&&needRefreshView) 
+            		{
+              			 node.checkMenuView();;//金币数够按钮是亮的 
+            		}
+					
+					//node.requestRefreshView();
 				}
 				sender.setBright(false);
 				sender.setEnabled(false);
@@ -381,6 +428,18 @@ var MainMenu = cc.Layer.extend({
 					node = MenuView_2_root;
 					node.requestRefreshView();
 					
+				}
+				sender.setBright(false);
+				sender.setEnabled(false);
+			}
+			if(sender.getName() == MainMenu_root.Main_Button3.getName())
+			{
+				if (ShopLayer_root == null) {
+					node = new ShopLayer();
+					MainMenu_root.ViewNode.addChild(node);
+				} else {
+					node = ShopLayer_root;
+					//node.requestRefreshView();//??
 				}
 				sender.setBright(false);
 				sender.setEnabled(false);

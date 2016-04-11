@@ -39,6 +39,76 @@ var Spec = {
 			res.monster_08_001,
 			"monster_08",
 			"怪物8"
+		],
+		[
+			res.monster_09_001,
+			"monster_09",
+			"怪物9"
+		],
+		[
+			res.monster_11_001,
+			"monster_21",
+			"怪物a"
+		],
+		[
+			res.monster_12_001,
+			"monster_22",
+			"怪物b"
+		],
+		[
+			res.monster_13_001,
+			"monster_24",
+			"怪物c"
+		],
+		[
+			res.monster_14_001,
+			"monster_25",
+			"怪物d"
+		],
+		[
+			res.monster_15_001,
+			"monster_27",
+			"怪物e"
+		],
+		[
+			res.monster_16_001,
+			"monster_28",
+			"怪物f"
+		],
+		[
+			res.monster_17_001,
+			"monster_29",
+			"怪物g"
+		],
+		[
+			res.monster_18_001,
+			"monster_30",
+			"怪物h"
+		],
+		[
+			res.monster_19_001,
+			"monster_32",
+			"怪物i"
+		],
+		[
+			res.monster_20_001,
+			"monster_33",
+			"怪物p"
+		],
+		[
+			res.monster_21_001,
+			"monster_34",
+			"怪物j"
+		],
+		[
+			res.monster_22_001,
+			"monster_36",
+			"怪物k"
+		],
+		[
+			res.monster_23_001,
+			"monster_37",
+			"怪物l"
 		]
 	],
 	StageSpec : [

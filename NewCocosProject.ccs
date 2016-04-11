@@ -245,14 +245,19 @@
           <Image Name="title_shenqiqianghua.png" />
           <Image Name="touch.png" />
         </Folder>
+        <Project Name="BankLayer.csd" Type="Layer" />
         <Project Name="BattleLayer.csd" Type="Layer" />
+        <Project Name="DataLayer.csd" Type="Layer" />
+        <Project Name="HelpLayer.csd" Type="Layer" />
         <Project Name="HeroInfoLayer.csd" Type="Layer" />
         <Project Name="MainMenu.csd" Type="Layer" />
         <Project Name="MainScene.csd" Type="Scene" />
+        <Project Name="MarkLayer.csd" Type="Layer" />
         <Project Name="MenuView_1.csd" Type="Layer" />
         <Project Name="MenuView_2.csd" Type="Layer" />
         <ExportJsonFile Name="monster_01.ExportJson" />
         <Project Name="SettingLayer.csd" Type="Layer" />
+        <Project Name="ShopLayer.csd" Type="Layer" />
         <Project Name="StartLayer.csd" Type="Layer" />
       </RootFolder>
     </Group>

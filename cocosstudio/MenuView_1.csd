@@ -6,13 +6,13 @@
       <ObjectData Name="Layer" Tag="24" ctype="GameLayerObjectData">
         <Size X="640.0000" Y="1136.0000" />
         <Children>
-          <AbstractNodeData Name="PanelBg" ActionTag="-356338966" Tag="42" IconVisible="False" TopMargin="602.5000" BottomMargin="66.5000" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+          <AbstractNodeData Name="PanelBg" ActionTag="-356338966" Tag="42" IconVisible="False" LeftMargin="-10.0000" RightMargin="10.0000" TopMargin="602.5000" BottomMargin="66.5000" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
             <Size X="640.0000" Y="467.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="320.0000" Y="300.0000" />
+            <Position X="310.0000" Y="300.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5000" Y="0.2641" />
+            <PrePosition X="0.4844" Y="0.2641" />
             <PreSize X="1.0000" Y="0.4111" />
             <SingleColor A="255" R="150" G="200" B="255" />
             <FirstColor A="255" R="150" G="200" B="255" />
