@@ -1,0 +1,423 @@
+{
+  "ID": "3aca6081-e1a8-43d5-9651-7db867461a9f",
+  "Version": "3.10.0.0",
+  "Name": "DataLayer",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 121,
+        "Children": [
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 102,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "Tag": 141,
+            "ActionTag": -1441908228,
+            "Size": {
+              "X": 640.0,
+              "Y": 1136.0
+            },
+            "Name": "PanelBg",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 102,
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ui/info_bg_xiangx.png",
+              "Plist": ""
+            },
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 28,
+            "Scale9OriginY": 28,
+            "Scale9Width": 30,
+            "Scale9Height": 30,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 318.0,
+              "Y": 570.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4969,
+              "Y": 0.5018
+            },
+            "PreSize": {
+              "X": 0.9719,
+              "Y": 0.9032
+            },
+            "LeftMargin": 7.0,
+            "RightMargin": 11.0,
+            "TopMargin": 53.0,
+            "BottomMargin": 57.0,
+            "Tag": 142,
+            "Children": [
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Normal",
+                  "Path": "ui/info_button_close_n.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "ui/info_button_close_s.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "ui/info_button_close_n.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 50,
+                "Scale9Height": 58,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 600.0,
+                  "Y": 1020.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.9646,
+                  "Y": 0.9942
+                },
+                "PreSize": {
+                  "X": 0.1286,
+                  "Y": 0.078
+                },
+                "LeftMargin": 560.0,
+                "RightMargin": -18.0,
+                "TopMargin": -34.0,
+                "BottomMargin": 980.0,
+                "Tag": 144,
+                "ActionTag": -676679369,
+                "Size": {
+                  "X": 80.0,
+                  "Y": 80.0
+                },
+                "Name": "ButtonClose",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "ClipAble": false,
+                "BackColorAlpha": 102,
+                "SingleColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "FirstColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "TouchEnable": true,
+                "AnchorPoint": {},
+                "Position": {
+                  "X": 8.64,
+                  "Y": 811.3041
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0139,
+                  "Y": 0.7907
+                },
+                "PreSize": {
+                  "X": 0.9807,
+                  "Y": 0.1949
+                },
+                "LeftMargin": 8.64,
+                "RightMargin": 3.36,
+                "TopMargin": 14.6959,
+                "BottomMargin": 811.3041,
+                "Tag": 145,
+                "Children": [
+                  {
+                    "FontSize": 35,
+                    "LabelText": "统计数据",
+                    "OutlineColor": {
+                      "G": 0,
+                      "B": 0
+                    },
+                    "ShadowColor": {
+                      "R": 110,
+                      "G": 110,
+                      "B": 110
+                    },
+                    "ShadowOffsetX": 2.0,
+                    "ShadowOffsetY": -2.0,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 80.0,
+                      "Y": 150.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {
+                      "R": 0,
+                      "G": 0,
+                      "B": 0
+                    },
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.1311,
+                      "Y": 0.75
+                    },
+                    "PreSize": {
+                      "X": 0.2295,
+                      "Y": 0.175
+                    },
+                    "LeftMargin": 10.0,
+                    "RightMargin": 460.0,
+                    "TopMargin": 32.5,
+                    "BottomMargin": 132.5,
+                    "Tag": 146,
+                    "ActionTag": 772605096,
+                    "Size": {
+                      "X": 140.0,
+                      "Y": 35.0
+                    },
+                    "Name": "TextStatistics",
+                    "ctype": "TextObjectData"
+                  },
+                  {
+                    "FontSize": 30,
+                    "LabelText": "统计数据说明",
+                    "OutlineColor": {
+                      "G": 0,
+                      "B": 0
+                    },
+                    "ShadowColor": {
+                      "R": 110,
+                      "G": 110,
+                      "B": 110
+                    },
+                    "ShadowOffsetX": 2.0,
+                    "ShadowOffsetY": -2.0,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 100.0,
+                      "Y": 100.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {
+                      "R": 0,
+                      "G": 0,
+                      "B": 0
+                    },
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.1639,
+                      "Y": 0.5
+                    },
+                    "PreSize": {
+                      "X": 0.2951,
+                      "Y": 0.15
+                    },
+                    "LeftMargin": 10.0,
+                    "RightMargin": 420.0,
+                    "TopMargin": 85.0,
+                    "BottomMargin": 85.0,
+                    "Tag": 147,
+                    "ActionTag": 146645463,
+                    "Size": {
+                      "X": 180.0,
+                      "Y": 30.0
+                    },
+                    "Name": "TextMark",
+                    "ctype": "TextObjectData"
+                  }
+                ],
+                "ActionTag": -290061156,
+                "Size": {
+                  "X": 610.0,
+                  "Y": 200.0
+                },
+                "Name": "PanelHeadline",
+                "ctype": "PanelObjectData"
+              },
+              {
+                "DirectionType": "Vertical",
+                "IsBounceEnabled": true,
+                "ScrollDirectionType": 0,
+                "ClipAble": true,
+                "BackColorAlpha": 102,
+                "SingleColor": {
+                  "R": 150,
+                  "G": 150
+                },
+                "FirstColor": {
+                  "R": 150,
+                  "G": 150
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "TouchEnable": true,
+                "AnchorPoint": {},
+                "Position": {
+                  "X": 12.1252,
+                  "Y": 9.893
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0195,
+                  "Y": 0.0096
+                },
+                "PreSize": {
+                  "X": 0.9807,
+                  "Y": 0.7602
+                },
+                "LeftMargin": 12.1252,
+                "RightMargin": -0.1252,
+                "TopMargin": 236.107,
+                "BottomMargin": 9.893,
+                "Tag": 149,
+                "ActionTag": 1152815310,
+                "Size": {
+                  "X": 610.0,
+                  "Y": 780.0
+                },
+                "Name": "ListViewData",
+                "ctype": "ListViewObjectData"
+              }
+            ],
+            "ActionTag": 1102658742,
+            "Size": {
+              "X": 622.0,
+              "Y": 1026.0
+            },
+            "Name": "PanelData",
+            "ctype": "PanelObjectData"
+          }
+        ],
+        "Size": {
+          "X": 640.0,
+          "Y": 1136.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "ui/info_bg_xiangx.png",
+        "ui/info_button_close_n.png",
+        "ui/info_button_close_s.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

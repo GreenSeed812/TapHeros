@@ -29,23 +29,23 @@
                 <PreSize X="0.3531" Y="0.5500" />
                 <ImageFileData Type="Normal" Path="ui/hp_tiao_gr.png" Plist="" />
               </AbstractNodeData>
-              <AbstractNodeData Name="MonsterBlood" ActionTag="563496273" Tag="16" IconVisible="False" LeftMargin="448.5000" RightMargin="168.5000" TopMargin="12.5000" BottomMargin="12.5000" LabelText="0Hp" ctype="TextBMFontObjectData">
+              <AbstractNodeData Name="MonsterBlood" ActionTag="563496273" Tag="16" IconVisible="False" LeftMargin="468.5000" RightMargin="148.5000" TopMargin="12.5000" BottomMargin="12.5000" LabelText="0Hp" ctype="TextBMFontObjectData">
                 <Size X="23.0000" Y="15.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="460.0000" Y="20.0000" />
-                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <Position X="480.0000" Y="20.0000" />
+                <Scale ScaleX="2.0000" ScaleY="2.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.7188" Y="0.5000" />
+                <PrePosition X="0.7500" Y="0.5000" />
                 <PreSize X="0.0359" Y="0.3750" />
               </AbstractNodeData>
-              <AbstractNodeData Name="Text_MonsterName" ActionTag="-1605970941" Tag="17" IconVisible="False" LeftMargin="160.0000" RightMargin="440.0000" TopMargin="10.0000" BottomMargin="10.0000" FontSize="20" LabelText="Name" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                <Size X="40.0000" Y="20.0000" />
+              <AbstractNodeData Name="Text_MonsterName" ActionTag="-1605970941" Tag="17" IconVisible="False" LeftMargin="152.0000" RightMargin="440.0000" TopMargin="8.0000" BottomMargin="8.0000" FontSize="24" LabelText="Name" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                <Size X="48.0000" Y="24.0000" />
                 <AnchorPoint ScaleX="1.0000" ScaleY="0.5000" />
                 <Position X="200.0000" Y="20.0000" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.3125" Y="0.5000" />
-                <PreSize X="0.0625" Y="0.5000" />
+                <PreSize X="0.0750" Y="0.6000" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
@@ -59,14 +59,25 @@
                 <PreSize X="0.3125" Y="0.3000" />
                 <ImageFileData Type="Default" Path="Default/LoadingBarFile.png" Plist="" />
               </AbstractNodeData>
-              <AbstractNodeData Name="BossTimeLeft" ActionTag="1149227585" Tag="19" IconVisible="False" LeftMargin="179.5000" RightMargin="429.5000" TopMargin="34.5000" BottomMargin="-9.5000" LabelText="00:00" ctype="TextBMFontObjectData">
+              <AbstractNodeData Name="BossTimeLeft" ActionTag="1149227585" Tag="19" IconVisible="False" LeftMargin="164.5000" RightMargin="444.5000" TopMargin="34.5000" BottomMargin="-9.5000" LabelText="00:00" ctype="TextBMFontObjectData">
                 <Size X="31.0000" Y="15.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="195.0000" Y="-2.0000" />
-                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <Position X="180.0000" Y="-2.0000" />
+                <Scale ScaleX="2.0000" ScaleY="2.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.3047" Y="-0.0500" />
+                <PrePosition X="0.2813" Y="-0.0500" />
                 <PreSize X="0.0484" Y="0.3750" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="TextHp" ActionTag="471764718" Tag="113" IconVisible="False" LeftMargin="538.0000" RightMargin="78.0000" TopMargin="8.0000" BottomMargin="8.0000" FontSize="24" LabelText="Hp" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                <Size X="24.0000" Y="24.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="550.0000" Y="20.0000" />
+                <Scale ScaleX="1.2000" ScaleY="1.2000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.8594" Y="0.5000" />
+                <PreSize X="0.0375" Y="0.6000" />
+                <OutlineColor A="255" R="255" G="0" B="0" />
+                <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
             </Children>
             <AnchorPoint />
@@ -200,29 +211,29 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="FontLabelDPS" ActionTag="-1633917809" Tag="65" IconVisible="False" LeftMargin="476.5000" RightMargin="156.5000" TopMargin="62.5000" BottomMargin="22.5000" LabelText="0" ctype="TextBMFontObjectData">
+              <AbstractNodeData Name="FontLabelDPS" ActionTag="-1633917809" Tag="65" IconVisible="False" LeftMargin="456.5000" RightMargin="176.5000" TopMargin="62.5000" BottomMargin="22.5000" LabelText="0" ctype="TextBMFontObjectData">
                 <Size X="7.0000" Y="15.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="480.0000" Y="30.0000" />
-                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <Position X="460.0000" Y="30.0000" />
+                <Scale ScaleX="2.0000" ScaleY="2.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.7500" Y="0.3000" />
+                <PrePosition X="0.7188" Y="0.3000" />
                 <PreSize X="0.0109" Y="0.1500" />
               </AbstractNodeData>
-              <AbstractNodeData Name="FontLabelTap" ActionTag="-813209903" Tag="67" IconVisible="False" LeftMargin="476.5000" RightMargin="156.5000" TopMargin="22.5000" BottomMargin="62.5000" LabelText="0" ctype="TextBMFontObjectData">
+              <AbstractNodeData Name="FontLabelTap" ActionTag="-813209903" Tag="67" IconVisible="False" LeftMargin="456.5000" RightMargin="176.5000" TopMargin="22.5000" BottomMargin="62.5000" LabelText="0" ctype="TextBMFontObjectData">
                 <Size X="7.0000" Y="15.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="480.0000" Y="70.0000" />
-                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <Position X="460.0000" Y="70.0000" />
+                <Scale ScaleX="2.0000" ScaleY="2.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.7500" Y="0.7000" />
+                <PrePosition X="0.7188" Y="0.7000" />
                 <PreSize X="0.0109" Y="0.1500" />
               </AbstractNodeData>
               <AbstractNodeData Name="FontLabelAllDPS" ActionTag="-893634748" Tag="68" IconVisible="False" LeftMargin="176.5000" RightMargin="456.5000" TopMargin="22.5000" BottomMargin="62.5000" LabelText="0" ctype="TextBMFontObjectData">
                 <Size X="7.0000" Y="15.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="180.0000" Y="70.0000" />
-                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <Scale ScaleX="2.0000" ScaleY="2.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.2813" Y="0.7000" />
                 <PreSize X="0.0109" Y="0.1500" />
@@ -231,7 +242,7 @@
                 <Size X="7.0000" Y="15.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="180.0000" Y="30.0000" />
-                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <Scale ScaleX="2.0000" ScaleY="2.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.2813" Y="0.3000" />
                 <PreSize X="0.0109" Y="0.1500" />

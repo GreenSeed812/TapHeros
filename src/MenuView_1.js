@@ -145,21 +145,7 @@ var MenuView_1 = cc.Layer.extend({
 					newIcon.y = 50;
 					custom_item.addChild(newIcon);
 				}
-				if(HeroLevel>0)
-				{
-					var heroData = HeroData[index];
-					var skillNode = new cc.Node();
-					skillNode.setName("skillNode");
-					for (var i = 0; i < heroData.SkillUnlock.length; i++) {
-						if (UserData.HeroSkillUnLockCount[index] > i) {
-					var icon = new cc.Sprite(heroData.Skill[i].Icon);
-					icon.x = i * 46;
-					skillNode.addChild(icon);
-						}
-					}
-					skillNode.x = 140;
-					skillNode.y = 46;
-				}
+
 			}
 			else
 			{
@@ -305,14 +291,27 @@ var MenuView_1 = cc.Layer.extend({
 				Money_Up.x = 50;
 				Money_Up.y = 54;
 				buttonTextNode.addChild(Money_Up);
+
+				/*var skillNode = new cc.Node();//mode.js数据添加
+				skillNode.setName("skillNode");
+				for (var i = 0; i < PlayerData.SkillUnlock.length; i++) {
+					if (UserData.UserSkillLevel[index]> i) {
+						var icon = new cc.Sprite(PlayerData.Skill[i].Icon);
+						icon.x = i * 46;
+						skillNode.addChild(icon);
+					}
+				}
+				skillNode.x = 140;
+				skillNode.y = 46;*/
+
 			}
 			else
 			{
 				var HeroLevel = UserData.HeroLevel[index];
-				if(HeroLevel==0)
+				var heroData = HeroData[index];
+				if(HeroLevel>=0&&MenuView_1_root.Light==true)
 				{	
-					if(MenuView_1_root.Light==true)
-					{
+
 						button.loadTextures(res.button_lvup_n_png, res.button_lvup_s_png, res.button_lvup_n_png);
 						button.x = 500;
 						button.y = 60;
@@ -345,18 +344,32 @@ var MenuView_1 = cc.Layer.extend({
 						ButtonFunction.y = 28;
 						buttonTextNode.addChild(ButtonFunction);
 					
-						var DPS = new cc.LabelTTF("DPS+ "+GetShowNumFromArray(getHeroAtk(heroData)), res.TTF_黑体加粗, 16);
+						var DPS = new cc.LabelTTF("DPS+"+GetShowNumFromArray(getHeroAtk(heroData)), res.TTF_黑体加粗, 16);
+
 						DPS.setName("DPS");
 						DPS.setAnchorPoint(0.5, 0);
 						DPS.x = 60;
 						DPS.y = 8;
 						buttonTextNode.addChild(DPS);
-					}	
+
+						var skillNode = new cc.Node();
+						skillNode.setName("skillNode");
+						for (var i = 1; i < heroData.SkillUnlock.length; i++) {
+							if (UserData.HeroSkillUnLockCount[index] > i) {
+								var icon = new cc.Sprite(heroData.Skill[i].Icon);
+								icon.x = i * 46;
+								skillNode.addChild(icon);
+							}
+						}
+						skillNode.x = 140;
+						skillNode.y = 46;
+
+						MenuView_1_root.UpdateButton(index);	
 				}
-				if(HeroLevel==0)
+				else if(HeroLevel>=0)
 				{	
 					button.loadTextures(res.button_lvup_d_png, res.button_lvup_d_png, res.button_lvup_d_png);
-					button.setEnabled(false);
+					button.setEnabled(true);
 					button.x = 500;
 					button.y = 60;
 					//button.addTouchEventListener(MenuView_1_root.touchButton, MenuView_1_root);
@@ -381,10 +394,10 @@ var MenuView_1 = cc.Layer.extend({
 					Money_Up.y = 54;
 					buttonTextNode.addChild(Money_Up);
 
-					var ButtonFunction = new cc.LabelTTF("开启", res.TTF_黑体加粗, 20);
+					var ButtonFunction = new cc.LabelTTF("未开启", res.TTF_黑体加粗, 20);
 					ButtonFunction.setName("ButtonFunction");
 					ButtonFunction.setAnchorPoint(0, 0);
-					ButtonFunction.x = 46;
+					ButtonFunction.x = 36;
 					ButtonFunction.y = 28;
 					buttonTextNode.addChild(ButtonFunction);
 				
@@ -426,11 +439,8 @@ var MenuView_1 = cc.Layer.extend({
 		
 		MenuView_1_root.ListView.insertCustomItem(custom_item, index);
 
-		MenuView_1_root.UpdateButton(index);
-	},
-	UpdateButton:function(index)
-	{
-		
+
+		//MenuView_1_root.UpdateButton(index);
 	},
 	createCells:function()
 	{
@@ -449,13 +459,87 @@ var MenuView_1 = cc.Layer.extend({
 	requestRefreshView : function () //下一个英雄出现
 	{
 		var listCount = MenuView_1_root.ListView.getItems().length - 2;
-
-		for (var i = listCount+2; i < HeroData.length; i++) 
+		for (var i = listCount+2; i < listCount+3; i++) 
 		{
-			if (UserData.HeroLevel[i] >= 0)
+			UserData.HeroLevel[i] =0;
+			MenuView_1_root.Light = false;
+			if(UserData.HeroLevel[i] >= 0)
 			{
 				MenuView_1_root.createCell(i);
 			}
+		}
+		MenuView_1_root.setInformation();
+	},
+	checkMenuView:function()
+	{
+		var listCount = MenuView_1_root.ListView.getItems().length - 1;
+		for(var i = listCount; i < HeroData.length; i++) 
+		{
+			if (UserData.HeroLevel[i] >= 0)
+			{
+				MenuView_1_root.Light = true;
+				MenuView_1_root.createCell(i);
+			}
+		}
+		MenuView_1_root.ListView.removeLastItem();	
+	},
+	updateCell:function(index) {
+		
+		var viewCell = MenuView_1_root.ListView.getItem(index);
+
+		var LV_Num = viewCell.getChildByName("LV_Num");
+		var Desc = viewCell.getChildByName("Desc");
+		if (viewCell.getName() == "Player") 
+		{
+			LV_Num.setString(UserData.UserLevel);
+			Desc.setString(GetShowNumFromArray(UserData.TapAttack));//输出滞后一次
+
+			/*var skillNode = viewCell.getChildByName("skillNode");
+			for (var i = 0; i < PlayerData.SkillUnlock.length; i++) {
+				if (UserData.UserLevel >= PlayerData.SkillUnlock[i])
+				{
+					var icon = new cc.Sprite(PlayerData.Skill[i].Icon);
+					icon.x = i * 46;
+					skillNode.addChild(icon);
+				}
+			}*/
+		}
+		else{ 
+			UserData.UpdateHeroDPS();
+			//var viewCell = MenuView_1_root.ListView.getItem(index);
+			var HeroLevel = UserData.HeroLevel[index];
+			var heroData = HeroData[index];
+			var LV_Num = viewCell.getChildByName("LV_Num");
+			LV_Num.setString(HeroLevel);
+
+			var skillNode = viewCell.getChildByName("skillNode");
+			for (var i = 0; i < heroData.SkillUnlock.length; i++) {
+				if (HeroLevel>=heroData.SkillUnlock[i]) {
+				var icon = new cc.Sprite(heroData.Skill[i].Icon);
+				icon.x = i * 46;
+				skillNode.addChild(icon);
+				}
+			}
+
+			if(HeroLevel == 1)//解锁英雄
+			{
+				var heroIconbutton = viewCell.getChildByName("heroIconbutton");
+				heroIconbutton.setColor(cc.color.WHITE);
+				var newIcon = viewCell.getChildByName("newIcon");
+				if (newIcon) {newIcon.removeFromParent(true);}
+
+				MenuView_1_root.requestRefreshView();//下一个英雄出现
+			}
+		}
+		MenuView_1_root.UpdateButton(index);
+	},
+	UpdateButton:function(index)
+	{
+		var heroData = HeroData[index];
+		var HeroLevel = UserData.HeroLevel[index];
+		if(heroData.SkillUnlock[UserData.HeroSkillUnLockCount[index]] <= HeroLevel)
+		{
+			UserData.HeroSkillUnLockCount[index] += 1;
 		}
 		MenuView_1_root.setInformation();
 	},
@@ -512,11 +596,15 @@ var MenuView_1 = cc.Layer.extend({
 			if (index == 0) 
 			{
 				MainScene_root.pushLayer(new HeroInfoLayer());
-				HeroInfoLayer_root.setHeroDate(PlayerData, UserData.UserLevel, index);
+				HeroInfoLayer_root.setUserDate(PlayerData, UserData.UserLevel, index);
 			}
 			else
 			{
+				var heroData = HeroData[index];
+				var HeroLevel = UserData.HeroLevel[index];
+			
 				MainScene_root.pushLayer(new HeroInfoLayer());
+				HeroInfoLayer_root.setHeroDate(heroData, HeroLevel, index);
 			}	
 			break;
 		}
@@ -551,11 +639,11 @@ var MenuView_1 = cc.Layer.extend({
 				else
 				{
 					var herolevel = UserData.HeroLevel[index] + upNum;
-					UserData.HeroLevel[index] = herolevel;	
+
+					UserData.HeroLevel[index] = herolevel;
 				}
-				
-				MenuView_1_root.updateCell(index);
-				MenuView_1_root.cellBtnExpand(index, true, true);
+				MenuView_1_root.cellBtnExpand(index, true, true);	
+				MenuView_1_root.updateCell(index);	
 			}
 
 			break;
@@ -569,7 +657,6 @@ var MenuView_1 = cc.Layer.extend({
 		var button100 = viewCell.getChildByName("buttonNode").getChildByName("button100");
 		button10.stopAllActions();
 		button100.stopAllActions();
-		
 		if (isShow) {
 			button10.runAction(cc.sequence(cc.show(), cc.moveTo(0.1, cc.p(414, 58)), cc.delayTime(1.8), cc.moveTo(0.15, cc.p(500, 58)), cc.hide()));
 			if (showAll)
@@ -580,5 +667,6 @@ var MenuView_1 = cc.Layer.extend({
 			button10.runAction(cc.sequence(cc.moveTo(0.15, cc.p(500, 58)), cc.hide()));
 			button100.runAction(cc.sequence(cc.moveTo(0.1, cc.p(500, 58)), cc.hide()));
 		}
+
 	}
 });

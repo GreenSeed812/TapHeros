@@ -10,13 +10,14 @@ var BattleLayer = cc.Layer.extend({
     MonsterScale:0.8,
     BossMonsterScale:1.0,
     DestJsonNode:null,
-    AtkEffects:[],//
-    Armature:null,//
-    AtkEffectIndex:0,//
-    PlayerJobData:null,//
+    AtkEffects:[],
+    Armature:null,
+    AtkEffectIndex:0,
+    PlayerJobData:null,
     zhezhao:null,
-    DestPos:{x:0,y:0},//
+    DestPos:{x:0,y:0},
     locationPos:null,
+    Button_OfflineCoin:null,
     ctor:function () {
         this._super();
         BattleLayer_root = this;
@@ -41,6 +42,8 @@ var BattleLayer = cc.Layer.extend({
         this.MoneyImage = ccui.helper.seekWidgetByName(this.rootnode, "MoneyImage");
         this.Money = ccui.helper.seekWidgetByName(this.rootnode, "Money");
         this.Panel_Money = ccui.helper.seekWidgetByName(this.rootnode, "Panel_Money");
+        //this.Button_OfflineCoin = ccui.helper.seekWidgetByName(this.rootnode, "Button_OfflineCoin");
+       // this.Button_OfflineCoin.addTouchEventListener(this.OfflineCoinClick, this.Button_OfflineCoin);
 
         this.zhezhao = this.rootnode.getChildByName("zhezhao");
         this.zhezhao.setVisible(false);
@@ -54,7 +57,49 @@ var BattleLayer = cc.Layer.extend({
 
         this.mExitTime = 0;
 
+        //this.updateOfflineCoinState();
+
         return true;
+    },
+    OfflineCoinClick : function (sender,type) {
+        if (type == ccui.Widget.TOUCH_ENDED) {
+
+            var coinNum = 20;
+            for (var i = 0; i < coinNum; i++) {
+                var icon = new cc.Sprite(res.icon_goldcoindrop);
+                icon.showNum = ArrayMulNumber(UserData.OfflineCoin, 1/coinNum);
+
+                icon.x = this.x;
+                icon.y = this.y;
+
+                var rX = GetRandomNum(-250, 450);
+                var rY = GetRandomNum(-250, 450);
+                var time = GetRandomNum(1000, 1500)/1000;
+
+                var controlPoints = [   cc.p(this.x + rX, this.y + rY),
+                                        cc.p(this.x + rX + GetRandomNum(-100, 100), this.y + rY + GetRandomNum(-100, 100)),
+                                        cc.p(BattleLayer_root.MoneyImage.x, BattleLayer_root.MoneyImage.y) ];
+
+                var bezierForward = cc.bezierTo(time, controlPoints);//.easing(cc.easeExponentialInOut());
+
+                var rep = cc.sequence(  
+                                        cc.spawn( bezierForward,
+                                                  cc.sequence(cc.scaleTo(time/10*2, 1.1), cc.scaleTo(time/10*8, 0.7))),
+                                        cc.callFunc(BattleLayer_root.onCallback, BattleLayer_root, icon)
+                                     );
+                icon.runAction(rep);
+                BattleLayer_root.Panel_Money.addChild(icon);
+            }
+            sender.setVisible(false);
+            UserData.OfflineCoin = [0,0];
+        }
+    },
+    updateOfflineCoinState : function () {
+        if (ArrayIsZero(UserData.OfflineCoin)) {
+            this.Button_OfflineCoin.setVisible(false);
+        } else {
+            this.Button_OfflineCoin.getChildByName("effect").runAction(cc.rotateBy(1.2, 360).repeatForever());
+        }
     },
     NextStage : function() {
         if (this.DestJsonNode) {
@@ -75,10 +120,11 @@ var BattleLayer = cc.Layer.extend({
         UserData.StageIndexNmb += 1;
         UserData.EnemyIndex = 1;
         MainMenu_root.UpdateStage("update");
-        //小地图
+
+        UserData.ChangeMonsterBlood();
         if( UserData.StageIndex>=15)
         {
-            UserData.StageIndex = 0;
+            UserData.StageIndex = 1;
         }
         //大地图
         if( UserData.StageIndexD>=15)
@@ -332,9 +378,8 @@ var BattleLayer = cc.Layer.extend({
             var needRefreshView = UserData.MoneyUpdate();
             if(MenuView_1_root != null&&needRefreshView) 
             {
-                MenuView_1_root.checkMenuView();
+               MenuView_1_root.checkMenuView();//金币数够按钮是亮的 
             }
-
             BattleLayer_root.MoneyImage.setScale(1.2);
             BattleLayer_root.MoneyImage.runAction(cc.scaleTo(0.1,1));
         };

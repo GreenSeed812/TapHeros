@@ -149,25 +149,25 @@
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 460.0,
+                  "X": 480.0,
                   "Y": 20.0
                 },
                 "Scale": {
-                  "ScaleX": 1.0,
-                  "ScaleY": 1.0
+                  "ScaleX": 2.0,
+                  "ScaleY": 2.0
                 },
                 "CColor": {},
                 "IconVisible": false,
                 "PrePosition": {
-                  "X": 0.7188,
+                  "X": 0.75,
                   "Y": 0.5
                 },
                 "PreSize": {
                   "X": 0.0359,
                   "Y": 0.375
                 },
-                "LeftMargin": 448.5,
-                "RightMargin": 168.5,
+                "LeftMargin": 468.5,
+                "RightMargin": 148.5,
                 "TopMargin": 12.5,
                 "BottomMargin": 12.5,
                 "Tag": 16,
@@ -180,7 +180,7 @@
                 "ctype": "TextBMFontObjectData"
               },
               {
-                "FontSize": 20,
+                "FontSize": 24,
                 "LabelText": "Name",
                 "OutlineColor": {
                   "G": 0,
@@ -212,18 +212,18 @@
                   "Y": 0.5
                 },
                 "PreSize": {
-                  "X": 0.0625,
-                  "Y": 0.5
+                  "X": 0.075,
+                  "Y": 0.6
                 },
-                "LeftMargin": 160.0,
+                "LeftMargin": 152.0,
                 "RightMargin": 440.0,
-                "TopMargin": 10.0,
-                "BottomMargin": 10.0,
+                "TopMargin": 8.0,
+                "BottomMargin": 8.0,
                 "Tag": 17,
                 "ActionTag": -1605970941,
                 "Size": {
-                  "X": 40.0,
-                  "Y": 20.0
+                  "X": 48.0,
+                  "Y": 24.0
                 },
                 "Name": "Text_MonsterName",
                 "ctype": "TextObjectData"
@@ -277,25 +277,25 @@
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 195.0,
+                  "X": 180.0,
                   "Y": -2.0
                 },
                 "Scale": {
-                  "ScaleX": 1.0,
-                  "ScaleY": 1.0
+                  "ScaleX": 2.0,
+                  "ScaleY": 2.0
                 },
                 "CColor": {},
                 "IconVisible": false,
                 "PrePosition": {
-                  "X": 0.3047,
+                  "X": 0.2813,
                   "Y": -0.05
                 },
                 "PreSize": {
                   "X": 0.0484,
                   "Y": 0.375
                 },
-                "LeftMargin": 179.5,
-                "RightMargin": 429.5,
+                "LeftMargin": 164.5,
+                "RightMargin": 444.5,
                 "TopMargin": 34.5,
                 "BottomMargin": -9.5,
                 "Tag": 19,
@@ -306,6 +306,55 @@
                 },
                 "Name": "BossTimeLeft",
                 "ctype": "TextBMFontObjectData"
+              },
+              {
+                "FontSize": 24,
+                "LabelText": "Hp",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 550.0,
+                  "Y": 20.0
+                },
+                "Scale": {
+                  "ScaleX": 1.2,
+                  "ScaleY": 1.2
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.8594,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 0.0375,
+                  "Y": 0.6
+                },
+                "LeftMargin": 538.0,
+                "RightMargin": 78.0,
+                "TopMargin": 8.0,
+                "BottomMargin": 8.0,
+                "Tag": 113,
+                "ActionTag": 471764718,
+                "Size": {
+                  "X": 24.0,
+                  "Y": 24.0
+                },
+                "Name": "TextHp",
+                "ctype": "TextObjectData"
               }
             ],
             "ActionTag": -264003894,
@@ -890,25 +939,25 @@
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 480.0,
+                  "X": 460.0,
                   "Y": 30.0
                 },
                 "Scale": {
-                  "ScaleX": 1.0,
-                  "ScaleY": 1.0
+                  "ScaleX": 2.0,
+                  "ScaleY": 2.0
                 },
                 "CColor": {},
                 "IconVisible": false,
                 "PrePosition": {
-                  "X": 0.75,
+                  "X": 0.7188,
                   "Y": 0.3
                 },
                 "PreSize": {
                   "X": 0.0109,
                   "Y": 0.15
                 },
-                "LeftMargin": 476.5,
-                "RightMargin": 156.5,
+                "LeftMargin": 456.5,
+                "RightMargin": 176.5,
                 "TopMargin": 62.5,
                 "BottomMargin": 22.5,
                 "Tag": 65,
@@ -927,25 +976,25 @@
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 480.0,
+                  "X": 460.0,
                   "Y": 70.0
                 },
                 "Scale": {
-                  "ScaleX": 1.0,
-                  "ScaleY": 1.0
+                  "ScaleX": 2.0,
+                  "ScaleY": 2.0
                 },
                 "CColor": {},
                 "IconVisible": false,
                 "PrePosition": {
-                  "X": 0.75,
+                  "X": 0.7188,
                   "Y": 0.7
                 },
                 "PreSize": {
                   "X": 0.0109,
                   "Y": 0.15
                 },
-                "LeftMargin": 476.5,
-                "RightMargin": 156.5,
+                "LeftMargin": 456.5,
+                "RightMargin": 176.5,
                 "TopMargin": 22.5,
                 "BottomMargin": 62.5,
                 "Tag": 67,
@@ -968,8 +1017,8 @@
                   "Y": 70.0
                 },
                 "Scale": {
-                  "ScaleX": 1.0,
-                  "ScaleY": 1.0
+                  "ScaleX": 2.0,
+                  "ScaleY": 2.0
                 },
                 "CColor": {},
                 "IconVisible": false,
@@ -1005,8 +1054,8 @@
                   "Y": 30.0
                 },
                 "Scale": {
-                  "ScaleX": 1.0,
-                  "ScaleY": 1.0
+                  "ScaleX": 2.0,
+                  "ScaleY": 2.0
                 },
                 "CColor": {},
                 "IconVisible": false,
