@@ -28,15 +28,14 @@
     <Item Key="TabsParamsKey">
       <Value ctype="TabsInfo">
         <OpenedDocuments>
-          <FilePathData Path="MenuView_2.csd" />
-          <FilePathData Path="ArtifactNode.csd" />
-          <FilePathData Path="MenuView_1.csd" />
-          <FilePathData Path="HeroInfoLayer.csd" />
-          <FilePathData Path="MainScene.csd" />
+          <FilePathData Path="MainMenu.csd" />
           <FilePathData Path="BattleLayer.csd" />
-          <FilePathData Path="InformationLayer.csd" />
+          <FilePathData Path="MenuView_1.csd" />
+          <FilePathData Path="ShopLayer.csd" />
+          <FilePathData Path="StartLayer.csd" />
+          <FilePathData Path="HeroInfoLayer.csd" />
         </OpenedDocuments>
-        <ActiveDocument Path="MenuView_2.csd" />
+        <ActiveDocument Path="MainMenu.csd" />
       </Value>
     </Item>
   </Properties>

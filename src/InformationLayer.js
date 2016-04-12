@@ -23,53 +23,12 @@ var InformationLayer = cc.Layer.extend({
 
 		return true;
 	},
-	create : function (type, data) {
-		console.log("zxczxczxc1");
-		this._type = type;
+	create : function (data) {
+
+		//this._type = type;
 		this._data = data;
-		if (this._type == InformationLayerType.ArtifactUp)
 		{
-			var artifact = UserData.GetArtifactForID(this._data.ArtifactID);
-			var artifactRuler = Artifact[artifact.i];
-			var level = artifact.l;
-			var star = artifact.s;
 
-			var Iconbutton = new ArtifactNode();
-			Iconbutton.create({width : 126, height : 126}, star, artifactRuler.Icon);
-			ProjectNode.addChild(Iconbutton);
-
-			var Button_Style_1 = ccui.helper.seekWidgetByName(this.rootnode, "Button_Style_1");
-			Button_Style_1.setVisible(true);
-			Button_Style_1.addTouchEventListener(this.onArtifactUpClick, this);
-			var Button_Style_2 = ccui.helper.seekWidgetByName(this.rootnode, "Button_Style_2");
-			Button_Style_2.setVisible(false);
-
-			var Text_Name = ccui.helper.seekWidgetByName(this.rootnode, "Text_Name");
-			Text_Name.setString(artifactRuler.Name);
-			var Text_LevelNum = ccui.helper.seekWidgetByName(this.rootnode, "Text_LevelNum");
-			Text_LevelNum.setString(level);
-			var EffectDesc_now = ccui.helper.seekWidgetByName(this.rootnode, "EffectDesc_now");
-			EffectDesc_now.setString(artifactRuler.BaseData.Desc);
-			var Text_EffectDesc_Next = ccui.helper.seekWidgetByName(this.rootnode, "Text_EffectDesc_Next");
-			Text_EffectDesc_Next.setString(artifactRuler.BaseData.Desc);
-
-			var Text_Desc = ccui.helper.seekWidgetByName(this.rootnode, "Text_Desc");
-			Text_Desc.setString("");
-			var Text_Desc_Desc = ccui.helper.seekWidgetByName(this.rootnode, "Text_Desc_Desc");
-			Text_Desc_Desc.setString("材料需求");
-			var Text_NextDesc = ccui.helper.seekWidgetByName(this.rootnode, "Text_NextDesc");
-			Text_NextDesc.setString("下一星级");
-			
-			{
-				var Iconbutton = new ArtifactNode();
-				Iconbutton.create({width : 108, height : 108}, star, artifactRuler.Icon);
-				Iconbutton.x = 240;
-				Iconbutton.y = 50;
-				Text_Desc.addChild(Iconbutton);
-			}
-		}
-		else if (this._type == InformationLayerType.ArtifactBreak)
-		{
 			var artifact = UserData.GetArtifactForID(this._data.ArtifactID);
 			var artifactRuler = Artifact[artifact.i];
 			var level = artifact.l;
