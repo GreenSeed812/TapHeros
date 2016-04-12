@@ -203,7 +203,7 @@ var MainMenu = cc.Layer.extend({
 			this.updateTime -= 1;
 			onSecond = true;
 		}
-		//var dps = ArrayMulNumber(UserData.HeroDPS, dt);
+		var dps = ArrayMulNumber(UserData.HeroDPS, dt);
 
 		if(BattleLayer_root.InGapTime()) 
 		{	
@@ -215,9 +215,10 @@ var MainMenu = cc.Layer.extend({
 			if(onSecond){
 				this.FontLabelAllDPS.setString(GetShowNumFromArray(this.All_DPS));//总秒伤显示
 				this.All_DPSTEMP = [0,0];
-				this.setInformation();
+				MainMenu_root.setInformation();
 			}
 
+			UserData.TapAttackTemp = ArraySumArray(UserData.TapAttackTemp, dps);
 			UserData.StageBlood = ArraySubArray(UserData.StageBlood, UserData.TapAttackTemp);
 			UserData.TapAttackTemp = [0];
 
@@ -307,6 +308,7 @@ var MainMenu = cc.Layer.extend({
 	},
 	setInformation : function () {
 		MainMenu_root.FontLabelDPS.setString(GetShowNumFromArray(UserData.HeroDPS));
+		console.log("shuchu");
 		MainMenu_root.FontLabelTap.setString(GetShowNumFromArray(UserData.TapAttack));
 	},
 	onBossStateClick : function(sender,type) {

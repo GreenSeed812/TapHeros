@@ -291,7 +291,7 @@ var MenuView_1 = cc.Layer.extend({
 				Money_Up.y = 54;
 				buttonTextNode.addChild(Money_Up);
 
-				/*var skillNode = new cc.Node();//mode.js数据添加
+				var skillNode = new cc.Node();
 				skillNode.setName("skillNode");
 				for (var i = 0; i < PlayerData.SkillUnlock.length; i++) {
 					if (UserData.UserSkillLevel[index]> i) {
@@ -301,7 +301,7 @@ var MenuView_1 = cc.Layer.extend({
 					}
 				}
 				skillNode.x = 140;
-				skillNode.y = 46;*/
+				skillNode.y = 46;
 
 			}
 			else
@@ -361,7 +361,7 @@ var MenuView_1 = cc.Layer.extend({
 						skillNode.x = 140;
 						skillNode.y = 46;
 
-						MenuView_1_root.UpdateButton(index);	
+						//MenuView_1_root.UpdateButton(index);	
 				}
 				else if(HeroLevel>=0)
 				{	
@@ -490,7 +490,7 @@ var MenuView_1 = cc.Layer.extend({
 			LV_Num.setString(UserData.UserLevel);
 			Desc.setString(GetShowNumFromArray(UserData.TapAttack));//输出滞后一次
 
-			/*var skillNode = viewCell.getChildByName("skillNode");
+			var skillNode = viewCell.getChildByName("skillNode");
 			for (var i = 0; i < PlayerData.SkillUnlock.length; i++) {
 				if (UserData.UserLevel >= PlayerData.SkillUnlock[i])
 				{
@@ -498,9 +498,14 @@ var MenuView_1 = cc.Layer.extend({
 					icon.x = i * 46;
 					skillNode.addChild(icon);
 				}
-			}*/
+			}
+
+			if(PlayerData.SkillUnlock[UserData.UserSkillUnLockCount[index]] <= UserData.UserLevel)//解锁信息栏
+			{
+				UserData.UserSkillUnLockCount[index] += 1;
+			}
 		}
-		else{ 
+		else{
 			UserData.UpdateHeroDPS();
 			//var viewCell = MenuView_1_root.ListView.getItem(index);
 			var HeroLevel = UserData.HeroLevel[index];
@@ -550,6 +555,7 @@ var MenuView_1 = cc.Layer.extend({
 			if (index == 0) 
 			{
 				MainScene_root.pushLayer(new HeroInfoLayer());
+				HeroInfoLayer_root.setReincarnationButton();
 				HeroInfoLayer_root.setUserDate(PlayerData, UserData.UserLevel, index);
 			}
 			else
@@ -589,14 +595,18 @@ var MenuView_1 = cc.Layer.extend({
 				{
 					var UserLevel = UserData.UserLevel + upNum;
 					UserData.UserLevel = UserLevel;
+					MenuView_1_root.cellBtnExpand(index, true, true);
+					MenuView_1_root.updateCell(index);
 				}
 				else
 				{
 					var herolevel = UserData.HeroLevel[index] + upNum;
+					console.log("7777777777");
 					UserData.HeroLevel[index] = herolevel;
+					console.log("7777777777asdsadasfdsfsfds");
+					MenuView_1_root.cellBtnExpand(index, true, true);
+					MenuView_1_root.updateCell(index);
 				}
-				MenuView_1_root.cellBtnExpand(index, true, true);	
-				MenuView_1_root.updateCell(index);	
 			}
 			break;
 		}

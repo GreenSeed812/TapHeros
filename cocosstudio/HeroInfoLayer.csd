@@ -158,7 +158,7 @@
             <EndColor A="255" R="255" G="255" B="255" />
             <ColorVector ScaleY="1.0000" />
           </AbstractNodeData>
-          <AbstractNodeData Name="ButtonReincarnation" ActionTag="-1868635750" Tag="74" IconVisible="False" LeftMargin="280.0000" RightMargin="280.0000" TopMargin="1011.0000" BottomMargin="75.0000" TouchEnable="True" FontSize="24" ButtonText="强 化" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="ButtonReincarnation" ActionTag="-1868635750" VisibleForFrame="False" Tag="74" IconVisible="False" LeftMargin="280.0000" RightMargin="280.0000" TopMargin="1011.0000" BottomMargin="75.0000" TouchEnable="True" FontSize="24" ButtonText="强 化" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="80.0000" Y="50.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="320.0000" Y="100.0000" />

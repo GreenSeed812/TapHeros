@@ -245,16 +245,11 @@
           <Image Name="title_shenqiqianghua.png" />
           <Image Name="touch.png" />
         </Folder>
-
-        <Project Name="ArtifactNode.csd" Type="Node" />
-
         <Project Name="BankLayer.csd" Type="Layer" />
-
         <Project Name="BattleLayer.csd" Type="Layer" />
         <Project Name="DataLayer.csd" Type="Layer" />
         <Project Name="HelpLayer.csd" Type="Layer" />
         <Project Name="HeroInfoLayer.csd" Type="Layer" />
-        <Project Name="InformationLayer.csd" Type="Layer" />
         <Project Name="MainMenu.csd" Type="Layer" />
         <Project Name="MainScene.csd" Type="Scene" />
         <Project Name="MarkLayer.csd" Type="Layer" />

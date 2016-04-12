@@ -18,7 +18,7 @@ var UserData = {
 		ArtifactCoin		  	: 0,															// 神器货币
 		ArtifactIndex			: 0,															// 神器索引
 		Diamond               	: 0,															// 钻石
-		HeroLevel             	: [0,0,-1,-1,-1],	// 英雄等级
+		HeroLevel             	: [0,0,-1,-1,-1],												// 英雄等级
 		ArtifactLevel		  	: [-1,0,0,0,0,0,0,0,0,0],										// 每种神器最高等级
 		ArtifactStar		  	: [-1,0,0,0,0,0,0,0,0,0],										// 神器对应等级星级
 		ArtifactActive		  	: [-1,0,0,0,0,0,0,0,0,0],										// 神器激活状态
@@ -26,10 +26,12 @@ var UserData = {
 		HeroCountdown         	: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],						// 英雄死亡冷却
 		SkillCountdown        	: [-1,0,0,0,0,0,0],												// 英雄技能冷却
 		HeroSkillUnLockCount  	: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],					// 英雄技能解锁个数
+		UserSkillUnLockCount  	: [0],															// 主角技能解锁个数
 
 		ArtifactAll			  	: [],															// 玩家持有所有神器
 		ArtifactAll2		 	: [],															// 玩家持有所有神器2
 		OffLineTimestamp		: 0,															// 离线时间戳
+		HeroMoney               : [0],
 
 		RandomArtifact : function (data) {
 			var index = GetRandomNum(1, Artifact.length);
@@ -255,35 +257,38 @@ var UserData = {
 		},
 		TapAttackChange : function()
 		{
-			UserData.TapAttackTemp = ArrayMulNumber([1.5],Math.pow(UserData.UserLevel,3));//1.5存在误差
+			UserData.TapAttackTemp = ArrayMulNumber([2],Math.pow(UserData.UserLevel,3));
 			UserData.TapAttack = UserData.TapAttackTemp;
 		},
 		UpdateHeroDPS : function () {
 			var ret = [0,0];
+			
 			for (var index = 1; index < HeroData.length; index++) 
 			{
-				var heroLevel = this.HeroLevel[index];
+				var heroLevel = UserData.HeroLevel[index];
 				var heroData = HeroData[index];
-				
 				if(heroLevel > 0)
 				{
 					ret = ArraySumArray(ret, getHeroAtk(heroData));
-					UserData.HeroDPS = ArrayMulNumber([1] , UserData.heroLevel);
-					//UserData.HeroDPS = UserData.HeroDPSTemp;
-					//UserData.HeroDPSTemp = [0]; 
+					UserData.HeroDPS = ArrayMulNumber([100],heroLevel);
+					//UserData.HeroDPS = UserData.HeroDPSTemp;	
+					//UserData.HeroDPSTemp = [0];
 				}
+				
 			}
-			//this.HeroDPS = ArrayMulNumber(ret , (1+0.8*(UserData.UserLevel)));//问题？
 			
-			//this.HeroBossDPS = ArrayMulNumber( ArrayMulNumber(ret , (1 + this.BossHurtUpRate)) , (1 + this.DPSHurtUpRate));
 		},
 		UpLevelNeedMoney:function()
 		{
-			
+			UserData.UserMoney = ArrayMulNumber([1.5],Math.pow(UserData.UserLevel,3));
 		},
 		UpHeroLevelNeedMoney:function()
 		{
-			
+			for (var index = 1; index < HeroData.length; index++) 
+			{
+				var heroLevel = UserData.HeroLevel[index];
+				UserData.HeroMoney = ArrayMulNumber(UserData.HeroMoney,(1+0.6*heroLevel));
+			}
 		},
 		ChangeMonsterBlood:function()
 		{	
