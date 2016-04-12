@@ -427,6 +427,7 @@ var BattleLayer = cc.Layer.extend({
     },
     PlaySkillEffect : function (skillIndex) {
 
+        var skillIndextmp=skillIndex;
         if(skillIndex == 1)
         {
             ccs.armatureDataManager.addArmatureFileInfo(res.effect_soldier_skill);
@@ -455,6 +456,22 @@ var BattleLayer = cc.Layer.extend({
                             cc.callFunc(this.Shake, this));
         effect.runAction(action);
 
+        if(skillIndex == 1)
+        {
+            console.log("1");
+            UserData.TapAttackChange();
+            
+        }
+        else if(skillIndex == 2)
+        {
+           console.log("2");
+           UserData.TapAttackChange();
+        }
+        else if(skillIndex == 3)
+        {
+           console.log("3");
+           UserData.TapAttackChange();
+        }
         this.MonsterNode.addChild(effect);
         
     },
@@ -473,6 +490,7 @@ var BattleLayer = cc.Layer.extend({
         tempArray.push(cc.moveTo(0, cc.p(x, y)));
         var shake = cc.sequence( tempArray );
         this.BattlePanel.runAction(shake);
+
     },
     AnimationEventAtkEffect:function (armature, movementType, movementID) {
         

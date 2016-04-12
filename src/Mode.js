@@ -137,7 +137,7 @@ var BaseSkill =
 var Artifact = 
 [
 	{
-		Name : "奥金利斧",
+		Name : "奥金利斧1",
 		Desc : "增加致死打击的伤害",
 		Icon : res.icon_shenqi_1,
 		BaseData : BaseSkill.TapHurtUpRate,
@@ -145,7 +145,7 @@ var Artifact =
 		Rate : 0.4,
 	},
 	{
-		Name : "地狱火石",
+		Name : "地狱火石2",
 		Desc : "缩减地狱火冷却",
 		Icon : res.icon_shenqi_1,
 		BaseData : BaseSkill.TapHurtUpRate,
@@ -153,7 +153,7 @@ var Artifact =
 		Rate : 0.4,
 	},
 	{
-		Name : "上古骨弓",
+		Name : "上古骨弓3",
 		Desc : "增加快速射击时间",
 		Icon : res.icon_shenqi_1,
 		BaseData : BaseSkill.TapHurtUpRate,
@@ -161,7 +161,7 @@ var Artifact =
 		Rate : 0.4,
 	},
 	{
-		Name : "守护者之杖",
+		Name : "守护者之杖4",
 		Desc : "DPS伤害额外提升百分比增加",
 		Icon : res.icon_shenqi_1,
 		BaseData : BaseSkill.TapHurtUpRate,
@@ -169,7 +169,7 @@ var Artifact =
 		Rate : 0.4,
 	},
 	{
-		Name : "影之哀伤",
+		Name : "影之哀伤5",
 		Desc : "暴击几率百分比增加",
 		Icon : res.icon_shenqi_1,
 		BaseData : BaseSkill.TapHurtUpRate,
@@ -177,7 +177,7 @@ var Artifact =
 		Rate : 0.4,
 	},
 	{
-		Name : "炎魔之锤",
+		Name : "炎魔之锤6",
 		Desc : "暴击伤害百分比增加",
 		Icon : res.icon_shenqi_1,
 		BaseData : BaseSkill.TapHurtUpRate,
@@ -185,7 +185,7 @@ var Artifact =
 		Rate : 0.4,
 	},
 	{
-		Name : "群星之怒",
+		Name : "群星之怒7",
 		Desc : "点击攻击力提升百分比增加",
 		Icon : res.icon_shenqi_1,
 		BaseData : BaseSkill.TapHurtUpRate,
@@ -193,7 +193,7 @@ var Artifact =
 		Rate : 0.4,
 	},
 	{
-		Name : "龙父之牙",
+		Name : "龙父之牙8",
 		Desc : "关卡小怪数量减少百分比",
 		Icon : res.icon_shenqi_1,
 		BaseData : BaseSkill.TapHurtUpRate,
@@ -201,7 +201,7 @@ var Artifact =
 		Rate : 0.4,
 	},
 	{
-		Name : "埃辛诺斯战刃",
+		Name : "埃辛诺斯战刃9",
 		Desc : "Boss血量减少",
 		Icon : res.icon_shenqi_1,
 		BaseData : BaseSkill.TapHurtUpRate,
@@ -209,7 +209,7 @@ var Artifact =
 		Rate : 0.4,
 	},
 	{
-		Name : "巨龙之怒",
+		Name : "巨龙之怒10",
 		Desc : "掉落黄金提升百分比增加",
 		Icon : res.icon_shenqi_1,
 		BaseData : BaseSkill.TapHurtUpRate,
@@ -217,7 +217,7 @@ var Artifact =
 		Rate : 0.4,
 	},
 	{
-		Name : "瓦兰奈尔",
+		Name : "瓦兰奈尔11",
 		Desc : "英雄升级消耗降低百分比",
 		Icon : res.icon_shenqi_1,
 		BaseData : BaseSkill.TapHurtUpRate,
@@ -225,7 +225,7 @@ var Artifact =
 		Rate : 0.4,
 	},
 	{
-		Name : "雷霆逐风者",
+		Name : "雷霆逐风者12",
 		Desc : "Boss挑战时间增加百分比",
 		Icon : res.icon_shenqi_1,
 		BaseData : BaseSkill.TapHurtUpRate,
@@ -233,7 +233,7 @@ var Artifact =
 		Rate : 0.4,
 	},
 	{
-		Name : "白虎之怒",
+		Name : "白虎之怒13",
 		Desc : "增加百分比电击伤害",
 		Icon : res.icon_shenqi_1,
 		BaseData : BaseSkill.TapHurtUpRate,
