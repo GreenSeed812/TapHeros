@@ -31,6 +31,7 @@ var UserData = {
 		ArtifactAll			  	: [],															// 玩家持有所有神器
 		ArtifactAll2		 	: [],															// 玩家持有所有神器2
 		OffLineTimestamp		: 0,															// 离线时间戳
+		HeroMoney               : [0],
 
 		RandomArtifact : function (data) {
 			var index = GetRandomNum(1, Artifact.length);
@@ -283,7 +284,11 @@ var UserData = {
 		},
 		UpHeroLevelNeedMoney:function()
 		{
-			
+			for (var index = 1; index < HeroData.length; index++) 
+			{
+				var heroLevel = UserData.HeroLevel[index];
+				UserData.HeroMoney = ArrayMulNumber(UserData.HeroMoney,(1+0.6*heroLevel));
+			}
 		},
 		ChangeMonsterBlood:function()
 		{	

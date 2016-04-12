@@ -12,6 +12,7 @@ var HeroInfoLayer = cc.Layer.extend({
 
 	heroIndex:null,
 	ListView_SkillList:null,
+	ButtonReincarnation:null,
 	ctor:function(){
 		this._super();
 		HeroInfoLayer_root = this;
@@ -26,10 +27,17 @@ var HeroInfoLayer = cc.Layer.extend({
 		HeroInfoLayer_root.TextDetails = ccui.helper.seekWidgetByName(HeroInfoLayer_root.rootnode, "TextDetails");
 		HeroInfoLayer_root.ListView_SkillList = ccui.helper.seekWidgetByName(HeroInfoLayer_root.rootnode, "ListView_SkillList");
 
+		HeroInfoLayer_root.ButtonReincarnation = ccui.helper.seekWidgetByName(HeroInfoLayer_root.rootnode, "ButtonReincarnation");
+		
 		ccui.helper.seekWidgetByName(HeroInfoLayer_root.rootnode, "ButtonClose").addTouchEventListener(HeroInfoLayer_root.onCloseClick);
 
 		HeroInfoLayer_root.heroIndex = 0;
 		return true;
+	},
+	setReincarnationButton:function()
+	{
+		HeroInfoLayer_root.ButtonReincarnation = ccui.helper.seekWidgetByName(HeroInfoLayer_root.rootnode, "ButtonReincarnation");
+		HeroInfoLayer_root.ButtonReincarnation.setVisible(true);
 	},
 	setHeroDate : function(heroData, level, index) {
 		HeroInfoLayer_root.heroIndex = index;
@@ -53,9 +61,62 @@ var HeroInfoLayer = cc.Layer.extend({
 		HeroInfoLayer_root.FontDps.setString("DMG: "+GetShowNumFromArray(UserData.TapAttack));
 
 		for (var i = 0; i < Data.Skill.length; i++) {
-			var array_element = heroData.Skill[i];
-			HeroInfoLayer_root.createCell(array_element, Data.SkillUnlock[i], i);
+			var array_element = Data.Skill[i];
+			HeroInfoLayer_root.createUserCell(array_element, Data.SkillUnlock[i], i);
 		}
+	},
+	createUserCell:function(skillData, unLockLevel, index) {
+		var custom_item = new ccui.Layout();
+		custom_item.setTag(index);
+		if (unLockLevel >0)
+		{
+			var cellBg = new cc.Sprite(res.info_bg_xinxitiao_png);
+			cellBg.x = cellBg.getContentSize().width * 0.5;
+			cellBg.y = cellBg.getContentSize().height * 0.5;
+
+			var skillIconBg = new cc.Sprite(res.icon_skill_bg_png);
+			skillIconBg.x = 60;
+			skillIconBg.y = 50;
+			
+			var skillIcon = new cc.Sprite(skillData.Icon);
+			skillIcon.x = 60;
+			skillIcon.y = 50;
+
+			var SkillName = new cc.LabelTTF(skillData.Name, res.TTF_正粗黑, 24);
+			SkillName.setColor(cc.color.BLACK);
+			SkillName.setAnchorPoint(0, 0);
+			SkillName.x = 110;
+			SkillName.y = 50;
+
+			var SkillDesc = new cc.LabelTTF(skillData.BaseData.Desc, res.TTF_黑体加粗, 24);
+			SkillDesc.setColor(cc.color.BLACK);
+			SkillDesc.setAnchorPoint(0, 0);
+			SkillDesc.x = 110;
+			SkillDesc.y = 24;
+
+			custom_item.setContentSize(cellBg.getContentSize());
+			custom_item.addChild(cellBg);
+			custom_item.addChild(skillIconBg);
+			custom_item.addChild(skillIcon);
+			custom_item.addChild(SkillName);
+			custom_item.addChild(SkillDesc);
+
+			if (UserData.UserSkillUnLockCount[HeroInfoLayer_root.heroIndex] > index) {
+				var icon = new cc.Sprite(res.info_icon_kaiqi_png);
+				icon.x = 500;
+				icon.y = 50;
+				custom_item.addChild(icon);
+			} else {
+				var skillUnlock = new cc.LabelTTF("需要Lv."+unLockLevel, res.TTF_正粗黑, 24);
+				skillUnlock.setColor(cc.color.ORANGE);
+				skillUnlock.setAnchorPoint(0, 0);
+				skillUnlock.x = 450;
+				skillUnlock.y = 50;
+				custom_item.addChild(skillUnlock);
+			}
+			
+		}
+		HeroInfoLayer_root.ListView_SkillList.insertCustomItem(custom_item, index);
 	},
 	createCell:function(skillData, unLockLevel, index) {
 		var custom_item = new ccui.Layout();
