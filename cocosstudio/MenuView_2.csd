@@ -92,7 +92,7 @@
                         <OutlineColor A="255" R="255" G="0" B="0" />
                         <ShadowColor A="255" R="110" G="110" B="110" />
                       </AbstractNodeData>
-                      <AbstractNodeData Name="Button_AddArtifactCount" ActionTag="-518336829" Tag="162" IconVisible="False" LeftMargin="295.0000" RightMargin="29.0000" TopMargin="13.0000" BottomMargin="23.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="244" Scale9Height="52" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                      <AbstractNodeData Name="Button_AddArtifactCount" ActionTag="-518336829" VisibleForFrame="False" Tag="162" IconVisible="False" LeftMargin="295.0000" RightMargin="29.0000" TopMargin="13.0000" BottomMargin="23.0000" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="244" Scale9Height="52" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                         <Size X="274.0000" Y="74.0000" />
                         <Children>
                           <AbstractNodeData Name="icon" ActionTag="-681883948" Tag="164" IconVisible="False" LeftMargin="162.0000" RightMargin="76.0000" TopMargin="-4.0000" BottomMargin="42.0000" ctype="SpriteObjectData">
@@ -174,7 +174,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="icon_jinbi_small_1" ActionTag="-1216561222" Tag="76" IconVisible="False" LeftMargin="444.5000" RightMargin="159.5000" TopMargin="630.0000" BottomMargin="470.0000" ctype="SpriteObjectData">
+          <AbstractNodeData Name="icon_jinbi_small_1" CanEdit="False" ActionTag="-1216561222" Tag="76" IconVisible="False" LeftMargin="444.5000" RightMargin="159.5000" TopMargin="630.0000" BottomMargin="470.0000" ctype="SpriteObjectData">
             <Size X="36.0000" Y="36.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="462.5000" Y="488.0000" />
