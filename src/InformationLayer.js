@@ -23,6 +23,7 @@ var InformationLayer = cc.Layer.extend({
 
 		return true;
 	},
+
 	create : function (type, data) {
 		console.log("zxczxczxc1");
 
@@ -56,7 +57,6 @@ var InformationLayer = cc.Layer.extend({
 			//var artifactRuler = Artifact[artifact.i];
 			//var level = artifact.l;
 			var star = null;
-
 			var Iconbutton = new ArtifactNode();
 			Iconbutton.create({width : 126, height : 126}, star, artifactRuler.Icon);
 			ProjectNode.addChild(Iconbutton);
