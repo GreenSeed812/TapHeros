@@ -287,7 +287,7 @@
                 "CColor": {},
                 "IconVisible": false,
                 "PrePosition": {
-                  "X": 0.2812,
+                  "X": 0.2813,
                   "Y": -0.05
                 },
                 "PreSize": {
@@ -465,12 +465,12 @@
                   "Y": 50.0
                 },
                 "Scale": {
-                  "ScaleX": 2.0,
-                  "ScaleY": 2.0
+                  "ScaleX": 3.0,
+                  "ScaleY": 3.0
                 },
                 "CColor": {
-                  "R": 30,
-                  "G": 144
+                  "G": 0,
+                  "B": 0
                 },
                 "IconVisible": false,
                 "PrePosition": {
@@ -664,7 +664,7 @@
                 },
                 "IconVisible": false,
                 "PrePosition": {
-                  "X": 0.9062,
+                  "X": 0.9063,
                   "Y": -0.05
                 },
                 "PreSize": {
@@ -885,7 +885,7 @@
               },
               {
                 "FontSize": 24,
-                "LabelText": "总秒伤",
+                "LabelText": "最高伤害",
                 "OutlineColor": {
                   "G": 0,
                   "B": 0
@@ -916,20 +916,20 @@
                   "Y": 0.7
                 },
                 "PreSize": {
-                  "X": 0.1125,
+                  "X": 0.15,
                   "Y": 0.24
                 },
-                "LeftMargin": 44.0,
-                "RightMargin": 524.0,
+                "LeftMargin": 32.0,
+                "RightMargin": 512.0,
                 "TopMargin": 18.0,
                 "BottomMargin": 58.0,
                 "Tag": 63,
                 "ActionTag": -1197814604,
                 "Size": {
-                  "X": 72.0,
+                  "X": 96.0,
                   "Y": 24.0
                 },
-                "Name": "总秒伤",
+                "Name": "最高伤害",
                 "ctype": "TextObjectData"
               },
               {
@@ -1023,7 +1023,7 @@
                 "CColor": {},
                 "IconVisible": false,
                 "PrePosition": {
-                  "X": 0.2812,
+                  "X": 0.2813,
                   "Y": 0.7
                 },
                 "PreSize": {
@@ -1040,7 +1040,7 @@
                   "X": 7.0,
                   "Y": 15.0
                 },
-                "Name": "FontLabelAllDPS",
+                "Name": "FontLabelMaxDPS",
                 "ctype": "TextBMFontObjectData"
               },
               {
@@ -1060,7 +1060,7 @@
                 "CColor": {},
                 "IconVisible": false,
                 "PrePosition": {
-                  "X": 0.2812,
+                  "X": 0.2813,
                   "Y": 0.3
                 },
                 "PreSize": {
@@ -1185,7 +1185,7 @@
                 "CColor": {},
                 "IconVisible": false,
                 "PrePosition": {
-                  "X": 0.1562,
+                  "X": 0.1563,
                   "Y": 0.5167
                 },
                 "PreSize": {
@@ -1757,7 +1757,7 @@
                 "CColor": {},
                 "IconVisible": false,
                 "PrePosition": {
-                  "X": 0.1562,
+                  "X": 0.1563,
                   "Y": 0.6848
                 },
                 "PreSize": {
@@ -1854,7 +1854,7 @@
               },
               {
                 "FontSize": 14,
-                "ButtonText": "Button",
+                "ButtonText": "",
                 "TextColor": {
                   "R": 65,
                   "G": 65,

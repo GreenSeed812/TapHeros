@@ -2787,6 +2787,35 @@ var HeroData =
 	},	
 ];
 
+var PropData = 
+[
+	{
+		Name : "道具1",
+		Desc : "增加金币1",
+		Icon : res.icon_hero_1,
+	},
+	{
+		Name : "道具2",
+		Desc : "增加金币2",
+		Icon : res.icon_hero_1,
+	},
+	{
+		Name : "道具3",
+		Desc : "增加金币3",
+		Icon : res.icon_hero_1,
+	},
+	{
+		Name : "道具4",
+		Desc : "增加金币4",
+		Icon : res.icon_hero_1,
+	},
+	{
+		Name : "道具5",
+		Desc : "增加金币5",
+		Icon : res.icon_hero_1,
+	},
+];
+
 function getHeroAtk(hero) {
 	return hero.AtkBase;
 }

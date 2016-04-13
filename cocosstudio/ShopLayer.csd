@@ -32,13 +32,13 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="ListViewShop" ActionTag="-1162024125" Tag="91" IconVisible="False" LeftMargin="11.1300" RightMargin="13.8700" TopMargin="687.4000" BottomMargin="68.6000" TouchEnable="True" ClipAble="True" BackColorAlpha="102" ColorAngle="90.0000" IsBounceEnabled="True" ScrollDirectionType="0" DirectionType="Vertical" ctype="ListViewObjectData">
+          <AbstractNodeData Name="ListViewShop" ActionTag="-1162024125" Tag="91" IconVisible="False" LeftMargin="11.1300" RightMargin="13.8700" TopMargin="687.9400" BottomMargin="68.0600" TouchEnable="True" ClipAble="True" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" IsBounceEnabled="True" ScrollDirectionType="0" DirectionType="Vertical" ctype="ListViewObjectData">
             <Size X="615.0000" Y="380.0000" />
             <AnchorPoint />
-            <Position X="11.1300" Y="68.6000" />
+            <Position X="11.1300" Y="68.0600" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.0174" Y="0.0604" />
+            <PrePosition X="0.0174" Y="0.0599" />
             <PreSize X="0.9609" Y="0.3345" />
             <SingleColor A="255" R="150" G="150" B="255" />
             <FirstColor A="255" R="150" G="150" B="255" />

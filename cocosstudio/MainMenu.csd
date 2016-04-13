@@ -108,8 +108,8 @@
                 <Size X="7.0000" Y="15.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="320.0000" Y="50.0000" />
-                <Scale ScaleX="2.0000" ScaleY="2.0000" />
-                <CColor A="255" R="30" G="144" B="255" />
+                <Scale ScaleX="3.0000" ScaleY="3.0000" />
+                <CColor A="255" R="255" G="0" B="0" />
                 <PrePosition X="0.5000" Y="0.5000" />
                 <PreSize X="0.0109" Y="0.1500" />
               </AbstractNodeData>
@@ -200,14 +200,14 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="总秒伤" ActionTag="-1197814604" Tag="63" IconVisible="False" LeftMargin="44.0000" RightMargin="524.0000" TopMargin="18.0000" BottomMargin="58.0000" FontSize="24" LabelText="总秒伤" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                <Size X="72.0000" Y="24.0000" />
+              <AbstractNodeData Name="最高伤害" ActionTag="-1197814604" Tag="63" IconVisible="False" LeftMargin="32.0000" RightMargin="512.0000" TopMargin="18.0000" BottomMargin="58.0000" FontSize="24" LabelText="最高伤害" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                <Size X="96.0000" Y="24.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="80.0000" Y="70.0000" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.1250" Y="0.7000" />
-                <PreSize X="0.1125" Y="0.2400" />
+                <PreSize X="0.1500" Y="0.2400" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
@@ -229,7 +229,7 @@
                 <PrePosition X="0.7188" Y="0.7000" />
                 <PreSize X="0.0109" Y="0.1500" />
               </AbstractNodeData>
-              <AbstractNodeData Name="FontLabelAllDPS" ActionTag="-893634748" Tag="68" IconVisible="False" LeftMargin="176.5000" RightMargin="456.5000" TopMargin="22.5000" BottomMargin="62.5000" LabelText="0" ctype="TextBMFontObjectData">
+              <AbstractNodeData Name="FontLabelMaxDPS" ActionTag="-893634748" Tag="68" IconVisible="False" LeftMargin="176.5000" RightMargin="456.5000" TopMargin="22.5000" BottomMargin="62.5000" LabelText="0" ctype="TextBMFontObjectData">
                 <Size X="7.0000" Y="15.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="180.0000" Y="70.0000" />
@@ -427,7 +427,7 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="Main_Button3" ActionTag="-645903774" Tag="40" IconVisible="False" LeftMargin="472.0000" RightMargin="32.0000" TopMargin="-29.0000" BottomMargin="5.0000" TouchEnable="True" FontSize="14" ButtonText="Button" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="106" Scale9Height="94" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+              <AbstractNodeData Name="Main_Button3" ActionTag="-645903774" Tag="40" IconVisible="False" LeftMargin="472.0000" RightMargin="32.0000" TopMargin="-29.0000" BottomMargin="5.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="106" Scale9Height="94" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                 <Size X="136.0000" Y="116.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="540.0000" Y="63.0000" />

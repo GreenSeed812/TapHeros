@@ -31,9 +31,15 @@
           <FilePathData Path="MainMenu.csd" />
           <FilePathData Path="BattleLayer.csd" />
           <FilePathData Path="MenuView_1.csd" />
-          <FilePathData Path="ShopLayer.csd" />
-          <FilePathData Path="StartLayer.csd" />
           <FilePathData Path="HeroInfoLayer.csd" />
+          <FilePathData Path="BankLayer.csd" />
+          <FilePathData Path="ShopLayer.csd" />
+          <FilePathData Path="MenuView_2.csd" />
+          <FilePathData Path="StartLayer.csd" />
+          <FilePathData Path="SettingLayer.csd" />
+          <FilePathData Path="MarkLayer.csd" />
+          <FilePathData Path="HelpLayer.csd" />
+          <FilePathData Path="DataLayer.csd" />
         </OpenedDocuments>
         <ActiveDocument Path="MainMenu.csd" />
       </Value>

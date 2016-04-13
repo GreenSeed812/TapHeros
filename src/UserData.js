@@ -160,13 +160,6 @@ var UserData = {
 			this.AllAttackUpRate = 0;
 			return this.AllAttackUpRate;
 		},
-		UpdateTapAttack : function () {
-			var up1 = ArrayMulNumber(this.HeroDPS, this.DPSToTapHurtRate);
-			var up2 = ArraySumArray(getHeroAtk(PlayerData), up1);
-			var up3 = ArrayMulNumber(up2, (1 + this.AllAttackUpRate) * (1 + this.TapHurtUpRate));
-			this.TapAttack = up3;
-			return this.TapAttack;
-		},
 		GetHeroAttack : function (index) {
 			var DPSHeroHurtUpRate = 0;
 			var heroData = HeroData[index];
@@ -181,7 +174,6 @@ var UserData = {
 			var ret = ArrayMulNumber(getHeroAtk(heroData) , (1 + DPSHeroHurtUpRate) * (1 + this.AllAttackUpRate));
 			return ret;
 		},
-		
 		DeleateArchive : function () {
 			var ls = cc.sys.localStorage;
 			
@@ -257,8 +249,15 @@ var UserData = {
 		},
 		TapAttackChange : function()
 		{
-			UserData.TapAttackTemp = ArrayMulNumber([2],Math.pow(UserData.UserLevel,3));
-			UserData.TapAttack = UserData.TapAttackTemp;
+			UserData.TapAttackTemp = UserData.TapAttack;
+		},
+		UpdateTapAttack : function () {
+			
+		//var up1 = ArrayMulNumber(this.HeroDPS, this.DPSToTapHurtRate);
+		//var up2 = ArraySumArray(getHeroAtk(PlayerData), up1);
+		//var up3 = ArrayMulNumber(up2, (1 + this.AllAttackUpRate) * (1 + this.TapHurtUpRate));
+			this.TapAttack = ArrayMulNumber([2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],Math.pow(UserData.UserLevel,3));
+			return this.TapAttack;
 		},
 		UpdateHeroDPS : function () {
 			var ret = [0,0];
@@ -270,13 +269,11 @@ var UserData = {
 				if(heroLevel > 0)
 				{
 					ret = ArraySumArray(ret, getHeroAtk(heroData));
-					UserData.HeroDPS = ArrayMulNumber([100],heroLevel);
-					//UserData.HeroDPS = UserData.HeroDPSTemp;	
-					//UserData.HeroDPSTemp = [0];
+					UserData.HeroDPSTemp = ArrayMulNumber([100],heroLevel);
+					UserData.HeroDPS = ArraySumArray(UserData.HeroDPS,UserData.HeroDPSTemp);
+					UserData.HeroDPSTemp = [0];						
 				}
-				
 			}
-			
 		},
 		UpLevelNeedMoney:function()
 		{
@@ -284,7 +281,7 @@ var UserData = {
 		},
 		UpHeroLevelNeedMoney:function()
 		{
-			for (var index = 1; index < HeroData.length; index++) 
+			for(var index = 1; index < HeroData.length; index++) 
 			{
 				var heroLevel = UserData.HeroLevel[index];
 				UserData.HeroMoney = ArrayMulNumber(UserData.HeroMoney,(1+0.6*heroLevel));
@@ -303,6 +300,10 @@ var UserData = {
 			//Boss是小怪血量8倍，掉落金币是10倍
 			UserData.StageBossBlood = ArrayMulNumber(UserData.StageBlood,8);
 			UserData.OfflineCoin = ArrayMulNumber(UserData.OfflineCoin,10);
+		},
+		PlayMusic:function()
+		{
+
 		}
 };
 

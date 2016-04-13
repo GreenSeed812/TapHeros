@@ -202,7 +202,7 @@ var BattleLayer = cc.Layer.extend({
                     {
                         BattleLayer_root.mExitTime = timestamp;
                         // 暴击
-    
+ 
                         BattleLayer_root.Armature.getAnimation().play("Hurt");
 
                         UserData.TapAttackChange();
@@ -238,7 +238,6 @@ var BattleLayer = cc.Layer.extend({
                 this.MonsterNode.removeChild(BattleLayer_root.Armature);
                 this.Armature = null;
             }
-
            if (this.DestJsonNode == null) 
            {
                 this.NextStage();
@@ -306,12 +305,14 @@ var BattleLayer = cc.Layer.extend({
         if (this.Armature && this.GapTime == false) {
             this.Armature.getAnimation().play("Hurt");
             
-            
             var label = new cc.LabelBMFont(GetShowNumFromArray(UserData.TapAttackTemp), res.default_01);
+            label.setColor(cc.color(255, 0, 0));
+            label.set
             this.BattlePanel.addChild(label);
 
             var action = cc.sequence(
                     cc.spawn(
+                            cc.ScaleTo(0.2,2.0),
                             cc.moveBy(1, cc.p(0, 200)),
                             cc.fadeOut(1.0)),
                             cc.callFunc(this.onCallback, this, label));

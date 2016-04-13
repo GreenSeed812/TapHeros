@@ -62,97 +62,7 @@ var MenuView_1 = cc.Layer.extend({
 			heroIconbutton.setTag(index);
 			custom_item.addChild(heroIconbutton);
 		}
-		//创建主角信息显示
-		if (index == 0) 
-		{
-			//名字
-			//UserData.NickName = "fjskd";
-			var CellName = new cc.LabelTTF(UserData.NickName, res.TTF_超粗黑, 16);
-			CellName.setAnchorPoint(0, 0);
-			CellName.x = 120;
-			CellName.y = 74;
-			//等级
-			var Level = new cc.LabelTTF("LV:", res.TTF_超粗黑, 16);
-			Level.setColor(cc.color(0, 255, 255));
-			Level.setAnchorPoint(0, 0);
-			Level.x = 220;
-			Level.y = 74;
-			
-			var LV_Num = new cc.LabelTTF(UserData.UserLevel, res.TTF_超粗黑, 16);
-			LV_Num.setName("LV_Num");
-			LV_Num.setColor(cc.color(0, 255, 255));
-			LV_Num.setAnchorPoint(0, 0);
-			LV_Num.x = 260;
-			LV_Num.y = 74;
-
-			//点击伤害
-			var Title = new cc.LabelTTF("DMG", res.TTF_超粗黑, 16);
-			Title.setAnchorPoint(0, 0);
-			Title.x = 330;
-			Title.y = 74;
-			
-			var Desc = new cc.LabelTTF(GetShowNumFromArray(UserData.TapAttack), res.TTF_正粗黑, 16);
-			Desc.setName("Desc");
-			Desc.setColor(cc.color(255, 150, 20));
-			Desc.setAnchorPoint(0, 0);
-			Desc.x = 380;
-			Desc.y = 74;
-		}
-		else
-		{	//创建辅助英雄信息
-			var heroData = HeroData[index];
-			var HeroLevel = UserData.HeroLevel[index];
-			if(HeroLevel >= 0)
-			{
-				//名字
-				var CellName = new cc.LabelTTF(heroData.Name, res.TTF_超粗黑, 16);
-				CellName.setAnchorPoint(0, 0);
-				CellName.x = 120;
-				CellName.y = 74;
-				//等级
-				var Level = new cc.LabelTTF("LV:", res.TTF_超粗黑, 16);
-				Level.setColor(cc.color(0, 255, 255));
-				Level.setAnchorPoint(0, 0);
-				Level.x = 220;
-				Level.y = 74;
-
-				var LV_Num = new cc.LabelTTF(HeroLevel, res.TTF_超粗黑, 16);
-				LV_Num.setName("LV_Num");
-				LV_Num.setColor(cc.color(0, 255, 255));
-				LV_Num.setAnchorPoint(0, 0);
-				LV_Num.x = 260;
-				LV_Num.y = 74;
-				LV_Num.setString(HeroLevel);
-				//DPS
-				var Title = new cc.LabelTTF("DPS", res.TTF_超粗黑, 16);
-				Title.setAnchorPoint(0, 0);
-				Title.x = 330;
-				Title.y = 74;
-				
-				var Desc = new cc.LabelTTF(GetShowNumFromArray(UserData.HeroDPS), res.TTF_正粗黑, 16);
-				Desc.setName("Desc");
-				Desc.setColor(cc.color(255, 150, 20));
-				Desc.setAnchorPoint(0, 0);
-				Desc.x = 380;
-				Desc.y = 74;
-
-				if(HeroLevel==0)
-				{
-					heroIconbutton.setColor(cc.color.GRAY);//未解锁时为灰色
-					var newIcon = new cc.Sprite(res.icon_new_png);
-					newIcon.setName("newIcon");
-					newIcon.x = 280;
-					newIcon.y = 50;
-					custom_item.addChild(newIcon);
-				}
-			}
-			else
-			{
-
-			}
-			
-		}
-
+		
 		//创建按钮
 		var heroData = HeroData[index];
 		var HeroLevel = UserData.HeroLevel[index];
@@ -410,13 +320,101 @@ var MenuView_1 = cc.Layer.extend({
 			
 		}
 	}
+
+	//创建主角信息显示
+		if (index == 0) 
+		{
+			//名字
+			//UserData.NickName = "fjskd";
+			var CellName = new cc.LabelTTF(UserData.NickName, res.TTF_超粗黑, 16);
+			CellName.setAnchorPoint(0, 0);
+			CellName.x = 120;
+			CellName.y = 74;
+			//等级
+			var Level = new cc.LabelTTF("LV:", res.TTF_超粗黑, 16);
+			Level.setColor(cc.color(0, 255, 255));
+			Level.setAnchorPoint(0, 0);
+			Level.x = 220;
+			Level.y = 74;
+			
+			var LV_Num = new cc.LabelTTF(UserData.UserLevel, res.TTF_超粗黑, 16);
+			LV_Num.setName("LV_Num");
+			LV_Num.setColor(cc.color(0, 255, 255));
+			LV_Num.setAnchorPoint(0, 0);
+			LV_Num.x = 260;
+			LV_Num.y = 74;
+
+			//点击伤害
+			var Title = new cc.LabelTTF("DMG", res.TTF_超粗黑, 16);
+			Title.setAnchorPoint(0, 0);
+			Title.x = 330;
+			Title.y = 74;
+			
+			var Desc = new cc.LabelTTF(GetShowNumFromArray(UserData.TapAttack), res.TTF_正粗黑, 16);
+			Desc.setName("Desc");
+			Desc.setColor(cc.color(255, 150, 20));
+			Desc.setAnchorPoint(0, 0);
+			Desc.x = 380;
+			Desc.y = 74;
+		}
+		else
+		{	//创建辅助英雄信息
+			var heroData = HeroData[index];
+			var HeroLevel = UserData.HeroLevel[index];
+			if(HeroLevel >= 0)
+			{
+				//名字
+				var CellName = new cc.LabelTTF(heroData.Name, res.TTF_超粗黑, 16);
+				CellName.setAnchorPoint(0, 0);
+				CellName.x = 120;
+				CellName.y = 74;
+				//等级
+				var Level = new cc.LabelTTF("LV:", res.TTF_超粗黑, 16);
+				Level.setColor(cc.color(0, 255, 255));
+				Level.setAnchorPoint(0, 0);
+				Level.x = 220;
+				Level.y = 74;
+
+				var LV_Num = new cc.LabelTTF(HeroLevel, res.TTF_超粗黑, 16);
+				LV_Num.setName("LV_Num");
+				LV_Num.setColor(cc.color(0, 255, 255));
+				LV_Num.setAnchorPoint(0, 0);
+				LV_Num.x = 260;
+				LV_Num.y = 74;
+				LV_Num.setString(HeroLevel);
+				//DPS
+				var Title = new cc.LabelTTF("DPS", res.TTF_超粗黑, 16);
+				Title.setAnchorPoint(0, 0);
+				Title.x = 330;
+				Title.y = 74;
 		
+				var Desc = new cc.LabelTTF(GetShowNumFromArray(UserData.HeroDPS), res.TTF_正粗黑, 16);
+				Desc.setName("Desc");
+				Desc.setColor(cc.color(255, 150, 20));
+				Desc.setAnchorPoint(0, 0);
+				Desc.x = 380;
+				Desc.y = 74;
+				
+				if(HeroLevel==0)
+				{
+					heroIconbutton.setColor(cc.color.GRAY);//未解锁时为灰色
+					var newIcon = new cc.Sprite(res.icon_new_png);
+					newIcon.setName("newIcon");
+					newIcon.x = 280;
+					newIcon.y = 50;
+					custom_item.addChild(newIcon);
+				}
+			}
+			else
+			{
+
+			}
+			
+		}
+
 		if(skillNode)
 		{
 			custom_item.addChild(skillNode);
-		}
-		if(buttonNode){
-			custom_item.addChild(buttonNode);
 		}
 		if (LV_Num) {
 			custom_item.addChild(LV_Num);
@@ -426,6 +424,9 @@ var MenuView_1 = cc.Layer.extend({
 		}
 		if (Desc) {
 			custom_item.addChild(Desc);
+		}
+		if(buttonNode){
+			custom_item.addChild(buttonNode,1);
 		}
 		if (Title) {
 			custom_item.addChild(Title);
@@ -507,9 +508,14 @@ var MenuView_1 = cc.Layer.extend({
 		}
 		else{
 			UserData.UpdateHeroDPS();
+
 			//var viewCell = MenuView_1_root.ListView.getItem(index);
 			var HeroLevel = UserData.HeroLevel[index];
 			var heroData = HeroData[index];
+			if(HeroLevel >= 1)
+			{
+				Desc.setString(GetShowNumFromArray(UserData.HeroDPS));
+			}
 			var LV_Num = viewCell.getChildByName("LV_Num");
 			LV_Num.setString(HeroLevel);
 
@@ -595,6 +601,10 @@ var MenuView_1 = cc.Layer.extend({
 				{
 					var UserLevel = UserData.UserLevel + upNum;
 					UserData.UserLevel = UserLevel;
+					
+					UserData.UpdateTapAttack();
+					MainMenu_root.setInformation();
+
 					MenuView_1_root.cellBtnExpand(index, true, true);
 					MenuView_1_root.updateCell(index);
 				}

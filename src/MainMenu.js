@@ -20,7 +20,7 @@ var MainMenu = cc.Layer.extend({
 
 	FontLabelDPS:null,
 	FontLabelTap:null,
-	FontLabelAllDPS:null,
+	FontLabelMaxDPS:null,
 	FontLabelTestDPS:null,
 	PageStage_bg:null,
 
@@ -53,7 +53,7 @@ var MainMenu = cc.Layer.extend({
 	
 		this.FontLabelDPS = ccui.helper.seekWidgetByName(this.rootnode, "FontLabelDPS");
 		this.FontLabelTap = ccui.helper.seekWidgetByName(this.rootnode, "FontLabelTap");
-		this.FontLabelAllDPS = ccui.helper.seekWidgetByName(this.rootnode, "FontLabelAllDPS");
+		this.FontLabelMaxDPS = ccui.helper.seekWidgetByName(this.rootnode, "FontLabelAllDPS");
 		this.FontLabelTestDPS = ccui.helper.seekWidgetByName(this.rootnode, "FontLabelTestDPS");
 
 		this.ViewNode = this.rootnode.getChildByName("ViewNode");
@@ -213,13 +213,13 @@ var MainMenu = cc.Layer.extend({
 			this.All_DPSTEMP = ArraySumArray(this.All_DPS, UserData.TapAttackTemp);
 			this.All_DPS = this.All_DPSTEMP;
 			if(onSecond){
-				this.FontLabelAllDPS.setString(GetShowNumFromArray(this.All_DPS));//总秒伤显示
+				this.FontLabelTestDPS.setString(GetShowNumFromArray(this.All_DPS));//即时秒伤显示
 				this.All_DPSTEMP = [0,0];
-				MainMenu_root.setInformation();
 			}
 
 			UserData.TapAttackTemp = ArraySumArray(UserData.TapAttackTemp, dps);
-			UserData.StageBlood = ArraySubArray(UserData.StageBlood, UserData.TapAttackTemp);
+			UserData.TapAttack = UserData.TapAttackTemp;
+			UserData.StageBlood = ArraySubArray(UserData.StageBlood, UserData.TapAttack);
 			UserData.TapAttackTemp = [0];
 
 			if (ArrayIsZero(UserData.StageBlood)) {
@@ -231,7 +231,6 @@ var MainMenu = cc.Layer.extend({
 				}
 				MainMenu_root.BloodBar.setPercent(0);
 				MainMenu_root.updateBossButtonState();
-
 			} else {
 				//血量随关卡变化
 				var pct = ArrayScaleArray(UserData.StageBlood, Ruler.StageBloodBase) * 100;
@@ -307,8 +306,7 @@ var MainMenu = cc.Layer.extend({
 
 	},
 	setInformation : function () {
-		MainMenu_root.FontLabelDPS.setString(GetShowNumFromArray(UserData.HeroDPS));
-		console.log("shuchu");
+		//MainMenu_root.FontLabelDPS.setString(GetShowNumFromArray(UserData.HeroDPS));
 		MainMenu_root.FontLabelTap.setString(GetShowNumFromArray(UserData.TapAttack));
 	},
 	onBossStateClick : function(sender,type) {
@@ -383,6 +381,7 @@ var MainMenu = cc.Layer.extend({
 		{
 			this.StageMonsterData.setVisible(false);
 		}
+
 	},
 	mainMenuReset:function(){
 		
