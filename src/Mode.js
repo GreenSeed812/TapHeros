@@ -907,7 +907,10 @@ var BaseSkill =
 var Artifact = 
 [
 	{
-		Name : "奥金利斧1",
+
+
+		Name : "奥金利斧",
+
 		Desc : "增加致死打击的伤害",
 		Icon : res.icon_shenqi_1,
 		BaseData : BaseSkill.TapHurtUpRate,
@@ -915,7 +918,9 @@ var Artifact =
 		Rate : 0.4,
 	},
 	{
-		Name : "地狱火石2",
+
+		Name : "地狱火石",
+
 		Desc : "缩减地狱火冷却",
 		Icon : res.icon_shenqi_1,
 		BaseData : BaseSkill.TapHurtUpRate,
@@ -923,7 +928,9 @@ var Artifact =
 		Rate : 0.4,
 	},
 	{
-		Name : "上古骨弓3",
+
+		Name : "上古骨弓",
+
 		Desc : "增加快速射击时间",
 		Icon : res.icon_shenqi_1,
 		BaseData : BaseSkill.TapHurtUpRate,
@@ -931,7 +938,9 @@ var Artifact =
 		Rate : 0.4,
 	},
 	{
-		Name : "守护者之杖4",
+
+		Name : "守护者之杖",
+
 		Desc : "DPS伤害额外提升百分比增加",
 		Icon : res.icon_shenqi_1,
 		BaseData : BaseSkill.TapHurtUpRate,
@@ -939,7 +948,9 @@ var Artifact =
 		Rate : 0.4,
 	},
 	{
-		Name : "影之哀伤5",
+
+		Name : "影之哀伤",
+
 		Desc : "暴击几率百分比增加",
 		Icon : res.icon_shenqi_1,
 		BaseData : BaseSkill.TapHurtUpRate,
@@ -947,7 +958,9 @@ var Artifact =
 		Rate : 0.4,
 	},
 	{
-		Name : "炎魔之锤6",
+
+		Name : "炎魔之锤",
+
 		Desc : "暴击伤害百分比增加",
 		Icon : res.icon_shenqi_1,
 		BaseData : BaseSkill.TapHurtUpRate,
@@ -955,7 +968,9 @@ var Artifact =
 		Rate : 0.4,
 	},
 	{
-		Name : "群星之怒7",
+
+		Name : "群星之怒",
+
 		Desc : "点击攻击力提升百分比增加",
 		Icon : res.icon_shenqi_1,
 		BaseData : BaseSkill.TapHurtUpRate,
@@ -963,7 +978,9 @@ var Artifact =
 		Rate : 0.4,
 	},
 	{
-		Name : "龙父之牙8",
+
+		Name : "龙父之牙",
+
 		Desc : "关卡小怪数量减少百分比",
 		Icon : res.icon_shenqi_1,
 		BaseData : BaseSkill.TapHurtUpRate,
@@ -971,7 +988,9 @@ var Artifact =
 		Rate : 0.4,
 	},
 	{
-		Name : "埃辛诺斯战刃9",
+
+		Name : "埃辛诺斯战刃",
+
 		Desc : "Boss血量减少",
 		Icon : res.icon_shenqi_1,
 		BaseData : BaseSkill.TapHurtUpRate,
@@ -979,7 +998,9 @@ var Artifact =
 		Rate : 0.4,
 	},
 	{
-		Name : "巨龙之怒10",
+
+		Name : "巨龙之怒",
+
 		Desc : "掉落黄金提升百分比增加",
 		Icon : res.icon_shenqi_1,
 		BaseData : BaseSkill.TapHurtUpRate,
@@ -987,7 +1008,9 @@ var Artifact =
 		Rate : 0.4,
 	},
 	{
-		Name : "瓦兰奈尔11",
+
+		Name : "瓦兰奈尔",
+
 		Desc : "英雄升级消耗降低百分比",
 		Icon : res.icon_shenqi_1,
 		BaseData : BaseSkill.TapHurtUpRate,
@@ -995,7 +1018,9 @@ var Artifact =
 		Rate : 0.4,
 	},
 	{
-		Name : "雷霆逐风者12",
+
+		Name : "雷霆逐风者",
+
 		Desc : "Boss挑战时间增加百分比",
 		Icon : res.icon_shenqi_1,
 		BaseData : BaseSkill.TapHurtUpRate,
@@ -1003,7 +1028,9 @@ var Artifact =
 		Rate : 0.4,
 	},
 	{
-		Name : "白虎之怒13",
+
+		Name : "白虎之怒",
+
 		Desc : "增加百分比电击伤害",
 		Icon : res.icon_shenqi_1,
 		BaseData : BaseSkill.TapHurtUpRate,
@@ -1969,6 +1996,7 @@ var SkillData =
 	Skill_24_5 : {
 		Name : "真言术盾",
 		Icon : res.icon_skill_5,
+<<<<<<< HEAD
 		BaseData : BaseSkill.TapHurtUpRate,
 		Rate : 0.4,
 	},
@@ -2062,6 +2090,101 @@ var SkillData =
 		BaseData : BaseSkill.TapHurtUpRate,
 		Rate : 0.4,
 	},
+=======
+		BaseData : BaseSkill.TapHurtUpRate,
+		Rate : 0.4,
+	},
+	Skill_24_6 : {
+		Name : "天使长",
+		Icon : res.icon_skill_6,
+		BaseData : BaseSkill.TapHurtUpRate,
+		Rate : 0.4,
+	},
+	Skill_24_7 : {
+		Name : "痛苦压制",
+		Icon : res.icon_skill_7,
+		BaseData : BaseSkill.TapHurtUpRate,
+		Rate : 0.4,
+	},
+		Skill_25_1 : {
+		Name : "盾牌猛击",
+		Icon : res.icon_skill_1,
+		BaseData : BaseSkill.TapHurtUpRate,
+		Rate : 0.4,
+	},
+	Skill_25_2 : {
+		Name : "复仇",
+		Icon : res.icon_skill_2,
+		BaseData : BaseSkill.TapHurtUpRate,
+		Rate : 0.4,
+	},
+	Skill_25_3 : {
+		Name : "英勇打击",
+		Icon : res.icon_skill_3,
+		BaseData : BaseSkill.TapHurtUpRate,
+		Rate : 0.4,
+	},
+	Skill_25_4 : {
+		Name : "毁灭打击",
+		Icon : res.icon_skill_4,
+		BaseData : BaseSkill.TapHurtUpRate,
+		Rate : 0.4,
+	},
+	Skill_25_5 : {
+		Name : "挑战战旗",
+		Icon : res.icon_skill_5,
+		BaseData : BaseSkill.TapHurtUpRate,
+		Rate : 0.4,
+	},
+	Skill_25_6 : {
+		Name : "激怒",
+		Icon : res.icon_skill_6,
+		BaseData : BaseSkill.TapHurtUpRate,
+		Rate : 0.4,
+	},
+	Skill_25_7 : {
+		Name : "盾墙",
+		Icon : res.icon_skill_7,
+		BaseData : BaseSkill.TapHurtUpRate,
+		Rate : 0.4,
+	},
+		Skill_26_1 : {
+		Name : "奥术射击",
+		Icon : res.icon_skill_1,
+		BaseData : BaseSkill.TapHurtUpRate,
+		Rate : 0.4,
+	},
+	Skill_26_2 : {
+		Name : "黑箭",
+		Icon : res.icon_skill_2,
+		BaseData : BaseSkill.TapHurtUpRate,
+		Rate : 0.4,
+	},
+	Skill_26_3 : {
+		Name : "爆炸射击",
+		Icon : res.icon_skill_3,
+		BaseData : BaseSkill.TapHurtUpRate,
+		Rate : 0.4,
+	},
+	Skill_26_4 : {
+		Name : "诱捕",
+		Icon : res.icon_skill_4,
+		BaseData : BaseSkill.TapHurtUpRate,
+		Rate : 0.4,
+	},
+	Skill_26_5 : {
+		Name : "爆炸陷阱",
+		Icon : res.icon_skill_5,
+		BaseData : BaseSkill.TapHurtUpRate,
+		Rate : 0.4,
+	},
+	Skill_26_6 : {
+		Name : "冰冻陷阱",
+		Icon : res.icon_skill_6,
+		BaseData : BaseSkill.TapHurtUpRate,
+		Rate : 0.4,
+	},
+>>>>>>> 6bf3d5cbbe11619f630b573bb8c83fa438ec3b74
 	Skill_26_7 : {
 		Name : "稳固射击",
 		Icon : res.icon_skill_7,
