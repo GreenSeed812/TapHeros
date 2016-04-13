@@ -1,0 +1,166 @@
+{
+  "ID": "75f160d2-6cc8-4797-9316-c513d040c9b4",
+  "Version": "2.2.9.0",
+  "Name": "Stage_1_3",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 2,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "img/stage/dst_1.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 322.0,
+              "Y": 272.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5031,
+              "Y": 0.425
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 112.0,
+            "RightMargin": 108.0,
+            "TopMargin": 235.0,
+            "BottomMargin": 139.0,
+            "Tag": 3,
+            "ActionTag": -499486498,
+            "Size": {
+              "X": 420.0,
+              "Y": 266.0
+            },
+            "Name": "dst_1_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "img/stage/dst_1_3_1.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.4851,
+              "ScaleY": 0.4563
+            },
+            "Position": {
+              "X": 467.9999,
+              "Y": 330.9999
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7312,
+              "Y": 0.5172
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 409.7879,
+            "RightMargin": 110.212,
+            "TopMargin": 269.8537,
+            "BottomMargin": 298.1463,
+            "Tag": 11,
+            "ActionTag": -1188833405,
+            "Size": {
+              "X": 120.0,
+              "Y": 72.0
+            },
+            "Name": "dst_1_4_1_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "img/stage/dst_1_3_2.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 172.0,
+              "Y": 329.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2688,
+              "Y": 0.5141
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "HorizontalEdge": "BothEdge",
+            "VerticalEdge": "BothEdge",
+            "LeftMargin": 112.0,
+            "RightMargin": 408.0,
+            "TopMargin": 275.0,
+            "BottomMargin": 293.0,
+            "Tag": 12,
+            "ActionTag": -1938578227,
+            "Size": {
+              "X": 120.0,
+              "Y": 72.0
+            },
+            "Name": "dst_1_4_2_2",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 640.0,
+          "Y": 640.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "ctype": "GameProjectData"
+    }
+  },
+  "Type": "Layer"
+}

@@ -1,0 +1,539 @@
+{
+  "ID": "c91178da-b33d-4eba-9cbf-bad1c6e780fb",
+  "Version": "3.10.0.0",
+  "Name": "ArtifactNode",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 19,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Default",
+              "Path": "Default/ImageFile.png",
+              "Plist": ""
+            },
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 15,
+            "Scale9Width": 16,
+            "Scale9Height": 16,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -63.0,
+            "RightMargin": -63.0,
+            "TopMargin": -63.0,
+            "BottomMargin": -63.0,
+            "Tag": 151183,
+            "ActionTag": -1464700739,
+            "Size": {
+              "X": 126.0,
+              "Y": 126.0
+            },
+            "Name": "bg",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ui/msg_level_small_1.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 23,
+            "Scale9OriginY": 23,
+            "Scale9Width": 26,
+            "Scale9Height": 26,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -63.0,
+            "RightMargin": -63.0,
+            "TopMargin": -63.0,
+            "BottomMargin": -63.0,
+            "Tag": 176,
+            "ActionTag": 112778762,
+            "Size": {
+              "X": 126.0,
+              "Y": 126.0
+            },
+            "VisibleForFrame": false,
+            "Name": "box_1",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ui/msg_level_small_2.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 23,
+            "Scale9OriginY": 23,
+            "Scale9Width": 26,
+            "Scale9Height": 26,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -63.0,
+            "RightMargin": -63.0,
+            "TopMargin": -63.0,
+            "BottomMargin": -63.0,
+            "Tag": 21,
+            "ActionTag": 170927814,
+            "Size": {
+              "X": 126.0,
+              "Y": 126.0
+            },
+            "VisibleForFrame": false,
+            "Name": "box_2",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ui/msg_level_small_3.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 23,
+            "Scale9OriginY": 23,
+            "Scale9Width": 26,
+            "Scale9Height": 26,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -63.0,
+            "RightMargin": -63.0,
+            "TopMargin": -63.0,
+            "BottomMargin": -63.0,
+            "Tag": 22,
+            "ActionTag": -215098355,
+            "Size": {
+              "X": 126.0,
+              "Y": 126.0
+            },
+            "VisibleForFrame": false,
+            "Name": "box_3",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ui/msg_level_small_4.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 23,
+            "Scale9OriginY": 23,
+            "Scale9Width": 26,
+            "Scale9Height": 26,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -63.0,
+            "RightMargin": -63.0,
+            "TopMargin": -63.0,
+            "BottomMargin": -63.0,
+            "Tag": 23,
+            "ActionTag": -329184446,
+            "Size": {
+              "X": 126.0,
+              "Y": 126.0
+            },
+            "VisibleForFrame": false,
+            "Name": "box_4",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ui/msg_level_small_5.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 23,
+            "Scale9OriginY": 23,
+            "Scale9Width": 26,
+            "Scale9Height": 26,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -63.0,
+            "RightMargin": -63.0,
+            "TopMargin": -63.0,
+            "BottomMargin": -63.0,
+            "Tag": 24,
+            "ActionTag": 1775389264,
+            "Size": {
+              "X": 126.0,
+              "Y": 126.0
+            },
+            "VisibleForFrame": false,
+            "Name": "box_5",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "icon/icon_star.png",
+              "Plist": ""
+            },
+            "Scale9Width": 32,
+            "Scale9Height": 32,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -52.0,
+              "Y": -52.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -68.0,
+            "RightMargin": 36.0,
+            "TopMargin": 36.0,
+            "BottomMargin": -68.0,
+            "Tag": 25,
+            "ActionTag": -124848317,
+            "Size": {
+              "X": 32.0,
+              "Y": 32.0
+            },
+            "VisibleForFrame": false,
+            "Name": "star_1",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "icon/icon_star.png",
+              "Plist": ""
+            },
+            "Scale9Width": 32,
+            "Scale9Height": 32,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -26.0,
+              "Y": -52.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -42.0,
+            "RightMargin": 10.0,
+            "TopMargin": 36.0,
+            "BottomMargin": -68.0,
+            "Tag": 26,
+            "ActionTag": 1512386640,
+            "Size": {
+              "X": 32.0,
+              "Y": 32.0
+            },
+            "VisibleForFrame": false,
+            "Name": "star_2",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "icon/icon_star.png",
+              "Plist": ""
+            },
+            "Scale9Width": 32,
+            "Scale9Height": 32,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 0.0,
+              "Y": -52.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -16.0,
+            "RightMargin": -16.0,
+            "TopMargin": 36.0,
+            "BottomMargin": -68.0,
+            "Tag": 27,
+            "ActionTag": -2110289548,
+            "Size": {
+              "X": 32.0,
+              "Y": 32.0
+            },
+            "VisibleForFrame": false,
+            "Name": "star_3",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "icon/icon_star.png",
+              "Plist": ""
+            },
+            "Scale9Width": 32,
+            "Scale9Height": 32,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 26.0,
+              "Y": -52.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 10.0,
+            "RightMargin": -42.0,
+            "TopMargin": 36.0,
+            "BottomMargin": -68.0,
+            "Tag": 28,
+            "ActionTag": 454121673,
+            "Size": {
+              "X": 32.0,
+              "Y": 32.0
+            },
+            "VisibleForFrame": false,
+            "Name": "star_4",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "icon/icon_star.png",
+              "Plist": ""
+            },
+            "Scale9Width": 32,
+            "Scale9Height": 32,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 52.0,
+              "Y": -52.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 36.0,
+            "RightMargin": -68.0,
+            "TopMargin": 36.0,
+            "BottomMargin": -68.0,
+            "Tag": 29,
+            "ActionTag": -655959039,
+            "Size": {
+              "X": 32.0,
+              "Y": 32.0
+            },
+            "VisibleForFrame": false,
+            "Name": "star_5",
+            "ctype": "ImageViewObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Default/ImageFile.png",
+        "icon/icon_star.png",
+        "ui/msg_level_small_1.png",
+        "ui/msg_level_small_2.png",
+        "ui/msg_level_small_3.png",
+        "ui/msg_level_small_4.png",
+        "ui/msg_level_small_5.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

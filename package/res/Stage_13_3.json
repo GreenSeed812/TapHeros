@@ -1,0 +1,119 @@
+{
+  "ID": "02491abd-a1dd-4313-ad0c-3377a58af094",
+  "Version": "2.2.9.0",
+  "Name": "Stage_13_3",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 2,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "img/stage/dst_13.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 320.0002,
+              "Y": 248.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.3875
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 90.0002,
+            "RightMargin": 89.9998,
+            "TopMargin": 228.0,
+            "BottomMargin": 84.0,
+            "Tag": 3,
+            "ActionTag": -499486498,
+            "Size": {
+              "X": 460.0,
+              "Y": 328.0
+            },
+            "Name": "dst_1_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "img/stage/dst_13_3.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 179.9998,
+              "Y": 384.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.9
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2812,
+              "Y": 0.6
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 137.9998,
+            "RightMargin": 418.0002,
+            "TopMargin": 158.0,
+            "BottomMargin": 286.0,
+            "Tag": 193,
+            "ActionTag": 343537514,
+            "Size": {
+              "X": 84.0,
+              "Y": 196.0
+            },
+            "Name": "dst_5_1_2_1",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 640.0,
+          "Y": 640.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "ctype": "GameProjectData"
+    }
+  },
+  "Type": "Layer"
+}

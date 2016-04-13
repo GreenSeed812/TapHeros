@@ -511,7 +511,6 @@
                         },
                         "ShadowOffsetX": 2.0,
                         "ShadowOffsetY": -2.0,
-                        "TouchEnable": true,
                         "AnchorPoint": {
                           "ScaleX": 0.5,
                           "ScaleY": 0.5
@@ -591,6 +590,7 @@
                           "X": 274.0,
                           "Y": 74.0
                         },
+                        "VisibleForFrame": false,
                         "Name": "Button_AddArtifactCount",
                         "ctype": "ButtonObjectData"
                       }
