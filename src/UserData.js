@@ -89,6 +89,11 @@ var UserData = {
 			this.ArtifactCoin += 1;
 			return Artifact;
 		},
+		BreakArtifact2 : function (index) {
+			var Artifact = this.ArtifactAll2.splice(index,1);
+			this.ArtifactCoin += 1;
+			return Artifact;
+		},
 		UpdateArtifactState : function () {
 			for (var i = 1; i < Artifact.length; i++) {
 				this.ArtifactLevel[i] = 0;

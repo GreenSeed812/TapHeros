@@ -363,7 +363,7 @@ var MenuView_2 = cc.Layer.extend({
 	touchHeroIcon: function (sender, type) {
 
 		var index = sender.getTag();//神器id
-		
+		var huadongtiaoIndex=null;
 		switch (type) {
 		case ccui.Widget.TOUCH_ENDED:
 			{
@@ -374,11 +374,29 @@ var MenuView_2 = cc.Layer.extend({
 					if(a == index)
 					{
 						console.log("zhengque a"+a);
+						huadongtiaoIndex=a;
+
+						/*MenuView_2_root.ListView.removeItem(1);
+						console.log("remove ok");*/
 					}
 				};
 			}
 			MainScene_root.pushLayer(new InformationLayer());
-			InformationLayer_root.create(InformationLayerType.ArtifactBreak, { Index : null, ArtifactID : null } );
+			InformationLayer_root.create(InformationLayerType.ArtifactBreak, { Index : huadongtiaoIndex, ArtifactID : index } );
+
+
+			
+				/*MenuView_2_root.ListView.removeItem(1);
+				console.log("remove1 ok");
+
+				MenuView_2_root.ListView.removeItem(2);
+				console.log("remove2 ok");
+
+				MenuView_2_root.ListView.removeItem(3);
+				console.log("remove3 ok");*/
+			
+			
+
 			break;
 		}
 	},
