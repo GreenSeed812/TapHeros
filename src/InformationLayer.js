@@ -63,6 +63,7 @@ var InformationLayer = cc.Layer.extend({
 			console.log("levelsssss2");
 			var Button_Style_2 = ccui.helper.seekWidgetByName(this.rootnode, "Button_Style_2");
 			Button_Style_2.setVisible(true);
+			
 			Button_Style_2.addTouchEventListener(this.onArtifactUpClick, this);
 			console.log("levelsssss3");
 			var Text_Name = ccui.helper.seekWidgetByName(this.rootnode, "Text_Name");
@@ -81,6 +82,10 @@ var InformationLayer = cc.Layer.extend({
 			var Text_NextDesc = ccui.helper.seekWidgetByName(this.rootnode, "Text_NextDesc");
 			Text_NextDesc.setString("下一等级");
 			console.log("levelsssss5");
+			var Text_33_0 = ccui.helper.seekWidgetByName(this.rootnode, "Text_33_0");
+			Text_33_0.setString("打破神器可以获得"+UserData.chouquCoinList[UserData.chouquCoinNmb-1]+"个");
+
+			console.log("levelsssss6");
 		}
 	},
 	onArtifactUpClick:function(sender,type){
@@ -121,6 +126,12 @@ var InformationLayer = cc.Layer.extend({
 				if (ArtifactEditeLayer_root) {
 					ArtifactEditeLayer_root.create(artifact.i);
 				}*/
+				UserData.chouquCoinNmb--;
+				UserData.ReincarnationCount += UserData.chouquCoinList[UserData.chouquCoinNmb];
+				MenuView_2_root.chouquCoin.setString(UserData.chouquCoinList[UserData.chouquCoinNmb]);
+				MenuView_2_root.BitmapFontLabel_2.setString(UserData.ReincarnationCount);
+
+				UserData.ArtifactActive2[ArtifactID2-1] = 0;
 			}
 		}
 	},

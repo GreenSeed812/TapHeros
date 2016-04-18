@@ -906,32 +906,32 @@ var BaseSkill =
 
 var Artifact = 
 [
-	{
+	/*{
 		Name : "奥金利斧1",
 		Desc : "增加致死打击的伤害",
 		Icon : res.icon_shenqi_1,
 		BaseData : BaseSkill.TapHurtUpRate,
 		MaxLevel : [0,5,10,15,20,30],
 		Rate : 0.4,
-	},
-	{
+	},*/
+	/*{
 		Name : "地狱火石2",
 		Desc : "缩减地狱火冷却",
 		Icon : res.icon_shenqi_1,
 		BaseData : BaseSkill.TapHurtUpRate,
 		MaxLevel : [0,5,10,15,20,30],
 		Rate : 0.4,
-	},
-	{
+	},*/
+	/*{
 		Name : "上古骨弓3",
 		Desc : "增加快速射击时间",
 		Icon : res.icon_shenqi_1,
 		BaseData : BaseSkill.TapHurtUpRate,
 		MaxLevel : [0,5,10,15,20,30],
 		Rate : 0.4,
-	},
+	},*/
 	{
-		Name : "守护者之杖4",
+		Name : "守护者之杖1",
 		Desc : "DPS伤害额外提升百分比增加",
 		Icon : res.icon_shenqi_1,
 		BaseData : BaseSkill.TapHurtUpRate,
@@ -939,7 +939,7 @@ var Artifact =
 		Rate : 0.4,
 	},
 	{
-		Name : "影之哀伤5",
+		Name : "影之哀伤2",
 		Desc : "暴击几率百分比增加",
 		Icon : res.icon_shenqi_1,
 		BaseData : BaseSkill.TapHurtUpRate,
@@ -947,7 +947,7 @@ var Artifact =
 		Rate : 0.4,
 	},
 	{
-		Name : "炎魔之锤6",
+		Name : "炎魔之锤3",
 		Desc : "暴击伤害百分比增加",
 		Icon : res.icon_shenqi_1,
 		BaseData : BaseSkill.TapHurtUpRate,
@@ -955,7 +955,7 @@ var Artifact =
 		Rate : 0.4,
 	},
 	{
-		Name : "群星之怒7",
+		Name : "群星之怒4",
 		Desc : "点击攻击力提升百分比增加",
 		Icon : res.icon_shenqi_1,
 		BaseData : BaseSkill.TapHurtUpRate,
@@ -963,53 +963,53 @@ var Artifact =
 		Rate : 0.4,
 	},
 	{
-		Name : "龙父之牙8",
+		Name : "龙父之牙5",
 		Desc : "关卡小怪数量减少百分比",
 		Icon : res.icon_shenqi_1,
 		BaseData : BaseSkill.TapHurtUpRate,
 		MaxLevel : [0,5,10,15,20,30],
 		Rate : 0.4,
 	},
-	{
+	/*{
 		Name : "埃辛诺斯战刃9",
 		Desc : "Boss血量减少",
 		Icon : res.icon_shenqi_1,
 		BaseData : BaseSkill.TapHurtUpRate,
 		MaxLevel : [0,5,10,15,20,30],
 		Rate : 0.4,
-	},
+	},*/
 	{
-		Name : "巨龙之怒10",
+		Name : "巨龙之怒6",
 		Desc : "掉落黄金提升百分比增加",
 		Icon : res.icon_shenqi_1,
 		BaseData : BaseSkill.TapHurtUpRate,
 		MaxLevel : [0,5,10,15,20,30],
 		Rate : 0.4,
 	},
-	{
+	/*{
 		Name : "瓦兰奈尔11",
 		Desc : "英雄升级消耗降低百分比",
 		Icon : res.icon_shenqi_1,
 		BaseData : BaseSkill.TapHurtUpRate,
 		MaxLevel : [0,5,10,15,20,30],
 		Rate : 0.4,
-	},
-	{
+	},*/
+	/*{
 		Name : "雷霆逐风者12",
 		Desc : "Boss挑战时间增加百分比",
 		Icon : res.icon_shenqi_1,
 		BaseData : BaseSkill.TapHurtUpRate,
 		MaxLevel : [0,5,10,15,20,30],
 		Rate : 0.4,
-	},
-	{
+	},*/
+	/*{
 		Name : "白虎之怒13",
 		Desc : "增加百分比电击伤害",
 		Icon : res.icon_shenqi_1,
 		BaseData : BaseSkill.TapHurtUpRate,
 		MaxLevel : [0,5,10,15,20,30],
 		Rate : 0.4,
-	}
+	}*/
 
 	
 ]
@@ -2470,6 +2470,34 @@ var PlayerJob =
 		Skill : [SkillData.User,SkillData.User_1_2,SkillData.User_2,SkillData.User_3,SkillData.User_4,SkillData.User_5,SkillData.User_6,SkillData.User_7],
 	}
 };
+
+var Prop=
+[
+	{
+		Name :"哈里森的藏宝图",
+		Icon :res.icon_hero_1,
+		Describe:"收到大量金币",
+		Diamonds:100
+	},
+	{
+		Name :"萨鲁法尔的断筋",
+		Icon :res.icon_hero_1,
+		Describe:"立刻打掉怪物最大HP的50%的HP",
+		Diamonds:50
+	},
+	{
+		Name :"加兹鲁维的新发明",
+		Icon :res.icon_hero_1,
+		Describe:"刷新所有技能",
+		Diamonds:30
+	},
+	{
+		Name :"强效不灭精华",
+		Icon :res.icon_hero_1,
+		Describe:"接下来的12小时内搁置金币翻倍",
+		Diamonds:100
+	}
+];
 
 var PlayerData = 
 {

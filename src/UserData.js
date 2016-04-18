@@ -30,8 +30,20 @@ var UserData = {
 
 		ArtifactAll			  	: [],															// 玩家持有所有神器
 		ArtifactAll2		 	: [],															// 玩家持有所有神器2
+
+		PropCount				: [0,0,0,0],													// 持有各类道具数量
+		DiamondsCount			: 0,															// 钻石容器
+
+		ReincarnationCount		: 100,															// 转生币容器
+		chouquCoinList			: [2,4,6,8,10,12,14,16,18,20,22,24,26],							// 神器抽取需要转生币数量数列
+		chouquCoinNmb			: 0,															// 神器抽取次数
+
 		OffLineTimestamp		: 0,															// 离线时间戳
 		HeroMoney               : [0],
+		ChouquMoney				: 0,															// 抽取神器需要转生币公式
+		BreakMoney				: 0,															// 打破神器返还转生币公式
+		/*ChouquMoney				= (1+UserData.ArtifactAll2.length)*2,							// 抽取神器需要转生币公式
+		BreakMoney				= UserData.ArtifactAll2.length*2, 								// 打破神器返还转生币公式*/
 
 		RandomArtifact : function (data) {
 			var index = GetRandomNum(1, Artifact.length);

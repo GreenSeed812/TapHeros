@@ -31,6 +31,8 @@
             "ColorVector": {
               "ScaleY": 1.0
             },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
@@ -94,7 +96,7 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 321.5,
+              "X": 321.472,
               "Y": 338.9
             },
             "Scale": {
@@ -113,8 +115,8 @@
             },
             "HorizontalEdge": "BothEdge",
             "VerticalEdge": "BottomEdge",
-            "LeftMargin": 11.5,
-            "RightMargin": 8.5,
+            "LeftMargin": 11.472,
+            "RightMargin": 8.528,
             "TopMargin": 524.1,
             "BottomMargin": 65.9,
             "Tag": 44,
@@ -134,6 +136,8 @@
                 "ColorVector": {
                   "ScaleY": 1.0
                 },
+                "Scale9Width": 1,
+                "Scale9Height": 1,
                 "TouchEnable": true,
                 "AnchorPoint": {},
                 "Position": {
@@ -393,7 +397,7 @@
                 },
                 "DisabledFileData": {
                   "Type": "Normal",
-                  "Path": "button/btn_shenqifenjie_n.png",
+                  "Path": "button/btn_shenqifenjie_s.png",
                   "Plist": ""
                 },
                 "PressedFileData": {
@@ -466,6 +470,8 @@
                     "ColorVector": {
                       "ScaleY": 1.0
                     },
+                    "Scale9Width": 1,
+                    "Scale9Height": 1,
                     "AnchorPoint": {},
                     "Position": {
                       "X": 0.0,
@@ -529,11 +535,12 @@
                           "X": 48.0,
                           "Y": 48.0
                         },
+                        "VisibleForFrame": false,
                         "Name": "icon",
                         "ctype": "SpriteObjectData"
                       },
                       {
-                        "LabelText": "0",
+                        "LabelText": "100",
                         "AnchorPoint": {
                           "ScaleY": 0.5
                         },
@@ -552,19 +559,20 @@
                           "Y": 0.766
                         },
                         "PreSize": {
-                          "X": 0.0246,
+                          "X": 0.0739,
                           "Y": 0.1596
                         },
                         "LeftMargin": 216.0,
-                        "RightMargin": 61.0,
+                        "RightMargin": 47.0,
                         "TopMargin": 14.5,
                         "BottomMargin": 64.5,
                         "Tag": 53,
                         "ActionTag": -1574853308,
                         "Size": {
-                          "X": 7.0,
+                          "X": 21.0,
                           "Y": 15.0
                         },
+                        "VisibleForFrame": false,
                         "Name": "count",
                         "ctype": "TextBMFontObjectData"
                       },

@@ -3,6 +3,8 @@ var MenuView_2 = cc.Layer.extend({
 	rootnode:null,
 	Total_Sheli:null,
 	DPS_UpRate:null,
+	BitmapFontLabel_2:null,
+	chouquCoin:null,
 	tmpIndex:null,
 	ctor:function(){
 		this._super();
@@ -15,6 +17,11 @@ var MenuView_2 = cc.Layer.extend({
 
 		this.Total_Sheli = ccui.helper.seekWidgetByName(this.rootnode, "Total_Sheli");
 		this.DPS_UpRate = ccui.helper.seekWidgetByName(this.rootnode, "DPS_UpRate");
+		this.BitmapFontLabel_2 = ccui.helper.seekWidgetByName(this.rootnode, "BitmapFontLabel_2");
+		MenuView_2_root.BitmapFontLabel_2.setString(UserData.ReincarnationCount);
+		this.chouquCoin = ccui.helper.seekWidgetByName(this.rootnode, "chouquCoin");
+		//MenuView_2_root.chouquCoin.setString(UserData.chouquCoinList[UserData.chouquCoinNmb]);
+		MenuView_2_root.chouquCoin.setString(UserData.chouquCoinList[UserData.chouquCoinNmb]);
 		this.ListView = ccui.helper.seekWidgetByName(this.rootnode, "ListView");
 		this.createCells();
 		//this.setInformation();
@@ -30,6 +37,10 @@ var MenuView_2 = cc.Layer.extend({
 			}
 		}*/
 		//this.createCell(1);
+	},
+	SetFormulas:function(){
+		UserData.ChouquMoney				= (1+UserData.ArtifactAll2.length)*2;							// 抽取神器需要转生币公式
+		UserData.BreakMoney					= UserData.ArtifactAll2.length*2;								// 打破神器返还转生币公式
 	},
 	createCell:function(index){
 		console.log("cell");
@@ -185,7 +196,60 @@ var MenuView_2 = cc.Layer.extend({
 				/*UserData.RandomArtifact();
 				MenuView_2_root.requestRefreshView();*/
 
-				if(UserData.ArtifactIndex <= 8)
+				var a=UserData.chouquCoinList[UserData.chouquCoinNmb];
+				var b=UserData.ReincarnationCount;
+				console.log("UserData.chouquCoinList[UserData.chouquCoinNmb]"+a);
+				console.log("UserData.ReincarnationCount"+b);
+
+				if(b >= a && UserData.ArtifactAll2.length < 6)
+				{
+					var tmpnum=null;
+					UserData.ReincarnationCount -= UserData.chouquCoinList[UserData.chouquCoinNmb];
+
+					if(UserData.ArtifactIndex <= 80)
+					{
+						UserData.ArtifactIndex++;
+						var tmp=MenuView_2_root.RandomArtifactNum();
+						console.log("UserData.ArtifactIndex"+UserData.ArtifactIndex);
+						MenuView_2_root.createCell(tmp+1);
+						MenuView_2_root.requestRefreshView();
+						tmpnum=tmp;
+					}
+
+					UserData.chouquCoinNmb++;
+					MenuView_2_root.BitmapFontLabel_2.setString(UserData.ReincarnationCount);
+					MenuView_2_root.chouquCoin.setString(UserData.chouquCoinList[UserData.chouquCoinNmb]);
+
+					console.log("tmpnum+++++++++++++++++++++++++++++"+tmpnum);
+					{
+						if(tmpnum == 0)
+						{
+							console.log("守护者之杖");
+						}
+						else if(tmpnum == 1)
+						{
+							console.log("影之哀伤");
+						}
+						else if(tmpnum == 2)
+						{
+							console.log("炎魔之锤");
+						}
+						else if(tmpnum == 3)
+						{
+							console.log("群星之怒4");
+						}
+						else if(tmpnum == 4)
+						{
+							console.log("龙父之牙5");
+						}
+						else if(tmpnum == 5)
+						{
+							console.log("巨龙之怒6");
+						}
+					}
+				}
+
+				/*if(UserData.ArtifactIndex <= 8)
 				{
 					UserData.ArtifactIndex++;
 					var tmp=MenuView_2_root.RandomArtifactNum();
@@ -193,7 +257,7 @@ var MenuView_2 = cc.Layer.extend({
 					MenuView_2_root.createCell(tmp+1);
 					MenuView_2_root.requestRefreshView();
 					
-				}
+				}*/
 			}
 			else if (sender.getName() == "Button_AddArtifactCount") {
 				
@@ -210,7 +274,8 @@ var MenuView_2 = cc.Layer.extend({
 
 		do
 		{
-			var tmpNum = GetRandomNum(0,8);
+			//Artifact.length-1
+			var tmpNum = GetRandomNum(0,5);
 			Num=tmpNum;
 			console.log(tmpNum);
 			if(UserData.ArtifactActive2[tmpNum] == 0)
@@ -225,13 +290,18 @@ var MenuView_2 = cc.Layer.extend({
 		return Num;
 	},
 	requestRefreshView : function () {
-		for (var index = 0; index < UserData.ArtifactAll2.length; index++) 
+		/*for (var index = 0; index < UserData.ArtifactAll2.length; index++) 
 		{
 			//console.log("a");
 			var level = UserData.ArtifactLevel[index];
 			if(level >= 0) {
 				this.updateCell(index);
 			}
+		}*/
+
+		for (var index = 1; index <= UserData.ArtifactAll2.length; index++) 
+		{
+			this.updateCell(index);
 		}
 		//this.setInformation();
 
@@ -348,6 +418,7 @@ var MenuView_2 = cc.Layer.extend({
 				
 			}
 		};
+
 		var artifact = Artifact[tmpIndex];
 		var LV_Num = viewCell.getChildByName("LV_Num");
 		LV_Num.setString(level);
@@ -382,9 +453,10 @@ var MenuView_2 = cc.Layer.extend({
 				};
 			}
 			MainScene_root.pushLayer(new InformationLayer());
+			//MenuView_2_root.chouquCoin.setString(555);
 			InformationLayer_root.create(InformationLayerType.ArtifactBreak, { Index : huadongtiaoIndex, ArtifactID : index } );
 
-
+			
 			
 				/*MenuView_2_root.ListView.removeItem(1);
 				console.log("remove1 ok");
