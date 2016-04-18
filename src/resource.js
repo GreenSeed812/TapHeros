@@ -11,7 +11,6 @@ var res = {
     HeroInfoLayer_json : "res/HeroInfoLayer.json",
     MainScene_json : "res/MainScene.json",
     SettingLayer_json:"res/SettingLayer.json",
-    ShopLayer_json:"res/ShopLayer.json",
     
     bg_tiao_png :"res/ui/bg_tiao.png",
     icon_hero_1 : "res/icon/icon_hero_1.png",

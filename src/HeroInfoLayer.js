@@ -44,8 +44,10 @@ var HeroInfoLayer = cc.Layer.extend({
 		HeroInfoLayer_root.ImageHero.loadTexture(heroData.Icon);
 		HeroInfoLayer_root.TextHeroName.setString(heroData.Name);
 		HeroInfoLayer_root.FontLevel.setString("Lv. "+level);
+
+		UserData.UpdateHeroDPS();
 		HeroInfoLayer_root.TextDetails.setString(heroData.Desc);
-		HeroInfoLayer_root.FontDps.setString("DPS: "+GetShowNumFromArray(UserData.HeroDPS));
+		HeroInfoLayer_root.FontDps.setString("DPS: "+GetShowNumFromArray(heroData.HeroDPS));
 
 		for (var i = 0; i < heroData.Skill.length; i++) {
 			var array_element = heroData.Skill[i];
@@ -58,6 +60,8 @@ var HeroInfoLayer = cc.Layer.extend({
 		HeroInfoLayer_root.TextHeroName.setString(UserData.NickName);
 		HeroInfoLayer_root.FontLevel.setString("Lv. "+level);
 		HeroInfoLayer_root.TextDetails.setString(Data.Desc);
+
+		UserData.UpdateTapAttack();
 		HeroInfoLayer_root.FontDps.setString("DMG: "+GetShowNumFromArray(UserData.TapAttack));
 
 		for (var i = 0; i < Data.Skill.length; i++) {

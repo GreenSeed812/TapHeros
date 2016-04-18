@@ -12,7 +12,6 @@
     "modules" : ["cocos2d", "cocostudio"],
 
     "jsList" : [
-        "src/ShopLayer.js",
         "src/MainScene.js",
         "src/HeroInfoLayer.js",
         "src/Enum.js",

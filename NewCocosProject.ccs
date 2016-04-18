@@ -257,7 +257,6 @@
         <Project Name="MenuView_2.csd" Type="Layer" />
         <ExportJsonFile Name="monster_01.ExportJson" />
         <Project Name="SettingLayer.csd" Type="Layer" />
-        <Project Name="ShopLayer.csd" Type="Layer" />
         <Project Name="StartLayer.csd" Type="Layer" />
       </RootFolder>
     </Group>

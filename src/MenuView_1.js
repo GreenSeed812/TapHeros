@@ -5,6 +5,7 @@ var MenuView_1 = cc.Layer.extend({
 	CloseButton : null,
 	ListView:null,
 	Light:false,
+	UserLight:false,
 	ctor:function(){
 		this._super();
 		MenuView_1_root = this;
@@ -18,6 +19,17 @@ var MenuView_1 = cc.Layer.extend({
 		
 		MenuView_1_root.createCells();
 		MenuView_1_root.setInformation();
+
+		var needRefreshView = UserData.UnlockHero();
+		if(MenuView_1_root != null&&needRefreshView) 
+		{
+  			MenuView_1_root.checkMenuView();//金币数够按钮是亮的 
+		}
+		var needRefreshViewUser = UserData.UserUpdate();
+		if(MenuView_1_root != null&&needRefreshViewUser)
+		{
+   			 MenuView_1_root.checkUserView();//金币数够按钮是亮的
+		}		
 		return true;
 	},
 	onCloseClick:function(sender,type){
@@ -168,10 +180,17 @@ var MenuView_1 = cc.Layer.extend({
 			button.setName("button");
 			if(index == 0)
 			{
-				button.loadTextures(res.button_lvup_2_n_png, res.button_lvup_2_s_png, res.button_lvup_d_png);
+				if(MenuView_1_root.UserLight==true)
+				{
+					button.loadTextures(res.button_lvup_2_n_png, res.button_lvup_2_s_png, res.button_lvup_d_png);
+					button.addTouchEventListener(MenuView_1_root.touchButton, MenuView_1_root);
+				}
+				else if(MenuView_1_root.UserLight==false)
+				{
+					button.loadTextures(res.button_lvup_d_png, res.button_lvup_d_png, res.button_lvup_d_png);
+				}
 				button.x = 500;
 				button.y = 60;
-				button.addTouchEventListener(MenuView_1_root.touchButton, MenuView_1_root);
 				button.setTag(index);
 				buttonNode.addChild(button);
 
@@ -387,14 +406,14 @@ var MenuView_1 = cc.Layer.extend({
 				Title.setAnchorPoint(0, 0);
 				Title.x = 330;
 				Title.y = 74;
-		
-				var Desc = new cc.LabelTTF(GetShowNumFromArray(UserData.HeroDPS), res.TTF_正粗黑, 16);
+
+				var Desc = new cc.LabelTTF(GetShowNumFromArray(heroData.AtkBase), res.TTF_正粗黑, 16);
 				Desc.setName("Desc");
 				Desc.setColor(cc.color(255, 150, 20));
 				Desc.setAnchorPoint(0, 0);
 				Desc.x = 380;
 				Desc.y = 74;
-				
+			
 				if(HeroLevel==0)
 				{
 					heroIconbutton.setColor(cc.color.GRAY);//未解锁时为灰色
@@ -475,10 +494,50 @@ var MenuView_1 = cc.Layer.extend({
 			if (UserData.HeroLevel[i] >= 0)
 			{
 				MenuView_1_root.Light = true;
+				MenuView_1_root.ListView.removeLastItem();
 				MenuView_1_root.createCell(i);
 			}
+		}		
+	},
+	checkUserView:function()
+	{
+		if(UserData.UserLevel>=1)
+		{
+			MenuView_1_root.UserLight = true;
+			MenuView_1_root.ListView.removeItem(0);
+			MenuView_1_root.createCell(0);	
 		}
-		MenuView_1_root.ListView.removeLastItem();	
+	},
+	UpdateUserButton:function()
+	{
+		var MoneyNum = UserData.UpUserLevelNeedMoney();
+		if(UserData.UserLevel>=1)
+		{
+			if(ArrayScaleArray(UserData.UserMoney,MoneyNum)<1)
+			{
+				MenuView_1_root.UserLight = false;
+				MenuView_1_root.ListView.removeItem(0);
+				MenuView_1_root.createCell(0);
+			}
+		}	
+	},
+	UpdateHeroButton:function()
+	{
+		var MoneyNum = UserData.UpHeroLevelNeedMoney();
+		for(var index = 1; index < HeroData.length; index++) 
+		{
+			var heroLevel = UserData.HeroLevel[index];
+			var heroData = HeroData[index];	
+			if(heroLevel>=1)
+			{
+				if(ArrayScaleArray(UserData.UserMoney,MoneyNum)<1)
+				{
+					MenuView_1_root.UserLight = false;
+					MenuView_1_root.ListView.removeLastItem();
+					MenuView_1_root.createCell(i);
+				}
+			}
+		}	
 	},
 	updateCell:function(index) {
 		
@@ -486,10 +545,10 @@ var MenuView_1 = cc.Layer.extend({
 
 		var LV_Num = viewCell.getChildByName("LV_Num");
 		var Desc = viewCell.getChildByName("Desc");
-		if (viewCell.getName() == "Player") 
+		if(viewCell.getName() == "Player") 
 		{
 			LV_Num.setString(UserData.UserLevel);
-			Desc.setString(GetShowNumFromArray(UserData.TapAttack));//输出滞后一次
+			Desc.setString(GetShowNumFromArray(UserData.TapAttack));
 
 			var skillNode = viewCell.getChildByName("skillNode");
 			for (var i = 0; i < PlayerData.SkillUnlock.length; i++) {
@@ -507,14 +566,14 @@ var MenuView_1 = cc.Layer.extend({
 			}
 		}
 		else{
-			UserData.UpdateHeroDPS();
-
-			//var viewCell = MenuView_1_root.ListView.getItem(index);
 			var HeroLevel = UserData.HeroLevel[index];
 			var heroData = HeroData[index];
-			if(HeroLevel >= 1)
+			for (var index = 1; index < HeroData.length; index++) 
 			{
-				Desc.setString(GetShowNumFromArray(UserData.HeroDPS));
+				if(HeroLevel >= 1)
+				{
+					Desc.setString(GetShowNumFromArray(heroData.HeroDPS));
+				}
 			}
 			var LV_Num = viewCell.getChildByName("LV_Num");
 			LV_Num.setString(HeroLevel);
@@ -594,27 +653,52 @@ var MenuView_1 = cc.Layer.extend({
 			} else if(sender.getName() == "button"){
 					
 					upNum = 1;
+					
 			}
 			var index = sender.getTag();
 			 {
-				if (index == 0) 
+				if(index == 0) 
 				{
+					//消耗金币
+					UserData.UpUserLevelNeedMoney();
+					UserData.UpdateUserMoney();
+					BattleLayer_root.showMoney();
+					MenuView_1_root.UpdateUserButton();
+
 					var UserLevel = UserData.UserLevel + upNum;
 					UserData.UserLevel = UserLevel;
-					
-					UserData.UpdateTapAttack();
+
+					UserData.UpdateTapAttack();//更新攻击力
 					MainMenu_root.setInformation();
 
-					MenuView_1_root.cellBtnExpand(index, true, true);
+					if(MenuView_1_root.UserLight==true)
+					{
+						MenuView_1_root.cellBtnExpand(index, true, true);
+					}
 					MenuView_1_root.updateCell(index);
+
 				}
 				else
 				{
+					UserData.UpHeroLevelNeedMoney();
+
+					UserData.UpdateHeroMoney();
+					console.log("111  "+UserData.UserMoney);
+					BattleLayer_root.showMoney();
+					//MenuView_1_root.UpdateHeroButton();
+
 					var herolevel = UserData.HeroLevel[index] + upNum;
-					console.log("7777777777");
 					UserData.HeroLevel[index] = herolevel;
-					console.log("7777777777asdsadasfdsfsfds");
-					MenuView_1_root.cellBtnExpand(index, true, true);
+					
+					UserData.UpdateHeroDPS();//更新dps
+					
+					UserData.UpdateAllDPS();//更新总Dps
+					MainMenu_root.setDPSInformation();
+						
+					if(MenuView_1_root.Light==true)
+					{
+						MenuView_1_root.cellBtnExpand(index, true, true);
+					}
 					MenuView_1_root.updateCell(index);
 				}
 			}

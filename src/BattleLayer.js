@@ -18,6 +18,7 @@ var BattleLayer = cc.Layer.extend({
     DestPos:{x:0,y:0},
     locationPos:null,
     Button_OfflineCoin:null,
+    Money:null,
     ctor:function () {
         this._super();
         BattleLayer_root = this;
@@ -43,7 +44,7 @@ var BattleLayer = cc.Layer.extend({
         this.Money = ccui.helper.seekWidgetByName(this.rootnode, "Money");
         this.Panel_Money = ccui.helper.seekWidgetByName(this.rootnode, "Panel_Money");
         //this.Button_OfflineCoin = ccui.helper.seekWidgetByName(this.rootnode, "Button_OfflineCoin");
-       // this.Button_OfflineCoin.addTouchEventListener(this.OfflineCoinClick, this.Button_OfflineCoin);
+        //this.Button_OfflineCoin.addTouchEventListener(this.OfflineCoinClick, this.Button_OfflineCoin);
 
         this.zhezhao = this.rootnode.getChildByName("zhezhao");
         this.zhezhao.setVisible(false);
@@ -114,14 +115,14 @@ var BattleLayer = cc.Layer.extend({
     },
     NextScene : function () {
         var stateName = Spec.StageSpec[UserData.StageIndex][0];
-
+        
         UserData.StageIndex += 1;
+       
         UserData.StageIndexD += 1;
         UserData.StageIndexNmb += 1;
         UserData.EnemyIndex = 1;
         MainMenu_root.UpdateStage("update");
 
-        UserData.ChangeMonsterBlood();
         if( UserData.StageIndex>=15)
         {
             UserData.StageIndex = 1;
@@ -138,17 +139,6 @@ var BattleLayer = cc.Layer.extend({
         }
         if (stateName != Spec.StageSpec[UserData.StageIndex][0]) {
             if (this.DestJsonNode) {
-
-                
-
-                /*{
-                    var action = cc.sequence(
-                    cc.spawn(
-                            cc.fadeOut(0.8)),
-                            cc.callFunc(this.fadeOutCallback2, this,this.DestJsonNode));
-                    this.DestJsonNode.runAction(action);
-                }*/
-
                 this.DestNode.removeChild(this.DestJsonNode);
                 this.DestJsonNode = null;
 
@@ -158,26 +148,8 @@ var BattleLayer = cc.Layer.extend({
 
                     var action2 = cc.sequence(cc.spawn(cc.fadeIn(0.8)),cc.callFunc(this.fadeOutCallback, this,this.zhezhao),cc.spawn(cc.fadeOut(0.8)));
                    this.zhezhao.runAction(action2);
-                   console.log("1111567111");
 
-                    
-                    //this.zhezhao.runAction(cc.fadeIn(1));
                 }
-
-                /*{
-                    this.zhezhao.setVisible(true);
-                    this.zhezhao.setOpacity(0);//设置透明度
-
-                    //var action2 = cc.sequence(cc.spawn(cc.fadeIn(0.8)),cc.callFunc(this.fadeOutCallback, this,this.zhezhao),cc.spawn(cc.fadeOut(0.8)));
-                   this.zhezhao.runAction(cc.fadeIn(0.8));
-                   console.log("1111567111");
-                   this.DestNode.removeChild(this.DestJsonNode);
-                    this.DestJsonNode = null;
-                    this.zhezhao.runAction(cc.fadeOut(0.8));
-                    //this.zhezhao.runAction(cc.fadeIn(1));
-                }*/
-                //this.fadeOutCallback();
-
            }
         }
     },
@@ -205,6 +177,7 @@ var BattleLayer = cc.Layer.extend({
  
                         BattleLayer_root.Armature.getAnimation().play("Hurt");
 
+                        UserData.UpdateTapAttack();
                         UserData.TapAttackChange();
                         // 播放攻击特效。播放伤害数字
                     }  
@@ -227,8 +200,9 @@ var BattleLayer = cc.Layer.extend({
             {
                 this.GapTime = true;
                 this.Armature.getAnimation().play("Leave");
-                BattleLayer_root.DropCoin([1,1,1]);
-                //BattleLayer_root.DropCoin(Spec.StageSpec[UserData.StageIndex].drop, 5);
+
+                var CoinNum = UserData.GetCoin();
+                BattleLayer_root.DropCoin(CoinNum,10);
             };
         } 
         else
@@ -246,6 +220,7 @@ var BattleLayer = cc.Layer.extend({
                 if (UserData.EnemyIndex < UserData.getBossInterval()&& UserData.EnemyIndex != -1) 
                 {
                     UserData.EnemyIndex += 1;
+
                 }
            }
             var index = GetRandomNum(0, Spec.MonsterSpec.length - 1);
@@ -257,10 +232,7 @@ var BattleLayer = cc.Layer.extend({
             {
                 this.Armature.setScale(this.MonsterScale);
             }
-            if(UserData.EnemyIndex == UserData.getBossInterval())
-            {
-                this.Armature.setScale(this.BossMonsterScale);
-            }
+           
             this.MonsterNode.addChild(this.Armature);
             this.Armature.getAnimation().setMovementEventCallFunc(this.AnimationEvent);
 
@@ -270,8 +242,16 @@ var BattleLayer = cc.Layer.extend({
             dust.setScale(this.MonsterScale);
             this.MonsterNode.addChild(dust);
             dust.getAnimation().setMovementEventCallFunc(this.AnimationEvent);
-
+            
             MainMenu_root.InitStage();
+            if(enforce==false) 
+            {
+                if(UserData.EnemyIndex == UserData.getBossInterval())
+                {
+                    this.Armature.setScale(this.BossMonsterScale);
+                    UserData.ChangeBossMonsterBlood();
+                }
+            }
             this.GapTime = false;
         }
     },
@@ -307,7 +287,6 @@ var BattleLayer = cc.Layer.extend({
             
             var label = new cc.LabelBMFont(GetShowNumFromArray(UserData.TapAttackTemp), res.default_01);
             label.setColor(cc.color(255, 0, 0));
-            label.set
             this.BattlePanel.addChild(label);
 
             var action = cc.sequence(
@@ -324,7 +303,6 @@ var BattleLayer = cc.Layer.extend({
     },
     DropCoin : function (showNum, num) {
 
-        if (isNaN(num)) {num = 10};
         ccs.armatureDataManager.addArmatureFileInfo(res.effect_drop_coin);
         for (var i = 0; i < num; i++) { 
             var coin = new ccs.Armature("goldcoin_drop");
@@ -347,11 +325,11 @@ var BattleLayer = cc.Layer.extend({
                                         cc.callFunc(this.PickCoin, this, coin) );
             var scale = ((rY * -1) + 60) / 120 ;
             coin.setScale(scale < 0.7 ? 0.7 : scale);
-            coin.showNum = ArrayMulNumber(showNum, 1/num);
             BattleLayer_root.BattlePanel.addChild(coin);
             coin.runAction(action);
 
         };
+         coin.showNum = ArrayMulNumber(showNum,1);
     },
     PickCoin : function (nodeExecutingAction, coin) {
         coin.getAnimation().play("coin3");
@@ -373,20 +351,30 @@ var BattleLayer = cc.Layer.extend({
     },
     onCallback:function (nodeExecutingAction, value) {
         if (value.showNum != undefined) {
-            UserData.UserMoney = ArraySumArray(UserData.UserMoney, value.showNum);  
-            BattleLayer_root.Money.setString(GetShowNumFromArray(UserData.UserMoney));//显示金币数
-
-            var needRefreshView = UserData.MoneyUpdate();
+            UserData.UserMoney = ArraySumArray(UserData.UserMoney, value.showNum); 
+            
+            var needRefreshView = UserData.UnlockHero();
             if(MenuView_1_root != null&&needRefreshView) 
             {
                MenuView_1_root.checkMenuView();//金币数够按钮是亮的 
             }
+            var needRefreshViewUser = UserData.UserUpdate();
+            if(MenuView_1_root != null&&needRefreshViewUser)
+            {
+                MenuView_1_root.checkUserView();//金币数够按钮是亮的
+            }
+            BattleLayer_root.showMoney();
             BattleLayer_root.MoneyImage.setScale(1.2);
             BattleLayer_root.MoneyImage.runAction(cc.scaleTo(0.1,1));
         };
         value.removeFromParent();
     },
+    showMoney:function()
+    {
+        BattleLayer_root.Money.setString(GetShowNumFromArray(UserData.UserMoney));//显示金币数
+    },
     PlayAtkEffect : function (locationPos) {
+
         
         this.PlayerJobData = PlayerJob.JobSoldier;
         

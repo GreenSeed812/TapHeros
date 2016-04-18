@@ -2,7 +2,7 @@
 var Ruler = {
 		Ary : 1000,											// 进制(final)
 		Accuracy : 3,										// 除法精度位数(final)
-		StageBloodBase : [1,1,1],							
+		StageBloodBase : [7],							
 		TapInterval : 50,									// 点击间隔毫秒(final)
 		BossInterval : 3,									// boss 间隔
 		BossTime : 3,										// boss 击杀时间(final)
@@ -11,7 +11,7 @@ var Ruler = {
 				 "hh", "ii", "jj", "kk", "ll", "mm", "nn",
 				 "oo", "pp", "qq", "rr", "ss", "tt", "uu",
 				 "vv", "ww", "xx", "yy", "zz", "∞"],		// 单位(final)
-		TimeEarningsInterval : 30000,						// 离线收益最小时间间隔
+		TimeEarningsInterval : 30000,	// 离线收益最小时间间隔
 };
 
 function GetRandomNum(Min,Max)

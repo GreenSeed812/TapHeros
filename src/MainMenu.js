@@ -71,9 +71,9 @@ var MainMenu = cc.Layer.extend({
 		this.Main_Button2 = ccui.helper.seekWidgetByName(this.rootnode, "Main_Button2");
 		this.Main_Button2.addTouchEventListener(this.mainMenuClick);
 
-		this.Main_Button3 = ccui.helper.seekWidgetByName(this.rootnode, "Main_Button3");
+		/*this.Main_Button3 = ccui.helper.seekWidgetByName(this.rootnode, "Main_Button3");
 		this.Main_Button3.addTouchEventListener(this.mainMenuClick);
-
+*/
 		this.Button_Boss = ccui.helper.seekWidgetByName(this.rootnode, "Button_Boss");
 		this.Button_Boss.addTouchEventListener(this.onBossStateClick);
 
@@ -81,15 +81,17 @@ var MainMenu = cc.Layer.extend({
 
 		this.scheduleUpdate();
 
+		UserData.UpdateTapAttack();
 		this.setInformation();
+		this.setDPSInformation();
+		console.log("attack  "+UserData.TapAttack);
 
 		this.UpdateStage("init");
 
 		return true;
 	},
 	InitStage : function () {
-		UserData.StageBlood = Ruler.StageBloodBase;
-		//UserData.ChangeMonsterBlood();
+		UserData.ChangeMonsterBlood();
 		MainMenu_root.Text_MonsterName.setString(BattleLayer_root.MonsterName);
 		MainMenu_root.updateBossButtonState();
 	},
@@ -176,21 +178,6 @@ var MainMenu = cc.Layer.extend({
 						icon.runAction(action);
 
 					}
-					/*var icon = new cc.Sprite(stage_icon[UserData.StageIndex]);
-					icon.x = 1 * 80 + 20 + this.PageStage_bg.width*0.5;
-					icon.y = this.PageStage_bg.height*0.5;
-					icon.setScale(0.3);
-					icon.setOpacity(0);
-					this.PageStage_bg.addChild(icon);
-
-					var action = cc.sequence(
-							cc.spawn(
-								cc.moveTo(0.5, cc.p(this.PageStage_bg.width*0.5 + 80, this.PageStage_bg.height*0.5)),
-								cc.scaleTo(0.5, 0.7),
-								cc.fadeIn(0.5)),
-								cc.callFunc(function(nodeExecutingAction, value) { value.setTag(1); }, this, icon)
-							);
-					icon.runAction(action);*/
 				}
 			}
 		}
@@ -203,7 +190,7 @@ var MainMenu = cc.Layer.extend({
 			this.updateTime -= 1;
 			onSecond = true;
 		}
-		var dps = ArrayMulNumber(UserData.HeroDPS, dt);
+		var dps = ArrayMulNumber(UserData.HeroAllDPS, dt);
 
 		if(BattleLayer_root.InGapTime()) 
 		{	
@@ -217,7 +204,8 @@ var MainMenu = cc.Layer.extend({
 				this.All_DPSTEMP = [0,0];
 			}
 
-			UserData.TapAttackTemp = ArraySumArray(UserData.TapAttackTemp, dps);
+			UserData.TapAttackTemp = ArraySumArray(UserData.TapAttackTemp, dps);//秒伤对攻击力的影响
+
 			UserData.TapAttack = UserData.TapAttackTemp;
 			UserData.StageBlood = ArraySubArray(UserData.StageBlood, UserData.TapAttack);
 			UserData.TapAttackTemp = [0];
@@ -235,7 +223,7 @@ var MainMenu = cc.Layer.extend({
 				//血量随关卡变化
 				var pct = ArrayScaleArray(UserData.StageBlood, Ruler.StageBloodBase) * 100;
 				MainMenu_root.BloodBar.setPercent(pct);
-
+				
 				if (MainMenu_root.m_boss_state == 1) {
 					if(MainMenu_root.bosstime > Ruler.BossTime) {
 						UserData.EnemyIndex = -1;
@@ -249,7 +237,6 @@ var MainMenu = cc.Layer.extend({
 			}
 		}
 		
-
 		MainMenu_root.MonsterBlood.setString(GetShowNumFromArray(UserData.StageBlood));//血量更新
 
 		// 主角技能释放CD
@@ -306,8 +293,12 @@ var MainMenu = cc.Layer.extend({
 
 	},
 	setInformation : function () {
-		//MainMenu_root.FontLabelDPS.setString(GetShowNumFromArray(UserData.HeroDPS));
+		
 		MainMenu_root.FontLabelTap.setString(GetShowNumFromArray(UserData.TapAttack));
+	},
+	setDPSInformation:function()
+	{
+		MainMenu_root.FontLabelDPS.setString(GetShowNumFromArray(UserData.HeroAllDPS));
 	},
 	onBossStateClick : function(sender,type) {
 
@@ -333,6 +324,10 @@ var MainMenu = cc.Layer.extend({
 			break;
 		}
 	},
+	GetButtonState:function()
+	{
+		return this.m_boss_state;
+	},
 	updateBossButtonState : function () {
 		// 1 挑战boss状态
 		// 2 准备挑战状态
@@ -342,7 +337,7 @@ var MainMenu = cc.Layer.extend({
 			if (UserData.EnemyIndex == -1) {
 				this.m_boss_state = 2;
 			} else if (UserData.EnemyIndex == UserData.getBossInterval()){
-				this.m_boss_state = 1;
+				this.m_boss_state = 1;	 
 			}
 
 			if (this.m_boss_state == 1)
@@ -381,7 +376,6 @@ var MainMenu = cc.Layer.extend({
 		{
 			this.StageMonsterData.setVisible(false);
 		}
-
 	},
 	mainMenuReset:function(){
 		
@@ -397,11 +391,6 @@ var MainMenu = cc.Layer.extend({
 				MenuView_2_root.setVisible(false);
 				MenuView_2_root.y = -500;
 			}
-			if(MainMenu_root.select_main_button.getName() == MainMenu_root.Main_Button3.getName())
-			{
-				ShopLayer_root.setVisible(false);
-				ShopLayer_root.y = -500;
-			}
 			MainMenu_root.select_main_button.setBright(true);//设置true则控件是高亮的，否则设置false。
 			MainMenu_root.select_main_button.setEnabled(true);//true 菜单响应点击，false 菜单不响应点击。
 			MainMenu_root.select_main_button = null;
@@ -414,10 +403,9 @@ var MainMenu = cc.Layer.extend({
 			var skillIndex = sender.getTag();
 
 			if (UserData.SkillCountdown[skillIndex] == 0) {
-				console.log("jjjj");
 				UserData.SkillCountdown[skillIndex] = PlayerData.Job[UserData.UserJobIndex].Skill[skillIndex].ReleaseCD + PlayerData.Job[UserData.UserJobIndex].Skill[skillIndex].RecoveryCD;
-				console.log("llll");
 				BattleLayer_root.PlaySkillEffect(skillIndex);
+				UserData.ActiveSkillEffect(skillIndex);
 			}
 		}
 	},
@@ -440,18 +428,20 @@ var MainMenu = cc.Layer.extend({
 				} else {
 					node = MenuView_1_root;
 
-					var needRefreshView = UserData.MoneyUpdate();
+					var needRefreshView = UserData.UnlockHero();
            			if(MenuView_1_root != null&&needRefreshView) 
             		{
-              			 node.checkMenuView();;//金币数够按钮是亮的 
+              			node.checkMenuView();//金币数够按钮是亮的 
             		}
-					
-					//node.requestRefreshView();
+            		var needRefreshViewUser = UserData.UserUpdate();
+            		if(MenuView_1_root != null&&needRefreshViewUser)
+            		{
+               			 node.checkUserView();//金币数够按钮是亮的
+            		}
 				}
 				sender.setBright(false);
 				sender.setEnabled(false);
 			}
-			
 			if(sender.getName() == MainMenu_root.Main_Button2.getName())
 			{
 				if (MenuView_2_root == null) {
@@ -463,13 +453,12 @@ var MainMenu = cc.Layer.extend({
 				} else {
 					console.log("else");
 					node = MenuView_2_root;
-					node.requestRefreshView();
-					
+					//node.requestRefreshView();	
 				}
 				sender.setBright(false);
 				sender.setEnabled(false);
 			}
-			if(sender.getName() == MainMenu_root.Main_Button3.getName())
+			/*if(sender.getName() == MainMenu_root.Main_Button3.getName())
 			{
 				if (ShopLayer_root == null) {
 					node = new ShopLayer();
@@ -480,7 +469,7 @@ var MainMenu = cc.Layer.extend({
 				}
 				sender.setBright(false);
 				sender.setEnabled(false);
-			}
+			}*/
 			
 			node.setVisible(true);
 			node.y = -500;

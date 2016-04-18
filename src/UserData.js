@@ -15,10 +15,11 @@ var UserData = {
 		UserLevel  			  	: 1,															// 玩家等级
 		UserSkillLevel        	: [0,0,0,0,0,0,0],												// 玩家技能等级
 		UserMoney             	: [0],															// 金币
+		UserMoneyTest           : [0],
 		ArtifactCoin		  	: 0,															// 神器货币
 		ArtifactIndex			: 0,															// 神器索引
 		Diamond               	: 0,															// 钻石
-		HeroLevel             	: [0,0,-1,-1,-1],												// 英雄等级
+		HeroLevel             	: [0,0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1],// 英雄等级
 		ArtifactLevel		  	: [-1,0,0,0,0,0,0,0,0,0],										// 每种神器最高等级
 		ArtifactStar		  	: [-1,0,0,0,0,0,0,0,0,0],										// 神器对应等级星级
 		ArtifactActive		  	: [-1,0,0,0,0,0,0,0,0,0],										// 神器激活状态
@@ -31,7 +32,9 @@ var UserData = {
 		ArtifactAll			  	: [],															// 玩家持有所有神器
 		ArtifactAll2		 	: [],															// 玩家持有所有神器2
 		OffLineTimestamp		: 0,															// 离线时间戳
-		HeroMoney               : [0],
+		HeroMoneyTest           :[0],															//临时变量
+		HeroMoneyLast 			:[0],															//上一次升级费用
+		HeroAllMoneyTest		:[0],															//英雄总费用
 
 		RandomArtifact : function (data) {
 			var index = GetRandomNum(1, Artifact.length);
@@ -104,31 +107,31 @@ var UserData = {
 		},
 
 		//即时计算
-		HeroDPS 			: [0],
 		HeroDPSTemp 		: [0],
+		HeroAllDPSTemp      : [0],
+		HeroAllDPS          : [0],
+
 		HeroBossDPS 		: [0],
 		TapAttack 			: [0],
 		TapAttackTemp   	: [0],
 		OfflineCoin			: [0],															// 离线收益
 		StageBloodTest      : [0],
 
+		DropCoinNum         : [0],
+
+		//技能数据
 		TapHurtUpRate				: 0,			//点击攻击力提升百分比
 		TapCritRate					: 1,			//暴击几率百分比
 		TapCritHurtRate				: 0,			//暴击伤害百分比
+		DropGlodUpRate 				: 0,			//掉落黄金提升百分比
+		BossHurtUpRate 				: 0,			//对Boss攻击力提升百分比
 		DPSHurtUpRate 				: 0,			//DPS伤害额外提升百分比
 		DPSHeroHurtUpRate			: 0,			//某英雄DPS提升百分比
 		AllAttackUpRate				: 0,			//所有攻击力提升百分比
 		DPSToTapHurtRate			: 0,			//DPS转换为点击攻击力百分比
-		DropGlodUpRate 				: 0,			//掉落黄金提升百分比
-		DropBoxGlodUpRate 			: 0,			//宝箱怪掉落金币提升百分比
-		BossHurtUpRate 				: 0,			//对Boss攻击力提升百分比
-		AppearBoxUpRate 			: 0,			//宝箱怪出现几率提高百分比
-		BossBloodCutRate 			: 0,			//Boss血量降低百分比	
-		DropAll10TimeGlodUpRate 	: 0,			//提高10倍金币掉落百分比
-		DropBossGlodUpRate 			: 0,			//Boss金币掉落提升百分比
-		BossMakeHeroDiesCutRate 	: 0,			//Boss击杀英雄概率降低百分比
-		HeroLevelGlodCutRate 		: 0,			//英雄升级消耗降低百分比
-		BossTimeUpRate 				: 0,			//Boss挑战时间增加百分比
+		
+		//神器数据	
+		BossBloodCutRate 			: 0,			//Boss血量降低百分比
 		RebirthRelicCountUpRate 	: 0,			//转生获得舍利子数量提升百分比
 		HeroRebirthTimeCutRate 		: 0,			//英雄复活时间降低百分比
 		MonsterCountCutReat 		: 0,			//关卡小怪数量减少百分比
@@ -142,19 +145,89 @@ var UserData = {
 		getBossInterval : function () {
 			return Ruler.BossInterval;
 		},
-		MoneyUpdate : function () {
+		UserUpdate:function()
+		{
+			var MoneyNum = UserData.UpUserLevelNeedMoney();
+			if(UserData.UserLevel>=1)
+			{
+				if(ArrayScaleArray(this.UserMoney,MoneyNum)>=1)
+				{
+					return true;
+				}
+			}
+			return false;
+		},
+		UpUserLevelNeedMoney:function()
+		{
+			UserData.UserMoneyTest = ArrayMulNumber([2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],Math.pow(UserData.UserLevel,3));
+			return UserData.UserMoneyTest;
+		},
+		UnlockHero : function () {
 			for (var i = 1; i < this.HeroLevel.length; i++) {
 				if (this.HeroLevel[i] == -1||this.HeroLevel[i] == 0)
 				{
 					if(ArrayScaleArray(this.UserMoney, getHeroMoney(HeroData[i])) >= 1 )
 					{
-						//this.HeroLevel[i] = 0;
 						return true;
 					}
 					break;
 				}
 			}
 			return false;
+		},
+		HeroUpdate:function()
+		{
+			var MoneyNum = UserData.UpHeroLevelNeedMoney();
+			for(var i = 1; i < this.HeroLevel.length; i++) {
+				if (this.HeroLevel[i]>=1)
+				{
+					if(ArrayScaleArray(this.UserMoney, MoneyNum) >= 1 )
+					{
+						return true;
+					}
+					break;
+				}
+			}
+			return false;
+		},
+		UpHeroLevelNeedMoney:function()
+		{
+			for(var index = 1; index < HeroData.length; index++) 
+			{
+				var heroLevel = UserData.HeroLevel[index];
+				var heroData = HeroData[index];
+				if(heroLevel>=1)
+				{
+					if(heroLevel==1)
+					{
+						UserData.HeroMoneyLast = heroData.MoneyBase;
+					}
+					heroData.HeroMoney = ArrayMulNumber(UserData.HeroMoneyLast,(1+0.6*heroLevel));
+					UserData.HeroMoneyLast = heroData.HeroMoney;
+				}
+				console.log("00000  "+heroData.HeroMoney);
+			}
+		},
+		UpdateHeroMoney:function()
+		{
+			for(var index = 1; index < HeroData.length; index++) 
+			{
+				var heroLevel = UserData.HeroLevel[index];
+				var heroData = HeroData[index];
+				if(heroLevel>=1)
+				{
+					UserData.HeroMoneyTest = heroData.HeroMoney;
+					UserData.HeroAllMoneyTest= ArraySumArray(UserData.HeroAllMoneyTest,UserData.HeroMoneyTest);
+				}
+			}
+			UserData.UserMoney = ArraySubArray(UserData.UserMoney,UserData.HeroAllMoneyTest);
+			UserData.HeroAllMoneyTest = [0];
+			UserData.HeroMoneyTest = [0];
+		},
+		UpdateUserMoney:function()
+		{
+			UserData.UserMoney = ArraySubArray(UserData.UserMoney,UserData.UserMoneyTest);
+			UserData.UserMoneyTest = [0];
 		},
 		UpdateAllAttackUpRate : function () {
 			this.AllAttackUpRate = 0;
@@ -252,16 +325,121 @@ var UserData = {
 			UserData.TapAttackTemp = UserData.TapAttack;
 		},
 		UpdateTapAttack : function () {
-			
-		//var up1 = ArrayMulNumber(this.HeroDPS, this.DPSToTapHurtRate);
-		//var up2 = ArraySumArray(getHeroAtk(PlayerData), up1);
-		//var up3 = ArrayMulNumber(up2, (1 + this.AllAttackUpRate) * (1 + this.TapHurtUpRate));
-			this.TapAttack = ArrayMulNumber([2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],Math.pow(UserData.UserLevel,3));
+			var num  = Math.pow(UserData.UserLevel,2)*0.1+1.8;
+			this.TapAttack = ArrayMulNumber([1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],num);
 			return this.TapAttack;
 		},
+		SkillHeroEffect:function()
+		{
+			var heroData = HeroData[index];
+			for(var i = 0; i < heroData.Skill.length; i++)
+			{
+				var type = heroData.Skill[i].BaseData.Type;
+				if(type==SkillType.TapHurtUpRate)
+				{
+
+				}
+				else if(type==SkillType.TapCritRate)
+				{
+
+				}
+				else if(type==SkillType.TapCritHurtRate)
+				{
+					
+				}
+				else if(type==SkillType.DPSHurtUpRate)
+				{
+					
+				}
+				else if(type==SkillType.DPSHeroHurtUpRate )
+				{
+					
+				}
+				else if(type==SkillType.DropGlodUpRate)
+				{
+					
+				}
+				else if(type==SkillType.BossHurtUpRate)
+				{
+					
+				}
+				else if(type==SkillType.AllAttackUpRate)
+				{
+					
+				}
+				else if(type==SkillType.TapCritRate)//解锁技能
+				{
+					
+				}
+			}
+		},
+		SkillUserEffect:function()
+		{
+			for(var i = 0; i < PlayerData.Skill.length; i++)
+			{
+				var type = PlayerData.Skill[i].BaseData.Type;
+				if(type==SkillType.TapHurtUpRate)
+				{
+
+				}
+				else if(type==SkillType.TapCritRate)
+				{
+
+				}
+				else if(type==SkillType.TapCritHurtRate)
+				{
+					
+				}
+				else if(type==SkillType.DPSHurtUpRate)
+				{
+					
+				}
+				else if(type==SkillType.DPSHeroHurtUpRate )
+				{
+					
+				}
+				else if(type==SkillType.DropGlodUpRate)
+				{
+					
+				}
+				else if(type==SkillType.BossHurtUpRate)
+				{
+					
+				}
+				else if(type==SkillType.AllAttackUpRate)
+				{
+					
+				}
+				else if(type==SkillType.TapCritRate)//解锁技能
+				{
+					
+				}
+			}
+		},
+		ActiveSkillEffect:function(skillIndex)
+		{
+			//var up1 = ArrayMulNumber(this.HeroDPS, this.DPSToTapHurtRate);
+			//var up2 = ArraySumArray(getHeroAtk(PlayerData), up1);
+			//var up3 = ArrayMulNumber(up2, (1 + this.AllAttackUpRate) * (1 + this.TapHurtUpRate));
+			if(skillIndex==1)
+			{
+				UserData.UpdateTapAttack();
+				UserData.TapAttack = ArrayMulNumber(UserData.TapAttack,20);
+				console.log("TapAttack "+UserData.TapAttack);
+			}
+			else if(skillIndex==2)
+			{
+				UserData.HeroAllDPS = ArraySumArray(UserData.HeroAllDPS,ArrayMulNumber(UserData.HeroAllDPS,2));
+				MainMenu_root.setDPSInformation();
+			}
+			else if(skillIndex==3)
+			{
+				UserData.UserMoney = ArraySumArray(UserData.UserMoney,ArrayMulNumber(UserData.UserMoney,10));
+				BattleLayer_root.showMoney();
+			}
+		},
 		UpdateHeroDPS : function () {
-			var ret = [0,0];
-			
+			var ret = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 			for (var index = 1; index < HeroData.length; index++) 
 			{
 				var heroLevel = UserData.HeroLevel[index];
@@ -269,37 +447,72 @@ var UserData = {
 				if(heroLevel > 0)
 				{
 					ret = ArraySumArray(ret, getHeroAtk(heroData));
-					UserData.HeroDPSTemp = ArrayMulNumber([100],heroLevel);
-					UserData.HeroDPS = ArraySumArray(UserData.HeroDPS,UserData.HeroDPSTemp);
-					UserData.HeroDPSTemp = [0];						
+					var num = 1 + 0.8*(heroLevel-1);
+					heroData.HeroDPS = ArrayMulNumber(ret,num);	
+					ret = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];	
 				}
-			}
+			}		
 		},
-		UpLevelNeedMoney:function()
+		UpdateAllDPS:function()
 		{
-			UserData.UserMoney = ArrayMulNumber([1.5],Math.pow(UserData.UserLevel,3));
-		},
-		UpHeroLevelNeedMoney:function()
-		{
+			var ret = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+			
 			for(var index = 1; index < HeroData.length; index++) 
 			{
 				var heroLevel = UserData.HeroLevel[index];
-				UserData.HeroMoney = ArrayMulNumber(UserData.HeroMoney,(1+0.6*heroLevel));
+				var heroData = HeroData[index];
+
+				if(heroLevel > 0)
+				{
+					UserData.HeroDPSTemp = heroData.HeroDPS; 
+					UserData.HeroAllDPSTemp= ArraySumArray(UserData.HeroAllDPSTemp,UserData.HeroDPSTemp);				
+				}
 			}
+			UserData.HeroAllDPS = UserData.HeroAllDPSTemp;
+			UserData.HeroAllDPSTemp = [0];
+			UserData.HeroDPSTemp = [0];
 		},
 		ChangeMonsterBlood:function()
 		{	
-			UserData.StageBloodTest =  ArrayMulNumber([2],Math.pow(UserData.StageIndex,4));//血量是否有基础值？
-			UserData.StageBlood = UserData.StageBloodTest;
-			UserData.StageBloodTest = [0];
-			//金币掉落
-			//UserData.OfflineCoin = ArrayMulNumber([2],Math.pow(UserData.UserLevel,3));
+			if(UserData.StageIndex==1)
+			{
+				UserData.StageBlood = Ruler.StageBloodBase;
+				UserData.EnemyIndex == -1;
+				{
+					Ruler.StageBloodBase = [7];
+					UserData.StageBlood = Ruler.StageBloodBase;
+				}	
+			}
+			else if(UserData.StageIndex>1)
+			{
+				UserData.StageBloodTest =  ArrayMulNumber([2],Math.pow(UserData.StageIndex,4));
+				UserData.StageBlood = UserData.StageBloodTest;
+				Ruler.StageBloodBase = UserData.StageBloodTest;
+				UserData.StageBloodTest = [0];	
+			}
+
 		},
 		ChangeBossMonsterBlood:function()
 		{
-			//Boss是小怪血量8倍，掉落金币是10倍
+			//Boss是小怪血量8倍
 			UserData.StageBossBlood = ArrayMulNumber(UserData.StageBlood,8);
-			UserData.OfflineCoin = ArrayMulNumber(UserData.OfflineCoin,10);
+			UserData.StageBlood = UserData.StageBossBlood;
+			Ruler.StageBloodBase = UserData.StageBossBlood;
+			UserData.StageBossBlood = [0];
+		},
+		GetCoin:function()
+		{
+			//金币掉落
+			var num1 = Math.pow(UserData.StageIndex,3)*9;
+			var num2 =  Math.pow(UserData.StageIndex,2)-6;
+			var num3 = (num1+num2)*4;
+			Spec.StageSpec[UserData.StageIndex][2] = ArrayMulNumber([1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],num3);
+			return Spec.StageSpec[UserData.StageIndex][2];
+		},
+		GetBossCoin:function()
+		{
+			//掉落金币是10倍
+			UserData.UserMoney = ArrayMulNumber(UserData.UserMoney,10);
 		},
 		PlayMusic:function()
 		{

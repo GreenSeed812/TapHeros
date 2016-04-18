@@ -3,7 +3,7 @@
     <Item Key="CocosRecentOperation">
       <Value ctype="CocosRecentOperation">
         <LastPublishType Value="Resource" />
-        <IsLastPublish Value="True" />
+        <IsLastPublish Value="False" />
         <LastRunType Value="Windows" />
       </Value>
     </Item>
@@ -14,34 +14,15 @@
         <LuaEncryptSign Value="" />
         <Android_PackageName Value="org.cocos.NewCocosProject" />
         <AndroidkeyStore Value="" />
-        <AndroidVersion Value="" />
+        <AndroidVersion Value="android-20" />
         <iOS_Target Value="NewCocosProject-mobile" />
         <iOS_BundleID Value="" />
-        <Platform Value="None" />
+        <Platform Value="Android" />
         <RunPlatform Value="Windows" />
         <FrameworkVersion Value="cocos2d-x-3.10" />
         <IsDebugKeystore Value="True" />
         <EnableSourceMap Value="False" />
         <EnableHTML5Advanced Value="False" />
-      </Value>
-    </Item>
-    <Item Key="TabsParamsKey">
-      <Value ctype="TabsInfo">
-        <OpenedDocuments>
-          <FilePathData Path="MainMenu.csd" />
-          <FilePathData Path="BattleLayer.csd" />
-          <FilePathData Path="MenuView_1.csd" />
-          <FilePathData Path="HeroInfoLayer.csd" />
-          <FilePathData Path="BankLayer.csd" />
-          <FilePathData Path="ShopLayer.csd" />
-          <FilePathData Path="MenuView_2.csd" />
-          <FilePathData Path="StartLayer.csd" />
-          <FilePathData Path="SettingLayer.csd" />
-          <FilePathData Path="MarkLayer.csd" />
-          <FilePathData Path="HelpLayer.csd" />
-          <FilePathData Path="DataLayer.csd" />
-        </OpenedDocuments>
-        <ActiveDocument Path="MainMenu.csd" />
       </Value>
     </Item>
   </Properties>
