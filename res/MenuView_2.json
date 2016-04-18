@@ -511,6 +511,7 @@
                         },
                         "ShadowOffsetX": 2.0,
                         "ShadowOffsetY": -2.0,
+                        "TouchEnable": true,
                         "AnchorPoint": {
                           "ScaleX": 0.5,
                           "ScaleY": 0.5
@@ -590,7 +591,6 @@
                           "X": 274.0,
                           "Y": 74.0
                         },
-                        "VisibleForFrame": false,
                         "Name": "Button_AddArtifactCount",
                         "ctype": "ButtonObjectData"
                       }
@@ -602,43 +602,6 @@
                     },
                     "Name": "Image_3",
                     "ctype": "ImageViewObjectData"
-                  },
-                  {
-                    "LabelText": "0",
-                    "AnchorPoint": {
-                      "ScaleX": 0.5,
-                      "ScaleY": 0.5
-                    },
-                    "Position": {
-                      "X": 184.6299,
-                      "Y": 82.2121
-                    },
-                    "Scale": {
-                      "ScaleX": 1.0,
-                      "ScaleY": 1.0
-                    },
-                    "CColor": {},
-                    "IconVisible": false,
-                    "PrePosition": {
-                      "X": 0.3047,
-                      "Y": 0.7474
-                    },
-                    "PreSize": {
-                      "X": 0.0116,
-                      "Y": 0.1364
-                    },
-                    "LeftMargin": 181.1299,
-                    "RightMargin": 417.8701,
-                    "TopMargin": 20.2879,
-                    "BottomMargin": 74.7121,
-                    "Tag": 44,
-                    "ActionTag": -1589713116,
-                    "Size": {
-                      "X": 7.0,
-                      "Y": 15.0
-                    },
-                    "Name": "chouquCoin",
-                    "ctype": "TextBMFontObjectData"
                   }
                 ],
                 "ActionTag": 1287459837,
@@ -751,7 +714,6 @@
               "X": 90.0,
               "Y": 36.0
             },
-            "VisibleForFrame": false,
             "Name": "Text_DPS",
             "ctype": "TextObjectData"
           },
@@ -834,7 +796,6 @@
               "X": 7.0,
               "Y": 15.0
             },
-            "VisibleForFrame": false,
             "Name": "Total_Sheli",
             "ctype": "TextBMFontObjectData"
           },
@@ -872,45 +833,7 @@
               "X": 7.0,
               "Y": 15.0
             },
-            "VisibleForFrame": false,
             "Name": "DPS_UpRate",
-            "ctype": "TextBMFontObjectData"
-          },
-          {
-            "LabelText": "0",
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 523.2903,
-              "Y": 485.731
-            },
-            "Scale": {
-              "ScaleX": 1.5,
-              "ScaleY": 1.5
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.8176,
-              "Y": 0.4276
-            },
-            "PreSize": {
-              "X": 0.0109,
-              "Y": 0.0132
-            },
-            "LeftMargin": 519.7903,
-            "RightMargin": 113.2097,
-            "TopMargin": 642.769,
-            "BottomMargin": 478.231,
-            "Tag": 43,
-            "ActionTag": 1989263819,
-            "Size": {
-              "X": 7.0,
-              "Y": 15.0
-            },
-            "Name": "BitmapFontLabel_2",
             "ctype": "TextBMFontObjectData"
           }
         ],

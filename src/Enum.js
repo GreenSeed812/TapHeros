@@ -21,7 +21,8 @@ var SkillType =
 	HeroRebirthTimeCutRate    : 19,		//	英雄复活时间降低百分比		
 	MonsterCountCutReat       : 20,		//	关卡小怪数量减少百分比		
 	MainSkill1LastTimeUpRate  : 21,		//	主角技能X持续时间增加百分比	
-	MainSkill1CoolDownCutRate : 22,		//	主角技能X冷却时间减少百分比	
+	MainSkill1CoolDownCutRate : 22,		//	主角技能X冷却时间减少百分比
+	TapHurtUpRateBecauseDPS   : 23,     //  点击攻击力提升总DPS的百分比	
 
 	Reincarnation			  : 99,		//	主角转生
 };

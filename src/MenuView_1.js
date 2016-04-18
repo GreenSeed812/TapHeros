@@ -285,6 +285,7 @@ var MenuView_1 = cc.Layer.extend({
 								var icon = new cc.Sprite(heroData.Skill[i].Icon);
 								icon.x = i * 46;
 								skillNode.addChild(icon);
+								//UserData.SkillUserEffect();
 							}
 						}
 						skillNode.x = 140;
@@ -695,10 +696,7 @@ var MenuView_1 = cc.Layer.extend({
 					UserData.UpdateAllDPS();//更新总Dps
 					MainMenu_root.setDPSInformation();
 						
-					if(MenuView_1_root.Light==true)
-					{
-						MenuView_1_root.cellBtnExpand(index, true, true);
-					}
+					MenuView_1_root.cellBtnExpand(index, true, true);
 					MenuView_1_root.updateCell(index);
 				}
 			}

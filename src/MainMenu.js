@@ -80,7 +80,8 @@ var MainMenu = cc.Layer.extend({
 		ccui.helper.seekWidgetByName(this.rootnode, "Button_Set").addTouchEventListener(this.onSetUpClick);
 
 		this.scheduleUpdate();
-
+		
+		UserData.UpdateTapAttack();
 		this.setInformation();
 		this.setDPSInformation();
 
@@ -203,7 +204,6 @@ var MainMenu = cc.Layer.extend({
 			}
 
 			UserData.TapAttackTemp = ArraySumArray(UserData.TapAttackTemp, dps);//秒伤对攻击力的影响
-
 			UserData.TapAttack = UserData.TapAttackTemp;
 			UserData.StageBlood = ArraySubArray(UserData.StageBlood, UserData.TapAttack);
 			UserData.TapAttackTemp = [0];

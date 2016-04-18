@@ -233,20 +233,6 @@ var UserData = {
 			this.AllAttackUpRate = 0;
 			return this.AllAttackUpRate;
 		},
-		GetHeroAttack : function (index) {
-			var DPSHeroHurtUpRate = 0;
-			var heroData = HeroData[index];
-			var heroLevel = this.HeroLevel[index];
-
-			for (var i = 0; i < heroData.Skill.length; i++) {
-				var skill = heroData.Skill[i];
-				if (skill.BaseData.Type == SkillType.DPSHeroHurtUpRate) {
-					DPSHeroHurtUpRate += skill.Rate;
-				}
-			};
-			var ret = ArrayMulNumber(getHeroAtk(heroData) , (1 + DPSHeroHurtUpRate) * (1 + this.AllAttackUpRate));
-			return ret;
-		},
 		DeleateArchive : function () {
 			var ls = cc.sys.localStorage;
 			
@@ -335,6 +321,7 @@ var UserData = {
 			for(var i = 0; i < heroData.Skill.length; i++)
 			{
 				var type = heroData.Skill[i].BaseData.Type;
+				var rate = heroData.Skill[i].Rate;
 				if(type==SkillType.TapHurtUpRate)
 				{
 
@@ -373,59 +360,60 @@ var UserData = {
 				}
 			}
 		},
+		GetHeroAttack : function (index) {
+			var DPSHeroHurtUpRate = 0;
+			var heroData = HeroData[index];
+			var heroLevel = this.HeroLevel[index];
+
+			for (var i = 0; i < heroData.Skill.length; i++) {
+				var skill = heroData.Skill[i];
+				if (skill.BaseData.Type == SkillType.DPSHeroHurtUpRate) {
+					DPSHeroHurtUpRate += skill.Rate;
+				}
+			};
+			var ret = ArrayMulNumber(getHeroAtk(heroData) , (1 + DPSHeroHurtUpRate) * (1 + this.AllAttackUpRate));
+			return ret;
+		},
 		SkillUserEffect:function()
 		{
+			//var up1 = ArrayMulNumber(this.HeroDPS, this.DPSToTapHurtRate);
+			//var up2 = ArraySumArray(getHeroAtk(PlayerData), up1);
+			//var up3 = ArrayMulNumber(up2, (1 + this.AllAttackUpRate) * (1 + this.TapHurtUpRate));
 			for(var i = 0; i < PlayerData.Skill.length; i++)
 			{
 				var type = PlayerData.Skill[i].BaseData.Type;
+				var rate = PlayerData.Skill[i].Rate;
 				if(type==SkillType.TapHurtUpRate)
 				{
-
+					var up = ArrayMulNumber(this.TapAttack,rate);
+					this.TapAttack = ArraySumArray(this.TapAttack,up);
+					console.log("000  "+this.TapAttack);
+					MainMenu_root.setInformation();
 				}
-				else if(type==SkillType.TapCritRate)
+				else if(type==SkillType.TapHurtUpRateBecauseDPS)
 				{
-
-				}
-				else if(type==SkillType.TapCritHurtRate)
-				{
-					
-				}
-				else if(type==SkillType.DPSHurtUpRate)
-				{
-					
-				}
-				else if(type==SkillType.DPSHeroHurtUpRate )
-				{
-					
-				}
-				else if(type==SkillType.DropGlodUpRate)
-				{
-					
-				}
-				else if(type==SkillType.BossHurtUpRate)
-				{
-					
+					var up = ArrayMulNumber(UserData.HeroAllDPS,rate);
+					this.TapAttack = ArraySumArray(this.TapAttack,up);
+					console.log("1111  "+this.TapAttack);
+					MainMenu_root.setInformation();
 				}
 				else if(type==SkillType.AllAttackUpRate)
 				{
-					
-				}
-				else if(type==SkillType.TapCritRate)//解锁技能
-				{
-					
+					var up = ArrayMulNumber(UserData.HeroAllDPS,rate);
+					this.TapAttack = ArraySumArray(UserData.HeroAllDPS,up);
+					console.log("22222  "+UserData.HeroAllDPS);
+					MainMenu_root.setDPSInformation();
 				}
 			}
 		},
 		ActiveSkillEffect:function(skillIndex)
 		{
-			//var up1 = ArrayMulNumber(this.HeroDPS, this.DPSToTapHurtRate);
-			//var up2 = ArraySumArray(getHeroAtk(PlayerData), up1);
-			//var up3 = ArrayMulNumber(up2, (1 + this.AllAttackUpRate) * (1 + this.TapHurtUpRate));
 			if(skillIndex==1)
 			{
 				UserData.UpdateTapAttack();
 				UserData.TapAttack = ArrayMulNumber(UserData.TapAttack,20);
-				console.log("TapAttack "+UserData.TapAttack);
+				UserData.TapAttackChange();
+				MainMenu_root.setInformation();
 			}
 			else if(skillIndex==2)
 			{
