@@ -17,37 +17,17 @@
         <AndroidVersion Value="android-20" />
         <iOS_Target Value="NewCocosProject-mobile" />
         <iOS_BundleID Value="" />
-        <Platform Value="Web" />
+        <Platform Value="Android" />
         <RunPlatform Value="Windows" />
         <FrameworkVersion Value="cocos2d-x-3.10" />
         <IsDebugKeystore Value="True" />
-        <KeystorePassword Value="" />
-        <KeystoreAliasName Value="" />
-        <KeystoreAliasPassword Value="" />
         <EnableSourceMap Value="False" />
         <EnableHTML5Advanced Value="False" />
       </Value>
     </Item>
     <Item Key="TabsParamsKey">
       <Value ctype="TabsInfo">
-        <OpenedDocuments>
-          <FilePathData Path="MenuView_2.csd" />
-          <FilePathData Path="ArtifactNode.csd" />
-          <FilePathData Path="MenuView_1.csd" />
-          <FilePathData Path="HeroInfoLayer.csd" />
-          <FilePathData Path="MainScene.csd" />
-          <FilePathData Path="BattleLayer.csd" />
-          <FilePathData Path="StartLayer.csd" />
-          <FilePathData Path="ShopLayer.csd" />
-          <FilePathData Path="SettingLayer.csd" />
-          <FilePathData Path="MarkLayer.csd" />
-          <FilePathData Path="MainMenu.csd" />
-          <FilePathData Path="HelpLayer.csd" />
-          <FilePathData Path="BankLayer.csd" />
-          <FilePathData Path="DataLayer.csd" />
-          <FilePathData Path="InformationLayer.csd" />
-        </OpenedDocuments>
-        <ActiveDocument Path="InformationLayer.csd" />
+        <ActiveDocument />
       </Value>
     </Item>
   </Properties>
