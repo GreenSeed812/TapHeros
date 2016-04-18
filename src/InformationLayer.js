@@ -23,7 +23,6 @@ var InformationLayer = cc.Layer.extend({
 
 		return true;
 	},
-
 	create : function (type, data) {
 		console.log("zxczxczxc1");
 
@@ -50,7 +49,6 @@ var InformationLayer = cc.Layer.extend({
 		};
 		console.log("level"+level);
 
-
 		if (this._type == InformationLayerType.ArtifactBreak)
 		{
 			console.log("levelsssss");
@@ -59,14 +57,6 @@ var InformationLayer = cc.Layer.extend({
 			//var level = artifact.l;
 			var star = null;
 
-
-		if (this._type == InformationLayerType.ArtifactBreak)
-		{
-			console.log("levelsssss");
-			//var artifact = UserData.GetArtifactForID(this._data.ArtifactID);
-			//var artifactRuler = Artifact[artifact.i];
-			//var level = artifact.l;
-			var star = null;
 			var Iconbutton = new ArtifactNode();
 			Iconbutton.create({width : 126, height : 126}, star, artifactRuler.Icon);
 			ProjectNode.addChild(Iconbutton);
@@ -92,12 +82,10 @@ var InformationLayer = cc.Layer.extend({
 			var Text_NextDesc = ccui.helper.seekWidgetByName(this.rootnode, "Text_NextDesc");
 			Text_NextDesc.setString("下一等级");
 			console.log("levelsssss5");
-
 			var Text_33_0 = ccui.helper.seekWidgetByName(this.rootnode, "Text_33_0");
 			Text_33_0.setString("打破神器可以获得"+UserData.chouquCoinList[UserData.chouquCoinNmb-1]+"个");
 
 			console.log("levelsssss6");
-
 		}
 	},
 	onArtifactUpClick:function(sender,type){
@@ -138,14 +126,12 @@ var InformationLayer = cc.Layer.extend({
 				if (ArtifactEditeLayer_root) {
 					ArtifactEditeLayer_root.create(artifact.i);
 				}*/
-
 				UserData.chouquCoinNmb--;
 				UserData.ReincarnationCount += UserData.chouquCoinList[UserData.chouquCoinNmb];
 				MenuView_2_root.chouquCoin.setString(UserData.chouquCoinList[UserData.chouquCoinNmb]);
 				MenuView_2_root.BitmapFontLabel_2.setString(UserData.ReincarnationCount);
 
 				UserData.ArtifactActive2[ArtifactID2-1] = 0;
-
 			}
 		}
 	},
