@@ -34,6 +34,14 @@ var res = {
 	icon_new_png : "res/ui/icon_new.png",
 	icon_goldcoindrop : "res/icon/icon_goldcoindrop.png",
 
+	Music_bj		 : "res/Music/beijing/KLZ.mp3",
+	Music_chouqu	 : "res/Music/chouqu/arena_key_transition.mp3",
+	Music_dianji	 : "res/Music/dianji/dianji.mp3",
+	Music_fenjie	 : "res/Music/fenjie/hero_portrait_crack_1.mp3",
+	Music_jinbi	 	 : "res/Music/jinbiluodi/jibi.mp3",
+	Music_jineng1	 : "res/Music/jineng1/Brawl_minion_lands_3.mp3",
+	Music_jineng2	 : "res/Music/jineng2/Barrel_exp_base.mp3",
+	Music_jineng3	 : "res/Music/jineng3/Arcane_Arrow_Targeted_Impact_03.mp3",
 
     icon_shenqi_1	 : "res/icon/icon_shenqi_1.png",
 

@@ -92,6 +92,7 @@ var InformationLayer = cc.Layer.extend({
 		
 		if (type == ccui.Widget.TOUCH_ENDED) {
 			if (this._type == InformationLayerType.ArtifactBreak) {
+				cc.audioEngine.playEffect(res.Music_fenjie);
 				console.log("onArtifactUpClick");
 				var ArtifactID2=this._data.ArtifactID;
 				var huadongtiaoIndex2=this._data.Index;

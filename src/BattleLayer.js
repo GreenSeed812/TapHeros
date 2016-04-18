@@ -17,6 +17,7 @@ var BattleLayer = cc.Layer.extend({
     zhezhao:null,
     DestPos:{x:0,y:0},
     locationPos:null,
+    jinengIndex:null,
     Button_OfflineCoin:null,
     ctor:function () {
         this._super();
@@ -204,7 +205,7 @@ var BattleLayer = cc.Layer.extend({
                         // 暴击
     
                         BattleLayer_root.Armature.getAnimation().play("Hurt");
-
+                        cc.audioEngine.playEffect(res.Music_dianji);
                         UserData.TapAttackChange();
                         // 播放攻击特效。播放伤害数字
                     }  
@@ -349,7 +350,7 @@ var BattleLayer = cc.Layer.extend({
             coin.showNum = ArrayMulNumber(showNum, 1/num);
             BattleLayer_root.BattlePanel.addChild(coin);
             coin.runAction(action);
-
+            cc.audioEngine.playEffect(res.Music_jinbi);
         };
     },
     PickCoin : function (nodeExecutingAction, coin) {
@@ -430,16 +431,19 @@ var BattleLayer = cc.Layer.extend({
         var skillIndextmp=skillIndex;
         if(skillIndex == 1)
         {
+            jinengIndex=1;
             ccs.armatureDataManager.addArmatureFileInfo(res.effect_soldier_skill);
             var effect = new ccs.Armature("Effect_strike_warrior");
         }
         else if(skillIndex == 2)
         {
+            jinengIndex=2;
             ccs.armatureDataManager.addArmatureFileInfo(res.effect_master_skill);
             var effect = new ccs.Armature("Effect_strike_magister");
         }
         else if(skillIndex == 3)
         {
+            jinengIndex=3;
             ccs.armatureDataManager.addArmatureFileInfo(res.effect_hunter_skill);
             var effect = new ccs.Armature("Effect_strike_hunter");
         }
@@ -491,6 +495,21 @@ var BattleLayer = cc.Layer.extend({
         var shake = cc.sequence( tempArray );
         this.BattlePanel.runAction(shake);
 
+        var skillIndextmp=jinengIndex;
+
+        console.log("3333333333333333333"+skillIndextmp);
+        if(skillIndextmp == 1)
+        {
+            cc.audioEngine.playEffect(res.Music_jineng1);
+        }
+        if(skillIndextmp == 2)
+        {
+            cc.audioEngine.playEffect(res.Music_jineng2);
+        }
+        if(skillIndextmp == 3)
+        {
+            cc.audioEngine.playEffect(res.Music_jineng3);
+        }
     },
     AnimationEventAtkEffect:function (armature, movementType, movementID) {
         

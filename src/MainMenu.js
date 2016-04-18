@@ -85,6 +85,11 @@ var MainMenu = cc.Layer.extend({
 
 		this.UpdateStage("init");
 
+		cc.audioEngine.playMusic(res.Music_bj,true);
+		//cc.audioEngine.preloadEffect(res.Music_chouqu);
+		cc.audioEngine.preloadEffect("res/Music/chouqu/arena_key_transition.mp3");
+		//preloadEffect("res/Music/chouqu/arena_key_transition.mp3");
+		//cc.audioEngine.setMusicVolume(0);
 		return true;
 	},
 	InitStage : function () {
@@ -419,6 +424,8 @@ var MainMenu = cc.Layer.extend({
 				UserData.SkillCountdown[skillIndex] = PlayerData.Job[UserData.UserJobIndex].Skill[skillIndex].ReleaseCD + PlayerData.Job[UserData.UserJobIndex].Skill[skillIndex].RecoveryCD;
 				console.log("llll");
 				BattleLayer_root.PlaySkillEffect(skillIndex);
+
+				console.log("jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj"+skillIndex);
 			}
 		}
 	},

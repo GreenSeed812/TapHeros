@@ -203,6 +203,15 @@ var MenuView_2 = cc.Layer.extend({
 
 				if(b >= a && UserData.ArtifactAll2.length < 6)
 				{
+					cc.audioEngine.playEffect(res.Music_chouqu);
+					//example
+					 if (cc.audioEngine.isMusicPlaying()) {
+					     console.log("music is playing+++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+					 }
+					 else {
+					     console.log("music is not playing+++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+					 }
+
 					var tmpnum=null;
 					UserData.ReincarnationCount -= UserData.chouquCoinList[UserData.chouquCoinNmb];
 
