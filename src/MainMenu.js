@@ -81,10 +81,8 @@ var MainMenu = cc.Layer.extend({
 
 		this.scheduleUpdate();
 
-		UserData.UpdateTapAttack();
 		this.setInformation();
 		this.setDPSInformation();
-		console.log("attack  "+UserData.TapAttack);
 
 		this.UpdateStage("init");
 
