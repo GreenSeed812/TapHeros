@@ -52,7 +52,7 @@ var MenuView_2 = cc.Layer.extend({
 		var artifact = Artifact[index-1];
 		
 		var custom_item = new ccui.Layout();
-		//custom_item.setTag(index);
+		custom_item.setTag(index);
 
 		var cellBg = new cc.Sprite(res.bg_tiao_png);
 		cellBg.x = cellBg.getContentSize().width * 0.5;
@@ -69,9 +69,8 @@ var MenuView_2 = cc.Layer.extend({
 			button.loadTextures(res.button_lvup_2_n_png, res.button_lvup_2_s_png, res.button_lvup_2_n_png);
 			button.x = 500;
 			button.y = 60;
-			button.setTag(index);
 			button.addTouchEventListener(this.touchButtonEdite, this);
-			//button.setTag(index);
+			button.setTag(index);
 			buttonNode.addChild(button);
 
 			var buttonTextNode = new cc.Node();
@@ -136,10 +135,9 @@ var MenuView_2 = cc.Layer.extend({
 		custom_item.addChild(Desc);
 		custom_item.addChild(buttonNode);
 
-		var sq = { id : index, level : 0,  data : custom_item ,wyid	: UserData.WYArtifactID };
+		var sq = { id : index, l : level,  data : custom_item };
 		UserData.ArtifactAll2.push(sq);
 		console.log("sq");
-		custom_item.setTag(index);
 		
 		//MenuView_2_root.ListView.insertCustomItem(custom_item, 1);
 
@@ -148,11 +146,9 @@ var MenuView_2 = cc.Layer.extend({
 		var b=UserData.ArtifactAll2.length;
 		console.log(a);
 		console.log(b);
-		//MenuView_2_root.ListView.insertCustomItem(UserData.ArtifactAll2[b-1].data, 1);
+		MenuView_2_root.ListView.insertCustomItem(UserData.ArtifactAll2[b-1].data, 1);
 		
-		var listCount = MenuView_2_root.ListView.getItems().length - 1;//获取列表容器列表数量
-		console.log("listCount"+listCount);
-		MenuView_2_root.ListView.insertCustomItem(custom_item, listCount);
+		//MenuView_2_root.ListView.insertCustomItem(UserData.ArtifactAll2[b-1].data, index);
 	},
 	touchButtonEdite: function (sender, type) {
 		
@@ -174,14 +170,13 @@ var MenuView_2 = cc.Layer.extend({
 				if(UserData.ArtifactAll2[i].id == index)
 				{
 					console.log("ok");
-					console.log("level q:"+UserData.ArtifactAll2[i].level);
-					UserData.ArtifactAll2[i].level +=1;
-					console.log("level h:"+UserData.ArtifactAll2[i].level);
-					//MenuView_2_root.updateCell();
+					console.log("level q:"+UserData.ArtifactAll2[i].l);
+					UserData.ArtifactAll2[i].l +=1;
+					console.log("level h:"+UserData.ArtifactAll2[i].l);
+					MenuView_2_root.updateCell();
 					console.log("ok2");
 				}
 			};
-			MenuView_2_root.requestRefreshView();
 				
 				break;
 		}
@@ -290,7 +285,9 @@ var MenuView_2 = cc.Layer.extend({
 		return Num;
 	},
 	requestRefreshView : function () {
+
 		/*for (var index = 0; index < UserData.ArtifactAll2.length; index++) 
+
 		{
 			//console.log("a");
 			var level = UserData.ArtifactLevel[index];
@@ -381,7 +378,7 @@ var MenuView_2 = cc.Layer.extend({
 		ButtonFunction.setString("强化");*/
 		
 		
-		/*for (var i = 0; i < UserData.ArtifactAll2.length; i++) {
+		for (var i = 0; i < UserData.ArtifactAll2.length; i++) {
 			
 			if(UserData.ArtifactAll2[i].id == index)
 			{
@@ -399,25 +396,8 @@ var MenuView_2 = cc.Layer.extend({
 				var ButtonFunction = button.getChildByName("buttonTextNode").getChildByName("ButtonFunction");
 				ButtonFunction.setString("强化");
 			}
-		};*/
-		
-		var level = null;
-		var tmpIndex=null;
-		//var level = UserData.ArtifactLevel[index];
-		var star = UserData.ArtifactStar[index];
-		//var artifact = Artifact[index];
-
-		var viewCell = this.ListView.getItem(index);
-		var a=viewCell.getTag();
-		console.log("updateCell a"+a);
-		for (var i = 0; i < UserData.ArtifactAll2.length; i++) {
-			if(UserData.ArtifactAll2[i].id == a)
-			{
-				tmpIndex=UserData.ArtifactAll2[i].id-1;
-				var level=UserData.ArtifactAll2[i].level;
-				
-			}
 		};
+
 
 		var artifact = Artifact[tmpIndex];
 		var LV_Num = viewCell.getChildByName("LV_Num");
@@ -430,8 +410,10 @@ var MenuView_2 = cc.Layer.extend({
 		
 			ButtonFunction.setString("强化");
 		
+
 	},
 	touchHeroIcon: function (sender, type) {
+
 
 		var index = sender.getTag();//神器id
 		var huadongtiaoIndex=null;
@@ -453,10 +435,12 @@ var MenuView_2 = cc.Layer.extend({
 				};
 			}
 			MainScene_root.pushLayer(new InformationLayer());
+
 			//MenuView_2_root.chouquCoin.setString(555);
 			InformationLayer_root.create(InformationLayerType.ArtifactBreak, { Index : huadongtiaoIndex, ArtifactID : index } );
 
 			
+
 			
 				/*MenuView_2_root.ListView.removeItem(1);
 				console.log("remove1 ok");

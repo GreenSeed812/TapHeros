@@ -907,28 +907,42 @@ var BaseSkill =
 var Artifact = 
 [
 	/*{
+=======
+	{
+>>>>>>> 091f0f8ac1850daad7bee05e3cdcd4718bcc2ee2
 		Name : "奥金利斧1",
 		Desc : "增加致死打击的伤害",
 		Icon : res.icon_shenqi_1,
 		BaseData : BaseSkill.TapHurtUpRate,
 		MaxLevel : [0,5,10,15,20,30],
 		Rate : 0.4,
+<<<<<<< HEAD
 	},*/
 	/*{
+=======
+	},
+	{
+>>>>>>> 091f0f8ac1850daad7bee05e3cdcd4718bcc2ee2
 		Name : "地狱火石2",
 		Desc : "缩减地狱火冷却",
 		Icon : res.icon_shenqi_1,
 		BaseData : BaseSkill.TapHurtUpRate,
 		MaxLevel : [0,5,10,15,20,30],
 		Rate : 0.4,
+<<<<<<< HEAD
 	},*/
 	/*{
+=======
+	},
+	{
+>>>>>>> 091f0f8ac1850daad7bee05e3cdcd4718bcc2ee2
 		Name : "上古骨弓3",
 		Desc : "增加快速射击时间",
 		Icon : res.icon_shenqi_1,
 		BaseData : BaseSkill.TapHurtUpRate,
 		MaxLevel : [0,5,10,15,20,30],
 		Rate : 0.4,
+<<<<<<< HEAD
 	},*/
 	{
 		Name : "守护者之杖1",
@@ -971,12 +985,16 @@ var Artifact =
 		Rate : 0.4,
 	},
 	/*{
+=======
+	{
+>>>>>>> 091f0f8ac1850daad7bee05e3cdcd4718bcc2ee2
 		Name : "埃辛诺斯战刃9",
 		Desc : "Boss血量减少",
 		Icon : res.icon_shenqi_1,
 		BaseData : BaseSkill.TapHurtUpRate,
 		MaxLevel : [0,5,10,15,20,30],
 		Rate : 0.4,
+<<<<<<< HEAD
 	},*/
 	{
 		Name : "巨龙之怒6",
@@ -987,28 +1005,42 @@ var Artifact =
 		Rate : 0.4,
 	},
 	/*{
+=======
+	{
+>>>>>>> 091f0f8ac1850daad7bee05e3cdcd4718bcc2ee2
 		Name : "瓦兰奈尔11",
 		Desc : "英雄升级消耗降低百分比",
 		Icon : res.icon_shenqi_1,
 		BaseData : BaseSkill.TapHurtUpRate,
 		MaxLevel : [0,5,10,15,20,30],
 		Rate : 0.4,
+<<<<<<< HEAD
 	},*/
 	/*{
+=======
+	},
+	{
+>>>>>>> 091f0f8ac1850daad7bee05e3cdcd4718bcc2ee2
 		Name : "雷霆逐风者12",
 		Desc : "Boss挑战时间增加百分比",
 		Icon : res.icon_shenqi_1,
 		BaseData : BaseSkill.TapHurtUpRate,
 		MaxLevel : [0,5,10,15,20,30],
 		Rate : 0.4,
+<<<<<<< HEAD
 	},*/
 	/*{
+=======
+	},
+	{
+>>>>>>> 091f0f8ac1850daad7bee05e3cdcd4718bcc2ee2
 		Name : "白虎之怒13",
 		Desc : "增加百分比电击伤害",
 		Icon : res.icon_shenqi_1,
 		BaseData : BaseSkill.TapHurtUpRate,
 		MaxLevel : [0,5,10,15,20,30],
 		Rate : 0.4,
+<<<<<<< HEAD
 	}*/
 
 	
@@ -1987,6 +2019,7 @@ var SkillData =
 		Skill_25_1 : {
 		Name : "盾牌猛击",
 		Icon : res.icon_skill_1,
+
 		BaseData : BaseSkill.TapHurtUpRate,
 		Rate : 0.4,
 	},
@@ -2106,40 +2139,53 @@ var SkillData =
 	},
 	Skill_27_7 : {
 		Name : "守护之魂",
+
 		Icon : res.icon_skill_7,
 		BaseData : BaseSkill.TapHurtUpRate,
 		Rate : 0.4,
 	},
+
 		Skill_28_1 : {
 		Name : "审判",
+
 		Icon : res.icon_skill_1,
 		BaseData : BaseSkill.TapHurtUpRate,
 		Rate : 0.4,
 	},
+
 	Skill_28_2 : {
 		Name : "异端裁决",
+
 		Icon : res.icon_skill_2,
 		BaseData : BaseSkill.TapHurtUpRate,
 		Rate : 0.4,
 	},
+
 	Skill_28_3 : {
 		Name : "十字军打击",
+
 		Icon : res.icon_skill_3,
 		BaseData : BaseSkill.TapHurtUpRate,
 		Rate : 0.4,
 	},
+
 	Skill_28_4 : {
 		Name : "驱邪术",
+
 		Icon : res.icon_skill_4,
 		BaseData : BaseSkill.TapHurtUpRate,
 		Rate : 0.4,
 	},
+
 	Skill_28_5 : {
 		Name : "神圣风暴",
+
 		Icon : res.icon_skill_5,
 		BaseData : BaseSkill.TapHurtUpRate,
 		Rate : 0.4,
 	},
+
+
 	Skill_28_6 : {
 		Name : "复仇之怒",
 		Icon : res.icon_skill_6,
