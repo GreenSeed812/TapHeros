@@ -3,6 +3,8 @@ var MenuView_2 = cc.Layer.extend({
 	rootnode:null,
 	Total_Sheli:null,
 	DPS_UpRate:null,
+	BitmapFontLabel_2:null,
+	chouquCoin:null,
 	tmpIndex:null,
 	ctor:function(){
 		this._super();
@@ -15,6 +17,11 @@ var MenuView_2 = cc.Layer.extend({
 
 		this.Total_Sheli = ccui.helper.seekWidgetByName(this.rootnode, "Total_Sheli");
 		this.DPS_UpRate = ccui.helper.seekWidgetByName(this.rootnode, "DPS_UpRate");
+		this.BitmapFontLabel_2 = ccui.helper.seekWidgetByName(this.rootnode, "BitmapFontLabel_2");
+		MenuView_2_root.BitmapFontLabel_2.setString(UserData.ReincarnationCount);
+		this.chouquCoin = ccui.helper.seekWidgetByName(this.rootnode, "chouquCoin");
+		//MenuView_2_root.chouquCoin.setString(UserData.chouquCoinList[UserData.chouquCoinNmb]);
+		MenuView_2_root.chouquCoin.setString(UserData.chouquCoinList[UserData.chouquCoinNmb]);
 		this.ListView = ccui.helper.seekWidgetByName(this.rootnode, "ListView");
 		this.createCells();
 		//this.setInformation();
@@ -31,6 +38,10 @@ var MenuView_2 = cc.Layer.extend({
 		}*/
 		//this.createCell(1);
 	},
+	SetFormulas:function(){
+		UserData.ChouquMoney				= (1+UserData.ArtifactAll2.length)*2;							// 抽取神器需要转生币公式
+		UserData.BreakMoney					= UserData.ArtifactAll2.length*2;								// 打破神器返还转生币公式
+	},
 	createCell:function(index){
 		console.log("cell");
 		console.log("createCell");
@@ -41,7 +52,7 @@ var MenuView_2 = cc.Layer.extend({
 		var artifact = Artifact[index-1];
 		
 		var custom_item = new ccui.Layout();
-		custom_item.setTag(index);
+		//custom_item.setTag(index);
 
 		var cellBg = new cc.Sprite(res.bg_tiao_png);
 		cellBg.x = cellBg.getContentSize().width * 0.5;
@@ -58,8 +69,9 @@ var MenuView_2 = cc.Layer.extend({
 			button.loadTextures(res.button_lvup_2_n_png, res.button_lvup_2_s_png, res.button_lvup_2_n_png);
 			button.x = 500;
 			button.y = 60;
-			button.addTouchEventListener(this.touchButtonEdite, this);
 			button.setTag(index);
+			button.addTouchEventListener(this.touchButtonEdite, this);
+			//button.setTag(index);
 			buttonNode.addChild(button);
 
 			var buttonTextNode = new cc.Node();
@@ -124,9 +136,10 @@ var MenuView_2 = cc.Layer.extend({
 		custom_item.addChild(Desc);
 		custom_item.addChild(buttonNode);
 
-		var sq = { id : index, l : level,  data : custom_item };
+		var sq = { id : index, level : 0,  data : custom_item ,wyid	: UserData.WYArtifactID };
 		UserData.ArtifactAll2.push(sq);
 		console.log("sq");
+		custom_item.setTag(index);
 		
 		//MenuView_2_root.ListView.insertCustomItem(custom_item, 1);
 
@@ -135,9 +148,11 @@ var MenuView_2 = cc.Layer.extend({
 		var b=UserData.ArtifactAll2.length;
 		console.log(a);
 		console.log(b);
-		MenuView_2_root.ListView.insertCustomItem(UserData.ArtifactAll2[b-1].data, 1);
+		//MenuView_2_root.ListView.insertCustomItem(UserData.ArtifactAll2[b-1].data, 1);
 		
-		//MenuView_2_root.ListView.insertCustomItem(UserData.ArtifactAll2[b-1].data, index);
+		var listCount = MenuView_2_root.ListView.getItems().length - 1;//获取列表容器列表数量
+		console.log("listCount"+listCount);
+		MenuView_2_root.ListView.insertCustomItem(custom_item, listCount);
 	},
 	touchButtonEdite: function (sender, type) {
 		
@@ -159,18 +174,20 @@ var MenuView_2 = cc.Layer.extend({
 				if(UserData.ArtifactAll2[i].id == index)
 				{
 					console.log("ok");
-					console.log("level q:"+UserData.ArtifactAll2[i].l);
-					UserData.ArtifactAll2[i].l +=1;
-					console.log("level h:"+UserData.ArtifactAll2[i].l);
-					MenuView_2_root.updateCell();
+					console.log("level q:"+UserData.ArtifactAll2[i].level);
+					UserData.ArtifactAll2[i].level +=1;
+					console.log("level h:"+UserData.ArtifactAll2[i].level);
+					//MenuView_2_root.updateCell();
 					console.log("ok2");
 				}
 			};
+			MenuView_2_root.requestRefreshView();
 				
 				break;
 		}
 	},
 	touchButton : function (sender, type) {
+		console.log("UserData.ReasdasdsadincarnationCount");
 		switch (type) {
 		case ccui.Widget.TOUCH_BEGAN:
 			break;
@@ -180,7 +197,71 @@ var MenuView_2 = cc.Layer.extend({
 				/*UserData.RandomArtifact();
 				MenuView_2_root.requestRefreshView();*/
 
-				if(UserData.ArtifactIndex <= 8)
+				var a=UserData.chouquCoinList[UserData.chouquCoinNmb];
+				console.log("UserData.chouquCoinNmb"+UserData.chouquCoinNmb);
+				var b=UserData.ReincarnationCount;
+				console.log("UserData.chouquCoinList[UserData.chouquCoinNmb]"+a);
+				console.log("UserData.ReincarnationCount"+b);
+
+				if(b >= a && UserData.ArtifactAll2.length < 6)
+				{
+					console.log("UserDatasdasdasdasdasdsssssssssssssssssssssssuCoinNmb");
+					cc.audioEngine.playEffect(res.Music_chouqu);
+					//example
+					 if (cc.audioEngine.isMusicPlaying()) {
+					     console.log("music is playing+++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+					 }
+					 else {
+					     console.log("music is not playing+++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+					 }
+
+					var tmpnum=null;
+					UserData.ReincarnationCount -= UserData.chouquCoinList[UserData.chouquCoinNmb];
+
+					if(UserData.ArtifactIndex <= 80)
+					{
+						UserData.ArtifactIndex++;
+						var tmp=MenuView_2_root.RandomArtifactNum();
+						console.log("UserData.ArtifactIndex"+UserData.ArtifactIndex);
+						MenuView_2_root.createCell(tmp+1);
+						MenuView_2_root.requestRefreshView();
+						tmpnum=tmp;
+					}
+
+					UserData.chouquCoinNmb++;
+					MenuView_2_root.BitmapFontLabel_2.setString(UserData.ReincarnationCount);
+					MenuView_2_root.chouquCoin.setString(UserData.chouquCoinList[UserData.chouquCoinNmb]);
+
+					console.log("tmpnum+++++++++++++++++++++++++++++"+tmpnum);
+					{
+						if(tmpnum == 0)
+						{
+							console.log("守护者之杖");
+						}
+						else if(tmpnum == 1)
+						{
+							console.log("影之哀伤");
+						}
+						else if(tmpnum == 2)
+						{
+							console.log("炎魔之锤");
+						}
+						else if(tmpnum == 3)
+						{
+							console.log("群星之怒4");
+						}
+						else if(tmpnum == 4)
+						{
+							console.log("龙父之牙5");
+						}
+						else if(tmpnum == 5)
+						{
+							console.log("巨龙之怒6");
+						}
+					}
+				}
+
+				/*if(UserData.ArtifactIndex <= 8)
 				{
 					UserData.ArtifactIndex++;
 					var tmp=MenuView_2_root.RandomArtifactNum();
@@ -188,7 +269,7 @@ var MenuView_2 = cc.Layer.extend({
 					MenuView_2_root.createCell(tmp+1);
 					MenuView_2_root.requestRefreshView();
 					
-				}
+				}*/
 			}
 			else if (sender.getName() == "Button_AddArtifactCount") {
 				
@@ -205,7 +286,8 @@ var MenuView_2 = cc.Layer.extend({
 
 		do
 		{
-			var tmpNum = GetRandomNum(0,8);
+			//Artifact.length-1
+			var tmpNum = GetRandomNum(0,5);
 			Num=tmpNum;
 			console.log(tmpNum);
 			if(UserData.ArtifactActive2[tmpNum] == 0)
@@ -220,13 +302,18 @@ var MenuView_2 = cc.Layer.extend({
 		return Num;
 	},
 	requestRefreshView : function () {
-		for (var index = 0; index < Artifact.length; index++) 
+		/*for (var index = 0; index < UserData.ArtifactAll2.length; index++) 
 		{
 			//console.log("a");
 			var level = UserData.ArtifactLevel[index];
 			if(level >= 0) {
 				this.updateCell(index);
 			}
+		}*/
+
+		for (var index = 1; index <= UserData.ArtifactAll2.length; index++) 
+		{
+			this.updateCell(index);
 		}
 		//this.setInformation();
 
@@ -306,7 +393,7 @@ var MenuView_2 = cc.Layer.extend({
 		ButtonFunction.setString("强化");*/
 		
 		
-		for (var i = 0; i < UserData.ArtifactAll2.length; i++) {
+		/*for (var i = 0; i < UserData.ArtifactAll2.length; i++) {
 			
 			if(UserData.ArtifactAll2[i].id == index)
 			{
@@ -324,24 +411,76 @@ var MenuView_2 = cc.Layer.extend({
 				var ButtonFunction = button.getChildByName("buttonTextNode").getChildByName("ButtonFunction");
 				ButtonFunction.setString("强化");
 			}
+		};*/
+		
+		var level = null;
+		var tmpIndex=null;
+		//var level = UserData.ArtifactLevel[index];
+		var star = UserData.ArtifactStar[index];
+		//var artifact = Artifact[index];
+
+		var viewCell = this.ListView.getItem(index);
+		var a=viewCell.getTag();
+		console.log("updateCell a"+a);
+		for (var i = 0; i < UserData.ArtifactAll2.length; i++) {
+			if(UserData.ArtifactAll2[i].id == a)
+			{
+				tmpIndex=UserData.ArtifactAll2[i].id-1;
+				var level=UserData.ArtifactAll2[i].level;
+				
+			}
 		};
+
+		var artifact = Artifact[tmpIndex];
+		var LV_Num = viewCell.getChildByName("LV_Num");
+		LV_Num.setString(level);
+		var Iconbutton = viewCell.getChildByName("Iconbutton");
+		//Iconbutton.setStar(star);
+
+		var button = viewCell.getChildByName("buttonNode").getChildByName("button");
+		var ButtonFunction = button.getChildByName("buttonTextNode").getChildByName("ButtonFunction");
+		
+			ButtonFunction.setString("强化");
+		
 	},
 	touchHeroIcon: function (sender, type) {
 
-		var index = sender.getTag();
-		
+		var index = sender.getTag();//神器id
+		var huadongtiaoIndex=null;
 		switch (type) {
 		case ccui.Widget.TOUCH_ENDED:
+			{
+				for (var i = 1; i <= UserData.ArtifactAll2.length; i++) {
+					
+					var viewCell = MenuView_2_root.ListView.getItem(i);
+					var a=viewCell.getTag();//滑动条id
+					if(a == index)
+					{
+						console.log("zhengque a"+a);
+						huadongtiaoIndex=a;
+
+						/*MenuView_2_root.ListView.removeItem(1);
+						console.log("remove ok");*/
+					}
+				};
+			}
+			MainScene_root.pushLayer(new InformationLayer());
+			//MenuView_2_root.chouquCoin.setString(555);
+			InformationLayer_root.create(InformationLayerType.ArtifactBreak, { Index : huadongtiaoIndex, ArtifactID : index } );
+
+			
+			
+				/*MenuView_2_root.ListView.removeItem(1);
+				console.log("remove1 ok");
+
+				MenuView_2_root.ListView.removeItem(2);
+				console.log("remove2 ok");
+
+				MenuView_2_root.ListView.removeItem(3);
+				console.log("remove3 ok");*/
+			
 			
 
-			/*var artifactCount = sender.getTag();
-			console.log("1111111");
-			var artifactIndex = ArtifactEditeLayer_root.AllArtifactIndex[artifactCount];
-			var artifact = UserData.ArtifactAll[artifactIndex];
-			var artifactRuler = Artifact[artifact.i];*/
-
-			MainScene_root.pushLayer(new InformationLayer());
-			//InformationLayer_root.create({ Index : artifactIndex, ArtifactID : artifact.id } );
 			break;
 		}
 	},

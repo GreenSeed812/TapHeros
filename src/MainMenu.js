@@ -86,6 +86,7 @@ var MainMenu = cc.Layer.extend({
 		this.setDPSInformation();
 
 		this.UpdateStage("init");
+		cc.audioEngine.playMusic(res.Music_bj,true);
 
 		return true;
 	},

@@ -23,27 +23,49 @@ var InformationLayer = cc.Layer.extend({
 
 		return true;
 	},
-	create : function (data) {
+	create : function (type, data) {
+		console.log("zxczxczxc1");
 
-		//this._type = type;
+		
+		this._type = type;
 		this._data = data;
-		{
 
-			var artifact = UserData.GetArtifactForID(this._data.ArtifactID);
-			var artifactRuler = Artifact[artifact.i];
-			var level = artifact.l;
-			var star = artifact.s;
+		var huadongtiaoIndex=this._data.Index;
+		var ArtifactID=this._data.ArtifactID;
+
+		console.log("huadongtiaoIndex"+huadongtiaoIndex);
+		console.log("ArtifactID"+ArtifactID);
+
+		//var artifact = UserData.GetArtifactForID(this._data.ArtifactID);
+		var artifactRuler = Artifact[ArtifactID-1];//index是神器id
+		console.log(artifactRuler.Name);
+
+		var level = null;
+		for (var i = 0; i < UserData.ArtifactAll2.length; i++) {
+			if(UserData.ArtifactAll2[i].id == ArtifactID)
+			{
+				level = UserData.ArtifactAll2[i].level;
+			}
+		};
+		console.log("level"+level);
+
+		if (this._type == InformationLayerType.ArtifactBreak)
+		{
+			console.log("levelsssss");
+			//var artifact = UserData.GetArtifactForID(this._data.ArtifactID);
+			//var artifactRuler = Artifact[artifact.i];
+			//var level = artifact.l;
+			var star = null;
 
 			var Iconbutton = new ArtifactNode();
 			Iconbutton.create({width : 126, height : 126}, star, artifactRuler.Icon);
 			ProjectNode.addChild(Iconbutton);
-
-			var Button_Style_1 = ccui.helper.seekWidgetByName(this.rootnode, "Button_Style_1");
-			Button_Style_1.setVisible(false);
+			console.log("levelsssss2");
 			var Button_Style_2 = ccui.helper.seekWidgetByName(this.rootnode, "Button_Style_2");
 			Button_Style_2.setVisible(true);
+			
 			Button_Style_2.addTouchEventListener(this.onArtifactUpClick, this);
-
+			console.log("levelsssss3");
 			var Text_Name = ccui.helper.seekWidgetByName(this.rootnode, "Text_Name");
 			Text_Name.setString(artifactRuler.Name);
 			var Text_LevelNum = ccui.helper.seekWidgetByName(this.rootnode, "Text_LevelNum");
@@ -52,38 +74,65 @@ var InformationLayer = cc.Layer.extend({
 			EffectDesc_now.setString(artifactRuler.BaseData.Desc);
 			var Text_EffectDesc_Next = ccui.helper.seekWidgetByName(this.rootnode, "Text_EffectDesc_Next");
 			Text_EffectDesc_Next.setString(artifactRuler.BaseData.Desc);
-
+			console.log("levelsssss4");
 			var Text_Desc = ccui.helper.seekWidgetByName(this.rootnode, "Text_Desc");
 			Text_Desc.setString(artifactRuler.Desc);
 			var Text_Desc_Desc = ccui.helper.seekWidgetByName(this.rootnode, "Text_Desc_Desc");
 			Text_Desc_Desc.setString("");
 			var Text_NextDesc = ccui.helper.seekWidgetByName(this.rootnode, "Text_NextDesc");
 			Text_NextDesc.setString("下一等级");
+			console.log("levelsssss5");
+			var Text_33_0 = ccui.helper.seekWidgetByName(this.rootnode, "Text_33_0");
+			Text_33_0.setString("打破神器可以获得"+UserData.chouquCoinList[UserData.chouquCoinNmb-1]+"个");
+
+			console.log("levelsssss6");
 		}
 	},
 	onArtifactUpClick:function(sender,type){
+		
 		if (type == ccui.Widget.TOUCH_ENDED) {
-			if (this._type == InformationLayerType.ArtifactUp) {
+			if (this._type == InformationLayerType.ArtifactBreak) {
+				cc.audioEngine.playEffect(res.Music_fenjie);
+				console.log("onArtifactUpClick");
+				var ArtifactID2=this._data.ArtifactID;
+				var huadongtiaoIndex2=this._data.Index;
+				console.log("ArtifactID2"+ArtifactID2);
+				console.log("huadongtiaoIndex2"+huadongtiaoIndex2);
+				var artifact=Artifact[huadongtiaoIndex2-1];
+				var id=artifact.Name;
+				console.log("id"+id);
+				//var artifact = UserData.GetArtifactForID(this._data.ArtifactID);
+				
+				
+				//UserData.BreakArtifact(this._data.Index)
 
-				var artifact = UserData.GetArtifactForID(this._data.ArtifactID);
-
-				if (UserData.UpArtifact(this._data.Index)) {
-					MainScene_root.popLayer();
-					UserData.UpdateArtifactState();
-					if (ArtifactEditeLayer_root) {
-						ArtifactEditeLayer_root.create(artifact.i);
+				//UserData.BreakArtifact2(b);
+				
+				for (var i = 1; i <= UserData.ArtifactAll2.length; i++) {
+					var viewCell = MenuView_2_root.ListView.getItem(i);
+					var a=viewCell.getTag();
+					console.log("Tag"+a);
+					if(a == ArtifactID2)
+					{
+						UserData.ArtifactAll2.splice(i-1,1);
+						MenuView_2_root.ListView.removeItem(i);
+						UserData.ArtifactCoin += 1;
+						console.log("i"+i);
 					}
-				}
-			} else if (this._type == InformationLayerType.ArtifactBreak) {
+				};
 
-				var artifact = UserData.GetArtifactForID(this._data.ArtifactID);
 
-				UserData.BreakArtifact(this._data.Index)
 				MainScene_root.popLayer();
-				UserData.UpdateArtifactState();
+				/*UserData.UpdateArtifactState();
 				if (ArtifactEditeLayer_root) {
 					ArtifactEditeLayer_root.create(artifact.i);
-				}
+				}*/
+				UserData.chouquCoinNmb--;
+				UserData.ReincarnationCount += UserData.chouquCoinList[UserData.chouquCoinNmb];
+				MenuView_2_root.chouquCoin.setString(UserData.chouquCoinList[UserData.chouquCoinNmb]);
+				MenuView_2_root.BitmapFontLabel_2.setString(UserData.ReincarnationCount);
+
+				UserData.ArtifactActive2[ArtifactID2-1] = 0;
 			}
 		}
 	},

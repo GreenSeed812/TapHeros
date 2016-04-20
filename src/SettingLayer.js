@@ -67,7 +67,7 @@ var SettingLayer = cc.Layer.extend({
 		SettingLayer_root.TextMusic.setString(UserData.MusicEnable == 0 ? "音乐:关" : "音乐:开");
 		
 		SettingLayer_root.ButtonSound.getChildByName("ImageForbid1").setVisible(UserData.SoundEnable == 0 ? true : false);
-		SettingLayer_root.TextSound.setString(UserData.SoundEnable == 0 ? "音乐:关" : "音乐:开");
+		SettingLayer_root.TextSound.setString(UserData.SoundEnable == 0 ? "音效:关" : "音效:开");
 	},
 	onMusicOrSoundClick:function(sender,type){
 		var buttonName = sender.getName();
@@ -75,11 +75,34 @@ var SettingLayer = cc.Layer.extend({
 		case ccui.Widget.TOUCH_ENDED:
 			if (buttonName == "ButtonMusic") 
 			{ 
-				if (UserData.MusicEnable == 0) { UserData.MusicEnable = 1;} else { UserData.MusicEnable = 0; }
+				if (UserData.MusicEnable == 0) 
+				{
+				 	UserData.MusicEnable = 1;
+				 	
+				 	cc.audioEngine.resumeMusic();
+				} 
+				else 
+				{ 
+					UserData.MusicEnable = 0; 
+					cc.audioEngine.pauseMusic();
+				}
+				console.log("ButtonMusic");
 			}
 			else if (buttonName == "ButtonSound") 
 			{
-				if (UserData.SoundEnable == 0) { UserData.SoundEnable = 1;} else { UserData.SoundEnable = 0; }
+				if (UserData.SoundEnable == 0) 
+					{ 
+						UserData.SoundEnable = 1;
+						cc.audioEngine.resumeAllEffects();
+						//cc.audioEngine.stopAllEffects();
+					} 
+					else 
+					{ 
+						UserData.SoundEnable = 0; 
+						cc.audioEngine.pauseAllEffects();
+						//cc.audioEngine.stopAllEffects();
+					}
+				console.log("ButtonSound");
 			}
 			SettingLayer_root.updateButtonState();
 			//UserData.SaveArchive();

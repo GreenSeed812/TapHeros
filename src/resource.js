@@ -44,6 +44,17 @@ var res = {
 	icon_skill_5     : "res/icon/icon_skill_5.png",
 	icon_skill_6     : "res/icon/icon_skill_6.png",
 	icon_skill_7     : "res/icon/icon_skill_6.png",
+
+	Music_bj		 : "res/Music/beijing/KLZ.mp3",
+	Music_chouqu	 : "res/Music/chouqu/arena_key_transition.mp3",
+	Music_dianji	 : "res/Music/dianji/dianji.mp3",
+	Music_fenjie	 : "res/Music/fenjie/hero_portrait_crack_1.mp3",
+	Music_jinbi	 	 : "res/Music/jinbiluodi/jibi.mp3",
+	Music_jineng1	 : "res/Music/jineng1/Brawl_minion_lands_3.mp3",
+	Music_jineng2	 : "res/Music/jineng2/Barrel_exp_base.mp3",
+	Music_jineng3	 : "res/Music/jineng3/Arcane_Arrow_Targeted_Impact_03.mp3",
+
+	icon_zuanshi     : "res/icon/icon_zuanshi.png",
 	
    	effect_drop_coin		 	: "res/effect/goldcoin_drop.ExportJson",
 	effect_drop_coin_plist 	 	: "res/effect/goldcoin_drop0.plist",
