@@ -229,7 +229,7 @@
                       "ScaleY": 0.5
                     },
                     "Position": {
-                      "X": 260.0,
+                      "X": 310.0,
                       "Y": 40.0
                     },
                     "Scale": {
@@ -239,15 +239,15 @@
                     "CColor": {},
                     "IconVisible": false,
                     "PrePosition": {
-                      "X": 0.4063,
+                      "X": 0.4844,
                       "Y": 0.6667
                     },
                     "PreSize": {
                       "X": 0.0906,
                       "Y": 0.9667
                     },
-                    "LeftMargin": 231.0,
-                    "RightMargin": 351.0,
+                    "LeftMargin": 281.0,
+                    "RightMargin": 301.0,
                     "TopMargin": -9.0,
                     "BottomMargin": 11.0,
                     "Tag": 11,
@@ -263,28 +263,25 @@
                     "LabelText": "0",
                     "AnchorPoint": {},
                     "Position": {
-                      "X": 300.0,
+                      "X": 340.0,
                       "Y": 20.0
                     },
                     "Scale": {
-                      "ScaleX": 3.0,
-                      "ScaleY": 3.0
+                      "ScaleX": 2.0,
+                      "ScaleY": 2.0
                     },
-                    "CColor": {
-                      "G": 165,
-                      "B": 0
-                    },
+                    "CColor": {},
                     "IconVisible": false,
                     "PrePosition": {
-                      "X": 0.4688,
+                      "X": 0.5313,
                       "Y": 0.3333
                     },
                     "PreSize": {
                       "X": 0.0109,
                       "Y": 0.25
                     },
-                    "LeftMargin": 300.0,
-                    "RightMargin": 333.0,
+                    "LeftMargin": 340.0,
+                    "RightMargin": 293.0,
                     "TopMargin": 25.0,
                     "BottomMargin": 20.0,
                     "Tag": 19,
@@ -473,7 +470,7 @@
             "Children": [
               {
                 "FontSize": 20,
-                "LabelText": "解锁关卡",
+                "LabelText": "Text Label",
                 "OutlineColor": {
                   "G": 0,
                   "B": 0
@@ -508,17 +505,17 @@
                   "Y": 0.652
                 },
                 "PreSize": {
-                  "X": 0.125,
+                  "X": 0.1563,
                   "Y": 0.0176
                 },
-                "LeftMargin": 286.7412,
-                "RightMargin": 273.2588,
+                "LeftMargin": 276.7412,
+                "RightMargin": 263.2588,
                 "TopMargin": 384.6262,
                 "BottomMargin": 729.3738,
                 "Tag": 29,
                 "ActionTag": -334039474,
                 "Size": {
-                  "X": 80.0,
+                  "X": 100.0,
                   "Y": 20.0
                 },
                 "Name": "Text_1",

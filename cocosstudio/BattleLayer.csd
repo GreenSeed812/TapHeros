@@ -41,23 +41,23 @@
               <AbstractNodeData Name="Panel_Money" ActionTag="-1439921502" Tag="10" IconVisible="False" LeftMargin="5.2348" RightMargin="-5.2348" TopMargin="5.4944" BottomMargin="574.5056" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
                 <Size X="640.0000" Y="60.0000" />
                 <Children>
-                  <AbstractNodeData Name="MoneyImage" ActionTag="-1582695274" Tag="11" IconVisible="False" LeftMargin="231.0000" RightMargin="351.0000" TopMargin="-9.0000" BottomMargin="11.0000" LeftEage="19" RightEage="19" TopEage="19" BottomEage="19" Scale9OriginX="19" Scale9OriginY="19" Scale9Width="20" Scale9Height="20" ctype="ImageViewObjectData">
+                  <AbstractNodeData Name="MoneyImage" ActionTag="-1582695274" Tag="11" IconVisible="False" LeftMargin="281.0000" RightMargin="301.0000" TopMargin="-9.0000" BottomMargin="11.0000" LeftEage="19" RightEage="19" TopEage="19" BottomEage="19" Scale9OriginX="19" Scale9OriginY="19" Scale9Width="20" Scale9Height="20" ctype="ImageViewObjectData">
                     <Size X="58.0000" Y="58.0000" />
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                    <Position X="260.0000" Y="40.0000" />
+                    <Position X="310.0000" Y="40.0000" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="255" G="255" B="255" />
-                    <PrePosition X="0.4063" Y="0.6667" />
+                    <PrePosition X="0.4844" Y="0.6667" />
                     <PreSize X="0.0906" Y="0.9667" />
                     <FileData Type="Normal" Path="icon/icon_jinbi.png" Plist="" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="Money" ActionTag="-659794556" Tag="19" IconVisible="False" LeftMargin="300.0000" RightMargin="333.0000" TopMargin="25.0000" BottomMargin="20.0000" LabelText="0" ctype="TextBMFontObjectData">
+                  <AbstractNodeData Name="Money" ActionTag="-659794556" Tag="19" IconVisible="False" LeftMargin="340.0000" RightMargin="293.0000" TopMargin="25.0000" BottomMargin="20.0000" LabelText="0" ctype="TextBMFontObjectData">
                     <Size X="7.0000" Y="15.0000" />
                     <AnchorPoint />
-                    <Position X="300.0000" Y="20.0000" />
-                    <Scale ScaleX="3.0000" ScaleY="3.0000" />
-                    <CColor A="255" R="255" G="165" B="0" />
-                    <PrePosition X="0.4688" Y="0.3333" />
+                    <Position X="340.0000" Y="20.0000" />
+                    <Scale ScaleX="2.0000" ScaleY="2.0000" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <PrePosition X="0.5313" Y="0.3333" />
                     <PreSize X="0.0109" Y="0.2500" />
                   </AbstractNodeData>
                   <AbstractNodeData Name="Button_OfflineCoin" ActionTag="842958177" Tag="20" IconVisible="False" LeftMargin="23.0000" RightMargin="515.0000" TopMargin="149.0000" BottomMargin="-191.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="72" Scale9Height="80" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
@@ -113,14 +113,14 @@
           <AbstractNodeData Name="zhezhao" ActionTag="1323073161" Tag="71" IconVisible="False" TopMargin="1.9705" BottomMargin="0.0295" ClipAble="False" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
             <Size X="640.0000" Y="1134.0000" />
             <Children>
-              <AbstractNodeData Name="Text_1" ActionTag="-334039474" Tag="29" IconVisible="False" LeftMargin="286.7412" RightMargin="273.2588" TopMargin="384.6262" BottomMargin="729.3738" FontSize="20" LabelText="解锁关卡" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                <Size X="80.0000" Y="20.0000" />
+              <AbstractNodeData Name="Text_1" ActionTag="-334039474" Tag="29" IconVisible="False" LeftMargin="276.7412" RightMargin="263.2588" TopMargin="384.6262" BottomMargin="729.3738" FontSize="20" LabelText="Text Label" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                <Size X="100.0000" Y="20.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="326.7412" Y="739.3738" />
                 <Scale ScaleX="3.7485" ScaleY="7.5590" />
                 <CColor A="255" R="97" G="30" B="97" />
                 <PrePosition X="0.5105" Y="0.6520" />
-                <PreSize X="0.1250" Y="0.0176" />
+                <PreSize X="0.1563" Y="0.0176" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>

@@ -465,12 +465,12 @@
                   "Y": 50.0
                 },
                 "Scale": {
-                  "ScaleX": 3.0,
-                  "ScaleY": 3.0
+                  "ScaleX": 2.0,
+                  "ScaleY": 2.0
                 },
                 "CColor": {
-                  "G": 0,
-                  "B": 0
+                  "R": 30,
+                  "G": 144
                 },
                 "IconVisible": false,
                 "PrePosition": {
@@ -885,7 +885,7 @@
               },
               {
                 "FontSize": 24,
-                "LabelText": "最高伤害",
+                "LabelText": "总秒伤",
                 "OutlineColor": {
                   "G": 0,
                   "B": 0
@@ -916,20 +916,20 @@
                   "Y": 0.7
                 },
                 "PreSize": {
-                  "X": 0.15,
+                  "X": 0.1125,
                   "Y": 0.24
                 },
-                "LeftMargin": 32.0,
-                "RightMargin": 512.0,
+                "LeftMargin": 44.0,
+                "RightMargin": 524.0,
                 "TopMargin": 18.0,
                 "BottomMargin": 58.0,
                 "Tag": 63,
                 "ActionTag": -1197814604,
                 "Size": {
-                  "X": 96.0,
+                  "X": 72.0,
                   "Y": 24.0
                 },
-                "Name": "最高伤害",
+                "Name": "总秒伤",
                 "ctype": "TextObjectData"
               },
               {
@@ -1040,7 +1040,7 @@
                   "X": 7.0,
                   "Y": 15.0
                 },
-                "Name": "FontLabelMaxDPS",
+                "Name": "FontLabelAllDPS",
                 "ctype": "TextBMFontObjectData"
               },
               {
@@ -1854,7 +1854,7 @@
               },
               {
                 "FontSize": 14,
-                "ButtonText": "",
+                "ButtonText": "Button",
                 "TextColor": {
                   "R": 65,
                   "G": 65,

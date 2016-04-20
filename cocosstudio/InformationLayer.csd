@@ -6,7 +6,7 @@
       <ObjectData Name="Layer" Tag="42" ctype="GameLayerObjectData">
         <Size X="640.0000" Y="1136.0000" />
         <Children>
-          <AbstractNodeData Name="Panel_bg" ActionTag="468801500" VisibleForFrame="False" Tag="43" IconVisible="False" VerticalEdge="TopEdge" TopMargin="496.0000" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ComboBoxIndex="1" ColorAngle="90.0000" ctype="PanelObjectData">
+          <AbstractNodeData Name="Panel_bg" ActionTag="468801500" VisibleForFrame="False" Tag="43" IconVisible="False" VerticalEdge="TopEdge" TopMargin="496.0000" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
             <Size X="640.0000" Y="640.0000" />
             <AnchorPoint />
             <Position />
@@ -19,10 +19,10 @@
             <EndColor A="255" R="255" G="255" B="255" />
             <ColorVector ScaleY="1.0000" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Panel" CanEdit="False" ActionTag="329203131" Tag="44" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BottomEdge" LeftMargin="11.5000" RightMargin="8.5000" TopMargin="524.1000" BottomMargin="65.9000" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Enable="True" LeftEage="28" RightEage="28" TopEage="28" BottomEage="28" Scale9OriginX="28" Scale9OriginY="28" Scale9Width="30" Scale9Height="30" ctype="PanelObjectData">
+          <AbstractNodeData Name="Panel" CanEdit="False" ActionTag="329203131" Tag="44" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BottomEdge" LeftMargin="11.4720" RightMargin="8.5280" TopMargin="524.1000" BottomMargin="65.9000" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Enable="True" LeftEage="28" RightEage="28" TopEage="28" BottomEage="28" Scale9OriginX="28" Scale9OriginY="28" Scale9Width="30" Scale9Height="30" ctype="PanelObjectData">
             <Size X="620.0000" Y="546.0000" />
             <Children>
-              <AbstractNodeData Name="ProjectNode" CanEdit="False" ActionTag="1850636502" Tag="45" IconVisible="False" LeftMargin="82.0000" RightMargin="475.0000" TopMargin="33.0000" BottomMargin="450.0000" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" ctype="PanelObjectData">
+              <AbstractNodeData Name="ProjectNode" CanEdit="False" ActionTag="1850636502" Tag="45" IconVisible="False" LeftMargin="82.0000" RightMargin="475.0000" TopMargin="33.0000" BottomMargin="450.0000" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
                 <Size X="63.0000" Y="63.0000" />
                 <AnchorPoint />
                 <Position X="82.0000" Y="450.0000" />
@@ -83,13 +83,13 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="Button_Style_2" CanEdit="False" ActionTag="-61459355" Tag="50" IconVisible="False" LeftMargin="168.0000" RightMargin="168.0000" TopMargin="439.0000" BottomMargin="13.0000" TouchEnable="True" FontSize="24" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="254" Scale9Height="72" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+              <AbstractNodeData Name="Button_Style_2" ActionTag="-61459355" Tag="50" IconVisible="False" LeftMargin="168.0000" RightMargin="168.0000" TopMargin="439.0000" BottomMargin="13.0000" TouchEnable="True" FontSize="24" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="254" Scale9Height="72" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                 <Size X="284.0000" Y="94.0000" />
                 <Children>
-                  <AbstractNodeData Name="Panel" CanEdit="False" ActionTag="-1358453414" Tag="51" IconVisible="False" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" ctype="PanelObjectData">
+                  <AbstractNodeData Name="Panel" CanEdit="False" ActionTag="-1358453414" Tag="51" IconVisible="False" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
                     <Size X="284.0000" Y="94.0000" />
                     <Children>
-                      <AbstractNodeData Name="icon" CanEdit="False" ActionTag="-2067986387" Tag="52" IconVisible="False" LeftMargin="176.0000" RightMargin="60.0000" TopMargin="-4.0000" BottomMargin="50.0000" ctype="SpriteObjectData">
+                      <AbstractNodeData Name="icon" ActionTag="-2067986387" VisibleForFrame="False" Tag="52" IconVisible="False" LeftMargin="176.0000" RightMargin="60.0000" TopMargin="-4.0000" BottomMargin="50.0000" ctype="SpriteObjectData">
                         <Size X="48.0000" Y="48.0000" />
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                         <Position X="200.0000" Y="74.0000" />
@@ -100,14 +100,14 @@
                         <FileData Type="Normal" Path="icon/icon_zuanshi.png" Plist="" />
                         <BlendFunc Src="1" Dst="771" />
                       </AbstractNodeData>
-                      <AbstractNodeData Name="count" CanEdit="False" ActionTag="-1574853308" Tag="53" IconVisible="False" LeftMargin="216.0000" RightMargin="61.0000" TopMargin="14.5000" BottomMargin="64.5000" LabelText="0" ctype="TextBMFontObjectData">
-                        <Size X="7.0000" Y="15.0000" />
+                      <AbstractNodeData Name="count" ActionTag="-1574853308" VisibleForFrame="False" Tag="53" IconVisible="False" LeftMargin="216.0000" RightMargin="47.0000" TopMargin="14.5000" BottomMargin="64.5000" LabelText="100" ctype="TextBMFontObjectData">
+                        <Size X="21.0000" Y="15.0000" />
                         <AnchorPoint ScaleY="0.5000" />
                         <Position X="216.0000" Y="72.0000" />
                         <Scale ScaleX="1.0000" ScaleY="1.0000" />
                         <CColor A="255" R="255" G="255" B="255" />
                         <PrePosition X="0.7606" Y="0.7660" />
-                        <PreSize X="0.0246" Y="0.1596" />
+                        <PreSize X="0.0739" Y="0.1596" />
                       </AbstractNodeData>
                       <AbstractNodeData Name="Text_33" CanEdit="False" ActionTag="603361370" Tag="54" IconVisible="False" LeftMargin="95.5000" RightMargin="107.5000" TopMargin="18.0000" BottomMargin="52.0000" IsCustomSize="True" FontSize="20" LabelText="重新利用" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                         <Size X="81.0000" Y="24.0000" />
@@ -121,7 +121,7 @@
                         <OutlineColor A="255" R="255" G="0" B="0" />
                         <ShadowColor A="255" R="110" G="110" B="110" />
                       </AbstractNodeData>
-                      <AbstractNodeData Name="Text_33_0" CanEdit="False" ActionTag="674773263" Tag="55" IconVisible="False" LeftMargin="25.0000" RightMargin="40.0000" TopMargin="47.9000" BottomMargin="22.1000" IsCustomSize="True" FontSize="20" LabelText="打破神器可以获得%d个" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                      <AbstractNodeData Name="Text_33_0" ActionTag="674773263" Tag="55" IconVisible="False" LeftMargin="25.0000" RightMargin="40.0000" TopMargin="47.9000" BottomMargin="22.1000" IsCustomSize="True" FontSize="20" LabelText="打破神器可以获得%d个" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                         <Size X="219.0000" Y="24.0000" />
                         <AnchorPoint ScaleX="1.0000" ScaleY="0.5000" />
                         <Position X="244.0000" Y="34.1000" />
@@ -133,7 +133,7 @@
                         <OutlineColor A="255" R="255" G="0" B="0" />
                         <ShadowColor A="255" R="110" G="110" B="110" />
                       </AbstractNodeData>
-                      <AbstractNodeData Name="icon_shelizi_8" CanEdit="False" ActionTag="-1390598066" Tag="56" IconVisible="False" LeftMargin="242.0000" RightMargin="6.0000" TopMargin="40.0000" BottomMargin="18.0000" ctype="SpriteObjectData">
+                      <AbstractNodeData Name="icon_shelizi_8" ActionTag="-1390598066" Tag="56" IconVisible="False" LeftMargin="242.0000" RightMargin="6.0000" TopMargin="40.0000" BottomMargin="18.0000" ctype="SpriteObjectData">
                         <Size X="36.0000" Y="36.0000" />
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                         <Position X="260.0000" Y="36.0000" />
@@ -165,7 +165,7 @@
                 <PreSize X="0.4581" Y="0.1722" />
                 <FontResource Type="Normal" Path="fonts/FZZhengHeiS-B-GB.ttf" Plist="" />
                 <TextColor A="255" R="255" G="255" B="0" />
-                <DisabledFileData Type="Normal" Path="button/btn_shenqifenjie_n.png" Plist="" />
+                <DisabledFileData Type="Normal" Path="button/btn_shenqifenjie_s.png" Plist="" />
                 <PressedFileData Type="Normal" Path="button/btn_shenqifenjie_s.png" Plist="" />
                 <NormalFileData Type="Normal" Path="button/btn_shenqifenjie_n.png" Plist="" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
@@ -256,7 +256,7 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="321.5000" Y="338.9000" />
+            <Position X="321.4720" Y="338.9000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5023" Y="0.2983" />

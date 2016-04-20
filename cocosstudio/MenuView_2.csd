@@ -92,7 +92,7 @@
                         <OutlineColor A="255" R="255" G="0" B="0" />
                         <ShadowColor A="255" R="110" G="110" B="110" />
                       </AbstractNodeData>
-                      <AbstractNodeData Name="Button_AddArtifactCount" ActionTag="-518336829" Tag="162" IconVisible="False" LeftMargin="295.0000" RightMargin="29.0000" TopMargin="13.0000" BottomMargin="23.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="244" Scale9Height="52" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                      <AbstractNodeData Name="Button_AddArtifactCount" ActionTag="-518336829" VisibleForFrame="False" Tag="162" IconVisible="False" LeftMargin="295.0000" RightMargin="29.0000" TopMargin="13.0000" BottomMargin="23.0000" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="244" Scale9Height="52" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                         <Size X="274.0000" Y="74.0000" />
                         <Children>
                           <AbstractNodeData Name="icon" ActionTag="-681883948" Tag="164" IconVisible="False" LeftMargin="162.0000" RightMargin="76.0000" TopMargin="-4.0000" BottomMargin="42.0000" ctype="SpriteObjectData">
@@ -129,6 +129,15 @@
                     <PreSize X="0.9868" Y="1.0000" />
                     <FileData Type="Normal" Path="ui/bg_tiao.png" Plist="" />
                   </AbstractNodeData>
+                  <AbstractNodeData Name="chouquCoin" ActionTag="-1589713116" Tag="44" IconVisible="False" LeftMargin="181.1299" RightMargin="417.8701" TopMargin="20.2879" BottomMargin="74.7121" LabelText="0" ctype="TextBMFontObjectData">
+                    <Size X="7.0000" Y="15.0000" />
+                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                    <Position X="184.6299" Y="82.2121" />
+                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <PrePosition X="0.3047" Y="0.7474" />
+                    <PreSize X="0.0116" Y="0.1364" />
+                  </AbstractNodeData>
                 </Children>
                 <AnchorPoint />
                 <Position Y="270.0000" />
@@ -163,7 +172,7 @@
             <EndColor A="255" R="255" G="255" B="255" />
             <ColorVector ScaleY="1.0000" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Text_DPS" ActionTag="-1259210471" Tag="155" IconVisible="False" LeftMargin="97.0000" RightMargin="453.0000" TopMargin="644.0000" BottomMargin="456.0000" FontSize="18" LabelText="所有攻击力&#xA;" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+          <AbstractNodeData Name="Text_DPS" ActionTag="-1259210471" VisibleForFrame="False" Tag="155" IconVisible="False" LeftMargin="97.0000" RightMargin="453.0000" TopMargin="644.0000" BottomMargin="456.0000" FontSize="18" LabelText="所有攻击力&#xA;" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
             <Size X="90.0000" Y="36.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="142.0000" Y="474.0000" />
@@ -174,7 +183,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="icon_jinbi_small_1" ActionTag="-1216561222" Tag="76" IconVisible="False" LeftMargin="444.5000" RightMargin="159.5000" TopMargin="630.0000" BottomMargin="470.0000" ctype="SpriteObjectData">
+          <AbstractNodeData Name="icon_jinbi_small_1" CanEdit="False" ActionTag="-1216561222" Tag="76" IconVisible="False" LeftMargin="444.5000" RightMargin="159.5000" TopMargin="630.0000" BottomMargin="470.0000" ctype="SpriteObjectData">
             <Size X="36.0000" Y="36.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="462.5000" Y="488.0000" />
@@ -185,7 +194,7 @@
             <FileData Type="Normal" Path="icon/icon_shelizi.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Total_Sheli" ActionTag="481018558" Tag="157" IconVisible="False" LeftMargin="484.5000" RightMargin="148.5000" TopMargin="643.5000" BottomMargin="477.5000" LabelText="0" ctype="TextBMFontObjectData">
+          <AbstractNodeData Name="Total_Sheli" ActionTag="481018558" VisibleForFrame="False" Tag="157" IconVisible="False" LeftMargin="484.5000" RightMargin="148.5000" TopMargin="643.5000" BottomMargin="477.5000" LabelText="0" ctype="TextBMFontObjectData">
             <Size X="7.0000" Y="15.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="488.0000" Y="485.0000" />
@@ -194,13 +203,22 @@
             <PrePosition X="0.7625" Y="0.4269" />
             <PreSize X="0.0109" Y="0.0132" />
           </AbstractNodeData>
-          <AbstractNodeData Name="DPS_UpRate" ActionTag="-1186748784" Tag="158" IconVisible="False" LeftMargin="26.5000" RightMargin="606.5000" TopMargin="644.5000" BottomMargin="476.5000" LabelText="0" ctype="TextBMFontObjectData">
+          <AbstractNodeData Name="DPS_UpRate" ActionTag="-1186748784" VisibleForFrame="False" Tag="158" IconVisible="False" LeftMargin="26.5000" RightMargin="606.5000" TopMargin="644.5000" BottomMargin="476.5000" LabelText="0" ctype="TextBMFontObjectData">
             <Size X="7.0000" Y="15.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="30.0000" Y="484.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.0469" Y="0.4261" />
+            <PreSize X="0.0109" Y="0.0132" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="BitmapFontLabel_2" ActionTag="1989263819" Tag="43" IconVisible="False" LeftMargin="519.7903" RightMargin="113.2097" TopMargin="642.7690" BottomMargin="478.2310" LabelText="0" ctype="TextBMFontObjectData">
+            <Size X="7.0000" Y="15.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="523.2903" Y="485.7310" />
+            <Scale ScaleX="1.5000" ScaleY="1.5000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.8176" Y="0.4276" />
             <PreSize X="0.0109" Y="0.0132" />
           </AbstractNodeData>
         </Children>
